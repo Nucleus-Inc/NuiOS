@@ -1,3 +1,6 @@
 
 /* Class = "UILabel"; text = "Welcome to NuiOS Project"; ObjectID = "48P-Hj-5qE"; */
-"48P-Hj-5qE.text" = "Seja bem vindo ao Projeto NuiOS";
+"48P-Hj-5qE.text" = "Bem vindo ao projeto NuiOS";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "P7F-f6-813"; */
+"P7F-f6-813.normalTitle" = "Cadastre-se";

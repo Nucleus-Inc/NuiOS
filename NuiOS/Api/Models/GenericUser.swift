@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol User{
+public protocol GenericUser{
     associatedtype AccountType:Account
     associatedtype ProfileType:Profile
     

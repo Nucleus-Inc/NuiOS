@@ -1,1 +1,6 @@
 
+/* Class = "UILabel"; text = "Welcome to NuiOS SignUp tap  continue to start your signup."; ObjectID = "ADT-Aq-hY7"; */
+"ADT-Aq-hY7.text" = "Seja bem vindo ao NuiOS Cadastro, clique em Continuar para começar.";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "zcv-Gc-rIO"; */
+"zcv-Gc-rIO.normalTitle" = "Continuar";

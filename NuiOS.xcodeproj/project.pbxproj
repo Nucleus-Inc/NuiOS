@@ -12,7 +12,7 @@
 		EED9D2ED20F5383A00C5ACF7 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2EB20F5383A00C5ACF7 /* ApiError.swift */; };
 		EED9D2F120F5385300C5ACF7 /* Verifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2EF20F5385200C5ACF7 /* Verifications.swift */; };
 		EED9D2F220F5385300C5ACF7 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2F020F5385300C5ACF7 /* Users.swift */; };
-		EED9D2F520F5386300C5ACF7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2F420F5386300C5ACF7 /* User.swift */; };
+		EED9D2F520F5386300C5ACF7 /* GenericUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2F420F5386300C5ACF7 /* GenericUser.swift */; };
 		EED9D2F720F5389100C5ACF7 /* AppSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2F620F5389100C5ACF7 /* AppSingleton.swift */; };
 		EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2FF20F53BB700C5ACF7 /* RequestManager.swift */; };
 		EED9D30220F53BB800C5ACF7 /* RequestManager+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D30020F53BB800C5ACF7 /* RequestManager+Alamofire.swift */; };
@@ -20,6 +20,11 @@
 		EED9D31020F53C1200C5ACF7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EED9D30C20F53C1200C5ACF7 /* Info.plist */; };
 		EED9D31120F53C1200C5ACF7 /* EnvVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */; };
 		EED9D31220F53C1200C5ACF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */; };
+		EED9D31920F543CA00C5ACF7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D31820F543CA00C5ACF7 /* User.swift */; };
+		EED9D32120F549AE00C5ACF7 /* NuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D32020F549AE00C5ACF7 /* NuButton.swift */; };
+		EED9D32520F54C9A00C5ACF7 /* SignUpNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D32420F54C9A00C5ACF7 /* SignUpNavController.swift */; };
+		EED9D32720F54F1500C5ACF7 /* SignUpPreStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D32620F54F1500C5ACF7 /* SignUpPreStepVC.swift */; };
+		EED9D32920F5534500C5ACF7 /* NuNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D32820F5534500C5ACF7 /* NuNavigationBar.swift */; };
 		EEEB4CAB20F52474005DF444 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEB4CAA20F52474005DF444 /* ViewController.swift */; };
 		EEEB4CB120F52474005DF444 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEB4CAF20F52474005DF444 /* Main.storyboard */; };
 		EEEB4CB620F52476005DF444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEB4CB420F52476005DF444 /* LaunchScreen.storyboard */; };
@@ -35,7 +40,7 @@
 		EED9D2EB20F5383A00C5ACF7 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiError.swift; path = Api/ApiError.swift; sourceTree = "<group>"; };
 		EED9D2EF20F5385200C5ACF7 /* Verifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Verifications.swift; path = Api/Endpoints/Verifications.swift; sourceTree = "<group>"; };
 		EED9D2F020F5385300C5ACF7 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Users.swift; path = Api/Endpoints/Users.swift; sourceTree = "<group>"; };
-		EED9D2F420F5386300C5ACF7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Api/Models/User.swift; sourceTree = "<group>"; };
+		EED9D2F420F5386300C5ACF7 /* GenericUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericUser.swift; path = Api/Models/GenericUser.swift; sourceTree = "<group>"; };
 		EED9D2F620F5389100C5ACF7 /* AppSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSingleton.swift; sourceTree = "<group>"; };
 		EED9D2FF20F53BB700C5ACF7 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		EED9D30020F53BB800C5ACF7 /* RequestManager+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RequestManager+Alamofire.swift"; sourceTree = "<group>"; };
@@ -44,8 +49,13 @@
 		EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvVariables.swift; sourceTree = "<group>"; };
 		EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EED9D31420F53F0200C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		EED9D31520F53F0200C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/SignUp.strings"; sourceTree = "<group>"; };
-		EED9D31720F540C800C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		EED9D31820F543CA00C5ACF7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EED9D31C20F5481200C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/SignUp.strings"; sourceTree = "<group>"; };
+		EED9D31E20F5492C00C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		EED9D32020F549AE00C5ACF7 /* NuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuButton.swift; sourceTree = "<group>"; };
+		EED9D32420F54C9A00C5ACF7 /* SignUpNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpNavController.swift; sourceTree = "<group>"; };
+		EED9D32620F54F1500C5ACF7 /* SignUpPreStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPreStepVC.swift; sourceTree = "<group>"; };
+		EED9D32820F5534500C5ACF7 /* NuNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuNavigationBar.swift; sourceTree = "<group>"; };
 		EEEB4CA420F52474005DF444 /* NuiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NuiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEEB4CAA20F52474005DF444 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EEEB4CB020F52474005DF444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,7 +121,8 @@
 		EED9D2F320F5385600C5ACF7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EED9D2F420F5386300C5ACF7 /* User.swift */,
+				EED9D2F420F5386300C5ACF7 /* GenericUser.swift */,
+				EED9D31820F543CA00C5ACF7 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -131,6 +142,24 @@
 				EED9D30020F53BB800C5ACF7 /* RequestManager+Alamofire.swift */,
 			);
 			path = ExternalHelpers;
+			sourceTree = "<group>";
+		};
+		EED9D31A20F544F100C5ACF7 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D32420F54C9A00C5ACF7 /* SignUpNavController.swift */,
+				EED9D32620F54F1500C5ACF7 /* SignUpPreStepVC.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		EED9D31F20F5495500C5ACF7 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D32020F549AE00C5ACF7 /* NuButton.swift */,
+				EED9D32820F5534500C5ACF7 /* NuNavigationBar.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		EEEB4C9B20F52474005DF444 = {
@@ -154,6 +183,7 @@
 		EEEB4CA620F52474005DF444 /* NuiOS */ = {
 			isa = PBXGroup;
 			children = (
+				EED9D31F20F5495500C5ACF7 /* CustomViews */,
 				EED9D2F820F538F400C5ACF7 /* Helpers */,
 				EED9D2E920F5374700C5ACF7 /* Models/Api */,
 				EEC956FA20F524C4007A3066 /* ViewModels */,
@@ -189,6 +219,7 @@
 		EEEB4CBD20F524A4005DF444 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EED9D31A20F544F100C5ACF7 /* SignUp */,
 				EEEB4CAA20F52474005DF444 /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -310,15 +341,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				EED9D2F120F5385300C5ACF7 /* Verifications.swift in Sources */,
+				EED9D32520F54C9A00C5ACF7 /* SignUpNavController.swift in Sources */,
+				EED9D32720F54F1500C5ACF7 /* SignUpPreStepVC.swift in Sources */,
 				EEEB4CAB20F52474005DF444 /* ViewController.swift in Sources */,
 				EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */,
 				EED9D2EC20F5383A00C5ACF7 /* Api.swift in Sources */,
 				EED9D2F720F5389100C5ACF7 /* AppSingleton.swift in Sources */,
-				EED9D2F520F5386300C5ACF7 /* User.swift in Sources */,
+				EED9D2F520F5386300C5ACF7 /* GenericUser.swift in Sources */,
+				EED9D32920F5534500C5ACF7 /* NuNavigationBar.swift in Sources */,
 				EED9D2ED20F5383A00C5ACF7 /* ApiError.swift in Sources */,
 				EED9D31220F53C1200C5ACF7 /* AppDelegate.swift in Sources */,
+				EED9D31920F543CA00C5ACF7 /* User.swift in Sources */,
 				EED9D30220F53BB800C5ACF7 /* RequestManager+Alamofire.swift in Sources */,
 				EED9D2F220F5385300C5ACF7 /* Users.swift in Sources */,
+				EED9D32120F549AE00C5ACF7 /* NuButton.swift in Sources */,
 				EED9D31120F53C1200C5ACF7 /* EnvVariables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +366,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE81CB9E20F5369C00283C29 /* Base */,
-				EED9D31520F53F0200C5ACF7 /* pt-BR */,
+				EED9D31C20F5481200C5ACF7 /* pt-BR */,
 			);
 			name = SignUp.storyboard;
 			sourceTree = "<group>";
@@ -339,7 +375,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EEEB4CB020F52474005DF444 /* Base */,
-				EED9D31720F540C800C5ACF7 /* pt-BR */,
+				EED9D31E20F5492C00C5ACF7 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -408,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -463,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

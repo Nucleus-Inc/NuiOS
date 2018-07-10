@@ -8,6 +8,7 @@
 
 import Foundation
 
+//https://phraseapp.com/blog/posts/ios-localization-the-ultimate-guide-to-the-right-developer-mindset/
 
 class AppSingleton{
     private static let singletonQueue = DispatchQueue(label: "com.appSingleton.serialQueue")
@@ -25,4 +26,5 @@ class AppSingleton{
     }
     
     private init(){}
+    
 }
