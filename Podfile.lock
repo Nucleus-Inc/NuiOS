@@ -1,0 +1,16 @@
+PODS:
+  - NuSignUp (1.0.0)
+
+DEPENDENCIES:
+  - NuSignUp
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - NuSignUp
+
+SPEC CHECKSUMS:
+  NuSignUp: 35b3c900dca9a6089147a458e4a9ccf9a2e59db0
+
+PODFILE CHECKSUM: 7de43c109b883df5519f2fee9e3d0f210feed3da
+
+COCOAPODS: 1.5.0

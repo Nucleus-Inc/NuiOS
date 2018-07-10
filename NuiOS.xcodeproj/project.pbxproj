@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE81CB9F20F5369C00283C29 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE81CB9D20F5369C00283C29 /* SignUp.storyboard */; };
+		EED9D2EC20F5383A00C5ACF7 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2EA20F5383A00C5ACF7 /* Api.swift */; };
+		EED9D2ED20F5383A00C5ACF7 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2EB20F5383A00C5ACF7 /* ApiError.swift */; };
+		EED9D2F120F5385300C5ACF7 /* Verifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2EF20F5385200C5ACF7 /* Verifications.swift */; };
+		EED9D2F220F5385300C5ACF7 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2F020F5385300C5ACF7 /* Users.swift */; };
+		EED9D2F520F5386300C5ACF7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2F420F5386300C5ACF7 /* User.swift */; };
+		EED9D2F720F5389100C5ACF7 /* AppSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2F620F5389100C5ACF7 /* AppSingleton.swift */; };
+		EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2FF20F53BB700C5ACF7 /* RequestManager.swift */; };
+		EED9D30220F53BB800C5ACF7 /* RequestManager+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D30020F53BB800C5ACF7 /* RequestManager+Alamofire.swift */; };
+		EED9D30F20F53C1200C5ACF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EED9D30B20F53C1200C5ACF7 /* Assets.xcassets */; };
+		EED9D31020F53C1200C5ACF7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EED9D30C20F53C1200C5ACF7 /* Info.plist */; };
+		EED9D31120F53C1200C5ACF7 /* EnvVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */; };
+		EED9D31220F53C1200C5ACF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */; };
+		EEEB4CAB20F52474005DF444 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEB4CAA20F52474005DF444 /* ViewController.swift */; };
+		EEEB4CB120F52474005DF444 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEB4CAF20F52474005DF444 /* Main.storyboard */; };
+		EEEB4CB620F52476005DF444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEB4CB420F52476005DF444 /* LaunchScreen.storyboard */; };
+		FE0F5FD0B2414446546C8F17 /* Pods_NuiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC10D17AFD24A0CF8001C24F /* Pods_NuiOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		073FF8913C811AD802EE95E8 /* Pods-NuiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NuiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		96218C56F035F20BF747D012 /* Pods-NuiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NuiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS.release.xcconfig"; sourceTree = "<group>"; };
+		BC10D17AFD24A0CF8001C24F /* Pods_NuiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NuiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE81CB9E20F5369C00283C29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
+		EED9D2EA20F5383A00C5ACF7 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Api/Api.swift; sourceTree = "<group>"; };
+		EED9D2EB20F5383A00C5ACF7 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiError.swift; path = Api/ApiError.swift; sourceTree = "<group>"; };
+		EED9D2EF20F5385200C5ACF7 /* Verifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Verifications.swift; path = Api/Endpoints/Verifications.swift; sourceTree = "<group>"; };
+		EED9D2F020F5385300C5ACF7 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Users.swift; path = Api/Endpoints/Users.swift; sourceTree = "<group>"; };
+		EED9D2F420F5386300C5ACF7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Api/Models/User.swift; sourceTree = "<group>"; };
+		EED9D2F620F5389100C5ACF7 /* AppSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSingleton.swift; sourceTree = "<group>"; };
+		EED9D2FF20F53BB700C5ACF7 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		EED9D30020F53BB800C5ACF7 /* RequestManager+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RequestManager+Alamofire.swift"; sourceTree = "<group>"; };
+		EED9D30B20F53C1200C5ACF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EED9D30C20F53C1200C5ACF7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvVariables.swift; sourceTree = "<group>"; };
+		EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EED9D31420F53F0200C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		EED9D31520F53F0200C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/SignUp.strings"; sourceTree = "<group>"; };
+		EED9D31720F540C800C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		EEEB4CA420F52474005DF444 /* NuiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NuiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEEB4CAA20F52474005DF444 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EEEB4CB020F52474005DF444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EEEB4CB520F52476005DF444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEEB4CA120F52474005DF444 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE0F5FD0B2414446546C8F17 /* Pods_NuiOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		56AABD4AD66B7F954DFDC626 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC10D17AFD24A0CF8001C24F /* Pods_NuiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3F302D877CD4F12E4822BE8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				073FF8913C811AD802EE95E8 /* Pods-NuiOS.debug.xcconfig */,
+				96218C56F035F20BF747D012 /* Pods-NuiOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EEC956FA20F524C4007A3066 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EED9D2E920F5374700C5ACF7 /* Models/Api */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D2F320F5385600C5ACF7 /* Models */,
+				EED9D2EE20F5384800C5ACF7 /* Endpoints */,
+				EED9D2EA20F5383A00C5ACF7 /* Api.swift */,
+				EED9D2EB20F5383A00C5ACF7 /* ApiError.swift */,
+			);
+			name = Models/Api;
+			sourceTree = "<group>";
+		};
+		EED9D2EE20F5384800C5ACF7 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D2F020F5385300C5ACF7 /* Users.swift */,
+				EED9D2EF20F5385200C5ACF7 /* Verifications.swift */,
+			);
+			name = Endpoints;
+			sourceTree = "<group>";
+		};
+		EED9D2F320F5385600C5ACF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D2F420F5386300C5ACF7 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		EED9D2F820F538F400C5ACF7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D2FE20F53B8900C5ACF7 /* ExternalHelpers */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		EED9D2FE20F53B8900C5ACF7 /* ExternalHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D2FF20F53BB700C5ACF7 /* RequestManager.swift */,
+				EED9D30020F53BB800C5ACF7 /* RequestManager+Alamofire.swift */,
+			);
+			path = ExternalHelpers;
+			sourceTree = "<group>";
+		};
+		EEEB4C9B20F52474005DF444 = {
+			isa = PBXGroup;
+			children = (
+				EEEB4CA620F52474005DF444 /* NuiOS */,
+				EEEB4CA520F52474005DF444 /* Products */,
+				B3F302D877CD4F12E4822BE8 /* Pods */,
+				56AABD4AD66B7F954DFDC626 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EEEB4CA520F52474005DF444 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEEB4CA420F52474005DF444 /* NuiOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEEB4CA620F52474005DF444 /* NuiOS */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D2F820F538F400C5ACF7 /* Helpers */,
+				EED9D2E920F5374700C5ACF7 /* Models/Api */,
+				EEC956FA20F524C4007A3066 /* ViewModels */,
+				EEEB4CBD20F524A4005DF444 /* Controllers */,
+				EEEB4CA720F52474005DF444 /* Support Files */,
+				EEEB4CAE20F52474005DF444 /* Views */,
+			);
+			path = NuiOS;
+			sourceTree = "<group>";
+		};
+		EEEB4CA720F52474005DF444 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D2F620F5389100C5ACF7 /* AppSingleton.swift */,
+				EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */,
+				EED9D30B20F53C1200C5ACF7 /* Assets.xcassets */,
+				EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */,
+				EED9D30C20F53C1200C5ACF7 /* Info.plist */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		EEEB4CAE20F52474005DF444 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EEEB4CAF20F52474005DF444 /* Main.storyboard */,
+				EEEB4CB420F52476005DF444 /* LaunchScreen.storyboard */,
+				EE81CB9D20F5369C00283C29 /* SignUp.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		EEEB4CBD20F524A4005DF444 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EEEB4CAA20F52474005DF444 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEEB4CA320F52474005DF444 /* NuiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEEB4CBA20F52476005DF444 /* Build configuration list for PBXNativeTarget "NuiOS" */;
+			buildPhases = (
+				C6010CFA56FC42512098EBCA /* [CP] Check Pods Manifest.lock */,
+				EEEB4CA020F52474005DF444 /* Sources */,
+				EEEB4CA120F52474005DF444 /* Frameworks */,
+				EEEB4CA220F52474005DF444 /* Resources */,
+				E04D654A933136D234A550A3 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NuiOS;
+			productName = NuiOS;
+			productReference = EEEB4CA420F52474005DF444 /* NuiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEEB4C9C20F52474005DF444 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Nucleus;
+				TargetAttributes = {
+					EEEB4CA320F52474005DF444 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = EEEB4C9F20F52474005DF444 /* Build configuration list for PBXProject "NuiOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"pt-BR",
+			);
+			mainGroup = EEEB4C9B20F52474005DF444;
+			productRefGroup = EEEB4CA520F52474005DF444 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEEB4CA320F52474005DF444 /* NuiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEEB4CA220F52474005DF444 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEEB4CB620F52476005DF444 /* LaunchScreen.storyboard in Resources */,
+				EE81CB9F20F5369C00283C29 /* SignUp.storyboard in Resources */,
+				EEEB4CB120F52474005DF444 /* Main.storyboard in Resources */,
+				EED9D30F20F53C1200C5ACF7 /* Assets.xcassets in Resources */,
+				EED9D31020F53C1200C5ACF7 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C6010CFA56FC42512098EBCA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NuiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E04D654A933136D234A550A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NuSignUp/NuSignUp.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NuSignUp.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEEB4CA020F52474005DF444 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EED9D2F120F5385300C5ACF7 /* Verifications.swift in Sources */,
+				EEEB4CAB20F52474005DF444 /* ViewController.swift in Sources */,
+				EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */,
+				EED9D2EC20F5383A00C5ACF7 /* Api.swift in Sources */,
+				EED9D2F720F5389100C5ACF7 /* AppSingleton.swift in Sources */,
+				EED9D2F520F5386300C5ACF7 /* User.swift in Sources */,
+				EED9D2ED20F5383A00C5ACF7 /* ApiError.swift in Sources */,
+				EED9D31220F53C1200C5ACF7 /* AppDelegate.swift in Sources */,
+				EED9D30220F53BB800C5ACF7 /* RequestManager+Alamofire.swift in Sources */,
+				EED9D2F220F5385300C5ACF7 /* Users.swift in Sources */,
+				EED9D31120F53C1200C5ACF7 /* EnvVariables.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EE81CB9D20F5369C00283C29 /* SignUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE81CB9E20F5369C00283C29 /* Base */,
+				EED9D31520F53F0200C5ACF7 /* pt-BR */,
+			);
+			name = SignUp.storyboard;
+			sourceTree = "<group>";
+		};
+		EEEB4CAF20F52474005DF444 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEEB4CB020F52474005DF444 /* Base */,
+				EED9D31720F540C800C5ACF7 /* pt-BR */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EEEB4CB420F52476005DF444 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEEB4CB520F52476005DF444 /* Base */,
+				EED9D31420F53F0200C5ACF7 /* pt-BR */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EEEB4CB820F52476005DF444 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EEEB4CB920F52476005DF444 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EEEB4CBB20F52476005DF444 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 073FF8913C811AD802EE95E8 /* Pods-NuiOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P538QSTTR;
+				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Support Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eti.nucleus.NuiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EEEB4CBC20F52476005DF444 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96218C56F035F20BF747D012 /* Pods-NuiOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P538QSTTR;
+				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Support Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eti.nucleus.NuiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEEB4C9F20F52474005DF444 /* Build configuration list for PBXProject "NuiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEEB4CB820F52476005DF444 /* Debug */,
+				EEEB4CB920F52476005DF444 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEEB4CBA20F52476005DF444 /* Build configuration list for PBXNativeTarget "NuiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEEB4CBB20F52476005DF444 /* Debug */,
+				EEEB4CBC20F52476005DF444 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEEB4C9C20F52474005DF444 /* Project object */;
+}
