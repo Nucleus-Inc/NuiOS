@@ -9,7 +9,9 @@
 import UIKit
 
 class LoginVC: UIViewController {
+    @IBOutlet var loginTextFields: [UITextField]!
 
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var credentialsView: UIView!
     
     @IBOutlet weak var dist: NSLayoutConstraint!
@@ -47,6 +49,30 @@ class LoginVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func activeNormalAppearance(animated:Bool){
+        if animated{
+            UIView.animate(withDuration: 0.5, delay: 0.3, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                self.logoImageView.alpha = 1
+            }) { (finished) in
+            }
+        }
+        else{
+            self.logoImageView.alpha = 1
+        }
+    }
+    
+    private func activeUseEmailApperance(animated:Bool,duration:TimeInterval){
+        if animated{
+            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                self.logoImageView.alpha = 0
+            }) { (finished) in
+            }
+        }
+        else{
+            self.logoImageView.alpha = 0
+        }
+    }
 
 }
 
@@ -59,8 +85,8 @@ extension LoginVC{
         let keyBoardFrame = keyboardInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect
         let animationDuration = keyboardInfo[UIKeyboardAnimationDurationUserInfoKey]
         
-        //activeUseEmailApperance(animated: true,duration: animationDuration as! TimeInterval)
         
+        activeUseEmailApperance(animated: true,duration: animationDuration as! TimeInterval)
         let bottomPos = credentialsView.frame.origin.y+credentialsView.frame.height
         
         if keyBoardFrame.origin.y < bottomPos {
@@ -79,8 +105,7 @@ extension LoginVC{
         super.keyboardWillDisappear(keyboardInfo: keyboardInfo)
         let animationDuration = keyboardInfo[UIKeyboardAnimationDurationUserInfoKey]
         
-        //self.activeNormalAppearance(animated: true)
-        
+        self.activeNormalAppearance(animated: true)
         self.dist.constant = defaultDist
         UIView.animate(withDuration: animationDuration as! TimeInterval, animations: {
             self.view.layoutIfNeeded()
