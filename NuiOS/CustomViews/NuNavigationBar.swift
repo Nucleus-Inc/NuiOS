@@ -26,6 +26,7 @@ class NuNavigationBar: UINavigationBar {
                 self.backgroundColor = UIColor.clear
                 self.shadowImage = UIImage()
                 self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+                self.layoutIfNeeded()
             }
         }
     }

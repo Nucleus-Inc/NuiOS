@@ -47,13 +47,18 @@ enum Users:Endpoint{
 
     
     enum Account<T:Encodable>:Endpoint{
+        enum Transport:String{
+            case email = "email"
+            case sms = "sms"
+        }
+
         static var title: String{
             return "account"
         }
         
         case signup(params:[String:Any])
         case signupWith(data:T)
-        case requestActivationCode(userID:String,by:CodeTransport)
+        case requestActivationCode(userID:String,by:Transport)
         case activateAccount(userID:String,code:String)
         
         case getAccount(userID:String,jwt:String)
@@ -67,8 +72,8 @@ enum Users:Endpoint{
         case requestEmailUpdate(userID:String,email:String,jwt:String)
         case confirmEmailUpdate(userID:String,token:String,jwt:String)
         
-        case requestRecoveryCode(key:String,by:CodeTransport)
-        case recoveryAccount(key:String,by:CodeTransport,code:String,newPassword:String)
+        case requestRecoveryCode(key:String,by:Transport)
+        case recoveryAccount(key:String,by:Transport,code:String,newPassword:String)
         
         func endpointInfo() throws -> EndpointInfo {
             switch self {
@@ -131,9 +136,3 @@ enum Users:Endpoint{
     }
     
 }
-
-enum CodeTransport:String{
-    case email = "email"
-    case sms = "sms"
-}
-

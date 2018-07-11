@@ -9,6 +9,7 @@
 import Foundation
 
 //https://phraseapp.com/blog/posts/ios-localization-the-ultimate-guide-to-the-right-developer-mindset/
+//https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/
 
 class AppSingleton{
     private static let singletonQueue = DispatchQueue(label: "com.appSingleton.serialQueue")

@@ -144,7 +144,7 @@ public class RequestManager{
         if let url = URL(string: urlString){
             var urlReq = URLRequest(url: url, cachePolicy: cache, timeoutInterval: timeout)
             
-            for key in headers?.keysArray() ?? []{
+            for key in headers?.arrayOfKeys() ?? []{
                 if let value = headers?[key]{
                     urlReq.addValue(value, forHTTPHeaderField: key)
                 }
@@ -196,7 +196,7 @@ public class RequestManager{
 }
 
 fileprivate extension Dictionary{
-    func keysArray()-> [Key]{
+    func arrayOfKeys()-> [Key]{
         return [Key](self.keys)
     }
 }

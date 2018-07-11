@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QBV-QO-3MN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Extended Launch ScreenVC-->
+        <scene sceneID="cXB-4w-0JZ">
+            <objects>
+                <viewController id="QBV-QO-3MN" customClass="ExtendedLaunchScreenVC" customModule="NuiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZyA-oX-VlJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NuiOS App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHU-NJ-2Is">
+                                <rect key="frame" x="20" y="325.5" width="335" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yLd-Zu-psi" firstAttribute="trailing" secondItem="WHU-NJ-2Is" secondAttribute="trailing" constant="20" id="58h-s8-hE4"/>
+                            <constraint firstItem="WHU-NJ-2Is" firstAttribute="centerY" secondItem="yLd-Zu-psi" secondAttribute="centerY" id="SWj-dC-xGJ"/>
+                            <constraint firstItem="WHU-NJ-2Is" firstAttribute="leading" secondItem="yLd-Zu-psi" secondAttribute="leading" constant="20" id="fzx-5M-JUs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yLd-Zu-psi"/>
+                    </view>
+                    <connections>
+                        <segue destination="bXv-GB-YjG" kind="presentation" identifier="loginSilently" modalTransitionStyle="crossDissolve" id="QT2-Pr-t2H"/>
+                        <segue destination="102-JA-Uk8" kind="presentation" identifier="login" modalTransitionStyle="crossDissolve" id="8Ky-cc-94B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qJE-4V-aDA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Ruh-j0-Vvo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="bXv-GB-YjG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z9m-FP-d29" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="634" y="315"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="WmN-0n-Ypw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="102-JA-Uk8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sfb-Jw-wL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="634" y="427"/>
+        </scene>
+    </scenes>
+</document>

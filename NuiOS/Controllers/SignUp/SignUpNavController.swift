@@ -12,7 +12,7 @@ class SignUpNavController: UINavigationController,SignUpStackC {
 
     private var progressView:UIProgressView!
 
-    @IBInspectable var numbOfSteps:Int = 0
+    @IBInspectable var numbOfSteps:Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +40,12 @@ class SignUpNavController: UINavigationController,SignUpStackC {
 
     
     private func setUpNavigationAppearance(){
-        self.navigationBar.barTintColor = UIColor.white
+        /*self.navigationBar.barTintColor = UIColor.white
         self.navigationBar.isTranslucent = true
         self.navigationBar.backgroundColor = UIColor.clear//insivible
         self.navigationBar.shadowImage = UIImage()
         self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        
+        */
         let subViews = navigationBar.subviews.filter({ (view) -> Bool in
             return view.tag == 100
         })
