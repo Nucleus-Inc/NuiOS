@@ -7,5 +7,5 @@ target 'NuiOS' do
 
   # Pods for NuiOS
   #pod 'Alamofire', '~> 4.7'
-  pod "NuSignUp"
+  pod "NuSignUp", :git => "https://github.com/Nucleus-Inc/NuSignUp.git"
 end

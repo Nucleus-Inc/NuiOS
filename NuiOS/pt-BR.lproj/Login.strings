@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Do not have an account ?"; ObjectID = "2rE-zV-Ocb"; */
+"2rE-zV-Ocb.text" = "Ainda não tem conta ?";
+
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "IKR-qU-i4m"; */
+"IKR-qU-i4m.normalTitle" = "Cadastrar-se";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "c3m-xI-MwL"; */
+"c3m-xI-MwL.placeholder" = "Senha";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "h0w-7F-4jO"; */
+"h0w-7F-4jO.placeholder" = "Usuário";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "ilC-RI-y8h"; */
+"ilC-RI-y8h.normalTitle" = "Entrar";
+
+/* Class = "UIButton"; normalTitle = "Forgot Password ?"; ObjectID = "oes-IA-LiQ"; */
+"oes-IA-LiQ.normalTitle" = "Esqueceu a senha ?";

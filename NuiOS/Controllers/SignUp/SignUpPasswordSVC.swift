@@ -60,7 +60,7 @@ class SignUpPasswordSVC: SignUpStepVC, UITextFieldDelegate {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == SignUpStepSegues.nextStep.rawValue{
             if let vc = segue.destination as? SignUpCheckDataStepVC{
-                vc.controller = ExampleSignUpCheckDataStepC()
+                vc.controller = NuSignUpCheckDataStepC()
             }
         }
         // Get the new view controller using segue.destinationViewController.
@@ -112,27 +112,26 @@ class SignUpPasswordSVC: SignUpStepVC, UITextFieldDelegate {
     
     private func updatePasswordStrength(){
 
-        if  let password = answerTF.text, password != "" {
+        if  let password = answerTF.text, !password.isEmpty {
             
             if let score = scoreForPassword[password]{
                 updateStrengthView(ForScore: score,AndPassword: password)
                 super.didChangeStepAnswers()
             }
             else{
-                let score = 3
-                let success = true
-                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                    if success{
-                        print(password+" score: \(score)")
-                        self.updateStrengthView(ForScore: score,AndPassword: password)
+                AppSingleton.shared.checkStrengh(Password: password) { (success, score) in
+                    DispatchQueue.main.async {
+                        if success{
+                            print(password+" score: \(score)")
+                            self.updateStrengthView(ForScore: score,AndPassword: password)
+                        }
+                        else{
+                            self.passwordStrengthView.updateToStep(0, WithColor: nil)
+                            self.updateAnswerInfoLabel(text: self.defaultPInfoMessage, textColor: self.defaultPInfoColor!)
+                        }
+                        super.didChangeStepAnswers()
                     }
-                    else{
-                        self.passwordStrengthView.updateToStep(0, WithColor: nil)
-                        self.updateAnswerInfoLabel(text: self.defaultPInfoMessage, textColor: self.defaultPInfoColor!)
-                    }
-                    super.didChangeStepAnswers()
                 }
-
             }
             
         }
@@ -141,7 +140,6 @@ class SignUpPasswordSVC: SignUpStepVC, UITextFieldDelegate {
             updateAnswerInfoLabel(text: defaultPInfoMessage, textColor: defaultPInfoColor!)
             super.didChangeStepAnswers()
         }
-        
         
     }
 

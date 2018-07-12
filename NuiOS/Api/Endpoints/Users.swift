@@ -46,7 +46,7 @@ enum Users:Endpoint{
     }
 
     
-    enum Account<T:Encodable>:Endpoint{
+    enum Account:Endpoint{
         enum Transport:String{
             case email = "email"
             case sms = "sms"
@@ -56,8 +56,14 @@ enum Users:Endpoint{
             return "account"
         }
         
+        static func signupWith<T:Encodable>(data:T) throws -> Account{
+            let data = try JSONEncoder().encode(data)
+            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any]
+            return Account.signup(params: json ?? [:])
+        }
+        
         case signup(params:[String:Any])
-        case signupWith(data:T)
+        //case signupWith(data:T)
         case requestActivationCode(userID:String,by:Transport)
         case activateAccount(userID:String,code:String)
         
@@ -126,9 +132,9 @@ enum Users:Endpoint{
                 return try EndpointInfo(url: url, method: .post,params:params)
                 //return try EndpointInfo(url: url, method: .post, object: data)
                 
-            case .signupWith(let data):
+            /*case .signupWith(let data):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+Account.title+"/signup")
-                return try EndpointInfo(url: url, method: .post, object: data)
+                return try EndpointInfo(url: url, method: .post, object: data)*/
             }
             
         }

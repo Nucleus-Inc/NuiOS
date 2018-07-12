@@ -2,15 +2,20 @@ PODS:
   - NuSignUp (1.0.0)
 
 DEPENDENCIES:
-  - NuSignUp
+  - NuSignUp (from `https://github.com/Nucleus-Inc/NuSignUp.git`)
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - NuSignUp
+EXTERNAL SOURCES:
+  NuSignUp:
+    :git: https://github.com/Nucleus-Inc/NuSignUp.git
+
+CHECKOUT OPTIONS:
+  NuSignUp:
+    :commit: 16074b0c220b0007827ef5015d36690df1c12102
+    :git: https://github.com/Nucleus-Inc/NuSignUp.git
 
 SPEC CHECKSUMS:
   NuSignUp: 35b3c900dca9a6089147a458e4a9ccf9a2e59db0
 
-PODFILE CHECKSUM: 7de43c109b883df5519f2fee9e3d0f210feed3da
+PODFILE CHECKSUM: 8d36ee39a7c07944b842417f6beffa2b5fdb3a58
 
 COCOAPODS: 1.5.0

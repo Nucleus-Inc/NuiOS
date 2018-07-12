@@ -94,35 +94,34 @@ class SignUpEmailSVC: SignUpNameSVC {
         
         self.loadingMode(Loading: true)
         showActivity()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            self.hideActivity()
-            self.loadingMode(Loading: false)
-            let success = true
-            let isAvailable = true
-            
-            if success{
-                if isAvailable{
-                    
-                    self.isServerSideValid = true
-                    print("Add answer on answers")
-                    self.addStepAnswer()
-                    self.goToNextStep()
-                    
+        AppSingleton.shared.checkAvailabilityOf(Key: answerTF.text ?? "", KeyType: .email) { (success, isAvailable) in
+            DispatchQueue.main.async {
+                self.hideActivity()
+                self.loadingMode(Loading: false)
+                
+                if success{
+                    if isAvailable{
+                        
+                        self.isServerSideValid = true
+                        print("Add answer on answers")
+                        self.addStepAnswer()
+                        self.goToNextStep()
+                        
+                    }
+                    else{
+                        self.answerTF.becomeFirstResponder()
+                        self.isServerSideValid = false
+                        self.lastInvalidEmails.append(self.answerTF.text!)
+                        self.showAnswerInfoErrMessage("This email is in use")
+                        
+                        UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This email is in use. Try another one.", OKAction: nil)
+                    }
                 }
                 else{
                     self.answerTF.becomeFirstResponder()
-                    self.isServerSideValid = false
-                    self.lastInvalidEmails.append(self.answerTF.text!)
-                    self.showAnswerInfoErrMessage("This email is in use")
-
-                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This email is in use. Try another one.", OKAction: nil)
+                    
+                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "It was not possible to validate your email.", OKAction: nil)
                 }
-            }
-            else{
-                self.answerTF.becomeFirstResponder()
-
-                UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "It was not possible to validate your email.", OKAction: nil)
             }
         }
     }

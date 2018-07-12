@@ -8,7 +8,7 @@
 import UIKit
 import NuSignUp
 
-public class ExampleSignUpCheckDataStepC:SignUpCheckDataStepC{
+public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
     public var canEdit: Bool = true
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -17,7 +17,10 @@ public class ExampleSignUpCheckDataStepC:SignUpCheckDataStepC{
     
     public func didTapNextStep(_ answers:[String : Any], onVC vc: UIViewController, completion: @escaping (Bool,[String:Any]?) -> ()) {
         
-        completion(true,[:])
+        AppSingleton.shared.signupUser(Params: answers) { (success) in
+            completion(success,[:])
+        }
+        //completion(true,[:])
         
     }
     

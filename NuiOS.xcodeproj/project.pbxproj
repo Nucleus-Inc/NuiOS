@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE720F5B20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE720F5A20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift */; };
+		EE720F6020F79F3000EBA122 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE720F5F20F79F3000EBA122 /* Info.plist */; };
+		EE720F6220F7A11800EBA122 /* AppSingleton+UserReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE720F6120F7A11800EBA122 /* AppSingleton+UserReqs.swift */; };
 		EE81CB9F20F5369C00283C29 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE81CB9D20F5369C00283C29 /* SignUp.storyboard */; };
 		EE84921A20F6306F009D750F /* SignUpPasswordSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84921620F6306F009D750F /* SignUpPasswordSVC.swift */; };
 		EE84921B20F6306F009D750F /* SignUpCheckDataStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84921720F6306F009D750F /* SignUpCheckDataStepVC.swift */; };
 		EE84921C20F6306F009D750F /* SignUpPhoneNumberSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84921820F6306F009D750F /* SignUpPhoneNumberSVC.swift */; };
-		EE84921D20F6306F009D750F /* ExampleSignUpCheckDataStepC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84921920F6306F009D750F /* ExampleSignUpCheckDataStepC.swift */; };
+		EE84921D20F6306F009D750F /* NuSignUpCheckDataStepC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84921920F6306F009D750F /* NuSignUpCheckDataStepC.swift */; };
 		EE84922120F63094009D750F /* SignUpCodeSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84921E20F63094009D750F /* SignUpCodeSVC.swift */; };
 		EE84922220F63094009D750F /* FirstStepSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84921F20F63094009D750F /* FirstStepSVC.swift */; };
 		EE84922320F63094009D750F /* SignUpEmailSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84922020F63094009D750F /* SignUpEmailSVC.swift */; };
@@ -35,7 +38,6 @@
 		EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2FF20F53BB700C5ACF7 /* RequestManager.swift */; };
 		EED9D30220F53BB800C5ACF7 /* RequestManager+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D30020F53BB800C5ACF7 /* RequestManager+Alamofire.swift */; };
 		EED9D30F20F53C1200C5ACF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EED9D30B20F53C1200C5ACF7 /* Assets.xcassets */; };
-		EED9D31020F53C1200C5ACF7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EED9D30C20F53C1200C5ACF7 /* Info.plist */; };
 		EED9D31120F53C1200C5ACF7 /* EnvVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */; };
 		EED9D31220F53C1200C5ACF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */; };
 		EED9D31920F543CA00C5ACF7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D31820F543CA00C5ACF7 /* User.swift */; };
@@ -53,11 +55,15 @@
 		073FF8913C811AD802EE95E8 /* Pods-NuiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NuiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		96218C56F035F20BF747D012 /* Pods-NuiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NuiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS.release.xcconfig"; sourceTree = "<group>"; };
 		BC10D17AFD24A0CF8001C24F /* Pods_NuiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NuiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE720F5820F7771F00EBA122 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Login.strings"; sourceTree = "<group>"; };
+		EE720F5A20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+VerificationsReqs.swift"; sourceTree = "<group>"; };
+		EE720F5F20F79F3000EBA122 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NuiOS/Info.plist; sourceTree = SOURCE_ROOT; };
+		EE720F6120F7A11800EBA122 /* AppSingleton+UserReqs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+UserReqs.swift"; sourceTree = "<group>"; };
 		EE81CB9E20F5369C00283C29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
 		EE84921620F6306F009D750F /* SignUpPasswordSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordSVC.swift; sourceTree = "<group>"; };
 		EE84921720F6306F009D750F /* SignUpCheckDataStepVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpCheckDataStepVC.swift; sourceTree = "<group>"; };
 		EE84921820F6306F009D750F /* SignUpPhoneNumberSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPhoneNumberSVC.swift; sourceTree = "<group>"; };
-		EE84921920F6306F009D750F /* ExampleSignUpCheckDataStepC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleSignUpCheckDataStepC.swift; sourceTree = "<group>"; };
+		EE84921920F6306F009D750F /* NuSignUpCheckDataStepC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuSignUpCheckDataStepC.swift; sourceTree = "<group>"; };
 		EE84921E20F63094009D750F /* SignUpCodeSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeSVC.swift; sourceTree = "<group>"; };
 		EE84921F20F63094009D750F /* FirstStepSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstStepSVC.swift; sourceTree = "<group>"; };
 		EE84922020F63094009D750F /* SignUpEmailSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpEmailSVC.swift; sourceTree = "<group>"; };
@@ -82,7 +88,6 @@
 		EED9D2FF20F53BB700C5ACF7 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		EED9D30020F53BB800C5ACF7 /* RequestManager+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RequestManager+Alamofire.swift"; sourceTree = "<group>"; };
 		EED9D30B20F53C1200C5ACF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EED9D30C20F53C1200C5ACF7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvVariables.swift; sourceTree = "<group>"; };
 		EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EED9D31420F53F0200C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -125,6 +130,24 @@
 				96218C56F035F20BF747D012 /* Pods-NuiOS.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EE720F5920F78FA000EBA122 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				EED9D2F620F5389100C5ACF7 /* AppSingleton.swift */,
+				EE720F5D20F7993300EBA122 /* ApiRequests */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		EE720F5D20F7993300EBA122 /* ApiRequests */ = {
+			isa = PBXGroup;
+			children = (
+				EE720F5A20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift */,
+				EE720F6120F7A11800EBA122 /* AppSingleton+UserReqs.swift */,
+			);
+			name = ApiRequests;
 			sourceTree = "<group>";
 		};
 		EEBC6E3F20F65B7D00CB5DC2 /* ExtenalCustomViews */ = {
@@ -197,7 +220,7 @@
 			children = (
 				EED9D32420F54C9A00C5ACF7 /* SignUpNavController.swift */,
 				EED9D32620F54F1500C5ACF7 /* SignUpPreStepVC.swift */,
-				EE84921920F6306F009D750F /* ExampleSignUpCheckDataStepC.swift */,
+				EE84921920F6306F009D750F /* NuSignUpCheckDataStepC.swift */,
 				EE84921720F6306F009D750F /* SignUpCheckDataStepVC.swift */,
 				EE84921620F6306F009D750F /* SignUpPasswordSVC.swift */,
 				EE84921820F6306F009D750F /* SignUpPhoneNumberSVC.swift */,
@@ -241,6 +264,8 @@
 		EEEB4CA620F52474005DF444 /* NuiOS */ = {
 			isa = PBXGroup;
 			children = (
+				EE720F5F20F79F3000EBA122 /* Info.plist */,
+				EE720F5920F78FA000EBA122 /* Singleton */,
 				EEEB4CA720F52474005DF444 /* Support Files */,
 				EED9D31F20F5495500C5ACF7 /* CustomViews */,
 				EED9D2F820F538F400C5ACF7 /* Helpers */,
@@ -255,11 +280,9 @@
 		EEEB4CA720F52474005DF444 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				EED9D2F620F5389100C5ACF7 /* AppSingleton.swift */,
 				EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */,
 				EED9D30B20F53C1200C5ACF7 /* Assets.xcassets */,
 				EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */,
-				EED9D30C20F53C1200C5ACF7 /* Info.plist */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -348,13 +371,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE720F6020F79F3000EBA122 /* Info.plist in Resources */,
 				EEBC6E3420F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard in Resources */,
 				EEEB4CB620F52476005DF444 /* LaunchScreen.storyboard in Resources */,
 				EE81CB9F20F5369C00283C29 /* SignUp.storyboard in Resources */,
 				EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */,
 				EEEB4CB120F52474005DF444 /* Main.storyboard in Resources */,
 				EED9D30F20F53C1200C5ACF7 /* Assets.xcassets in Resources */,
-				EED9D31020F53C1200C5ACF7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,12 +439,14 @@
 				EE84922B20F636A5009D750F /* JLProgressView.swift in Sources */,
 				EEEB4CAB20F52474005DF444 /* ViewController.swift in Sources */,
 				EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */,
-				EE84921D20F6306F009D750F /* ExampleSignUpCheckDataStepC.swift in Sources */,
+				EE84921D20F6306F009D750F /* NuSignUpCheckDataStepC.swift in Sources */,
+				EE720F6220F7A11800EBA122 /* AppSingleton+UserReqs.swift in Sources */,
 				EE84922720F6349B009D750F /* UIAlertControllerShortcuts.swift in Sources */,
 				EED9D2EC20F5383A00C5ACF7 /* Api.swift in Sources */,
 				EED9D2F720F5389100C5ACF7 /* AppSingleton.swift in Sources */,
 				EED9D2F520F5386300C5ACF7 /* GenericUser.swift in Sources */,
 				EE84922220F63094009D750F /* FirstStepSVC.swift in Sources */,
+				EE720F5B20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift in Sources */,
 				EED9D32920F5534500C5ACF7 /* NuNavigationBar.swift in Sources */,
 				EEBC6E4720F66BAA00CB5DC2 /* JLExtensions.swift in Sources */,
 				EED9D2ED20F5383A00C5ACF7 /* ApiError.swift in Sources */,
@@ -455,6 +480,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EEBC6E2E20F6486000CB5DC2 /* Base */,
+				EE720F5820F7771F00EBA122 /* pt-BR */,
 			);
 			name = Login.storyboard;
 			sourceTree = "<group>";
@@ -540,7 +566,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -595,7 +621,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -611,7 +637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P538QSTTR;
-				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Support Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -630,7 +656,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P538QSTTR;
-				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Support Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

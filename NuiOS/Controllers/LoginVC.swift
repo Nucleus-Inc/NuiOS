@@ -8,14 +8,31 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
-    @IBOutlet var loginTextFields: [UITextField]!
+protocol LoginVCViewModel{
+    func performLogin(Username user:String,Password password:String,completion:@escaping(_ success:Bool)->Void)
+}
 
+class LoginVC: UIViewController,UITextFieldDelegate {
+    @IBOutlet weak var usernameTF: LinedTTextField!
+    @IBOutlet weak var passwordTF: LinedTTextField!
+    
+    
+    @IBOutlet weak var loginButton: NuButton!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var credentialsView: UIView!
     
     @IBOutlet weak var dist: NSLayoutConstraint!
     private var defaultDist:CGFloat = 0
+
+    var viewModel:LoginVCViewModel?
+    
+    var hasUsername:Bool{
+        return !(usernameTF.text?.isEmpty ?? true)
+    }
+    
+    var hasPassword:Bool{
+        return !(passwordTF.text?.isEmpty ?? true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +57,7 @@ class LoginVC: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -48,7 +65,28 @@ class LoginVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
+    func performLoginSegue(){
+        
+    }
+    
+    //MARK: - Methods
+    func performLogin(){
+        self.view.endEditing(true)
+        if let username = usernameTF.text, let password = passwordTF.text,
+            !username.isEmpty, !password.isEmpty{
+            viewModel?.performLogin(Username: username, Password: password, completion: { (success) in
+                DispatchQueue.main.async {
+                    if success{
+                        self.performLoginSegue()
+                    }
+                }
+            })
+        }
+        else{
+            print("show some error banner")
+        }
+    }
     
     private func activeNormalAppearance(animated:Bool){
         if animated{
@@ -73,7 +111,32 @@ class LoginVC: UIViewController {
             self.logoImageView.alpha = 0
         }
     }
-
+    
+    //MARK: - IBActions
+    @IBAction func loginBtnAction(_ sender: Any) {
+        performLogin()
+    }
+    
+    //MARK: - UITextField methods
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        loginButton.isEnabled = hasUsername && hasPassword
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        loginButton.isEnabled = hasUsername && hasPassword
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == passwordTF.tag {
+            performLogin()
+        }
+        else{
+            passwordTF.becomeFirstResponder()
+        }
+        return true
+    }
 }
 
 //MARK: - Keyboard listen

@@ -9,7 +9,9 @@ import UIKit
 import NuSignUp
 
 class SignUpPhoneNumberSVC: SignUpNameSVC {
-    
+    var maskRegex:String? = "([0-9]{2})([0-9]{5})([0-9]{4})" //"([0-9]{3})([0-9]{3})([0-9]{4})" // USA
+    var replacementRole:String? = "+55 ($1) $2-$3" //"+1 ($1) $2-$3" //USA
+
     private var defaultMessage:String?
     private var defaultColor:UIColor?
 
@@ -17,8 +19,15 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
     internal var sendingData:Bool = false
     
     var lastInvalidNumbers:[String] = []
+    
+    var unmaskedAnswer: String?{
+        return self.stepAnswer?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "-", with: "").replacingOccurrences(of: "+", with: "")
+    }
 
+    
     override func viewDidLoad() {
+        self.regex = "\\+(55)\\ \\([0-9]{2}\\)\\ [0-9]{5}\\-[0-9]{4}" // BR
+        
         defaultMessage = answerInfoTF.text
         defaultColor = answerInfoTF.textColor
         super.viewDidLoad()
@@ -45,18 +54,6 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
         self.answerInfoTF.textColor = defaultColor
     }
     
-    /*
-    override func addStepAnswer() {
-        guard let _ = answers else{
-            self.answers = [String:Any]()
-            self.answers![key] = stepAnswer!
-            return
-        }
-        
-        self.answers![key] = stepAnswer!
-    }
-     */
-        
     private func showActivity(){
         let view = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         view.hidesWhenStopped = true
@@ -69,7 +66,17 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
         self.answerTF.rightView = nil
         self.answerTF.rightViewMode = .never
     }
-
+    
+    override func didChangeText(_ sender: Any) {
+        if let maskRegex = maskRegex, let replacement = replacementRole{
+            let text = answerTF.text ?? ""
+            let newText = text.replacingOccurrences(of: maskRegex, with: replacement, options: [.regularExpression,.anchored], range: nil)
+            self.answerTF.text = newText
+        }
+        super.didChangeText(sender)
+    }
+    
+    
     //MARK: - Server methods
     
     private func validatePhoneNumberOnServer(){
@@ -77,33 +84,33 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
         
         showActivity()
 
-        let success = true
-        let isAvailable = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.hideActivity()
-            self.loadingMode(Loading: false)
-            if success{
-                if isAvailable{
-                    
-                    self.isServerSideValid = true
-                    print("Add answer on answers")
-                    self.delegate.addStepAnswer(answer: self.stepAnswer!, forKey: self.key)
-                    self.goToNextStep()
-                    
+        AppSingleton.shared.checkAvailabilityOf(Key: unmaskedAnswer ?? "", KeyType: .phoneNumber) { (success, isAvailable) in
+            DispatchQueue.main.async {
+                self.hideActivity()
+                self.loadingMode(Loading: false)
+                if success{
+                    if isAvailable{
+                        
+                        self.isServerSideValid = true
+                        print("Add answer on answers")
+                        self.delegate.addStepAnswer(answer: self.stepAnswer!, forKey: self.key)
+                        self.goToNextStep()
+                        
+                    }
+                    else{
+                        self.answerTF.becomeFirstResponder()
+                        self.isServerSideValid = false
+                        self.lastInvalidNumbers.append(self.stepAnswer!)
+                        self.showAnswerInfoErrMessage()
+                        
+                        UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This phone number is in use. Try another one.", OKAction: nil)
+                    }
                 }
                 else{
                     self.answerTF.becomeFirstResponder()
-                    self.isServerSideValid = false
-                    self.lastInvalidNumbers.append(self.stepAnswer!)
-                    self.showAnswerInfoErrMessage()
-                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This phone number is in use. Try another one.", OKAction: nil)
+                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "It was not possible to validate your phone number.", OKAction: nil)
                 }
             }
-            else{
-                self.answerTF.becomeFirstResponder()
-                UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "It was not possible to validate your phone number.", OKAction: nil)
-            }
-
         }
     }
     
@@ -130,7 +137,7 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
         }
         else{
             print("Add answer on answers")
-            delegate.addStepAnswer(answer: self.stepAnswer!, forKey: self.key)
+            delegate.addStepAnswer(answer: self.unmaskedAnswer!, forKey: self.key)
             goToNextStep()
         }
         

@@ -7,9 +7,9 @@
 //
 
 import Foundation
-public typealias ResponseError = Error
+public typealias RequestError = Error
 
-public typealias OnFailureHandler<D:Decodable,J> = (Response<D,J>.Data,HTTPURLResponse?,Error?)->Void
+public typealias OnFailureHandler<D:Decodable,J> = (Response<D,J>.Data,HTTPURLResponse?,RequestError?)->Void
 public typealias OnSuccessHandler<D:Decodable,J> = (Response<D,J>.Data,HTTPURLResponse?)->Void
 
 
@@ -97,7 +97,7 @@ public struct Response<T:Decodable,O>{
     public struct Data{
         public var data:T?
         public var json:O?
-        public var error:Error?
+        public var serializationError:Error?
     }
     
 }
@@ -141,28 +141,29 @@ public class RequestManager{
     @discardableResult
     private class func sendOnSession<D:Decodable,J:Any,E:Decodable,R:Any>(session:URLSession,ToUrl urlString:String,httpMethod:HTTPMethod,httpBody:Data?,headers:[String:String]?=nil,cache:URLRequest.CachePolicy = URLRequest.CachePolicy.useProtocolCachePolicy, timeout:TimeInterval = 60.0,onSuccess:Response<D, J>.OnSuccess,onFailure:Response<E, R>.OnFailure) throws ->URLSessionTask  {
         
-        if let url = URL(string: urlString){
+        if let formattedString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed),let url = URL(string: formattedString){
             var urlReq = URLRequest(url: url, cachePolicy: cache, timeoutInterval: timeout)
             
+            urlReq.addValue("application/json", forHTTPHeaderField: "Content-Type")
             for key in headers?.arrayOfKeys() ?? []{
                 if let value = headers?[key]{
                     urlReq.addValue(value, forHTTPHeaderField: key)
                 }
             }
-
+            urlReq.httpMethod = httpMethod.rawValue
             urlReq.httpBody = httpBody
 
             let sessionTask = session.dataTask(with: urlReq) { (data, urlResp, error) in
 
                 func generateData<K:Decodable,L:Any>(DataType dataType:K.Type, jsonType:L.Type,FromData data:Data?)->Response<K,L>.Data{
-                    var responseData:Response.Data = Response<K,L>.Data(data: nil, json: nil,error: error)
+                    var responseData:Response.Data = Response<K,L>.Data(data: nil, json: nil,serializationError: nil)
                     if let data = data, data.count > 0 {
                         do{
                             responseData.json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? L
                             responseData.data = try JSONDecoder().decode(K.self, from: data)
                         }
                         catch{
-                            responseData.error = error
+                            responseData.serializationError = error
                         }
                     }
                     return responseData
@@ -174,6 +175,10 @@ public class RequestManager{
                         if success{
                             let responseData = generateData(DataType: D.self, jsonType: J.self, FromData: data)
                             onSuccess.responseHandler(responseData,httpResp)
+                        }
+                        else{
+                            let responseData = generateData(DataType: E.self, jsonType: R.self, FromData: data)
+                            onFailure.responseHandler(responseData,httpResp,nil)
                         }
                     }
                     return
