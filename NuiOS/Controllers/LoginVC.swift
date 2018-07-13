@@ -12,6 +12,11 @@ protocol LoginVCViewModel{
     func performLogin(Username user:String,Password password:String,completion:@escaping(_ success:Bool)->Void)
 }
 
+private struct LoginVCSeguesIDs{
+    static let login = "login"
+    static let accountActivation = "accountActivation"
+}
+
 class LoginVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var usernameTF: LinedTTextField!
     @IBOutlet weak var passwordTF: LinedTTextField!
@@ -35,6 +40,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     }
 
     override func viewDidLoad() {
+        viewModel = AppLoginVM()
         super.viewDidLoad()
         defaultDist = dist.constant
         self.hideKeyboardWhenTappedAround()
@@ -64,10 +70,30 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let id = segue.identifier{
+            if id == LoginVCSeguesIDs.accountActivation{
+                let vc = (segue.destination as? SignUpNavController)?.viewControllers.first as? AlternativeSignUpCodeSVC
+                vc?.delegate.answers = sender as? [String:Any]
+            }
+        }
     }
     
+    func showAccountActivationVC(){
+        if let user = AppSingleton.shared.user, let json = user.account?.toJSON(){
+            self.performSegue(withIdentifier: LoginVCSeguesIDs.accountActivation, sender: json)
+        }
+    }
+
+    
     func performLoginSegue(){
-        
+        if let user = AppSingleton.shared.user, let account = user.account{
+            if account.isActive{
+                self.performSegue(withIdentifier: LoginVCSeguesIDs.login, sender: nil)
+            }
+            else{
+                showAccountActivationVC()
+            }
+        }
     }
     
     //MARK: - Methods
@@ -75,8 +101,10 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         self.view.endEditing(true)
         if let username = usernameTF.text, let password = passwordTF.text,
             !username.isEmpty, !password.isEmpty{
+            loginButton.showActivityIndicator(style: .gray)
             viewModel?.performLogin(Username: username, Password: password, completion: { (success) in
                 DispatchQueue.main.async {
+                    self.loginButton.hideActivityIndicator()
                     if success{
                         self.performLoginSegue()
                     }
@@ -85,6 +113,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         }
         else{
             print("show some error banner")
+            NotificationBannerShortcuts.showLoginErrBanner()
         }
     }
     

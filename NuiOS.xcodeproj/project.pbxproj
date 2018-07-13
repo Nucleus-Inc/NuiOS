@@ -21,6 +21,20 @@
 		EE84922720F6349B009D750F /* UIAlertControllerShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84922620F6349A009D750F /* UIAlertControllerShortcuts.swift */; };
 		EE84922920F63645009D750F /* AppSignUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84922820F63645009D750F /* AppSignUpDelegate.swift */; };
 		EE84922B20F636A5009D750F /* JLProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84922A20F636A5009D750F /* JLProgressView.swift */; };
+		EE9FC85A20F8CC470078624B /* NotificationBannerShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC85920F8CC470078624B /* NotificationBannerShortcuts.swift */; };
+		EE9FC85C20F8E6A60078624B /* AppLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC85B20F8E6A60078624B /* AppLoginVM.swift */; };
+		EE9FC85E20F8EDE20078624B /* AppSingleton+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC85D20F8EDE20078624B /* AppSingleton+Auth.swift */; };
+		EE9FC86020F8F9F40078624B /* AppSingleton+HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC85F20F8F9F40078624B /* AppSingleton+HelperMethods.swift */; };
+		EE9FC86220F90A660078624B /* AlternativeSignUpCodeSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC86120F90A660078624B /* AlternativeSignUpCodeSVC.swift */; };
+		EE9FC86A20F9141A0078624B /* AccountRecover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE9FC86820F9141A0078624B /* AccountRecover.storyboard */; };
+		EE9FC86D20F91B1B0078624B /* AccountRecoverWayTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC86C20F91B1B0078624B /* AccountRecoverWayTVC.swift */; };
+		EE9FC86F20F91C110078624B /* AccountRecEmailSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC86E20F91C110078624B /* AccountRecEmailSVC.swift */; };
+		EE9FC87120F91F400078624B /* AccountRecPhoneNumberSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87020F91F400078624B /* AccountRecPhoneNumberSVC.swift */; };
+		EE9FC87320F922AA0078624B /* AccountRecCodeSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87220F922AA0078624B /* AccountRecCodeSVC.swift */; };
+		EE9FC87520F92C6A0078624B /* AccountRecPasswordSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87420F92C6A0078624B /* AccountRecPasswordSVC.swift */; };
+		EE9FC87720F93F350078624B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE9FC87620F93F350078624B /* Profile.storyboard */; };
+		EE9FC87C20F941430078624B /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87B20F941430078624B /* ProfileTVC.swift */; };
+		EE9FC88020F944560078624B /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87F20F944560078624B /* Listener.swift */; };
 		EEBC6E2C20F6481F00CB5DC2 /* FinishSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC6E2B20F6481F00CB5DC2 /* FinishSignUpVC.swift */; };
 		EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC6E2D20F6486000CB5DC2 /* Login.storyboard */; };
 		EEBC6E3420F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC6E3220F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard */; };
@@ -70,6 +84,22 @@
 		EE84922620F6349A009D750F /* UIAlertControllerShortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerShortcuts.swift; sourceTree = "<group>"; };
 		EE84922820F63645009D750F /* AppSignUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignUpDelegate.swift; sourceTree = "<group>"; };
 		EE84922A20F636A5009D750F /* JLProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLProgressView.swift; sourceTree = "<group>"; };
+		EE9FC85920F8CC470078624B /* NotificationBannerShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBannerShortcuts.swift; sourceTree = "<group>"; };
+		EE9FC85B20F8E6A60078624B /* AppLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoginVM.swift; sourceTree = "<group>"; };
+		EE9FC85D20F8EDE20078624B /* AppSingleton+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+Auth.swift"; sourceTree = "<group>"; };
+		EE9FC85F20F8F9F40078624B /* AppSingleton+HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+HelperMethods.swift"; sourceTree = "<group>"; };
+		EE9FC86120F90A660078624B /* AlternativeSignUpCodeSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeSignUpCodeSVC.swift; sourceTree = "<group>"; };
+		EE9FC86920F9141A0078624B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AccountRecover.storyboard; sourceTree = "<group>"; };
+		EE9FC86C20F91B1B0078624B /* AccountRecoverWayTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRecoverWayTVC.swift; sourceTree = "<group>"; };
+		EE9FC86E20F91C110078624B /* AccountRecEmailSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecEmailSVC.swift; sourceTree = "<group>"; };
+		EE9FC87020F91F400078624B /* AccountRecPhoneNumberSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecPhoneNumberSVC.swift; sourceTree = "<group>"; };
+		EE9FC87220F922AA0078624B /* AccountRecCodeSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecCodeSVC.swift; sourceTree = "<group>"; };
+		EE9FC87420F92C6A0078624B /* AccountRecPasswordSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecPasswordSVC.swift; sourceTree = "<group>"; };
+		EE9FC87620F93F350078624B /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		EE9FC87920F9400E0078624B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/AccountRecover.strings"; sourceTree = "<group>"; };
+		EE9FC87B20F941430078624B /* ProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
+		EE9FC87E20F943A80078624B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		EE9FC87F20F944560078624B /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
 		EEBC6E2B20F6481F00CB5DC2 /* FinishSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSignUpVC.swift; sourceTree = "<group>"; };
 		EEBC6E2E20F6486000CB5DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		EEBC6E3320F648D300CB5DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExtendedLaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,7 +122,6 @@
 		EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EED9D31420F53F0200C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		EED9D31820F543CA00C5ACF7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		EED9D31E20F5492C00C5ACF7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		EED9D32020F549AE00C5ACF7 /* NuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuButton.swift; sourceTree = "<group>"; };
 		EED9D32420F54C9A00C5ACF7 /* SignUpNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpNavController.swift; sourceTree = "<group>"; };
 		EED9D32620F54F1500C5ACF7 /* SignUpPreStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPreStepVC.swift; sourceTree = "<group>"; };
@@ -137,6 +166,8 @@
 			children = (
 				EED9D2F620F5389100C5ACF7 /* AppSingleton.swift */,
 				EE720F5D20F7993300EBA122 /* ApiRequests */,
+				EE9FC85D20F8EDE20078624B /* AppSingleton+Auth.swift */,
+				EE9FC85F20F8F9F40078624B /* AppSingleton+HelperMethods.swift */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -148,6 +179,26 @@
 				EE720F6120F7A11800EBA122 /* AppSingleton+UserReqs.swift */,
 			);
 			name = ApiRequests;
+			sourceTree = "<group>";
+		};
+		EE9FC86B20F91AF50078624B /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				EE9FC86C20F91B1B0078624B /* AccountRecoverWayTVC.swift */,
+				EE9FC86E20F91C110078624B /* AccountRecEmailSVC.swift */,
+				EE9FC87020F91F400078624B /* AccountRecPhoneNumberSVC.swift */,
+				EE9FC87220F922AA0078624B /* AccountRecCodeSVC.swift */,
+				EE9FC87420F92C6A0078624B /* AccountRecPasswordSVC.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		EE9FC87A20F940E50078624B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EE9FC87B20F941430078624B /* ProfileTVC.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		EEBC6E3F20F65B7D00CB5DC2 /* ExtenalCustomViews */ = {
@@ -162,6 +213,7 @@
 		EEC956FA20F524C4007A3066 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EE9FC85B20F8E6A60078624B /* AppLoginVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,6 +252,7 @@
 			children = (
 				EE84922620F6349A009D750F /* UIAlertControllerShortcuts.swift */,
 				EED9D2FE20F53B8900C5ACF7 /* ExternalHelpers */,
+				EE9FC85920F8CC470078624B /* NotificationBannerShortcuts.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -207,6 +260,7 @@
 		EED9D2FE20F53B8900C5ACF7 /* ExternalHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				EE9FC87F20F944560078624B /* Listener.swift */,
 				EEBC6E4620F66BAA00CB5DC2 /* JLExtensions.swift */,
 				EE84922A20F636A5009D750F /* JLProgressView.swift */,
 				EED9D2FF20F53BB700C5ACF7 /* RequestManager.swift */,
@@ -229,6 +283,7 @@
 				EE84922020F63094009D750F /* SignUpEmailSVC.swift */,
 				EE84922820F63645009D750F /* AppSignUpDelegate.swift */,
 				EEBC6E2B20F6481F00CB5DC2 /* FinishSignUpVC.swift */,
+				EE9FC86120F90A660078624B /* AlternativeSignUpCodeSVC.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -293,8 +348,10 @@
 				EEEB4CAF20F52474005DF444 /* Main.storyboard */,
 				EEEB4CB420F52476005DF444 /* LaunchScreen.storyboard */,
 				EE81CB9D20F5369C00283C29 /* SignUp.storyboard */,
+				EE9FC86820F9141A0078624B /* AccountRecover.storyboard */,
 				EEBC6E2D20F6486000CB5DC2 /* Login.storyboard */,
 				EEBC6E3220F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard */,
+				EE9FC87620F93F350078624B /* Profile.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -302,6 +359,8 @@
 		EEEB4CBD20F524A4005DF444 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE9FC87A20F940E50078624B /* Profile */,
+				EE9FC86B20F91AF50078624B /* ForgotPassword */,
 				EED9D31A20F544F100C5ACF7 /* SignUp */,
 				EEEB4CAA20F52474005DF444 /* ViewController.swift */,
 				EEBC6E3920F64D1A00CB5DC2 /* ExtendedLaunchScreenVC.swift */,
@@ -375,7 +434,9 @@
 				EEBC6E3420F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard in Resources */,
 				EEEB4CB620F52476005DF444 /* LaunchScreen.storyboard in Resources */,
 				EE81CB9F20F5369C00283C29 /* SignUp.storyboard in Resources */,
+				EE9FC86A20F9141A0078624B /* AccountRecover.storyboard in Resources */,
 				EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */,
+				EE9FC87720F93F350078624B /* Profile.storyboard in Resources */,
 				EEEB4CB120F52474005DF444 /* Main.storyboard in Resources */,
 				EED9D30F20F53C1200C5ACF7 /* Assets.xcassets in Resources */,
 			);
@@ -409,11 +470,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NuSignUp/NuSignUp.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NuSignUp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -429,7 +500,9 @@
 			files = (
 				EEBC6E4520F66AD400CB5DC2 /* LoginVC.swift in Sources */,
 				EED9D2F120F5385300C5ACF7 /* Verifications.swift in Sources */,
+				EE9FC86020F8F9F40078624B /* AppSingleton+HelperMethods.swift in Sources */,
 				EEBC6E2C20F6481F00CB5DC2 /* FinishSignUpVC.swift in Sources */,
+				EE9FC86F20F91C110078624B /* AccountRecEmailSVC.swift in Sources */,
 				EE84921B20F6306F009D750F /* SignUpCheckDataStepVC.swift in Sources */,
 				EEBC6E4220F65BA100CB5DC2 /* LinedTextField.swift in Sources */,
 				EE84921C20F6306F009D750F /* SignUpPhoneNumberSVC.swift in Sources */,
@@ -440,13 +513,17 @@
 				EEEB4CAB20F52474005DF444 /* ViewController.swift in Sources */,
 				EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */,
 				EE84921D20F6306F009D750F /* NuSignUpCheckDataStepC.swift in Sources */,
+				EE9FC87C20F941430078624B /* ProfileTVC.swift in Sources */,
 				EE720F6220F7A11800EBA122 /* AppSingleton+UserReqs.swift in Sources */,
+				EE9FC87520F92C6A0078624B /* AccountRecPasswordSVC.swift in Sources */,
 				EE84922720F6349B009D750F /* UIAlertControllerShortcuts.swift in Sources */,
 				EED9D2EC20F5383A00C5ACF7 /* Api.swift in Sources */,
 				EED9D2F720F5389100C5ACF7 /* AppSingleton.swift in Sources */,
 				EED9D2F520F5386300C5ACF7 /* GenericUser.swift in Sources */,
 				EE84922220F63094009D750F /* FirstStepSVC.swift in Sources */,
+				EE9FC85E20F8EDE20078624B /* AppSingleton+Auth.swift in Sources */,
 				EE720F5B20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift in Sources */,
+				EE9FC86D20F91B1B0078624B /* AccountRecoverWayTVC.swift in Sources */,
 				EED9D32920F5534500C5ACF7 /* NuNavigationBar.swift in Sources */,
 				EEBC6E4720F66BAA00CB5DC2 /* JLExtensions.swift in Sources */,
 				EED9D2ED20F5383A00C5ACF7 /* ApiError.swift in Sources */,
@@ -454,13 +531,19 @@
 				EED9D31920F543CA00C5ACF7 /* User.swift in Sources */,
 				EED9D30220F53BB800C5ACF7 /* RequestManager+Alamofire.swift in Sources */,
 				EED9D2F220F5385300C5ACF7 /* Users.swift in Sources */,
+				EE9FC86220F90A660078624B /* AlternativeSignUpCodeSVC.swift in Sources */,
 				EED9D32120F549AE00C5ACF7 /* NuButton.swift in Sources */,
+				EE9FC85C20F8E6A60078624B /* AppLoginVM.swift in Sources */,
 				EE84922920F63645009D750F /* AppSignUpDelegate.swift in Sources */,
 				EE84921A20F6306F009D750F /* SignUpPasswordSVC.swift in Sources */,
 				EE84922320F63094009D750F /* SignUpEmailSVC.swift in Sources */,
 				EEBC6E4320F65BA100CB5DC2 /* TitledTextField.swift in Sources */,
+				EE9FC85A20F8CC470078624B /* NotificationBannerShortcuts.swift in Sources */,
 				EED9D31120F53C1200C5ACF7 /* EnvVariables.swift in Sources */,
+				EE9FC87320F922AA0078624B /* AccountRecCodeSVC.swift in Sources */,
+				EE9FC88020F944560078624B /* Listener.swift in Sources */,
 				EE84922120F63094009D750F /* SignUpCodeSVC.swift in Sources */,
+				EE9FC87120F91F400078624B /* AccountRecPhoneNumberSVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +557,15 @@
 				EEBC6E3820F64B0E00CB5DC2 /* pt-BR */,
 			);
 			name = SignUp.storyboard;
+			sourceTree = "<group>";
+		};
+		EE9FC86820F9141A0078624B /* AccountRecover.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE9FC86920F9141A0078624B /* Base */,
+				EE9FC87920F9400E0078624B /* pt-BR */,
+			);
+			name = AccountRecover.storyboard;
 			sourceTree = "<group>";
 		};
 		EEBC6E2D20F6486000CB5DC2 /* Login.storyboard */ = {
@@ -497,7 +589,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EEEB4CB020F52474005DF444 /* Base */,
-				EED9D31E20F5492C00C5ACF7 /* pt-BR */,
+				EE9FC87E20F943A80078624B /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

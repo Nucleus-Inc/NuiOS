@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -135,6 +136,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
                                 <state key="normal" title="Forgot Password ?"/>
+                                <connections>
+                                    <segue destination="ATO-XE-rVU" kind="presentation" id="EMF-ck-g6Y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,7 +163,8 @@
                         <outlet property="logoImageView" destination="DOJ-u9-fil" id="SPy-gE-ON3"/>
                         <outlet property="passwordTF" destination="c3m-xI-MwL" id="E9I-G7-Sux"/>
                         <outlet property="usernameTF" destination="h0w-7F-4jO" id="t5E-lh-wjX"/>
-                        <segue destination="VnT-se-Jdm" kind="presentation" identifier="enter" id="bZa-95-H2f"/>
+                        <segue destination="VnT-se-Jdm" kind="presentation" identifier="login" id="bZa-95-H2f"/>
+                        <segue destination="kRs-xZ-fOl" kind="presentation" identifier="accountActivation" id="lly-s2-ZIR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5S-Eb-3bd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,7 +177,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="VnT-se-Jdm" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mm4-E7-Rm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="85"/>
+            <point key="canvasLocation" x="590" y="81"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="8fu-le-bW0">
@@ -180,7 +185,23 @@
                 <viewControllerPlaceholder storyboardName="SignUp" id="QMj-6i-ZuO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xDT-ai-v3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602" y="131"/>
+            <point key="canvasLocation" x="602" y="128"/>
+        </scene>
+        <!--AccountRecover-->
+        <scene sceneID="ZiP-XU-Wsa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AccountRecover" id="ATO-XE-rVU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pis-uk-Fgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="646" y="185"/>
+        </scene>
+        <!--AlternativeAccountActivation-->
+        <scene sceneID="loY-bA-ydc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUp" referencedIdentifier="AlternativeAccountActivation" id="kRs-xZ-fOl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NE0-EF-svz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="673" y="-8"/>
         </scene>
     </scenes>
 </document>

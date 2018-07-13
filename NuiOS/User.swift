@@ -13,6 +13,7 @@ class User:GenericUser,Codable{
     typealias AccountType = UserAccount
     typealias ProfileType = UserProfile
     
+    var _id:String?
     var account: UserAccount?
     var profile: UserProfile?
     

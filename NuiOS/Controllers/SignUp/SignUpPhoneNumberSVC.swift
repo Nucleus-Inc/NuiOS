@@ -54,18 +54,6 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
         self.answerInfoTF.textColor = defaultColor
     }
     
-    private func showActivity(){
-        let view = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        view.hidesWhenStopped = true
-        view.startAnimating()
-        self.answerTF.rightView = view
-        self.answerTF.rightViewMode = .always
-    }
-    
-    private func hideActivity(){
-        self.answerTF.rightView = nil
-        self.answerTF.rightViewMode = .never
-    }
     
     override func didChangeText(_ sender: Any) {
         if let maskRegex = maskRegex, let replacement = replacementRole{
@@ -82,18 +70,18 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
     private func validatePhoneNumberOnServer(){
         self.loadingMode(Loading: true)
         
-        showActivity()
-
+        showValidationActivity()
+        
         AppSingleton.shared.checkAvailabilityOf(Key: unmaskedAnswer ?? "", KeyType: .phoneNumber) { (success, isAvailable) in
             DispatchQueue.main.async {
-                self.hideActivity()
+                self.hideValidationActivity()
                 self.loadingMode(Loading: false)
                 if success{
                     if isAvailable{
                         
                         self.isServerSideValid = true
                         print("Add answer on answers")
-                        self.delegate.addStepAnswer(answer: self.stepAnswer!, forKey: self.key)
+                        self.delegate.addStepAnswer(answer: self.unmaskedAnswer!, forKey: self.key)
                         self.goToNextStep()
                         
                     }
@@ -103,12 +91,11 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
                         self.lastInvalidNumbers.append(self.stepAnswer!)
                         self.showAnswerInfoErrMessage()
                         
-                        UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This phone number is in use. Try another one.", OKAction: nil)
+                        //UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This phone number is in use. Try another one.", OKAction: nil)
                     }
                 }
                 else{
                     self.answerTF.becomeFirstResponder()
-                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "It was not possible to validate your phone number.", OKAction: nil)
                 }
             }
         }

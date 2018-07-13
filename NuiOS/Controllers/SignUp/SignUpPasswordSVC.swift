@@ -144,7 +144,7 @@ class SignUpPasswordSVC: SignUpStepVC, UITextFieldDelegate {
     }
 
     
-    private func checkEquality()->Bool{
+    func checkEquality()->Bool{
         if let text = answerTF.text{
             if let confirmationText = confirmationTF.text{
                 return confirmationText.compare(text) == ComparisonResult.orderedSame

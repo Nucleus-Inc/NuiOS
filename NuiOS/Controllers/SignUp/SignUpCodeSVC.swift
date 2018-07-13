@@ -31,7 +31,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     //private var maskDelegate:MaskedTextFieldDelegate?
     var lastInvalidCodes:[String] = []
 
-    private var codeDelegate:SignUpCodeDelegate = SignUpCodeDelegate()
+    var codeDelegate:SignUpCodeDelegate = SignUpCodeDelegate()
         
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -89,7 +89,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
         }
     }
     
-    private func typedCode()->String?{
+    func typedCode()->String?{
         var code:String?
         for codeTF in codeTFs{
             if let number = codeTF.text{
@@ -126,7 +126,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     
     @IBAction func codeNotReceivedAction(_ sender: UIButton) {
         self.view.endEditing(true)
-        let alertC = UIAlertController(title: "Validation", message: "Send code again", preferredStyle: .actionSheet)
+        let alertC = UIAlertController(title: "Account Activation", message: "Send code again", preferredStyle: .actionSheet)
         
         if let unmaskedNumber = self.delegate.answers!["phoneNumber"] as? String{
             let toNumber = UIAlertAction(title: "SMS - "+unmaskedNumber, style: .default) { (_) in
@@ -165,49 +165,51 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
 
     internal func sendCodeAgain(By by:CodeTransport = .sms){
         print("Method to request code again")
+        if let id = AppSingleton.shared.user?._id{
+            AppSingleton.shared.reqActivationCode(ForUserID: id, By: by)
+        }
     }
     
     /**
      This method tries to validate the current account with typed code
      */
     private func validateAccount(){
-        let alert = UIAlertController(title: "Validating", message: nil, preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
-        
-        self.loadingMode(Loading: true)
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let success = true
-            let validCode = true
-            DispatchQueue.main.async {
-                self.codeDelegate.isServerSideValid = validCode
-                alert.dismiss(animated: true, completion: {
-                    
-                    self.loadingMode(Loading: false)
-                    
-                    if success && validCode{
-                        UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Account Validation", Message: "Your account was validated with success.", OKAction: { (_) in
-                            self.goToNextStep()
-                        })
-                    }
-                    else{
+        if let id = AppSingleton.shared.user?._id, let code = typedCode(){
+            let alert = UIAlertController(title: "Validating", message: nil, preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            
+            self.loadingMode(Loading: true)
+
+            AppSingleton.shared.activateAccount(OfUserID: id, WithCode: code) { (success, validCode) in
+                DispatchQueue.main.async {
+                    self.codeDelegate.isServerSideValid = validCode
+                    alert.dismiss(animated: true, completion: {
                         
-                        if !validCode{
-                            self.lastInvalidCodes.append(self.typedCode()!)
-                            self.clearCode()
+                        self.loadingMode(Loading: false)
+                        
+                        if success && validCode{
+                            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Account Activation", Message: "Your account was activated with success.", OKAction: { (_) in
+                                self.goToNextStep()
+                            })
                         }
                         else{
-                            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Error", Message: "It was not possible to validate your account.")
+                            if !validCode{
+                                self.lastInvalidCodes.append(self.typedCode()!)
+                                self.clearCode()
+                            }
+                            else{
+                                //UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Error", Message: "It was not possible to validate your account.")
+                            }
                         }
-                    }
+                        
+                        self.updateAnswerInfoMessage()
+                        
+                    })
                     
-                    self.updateAnswerInfoMessage()
-                    
-                })
-                
+                }
             }
         }
+
     }
     
     
@@ -254,7 +256,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     
     internal func setUpQuestionInfoLabel(){
         let number = (self.delegate.answers!["phoneNumber"] as! String)
-        questionInfoLabel.text = "A SMS was send to the number "+number+". This is only an example so any code is valid ;)"
+        questionInfoLabel.text = "A SMS was send to the number "+number+"."
     }
 
     //MARK: - UITextField methods

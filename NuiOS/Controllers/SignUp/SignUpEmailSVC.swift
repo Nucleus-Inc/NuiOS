@@ -76,27 +76,13 @@ class SignUpEmailSVC: SignUpNameSVC {
         delegate.addStepAnswer(answer: email, forKey: key)
     }
     
-    
-    private func showActivity(){
-        let view = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        view.hidesWhenStopped = true
-        view.startAnimating()
-        self.answerTF.rightView = view
-        self.answerTF.rightViewMode = .always
-    }
-    
-    private func hideActivity(){
-        self.answerTF.rightView = nil
-        self.answerTF.rightViewMode = .never
-    }
-    
     private func validateEmailOnServer(){
         
         self.loadingMode(Loading: true)
-        showActivity()
+        showValidationActivity()
         AppSingleton.shared.checkAvailabilityOf(Key: answerTF.text ?? "", KeyType: .email) { (success, isAvailable) in
             DispatchQueue.main.async {
-                self.hideActivity()
+                self.hideValidationActivity()
                 self.loadingMode(Loading: false)
                 
                 if success{
@@ -114,13 +100,12 @@ class SignUpEmailSVC: SignUpNameSVC {
                         self.lastInvalidEmails.append(self.answerTF.text!)
                         self.showAnswerInfoErrMessage("This email is in use")
                         
-                        UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This email is in use. Try another one.", OKAction: nil)
+                        //UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This email is in use. Try another one.", OKAction: nil)
                     }
                 }
                 else{
                     self.answerTF.becomeFirstResponder()
-                    
-                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "It was not possible to validate your email.", OKAction: nil)
+                    //UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "It was not possible to validate your email.", OKAction: nil)
                 }
             }
         }

@@ -206,3 +206,16 @@ fileprivate extension Dictionary{
     }
 }
 
+extension Encodable{
+    func toJSON()->[String:Any]?{
+        do{
+            let data = try JSONEncoder().encode(self)
+            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any]
+            return json
+        }
+        catch{
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+}

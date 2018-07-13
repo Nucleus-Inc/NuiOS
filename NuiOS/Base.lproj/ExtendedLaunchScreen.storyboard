@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,6 +36,7 @@
                     <connections>
                         <segue destination="bXv-GB-YjG" kind="presentation" identifier="loginSilently" modalTransitionStyle="crossDissolve" id="QT2-Pr-t2H"/>
                         <segue destination="102-JA-Uk8" kind="presentation" identifier="login" modalTransitionStyle="crossDissolve" id="8Ky-cc-94B"/>
+                        <segue destination="6P0-bc-tnT" kind="presentation" identifier="accountActivation" modalTransitionStyle="crossDissolve" id="0lP-gT-hTA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJE-4V-aDA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,6 +58,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfb-Jw-wL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="634" y="427"/>
+        </scene>
+        <!--AlternativeAccountActivation-->
+        <scene sceneID="d6c-Pn-f4K">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUp" referencedIdentifier="AlternativeAccountActivation" id="6P0-bc-tnT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e45-ft-Un0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="714" y="526"/>
         </scene>
     </scenes>
 </document>

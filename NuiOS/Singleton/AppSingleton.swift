@@ -29,4 +29,5 @@ class AppSingleton{
     private init(){}
     
     var user:User?
+    
 }

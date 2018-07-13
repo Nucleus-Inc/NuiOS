@@ -11,30 +11,26 @@ import Foundation
 typealias ResponseCode = String
 
 struct ApiError:Decodable{
-    var httpCode:Int
-    var response: Response
+    //var httpCode:Int
+    //var response: Response
+    var errorCode:ResponseCode
+    var description:String
     
-    
-    struct Response:Decodable{
-        var errorCode:ResponseCode
-        var description:String
+    struct Code{
+        static let REQ001:ResponseCode = "REQ-001"
+        static let REQ002:ResponseCode = "REQ-002"
+        static let REQ003:ResponseCode = "REQ-003"
         
-        struct Code{
-            static let REQ001:ResponseCode = "REQ-001"
-            static let REQ002:ResponseCode = "REQ-002"
-            static let REQ003:ResponseCode = "REQ-003"
-            
-            static let AUT001:ResponseCode = "AUT-001"
-            static let AUT002:ResponseCode = "AUT-002"
-            static let AUT003:ResponseCode = "AUT-003"
-            static let AUT004:ResponseCode = "AUT-004"
-            static let AUT005:ResponseCode = "AUT-005"
-            static let AUT006:ResponseCode = "AUT-006"
-            
-            static let SRV001:ResponseCode = "SRV-001"
-        }
+        static let AUT001:ResponseCode = "AUT-001"
+        static let AUT002:ResponseCode = "AUT-002"
+        static let AUT003:ResponseCode = "AUT-003"
+        static let AUT004:ResponseCode = "AUT-004"
+        static let AUT005:ResponseCode = "AUT-005"
+        static let AUT006:ResponseCode = "AUT-006"
+        
+        static let SRV001:ResponseCode = "SRV-001"
     }
-    
+
     /*
     enum Code:String,Codable{
         case REQ001 = "REQ-001"
