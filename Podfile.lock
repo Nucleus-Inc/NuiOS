@@ -14,14 +14,6 @@ DEPENDENCIES:
   - NuSignUp (from `https://github.com/Nucleus-Inc/NuSignUp.git`)
   - UICKeyChainStore (~> 2.1.1)
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - JWTDecode
-    - MarqueeLabel
-    - NotificationBannerSwift
-    - SnapKit
-    - UICKeyChainStore
-
 EXTERNAL SOURCES:
   NuSignUp:
     :git: https://github.com/Nucleus-Inc/NuSignUp.git
@@ -39,6 +31,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
 
-PODFILE CHECKSUM: 3866770f0495fd3743e6cfd0144ce44d2de2a255
+PODFILE CHECKSUM: 9a5272e639293ae2edafa1e5c9683c5eecf12523
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0

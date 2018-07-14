@@ -47,6 +47,7 @@ class AccountRecPasswordSVC: SignUpPasswordSVC {
                             alertC.dismiss(animated: true, completion: {
                                 if success{
                                     UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Recovery Account", Message: "Password updated with success.",OKAction:{(_) in
+                                        self.view.endEditing(true)
                                         self.navigationController?.dismiss(animated: true, completion: nil)
                                     })
                                 }

@@ -10,6 +10,16 @@ import Foundation
 
 extension AppSingleton{
     //MARK: - Login
+    private func processOnFailure(apiError:ApiError?,reqError:Error?){
+        guard let e = reqError else{
+            //check error on response.data
+            if let apiError = apiError{
+                NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
+            }
+            return
+        }
+        NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+    }
     
     func signinWith(Username username:String,Password pass:String,completion:@escaping(_ success:Bool)->Void){
         let endpoint = Users.signin(email: username, password: pass)
@@ -81,14 +91,7 @@ extension AppSingleton{
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
             completion(false,false)
-            guard let e = reqError else{
-                //check error on response.data
-                if let apiError = response.data{
-                    NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
-                }
-                return
-            }
-            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+            self.processOnFailure(apiError: response.data, reqError: reqError)
         }
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
     }
@@ -105,14 +108,7 @@ extension AppSingleton{
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
             completion(false)
-            guard let e = reqError else{
-                //check error on response.data
-                if let apiError = response.data{
-                    NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
-                }
-                return
-            }
-            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+            self.processOnFailure(apiError: response.data, reqError: reqError)
         }
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
     }
@@ -125,14 +121,7 @@ extension AppSingleton{
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
             completion(false)
-            guard let e = reqError else{
-                //check error on response.data
-                if let apiError = response.data{
-                    NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
-                }
-                return
-            }
-            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+            self.processOnFailure(apiError: response.data, reqError: reqError)
         }
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
     }
@@ -214,4 +203,45 @@ extension AppSingleton{
     }
     
     
+    //MARK: - Account and Profile Changes
+    
+    func updatePassword(Current current:String, New new:String,completion:@escaping(_ success:Bool)->Void){
+        
+        if let id = user?._id, let jwt = UserAuth.getToken(){
+            let endpoint = Users.Account.updatePassword(userID: id, current: current, newPassword: new, jwt: jwt)
+            let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: Any.self) { (response, urlResponse) in
+                UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
+                completion(true)
+            }
+            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                completion(false)
+                self.processOnFailure(apiError: response.data, reqError: reqError)
+            }
+            
+            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+        }
+        else{
+            completion(false)
+        }
+    }
+    
+    func updateName(name:String,completion:((_ success:Bool)->Void)?=nil){
+        if let id = user?._id, let jwt = UserAuth.getToken(){
+            let endpoint = Users.Account.updateName(userID: id, name: name, jwt: jwt)
+            let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
+                if let account = response.data?.account{
+                    self.user?.account = account
+                }
+                completion?(true)
+            }
+            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                self.processOnFailure(apiError: response.data, reqError: reqError)
+            }
+            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+        }
+        else{
+            completion?(false)
+            NotificationBannerShortcuts.showErrBanner(title: "Update Name Failure", subtitle: "It was not possible to update your name.")
+        }
+    }
 }
