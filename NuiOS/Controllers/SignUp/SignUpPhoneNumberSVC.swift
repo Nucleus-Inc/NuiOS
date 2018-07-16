@@ -9,8 +9,8 @@ import UIKit
 import NuSignUp
 
 class SignUpPhoneNumberSVC: SignUpNameSVC {
-    var maskRegex:String? = "([0-9]{2})([0-9]{5})([0-9]{4})" //"([0-9]{3})([0-9]{3})([0-9]{4})" // USA
-    var replacementRole:String? = "+55 ($1) $2-$3" //"+1 ($1) $2-$3" //USA
+    var maskRegex:String? = SignUpMask.brPhone.mask.regex //"([0-9]{3})([0-9]{3})([0-9]{4})" // USA
+    var replacementRole:String? = SignUpMask.brPhone.mask.format //"+1 ($1) $2-$3" //USA
 
     private var defaultMessage:String?
     private var defaultColor:UIColor?

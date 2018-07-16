@@ -226,6 +226,11 @@ extension AppSingleton{
     }
     
     func updateName(name:String,completion:((_ success:Bool)->Void)?=nil){
+        if name.isEmpty{
+            NotificationBannerShortcuts.showErrBanner(title: "Update Name Failure", subtitle: "Your name can not be blank.")
+            return
+        }
+        
         if let id = user?._id, let jwt = UserAuth.getToken(){
             let endpoint = Users.Account.updateName(userID: id, name: name, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in

@@ -15,7 +15,17 @@ struct ProfileTVCCellsIDs{
     static let phoneNumberCell = "phoneNumberCell"
 }
 
-class ProfileTVC: UITableViewController {
+protocol ProfileVCViewModel{
+    var user:User?{get}
+    var name:String?{get set}
+    var email:String?{get}
+    var phoneNumber:String?{get}
+    
+    func reloadValues()
+    func updateName(newName:String,completion:((_ success:Bool)->Void)?)
+}
+
+class ProfileTVC: UITableViewController,UITextFieldDelegate {
 
     @IBOutlet weak var addImageLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
@@ -23,25 +33,29 @@ class ProfileTVC: UITableViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     
+    var viewModel:ProfileVCViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = ProfileVM()
         setUpImageView()
         loadUserData()
         self.tableView.tableFooterView = UIView()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+    //MARK: - TextField methods
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let newName = textField.text ?? ""
+        viewModel?.updateName(newName: newName, completion: nil)
+        return true
+    }
+    
     //MARK: - ImageView methods
     
     func setImageWith(URL url:String){
@@ -75,8 +89,6 @@ class ProfileTVC: UITableViewController {
         self.present(alertC, animated: true, completion: nil)
     }
     
-    
-    
     //MARK: - Methods
     
     func loadUserData(){
@@ -105,8 +117,6 @@ class ProfileTVC: UITableViewController {
         
         self.present(alertC, animated: true, completion: nil)
     }
-
-    
     
     // MARK: - Table view data source
 

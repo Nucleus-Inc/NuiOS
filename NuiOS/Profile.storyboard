@@ -70,6 +70,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="npr-BO-WaH" id="EAs-LF-xgC"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

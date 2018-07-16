@@ -43,7 +43,8 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
             return ("Name",name)
         case 1:
             let phoneNumber = answers["phoneNumber"] as! String
-            return ("Phone number",phoneNumber)
+            let maskedNumber = SignUpMask.brPhone.applyOnText(text: phoneNumber)
+            return ("Phone number",maskedNumber)
         case 2:
             return ("E-mail",answers["email"] as? String)
         case 3:
