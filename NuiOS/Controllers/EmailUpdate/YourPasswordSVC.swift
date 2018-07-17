@@ -1,19 +1,19 @@
 //
-//  FinishSignUpVC.swift
+//  YourPasswordSVC.swift
 //  NuiOS
 //
-//  Created by Nucleus on 11/07/2018.
+//  Created by Nucleus on 17/07/2018.
 //  Copyright © 2018 Nucleus. All rights reserved.
 //
 
 import UIKit
 import NuSignUp
 
-class FinishSignUpVC: UIViewController {
+class YourPasswordSVC: SignUpNameSVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        SignUpStack.config.finishSignUp()
+
         // Do any additional setup after loading the view.
     }
 
@@ -22,7 +22,10 @@ class FinishSignUpVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func closeBtnAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

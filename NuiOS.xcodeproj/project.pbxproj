@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3FDB6D20FE485700CC166F /* EmailUpdate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB6B20FE485700CC166F /* EmailUpdate.storyboard */; };
+		EE3FDB7020FE486100CC166F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB6E20FE486100CC166F /* Profile.storyboard */; };
+		EE3FDB7720FE4DCD00CC166F /* YourPasswordSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB7620FE4DCD00CC166F /* YourPasswordSVC.swift */; };
+		EE3FDB7920FE4F1200CC166F /* ConfirmationCodeSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB7820FE4F1200CC166F /* ConfirmationCodeSVC.swift */; };
+		EE3FDB7B20FE550300CC166F /* ConfirmCodeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB7A20FE550300CC166F /* ConfirmCodeVM.swift */; };
+		EE3FDB7D20FE5BBB00CC166F /* NewEmailSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB7C20FE5BBB00CC166F /* NewEmailSVC.swift */; };
+		EE3FDB8220FE7CBE00CC166F /* PhoneNumberUpdate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB8020FE7CBD00CC166F /* PhoneNumberUpdate.storyboard */; };
+		EE3FDB8520FE7D0C00CC166F /* NewPhoneNumberSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB8420FE7D0C00CC166F /* NewPhoneNumberSVC.swift */; };
 		EE4BC88620FCAFA60086B752 /* SignUpMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BC88520FCAFA60086B752 /* SignUpMask.swift */; };
 		EE4BC88820FCEA9A0086B752 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BC88720FCEA9A0086B752 /* ProfileVM.swift */; };
 		EE720F5B20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE720F5A20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift */; };
@@ -34,7 +42,6 @@
 		EE9FC87120F91F400078624B /* AccountRecPhoneNumberSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87020F91F400078624B /* AccountRecPhoneNumberSVC.swift */; };
 		EE9FC87320F922AA0078624B /* AccountRecCodeSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87220F922AA0078624B /* AccountRecCodeSVC.swift */; };
 		EE9FC87520F92C6A0078624B /* AccountRecPasswordSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87420F92C6A0078624B /* AccountRecPasswordSVC.swift */; };
-		EE9FC87720F93F350078624B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE9FC87620F93F350078624B /* Profile.storyboard */; };
 		EE9FC87C20F941430078624B /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87B20F941430078624B /* ProfileTVC.swift */; };
 		EE9FC88020F944560078624B /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC87F20F944560078624B /* Listener.swift */; };
 		EEBC6E2C20F6481F00CB5DC2 /* FinishSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC6E2B20F6481F00CB5DC2 /* FinishSignUpVC.swift */; };
@@ -71,6 +78,17 @@
 		073FF8913C811AD802EE95E8 /* Pods-NuiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NuiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		96218C56F035F20BF747D012 /* Pods-NuiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NuiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS.release.xcconfig"; sourceTree = "<group>"; };
 		BC10D17AFD24A0CF8001C24F /* Pods_NuiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NuiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE3FDB6C20FE485700CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EmailUpdate.storyboard; sourceTree = "<group>"; };
+		EE3FDB6F20FE486100CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		EE3FDB7420FE48E200CC166F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Profile.strings"; sourceTree = "<group>"; };
+		EE3FDB7620FE4DCD00CC166F /* YourPasswordSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPasswordSVC.swift; sourceTree = "<group>"; };
+		EE3FDB7820FE4F1200CC166F /* ConfirmationCodeSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeSVC.swift; sourceTree = "<group>"; };
+		EE3FDB7A20FE550300CC166F /* ConfirmCodeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeVM.swift; sourceTree = "<group>"; };
+		EE3FDB7C20FE5BBB00CC166F /* NewEmailSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmailSVC.swift; sourceTree = "<group>"; };
+		EE3FDB8120FE7CBD00CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PhoneNumberUpdate.storyboard; sourceTree = "<group>"; };
+		EE3FDB8420FE7D0C00CC166F /* NewPhoneNumberSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhoneNumberSVC.swift; sourceTree = "<group>"; };
+		EE3FDB8920FE7F3300CC166F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/EmailUpdate.strings"; sourceTree = "<group>"; };
+		EE3FDB8D20FE800200CC166F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/PhoneNumberUpdate.strings"; sourceTree = "<group>"; };
 		EE4BC88520FCAFA60086B752 /* SignUpMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpMask.swift; sourceTree = "<group>"; };
 		EE4BC88720FCEA9A0086B752 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		EE720F5820F7771F00EBA122 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Login.strings"; sourceTree = "<group>"; };
@@ -99,7 +117,6 @@
 		EE9FC87020F91F400078624B /* AccountRecPhoneNumberSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecPhoneNumberSVC.swift; sourceTree = "<group>"; };
 		EE9FC87220F922AA0078624B /* AccountRecCodeSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecCodeSVC.swift; sourceTree = "<group>"; };
 		EE9FC87420F92C6A0078624B /* AccountRecPasswordSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecPasswordSVC.swift; sourceTree = "<group>"; };
-		EE9FC87620F93F350078624B /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		EE9FC87920F9400E0078624B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/AccountRecover.strings"; sourceTree = "<group>"; };
 		EE9FC87B20F941430078624B /* ProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
 		EE9FC87E20F943A80078624B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -165,6 +182,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EE3FDB7520FE4D7400CC166F /* EmailUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				EE3FDB7620FE4DCD00CC166F /* YourPasswordSVC.swift */,
+				EE3FDB7820FE4F1200CC166F /* ConfirmationCodeSVC.swift */,
+				EE3FDB7C20FE5BBB00CC166F /* NewEmailSVC.swift */,
+			);
+			path = EmailUpdate;
+			sourceTree = "<group>";
+		};
+		EE3FDB8320FE7CDA00CC166F /* PhoneNumberUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				EE3FDB8420FE7D0C00CC166F /* NewPhoneNumberSVC.swift */,
+			);
+			path = PhoneNumberUpdate;
+			sourceTree = "<group>";
+		};
 		EE720F5920F78FA000EBA122 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +254,7 @@
 			children = (
 				EE9FC85B20F8E6A60078624B /* AppLoginVM.swift */,
 				EE4BC88720FCEA9A0086B752 /* ProfileVM.swift */,
+				EE3FDB7A20FE550300CC166F /* ConfirmCodeVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -351,13 +387,15 @@
 		EEEB4CAE20F52474005DF444 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EE3FDB6E20FE486100CC166F /* Profile.storyboard */,
+				EE3FDB6B20FE485700CC166F /* EmailUpdate.storyboard */,
+				EE3FDB8020FE7CBD00CC166F /* PhoneNumberUpdate.storyboard */,
 				EEEB4CAF20F52474005DF444 /* Main.storyboard */,
 				EEEB4CB420F52476005DF444 /* LaunchScreen.storyboard */,
 				EE81CB9D20F5369C00283C29 /* SignUp.storyboard */,
 				EE9FC86820F9141A0078624B /* AccountRecover.storyboard */,
 				EEBC6E2D20F6486000CB5DC2 /* Login.storyboard */,
 				EEBC6E3220F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard */,
-				EE9FC87620F93F350078624B /* Profile.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -365,6 +403,8 @@
 		EEEB4CBD20F524A4005DF444 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE3FDB8320FE7CDA00CC166F /* PhoneNumberUpdate */,
+				EE3FDB7520FE4D7400CC166F /* EmailUpdate */,
 				EE9FC87A20F940E50078624B /* Profile */,
 				EE9FC86B20F91AF50078624B /* ForgotPassword */,
 				EED9D31A20F544F100C5ACF7 /* SignUp */,
@@ -437,12 +477,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE720F6020F79F3000EBA122 /* Info.plist in Resources */,
+				EE3FDB6D20FE485700CC166F /* EmailUpdate.storyboard in Resources */,
+				EE3FDB7020FE486100CC166F /* Profile.storyboard in Resources */,
 				EEBC6E3420F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard in Resources */,
 				EEEB4CB620F52476005DF444 /* LaunchScreen.storyboard in Resources */,
 				EE81CB9F20F5369C00283C29 /* SignUp.storyboard in Resources */,
 				EE9FC86A20F9141A0078624B /* AccountRecover.storyboard in Resources */,
 				EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */,
-				EE9FC87720F93F350078624B /* Profile.storyboard in Resources */,
+				EE3FDB8220FE7CBE00CC166F /* PhoneNumberUpdate.storyboard in Resources */,
 				EEEB4CB120F52474005DF444 /* Main.storyboard in Resources */,
 				EED9D30F20F53C1200C5ACF7 /* Assets.xcassets in Resources */,
 			);
@@ -511,15 +553,19 @@
 				EE9FC86F20F91C110078624B /* AccountRecEmailSVC.swift in Sources */,
 				EE84921B20F6306F009D750F /* SignUpCheckDataStepVC.swift in Sources */,
 				EEBC6E4220F65BA100CB5DC2 /* LinedTextField.swift in Sources */,
+				EE3FDB7720FE4DCD00CC166F /* YourPasswordSVC.swift in Sources */,
 				EE84921C20F6306F009D750F /* SignUpPhoneNumberSVC.swift in Sources */,
 				EEBC6E3A20F64D1A00CB5DC2 /* ExtendedLaunchScreenVC.swift in Sources */,
+				EE3FDB7920FE4F1200CC166F /* ConfirmationCodeSVC.swift in Sources */,
 				EED9D32520F54C9A00C5ACF7 /* SignUpNavController.swift in Sources */,
 				EED9D32720F54F1500C5ACF7 /* SignUpPreStepVC.swift in Sources */,
 				EE84922B20F636A5009D750F /* JLProgressView.swift in Sources */,
+				EE3FDB7D20FE5BBB00CC166F /* NewEmailSVC.swift in Sources */,
 				EEEB4CAB20F52474005DF444 /* ViewController.swift in Sources */,
 				EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */,
 				EE84921D20F6306F009D750F /* NuSignUpCheckDataStepC.swift in Sources */,
 				EE9FC87C20F941430078624B /* ProfileTVC.swift in Sources */,
+				EE3FDB8520FE7D0C00CC166F /* NewPhoneNumberSVC.swift in Sources */,
 				EE720F6220F7A11800EBA122 /* AppSingleton+UserReqs.swift in Sources */,
 				EE9FC87520F92C6A0078624B /* AccountRecPasswordSVC.swift in Sources */,
 				EE84922720F6349B009D750F /* UIAlertControllerShortcuts.swift in Sources */,
@@ -546,6 +592,7 @@
 				EE84922320F63094009D750F /* SignUpEmailSVC.swift in Sources */,
 				EEBC6E4320F65BA100CB5DC2 /* TitledTextField.swift in Sources */,
 				EE9FC85A20F8CC470078624B /* NotificationBannerShortcuts.swift in Sources */,
+				EE3FDB7B20FE550300CC166F /* ConfirmCodeVM.swift in Sources */,
 				EED9D31120F53C1200C5ACF7 /* EnvVariables.swift in Sources */,
 				EE9FC87320F922AA0078624B /* AccountRecCodeSVC.swift in Sources */,
 				EE9FC88020F944560078624B /* Listener.swift in Sources */,
@@ -558,6 +605,33 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		EE3FDB6B20FE485700CC166F /* EmailUpdate.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE3FDB6C20FE485700CC166F /* Base */,
+				EE3FDB8920FE7F3300CC166F /* pt-BR */,
+			);
+			name = EmailUpdate.storyboard;
+			sourceTree = "<group>";
+		};
+		EE3FDB6E20FE486100CC166F /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE3FDB6F20FE486100CC166F /* Base */,
+				EE3FDB7420FE48E200CC166F /* pt-BR */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		EE3FDB8020FE7CBD00CC166F /* PhoneNumberUpdate.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE3FDB8120FE7CBD00CC166F /* Base */,
+				EE3FDB8D20FE800200CC166F /* pt-BR */,
+			);
+			name = PhoneNumberUpdate.storyboard;
+			sourceTree = "<group>";
+		};
 		EE81CB9D20F5369C00283C29 /* SignUp.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

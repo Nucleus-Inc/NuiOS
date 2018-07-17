@@ -15,12 +15,14 @@ class AccountRecCodeSVC: SignUpCodeSVC {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         codeDelegate = AccountRecCodeDelegate()
+        codeDelegate.answers = delegate.answers
         delegate = codeDelegate
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         codeDelegate = AccountRecCodeDelegate()
+        codeDelegate.answers = delegate.answers
         delegate = codeDelegate
     }
     

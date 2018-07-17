@@ -35,11 +35,16 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
         
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.delegate = codeDelegate
+        setUpDelegate()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setUpDelegate()
+    }
+    
+    func setUpDelegate(){
+        codeDelegate.answers = delegate.answers
         self.delegate = codeDelegate
     }
     

@@ -53,6 +53,7 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let newName = textField.text ?? ""
         viewModel?.updateName(newName: newName, completion: nil)
+        textField.resignFirstResponder()
         return true
     }
     
@@ -92,10 +93,9 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate {
     //MARK: - Methods
     
     func loadUserData(){
-        let account = AppSingleton.shared.user?.account
-        nameTF.text = account?.name
-        emailLabel.text = account?.email
-        phoneNumberLabel.text = account?.phoneNumber
+        nameTF.text = viewModel?.name
+        emailLabel.text = viewModel?.email
+        phoneNumberLabel.text = viewModel?.phoneNumber
     }
     
     private func logout(){

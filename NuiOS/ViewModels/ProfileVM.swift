@@ -25,7 +25,9 @@ class ProfileVM:ProfileVCViewModel{
     
     func reloadValues() {
         self.email = user?.account?.email
-        self.phoneNumber = user?.account?.phoneNumber
+        if let unmaskedPhone = user?.account?.phoneNumber{
+            self.phoneNumber = PhoneNumber.BR.mask(number: unmaskedPhone)
+        }
         self.name = user?.account?.name
     }
     

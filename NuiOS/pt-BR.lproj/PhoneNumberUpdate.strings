@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Confirmation Code"; ObjectID = "F4N-YY-QAB"; */
+"F4N-YY-QAB.text" = "Confirmation Code";
+
+/* Class = "UILabel"; text = "This phone number will replace the current phone number."; ObjectID = "Lmg-ZJ-t7e"; */
+"Lmg-ZJ-t7e.text" = "Esse número substituirá o atual.";
+
+/* Class = "UILabel"; text = "A sms was sent to your new phone number."; ObjectID = "VXg-yH-OcG"; */
+"VXg-yH-OcG.text" = "Um sms foi enviado para o seu novo número.";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "fgC-Ef-kZQ"; */
+"fgC-Ef-kZQ.title" = " ";
+
+/* Class = "UILabel"; text = "(Area Code)+Number"; ObjectID = "iZL-32-wkT"; */
+"iZL-32-wkT.text" = "(DDD)+Número";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "iwJ-l3-Eie"; */
+"iwJ-l3-Eie.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "kQ0-Gq-kgJ"; */
+"kQ0-Gq-kgJ.normalTitle" = "Confirmar";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "m21-2k-b6k"; */
+"m21-2k-b6k.normalTitle" = "Próximo";
+
+/* Class = "UILabel"; text = "password"; ObjectID = "qoh-j9-c1Z"; */
+"qoh-j9-c1Z.text" = "senha";
+
+/* Class = "UILabel"; text = "Your password is necessary for safety."; ObjectID = "x1l-c0-P6s"; */
+"x1l-c0-P6s.text" = "A senha é necessária para sua segurança.";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "zTc-Jq-hIp"; */
+"zTc-Jq-hIp.normalTitle" = "Próximo";

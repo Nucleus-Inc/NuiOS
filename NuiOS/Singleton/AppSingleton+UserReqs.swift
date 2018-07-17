@@ -234,12 +234,14 @@ extension AppSingleton{
         if let id = user?._id, let jwt = UserAuth.getToken(){
             let endpoint = Users.Account.updateName(userID: id, name: name, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
+                UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
                 if let account = response.data?.account{
                     self.user?.account = account
                 }
                 completion?(true)
             }
             let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                completion?(false)
                 self.processOnFailure(apiError: response.data, reqError: reqError)
             }
             try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
@@ -249,4 +251,90 @@ extension AppSingleton{
             NotificationBannerShortcuts.showErrBanner(title: "Update Name Failure", subtitle: "It was not possible to update your name.")
         }
     }
+    
+    //MARK: Email Update
+    
+    func requestEmailUpdate(NewEmail email:String,completion:((_ success:Bool)->Void)?=nil){
+        if let id = user?._id, let jwt = UserAuth.getToken(){
+            let endpoint = Users.Account.requestEmailUpdate(userID: id, email: email, jwt: jwt)
+            let onSuccess = Response.OnSuccess(dataType: Data.self, jsonType: Any.self) { (response, urlResponse) in
+                print(urlResponse?.allHeaderFields ?? "no header fields")
+                completion?(true)
+            }
+            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                completion?(false)
+                self.processOnFailure(apiError: response.data, reqError: reqError)
+            }
+            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+        }
+        else{
+            completion?(false)
+        }
+    }
+    
+    func confirmEmailUpdate(Token token:String,completion:((_ success:Bool)->Void)?=nil){
+        if let id = user?._id, let jwt = UserAuth.getToken(){
+            let endpoint = Users.Account.confirmEmailUpdate(userID: id, token: token, jwt: jwt)
+            let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
+                UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
+                if let account = response.data?.account{
+                    self.user?.account = account
+                }
+                completion?(true)
+            }
+            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                completion?(false)
+                self.processOnFailure(apiError: response.data, reqError: reqError)
+            }
+            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+        }
+        else{
+            completion?(false)
+            NotificationBannerShortcuts.showErrBanner(title: "Update Email Failure", subtitle: "It was not possible to confirm your email update.")
+        }
+    }
+    
+    
+    //MARK: PhoneNumber Update
+    
+    func requestNumberUpdate(NewPhoneNumber number:String,completion:((_ success:Bool)->Void)?=nil){
+        if let id = user?._id, let jwt = UserAuth.getToken(){
+            let endpoint = Users.Account.requestPhoneUpdate(userID: id, phoneNumber: number, jwt: jwt)
+            let onSuccess = Response.OnSuccess(dataType: Data.self, jsonType: Any.self) { (response, urlResponse) in
+                print(urlResponse?.allHeaderFields ?? "no header fields")
+                completion?(true)
+            }
+            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                completion?(false)
+                self.processOnFailure(apiError: response.data, reqError: reqError)
+            }
+            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+        }
+        else{
+            completion?(false)
+        }
+    }
+    
+    func confirmNumberUpdate(Token token:String,completion:((_ success:Bool)->Void)?=nil){
+        if let id = user?._id, let jwt = UserAuth.getToken(){
+            let endpoint = Users.Account.confirmPhoneUpdate(userID: id, token: token, jwt: jwt)
+            let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
+                UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
+                if let account = response.data?.account{
+                    self.user?.account = account
+                }
+                completion?(true)
+            }
+            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                completion?(false)
+                self.processOnFailure(apiError: response.data, reqError: reqError)
+            }
+            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+        }
+        else{
+            completion?(false)
+            NotificationBannerShortcuts.showErrBanner(title: "Update Phone number Failure", subtitle: "It was not possible to confirm your phone number update.")
+        }
+    }
+
 }

@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Update password"; ObjectID = "1IU-u9-V0Z"; */
+"1IU-u9-V0Z.text" = "Atualizar senha";
+
+/* Class = "UILabel"; text = "Add image"; ObjectID = "6dv-jz-kRX"; */
+"6dv-jz-kRX.text" = "Add imagem";
+
+/* Class = "UILabel"; text = "Phone number"; ObjectID = "9Qn-4h-R7o"; */
+"9Qn-4h-R7o.text" = "Número";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "BGv-V6-Q8E"; */
+"BGv-V6-Q8E.text" = "Email";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "x4N-Tq-XwM"; */
+"x4N-Tq-XwM.placeholder" = "Nome";
+
+/* Class = "UILabel"; text = "Logout"; ObjectID = "xjl-Zo-kpx"; */
+"xjl-Zo-kpx.text" = "Sair";

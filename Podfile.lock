@@ -28,7 +28,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   NuSignUp:
-    :commit: 16074b0c220b0007827ef5015d36690df1c12102
+    :commit: a9490ee5ea8ef98e964594bbb93d373d9b4de371
     :git: https://github.com/Nucleus-Inc/NuSignUp.git
 
 SPEC CHECKSUMS:

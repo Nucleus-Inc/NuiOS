@@ -1,0 +1,33 @@
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "11l-dE-jCO"; */
+"11l-dE-jCO.normalTitle" = "Próximo";
+
+/* Class = "UILabel"; text = "example@mail.com"; ObjectID = "7M7-9l-Rbn"; */
+"7M7-9l-Rbn.text" = "exemplo@email.com";
+
+/* Class = "UILabel"; text = "Confirmation Code"; ObjectID = "F4N-YY-QAB"; */
+"F4N-YY-QAB.text" = "Código de Confirmação";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Kkq-9v-OK6"; */
+"Kkq-9v-OK6.title" = " ";
+
+/* Class = "UILabel"; text = "You will use this email for login."; ObjectID = "MVx-bU-1FG"; */
+"MVx-bU-1FG.text" = "Esse email substituirá o atual, entao você usará ele para efetuar o login.";
+
+/* Class = "UILabel"; text = "An email was sent to your new email address."; ObjectID = "VXg-yH-OcG"; */
+"VXg-yH-OcG.text" = "Um email foi enviado para seu novo endereço de email.";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "fgC-Ef-kZQ"; */
+"fgC-Ef-kZQ.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "kQ0-Gq-kgJ"; */
+"kQ0-Gq-kgJ.normalTitle" = "Confirmar";
+
+/* Class = "UILabel"; text = "password"; ObjectID = "qoh-j9-c1Z"; */
+"qoh-j9-c1Z.text" = "senha";
+
+/* Class = "UILabel"; text = "Your password is necessary for safety."; ObjectID = "x1l-c0-P6s"; */
+"x1l-c0-P6s.text" = "A senha é necessária para sua segurança.";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "zTc-Jq-hIp"; */
+"zTc-Jq-hIp.normalTitle" = "Próximo";
