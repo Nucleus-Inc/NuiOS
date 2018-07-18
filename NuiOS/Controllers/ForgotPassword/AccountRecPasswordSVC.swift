@@ -36,18 +36,18 @@ class AccountRecPasswordSVC: SignUpPasswordSVC {
             if let answers = self.delegate.answers{
                 
                 guard  let code = answers["code"] as? String else{
-                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Recovery Code".localized, Message: "The recovery code is not valid.".localized)
+                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "recovery_code".localized, Message: "recovery_code_invalid".localized)
                     return
                 }
                 
                 if let keyValue = answers[key] as? String{
-                    let alertC = UIAlertController(title: "Updating".localized, message: nil, preferredStyle: .alert)
+                    let alertC = UIAlertController(title: "updating".localized, message: nil, preferredStyle: .alert)
                     self.present(alertC, animated: true, completion: nil)
                     AppSingleton.shared.recoveryAccount(WithKey: keyValue, by: recByType, code: code, newPassword: password) { (success) in
                         DispatchQueue.main.async {
                             alertC.dismiss(animated: true, completion: {
                                 if success{
-                                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Recovery Account".localized, Message: "Password updated with success.".localized,OKAction:{(_) in
+                                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "recovery_account".localized, Message: "password_update_success".localized,OKAction:{(_) in
                                         self.view.endEditing(true)
                                         self.navigationController?.dismiss(animated: true, completion: {
                                             SignUpStack.config.finishSignUp()
@@ -59,13 +59,13 @@ class AccountRecPasswordSVC: SignUpPasswordSVC {
                     }
                 }
                 else{
-                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Recovery Account", Message: "It was not possible to update your password.")
+                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "recovery_account".localized, Message: "password_update_fail".localized)
                 }
             
             }
         }
         else{
-            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "New Password", Message: "Password and Confirmation values are not the same")
+            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "recovery_account".localized, Message: "password_and_confirmation_diferent".localized)
         }
         
     }

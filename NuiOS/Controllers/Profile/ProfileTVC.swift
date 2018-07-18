@@ -119,14 +119,14 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
             }
         }
         
-        let alertC = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (_) in
+        let alertC = UIAlertController(title: "choose_image".localized, message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "camera".localized, style: .default) { (_) in
             self.imagePickerManager.openCameraOnViewController(vc: self, completionHandler:completion)
         }
-        let galleryAction = UIAlertAction(title: "Gallery", style: .default) { (_) in
+        let galleryAction = UIAlertAction(title: "gallery".localized, style: .default) { (_) in
             self.imagePickerManager.openPhotoLibraryOnViewController(vc: self, completionHandler:completion)
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in}
+        let cancelAction = UIAlertAction(title: "cancel".localized, style: .cancel) { (_) in}
         
         alertC.addAction(cameraAction)
         alertC.addAction(galleryAction)
@@ -163,7 +163,7 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
     }
     func didTapLogOutCell(){
         
-        UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "Logout".localized, Message: "Do you want to continue ?".localized,YesAction:{(_) in
+        UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "logout".localized, Message: "want_to_continue?".localized,YesAction:{(_) in
             self.logout()
         })
     

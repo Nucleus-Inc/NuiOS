@@ -5,7 +5,4 @@
   Created by Nucleus on 18/07/2018.
   Copyright © 2018 Nucleus. All rights reserved.
 */
-
-"Yes" = "Sim";
-"No" = "Não";
-"Logout" = "Sair";
+"email_sent_to_%@" = "An email was sent to email address %@.";

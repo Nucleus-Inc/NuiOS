@@ -170,7 +170,7 @@ class SignUpPasswordSVC: SignUpStepVC, UITextFieldDelegate {
         }
         else{
             
-            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "The typed values are not the same.", Message: nil,OKAction:{
+            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "values_not_match".localized, Message: nil,OKAction:{
                 (_) in
                 self.confirmationTF.becomeFirstResponder()
             })

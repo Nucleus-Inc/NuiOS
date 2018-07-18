@@ -59,7 +59,10 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
             }
             else{
                 let email = (self.delegate.answers!["email"] as! String)
-                questionInfoLabel.text = "An email was sent to email address ".localized+email+"."
+                let text = String(format: "email_sent_to_%@".localized, email)
+                //questionInfoLabel.text = "An email was sent to email address ".localized+email+"."
+                questionInfoLabel.text = text
+
             }
         }
     }
@@ -68,7 +71,7 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
     override func codeNotReceivedAction(_ sender: UIButton) {
         if let vm = viewModel{
             self.loadingMode(Loading: true)
-            let alertC = UIAlertController(title: "Sending".localized, message: nil, preferredStyle: .alert)
+            let alertC = UIAlertController(title: "sending".localized, message: nil, preferredStyle: .alert)
             self.present(alertC, animated: true, completion: nil)
             
             vm.requestCodeAgain { (success) in
@@ -83,7 +86,7 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
     
     override func didTapNextStepButton(button: UIButton) {
         if let vm = viewModel, let code = typedCode(){
-            let alert = UIAlertController(title: "Confirming Update".localized, message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "confirming_update".localized, message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
             
             self.loadingMode(Loading: true)
@@ -94,10 +97,10 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
                         
                         self.loadingMode(Loading: false)
                         if success{
-                            let title = vm.codeTransport == .email ? "Email update" : "Phone number update"
-                            let message = vm.codeTransport == .email ? "Your email was updated with success." : "Your phone number was updated with success."
+                            let title = (vm.codeTransport == .email ? "email_update" : "phone_number_update").localized
+                            let message = (vm.codeTransport == .email ? "email_update_success" : "phoneNumber_update_success").localized
                             
-                            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: title.localized, Message: message.localized,OKAction: {
+                            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: title, Message: message,OKAction: {
                                 (_) in
                                 self.dismiss(animated: true, completion: {
                                     SignUpStack.config.finishSignUp()

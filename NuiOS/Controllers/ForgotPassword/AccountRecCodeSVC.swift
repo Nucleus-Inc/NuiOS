@@ -50,7 +50,7 @@ class AccountRecCodeSVC: SignUpCodeSVC {
     override func codeNotReceivedAction(_ sender: UIButton) {
         self.loadingMode(Loading: true)
         let key:String = recByType == .email ? self.delegate.answers!["email"] as! String : self.delegate.answers!["phoneNumber"] as! String
-        let alertC = UIAlertController(title: "Sending", message: nil, preferredStyle: .alert)
+        let alertC = UIAlertController(title: "sending", message: nil, preferredStyle: .alert)
         self.present(alertC, animated: true, completion: nil)
         AppSingleton.shared.requestRecoveryCodeFor(Key: key, By: recByType) { (success) in
             alertC.dismiss(animated: true, completion: {

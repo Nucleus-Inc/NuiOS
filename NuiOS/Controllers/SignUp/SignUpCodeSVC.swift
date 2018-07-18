@@ -131,7 +131,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     
     @IBAction func codeNotReceivedAction(_ sender: UIButton) {
         self.view.endEditing(true)
-        let alertC = UIAlertController(title: "Account Activation", message: "Send code again", preferredStyle: .actionSheet)
+        let alertC = UIAlertController(title: "account_activation".localized, message: "send_code_again".localized, preferredStyle: .actionSheet)
         
         if let unmaskedNumber = self.delegate.answers!["phoneNumber"] as? String{
             let toNumber = UIAlertAction(title: "SMS - "+unmaskedNumber, style: .default) { (_) in
@@ -147,7 +147,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
             alertC.addAction(toEmail)
         }
 
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in}
+        let cancel = UIAlertAction(title: "cancel".localized, style: .cancel) { (_) in}
         alertC.addAction(cancel)
         
         if let popoverController = alertC.popoverPresentationController {// IPAD
@@ -180,7 +180,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
      */
     private func validateAccount(){
         if let id = AppSingleton.shared.user?._id, let code = typedCode(){
-            let alert = UIAlertController(title: "Validating", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "validating".localized, message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
             
             self.loadingMode(Loading: true)
@@ -193,7 +193,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
                         self.loadingMode(Loading: false)
                         
                         if success && validCode{
-                            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Account Activation", Message: "Your account was activated with success.", OKAction: { (_) in
+                            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "account_activation".localized, Message: "account_activation_success".localized, OKAction: { (_) in
                                 self.goToNextStep()
                             })
                         }
@@ -246,10 +246,11 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
                 
             }
             else{
-                self.codeTFs[0].becomeFirstResponder()
                 
-                UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "The code \(typedCode()!) is invalid.", Message: "Ask for a new code.")
-                self.clearCode()
+                UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "typed_code_invalid".localized, Message: "ask_new_code".localized,OKAction:{(_) in
+                    self.codeTFs[0].becomeFirstResponder()
+                    self.clearCode()
+                })
             }
         }
         else{

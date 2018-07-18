@@ -93,7 +93,7 @@ class SignUpCheckDataStepVC: SignUpStepVC,UITableViewDelegate,UITableViewDataSou
         if controller.canEdit{
             self.loadingMode(Loading: true)
             
-            let alert = UIAlertController(title: "Enviando", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "sending".localized, message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
             //ActivityIndicatorHelper.showLoadingActivity(AtView: self.view, withDetailText: "Enviando", animated: true)
             
@@ -106,7 +106,7 @@ class SignUpCheckDataStepVC: SignUpStepVC,UITableViewDelegate,UITableViewDataSou
                             self.goToNextStep()
                         }
                         else{
-                            self.updateNextStepTitle("Tentar Novamente")
+                            self.updateNextStepTitle("Try again")
                         }
                     })
                 }

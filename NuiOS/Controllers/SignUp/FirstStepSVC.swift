@@ -31,15 +31,12 @@ class FirstStepSVC: SignUpNameSVC {
     
     @objc
     private func closeAllBtnAction(sender:Any){
-        let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
+        
+        UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "cancel_signup".localized, Message: "lose_signup_info_continue?".localized, YesAction: { (_) in
             self.view.endEditing(true)
             self.dismiss(animated: true, completion: nil)
-        }
-        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        let alertC = UIAlertController(title: "Cancel Sign up", message: "You will lose all added informations.\n\nDo you want to continue?", preferredStyle: .alert)
-        alertC.addAction(yesAction)
-        alertC.addAction(noAction)
-        self.present(alertC, animated: true, completion: nil)
+        })
+        
     }
 
     /*

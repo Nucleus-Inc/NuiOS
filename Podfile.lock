@@ -18,15 +18,6 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0.0)
   - UICKeyChainStore (~> 2.1.1)
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - JWTDecode
-    - MarqueeLabel
-    - NotificationBannerSwift
-    - SDWebImage
-    - SnapKit
-    - UICKeyChainStore
-
 EXTERNAL SOURCES:
   NuSignUp:
     :git: https://github.com/Nucleus-Inc/NuSignUp.git
@@ -47,4 +38,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 81277add47127b8e036661fc6e02c2b87691bd29
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0
