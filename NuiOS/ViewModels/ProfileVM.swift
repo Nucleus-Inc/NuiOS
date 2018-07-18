@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class ProfileVM:ProfileVCViewModel{
     
@@ -19,6 +19,9 @@ class ProfileVM:ProfileVCViewModel{
     var phoneNumber: String?
     var name: String?
     
+    var profilePicture: UIImage?
+    var pictureUrl: String?
+    
     init(){
         reloadValues()
     }
@@ -29,6 +32,7 @@ class ProfileVM:ProfileVCViewModel{
             self.phoneNumber = PhoneNumber.BR.mask(number: unmaskedPhone)
         }
         self.name = user?.account?.name
+        self.pictureUrl = user?.profile?.pictureUrl
     }
     
     func updateName(newName: String, completion: ((Bool) -> Void)?) {
@@ -37,4 +41,9 @@ class ProfileVM:ProfileVCViewModel{
         }
     }
     
+    func updateProfilePicture(_ image: UIImage, completion: ((Bool) -> Void)?) {
+        self.profilePicture = image
+        let urlString = "https://unsplash.it/200/200/?random"
+        AppSingleton.shared.updateProfilePicture(ImageURL: urlString, completion: completion)
+    }
 }

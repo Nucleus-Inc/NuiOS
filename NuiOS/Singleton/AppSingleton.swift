@@ -30,4 +30,18 @@ class AppSingleton{
     
     var user:User?
     
+    class func notifyUpdate(On notifName:Notification.Name,Object object:Any?=nil,UserInfo userInfo:[AnyHashable:Any]?=nil){
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: notifName, object: object, userInfo: userInfo)
+        }
+    }
+}
+
+struct AppNotifications{
+    /**
+     Executed always when there is some kind of update on user informations that need to update view.
+     */
+    static let userInfoUpdate = Notification.Name(rawValue: "userInfoUpdate")
+    
+    
 }

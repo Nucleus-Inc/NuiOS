@@ -131,7 +131,11 @@ extension AppSingleton{
     func getInfoDataOf(UserWithID id:String,completion:@escaping(_ success:Bool)->Void){
         getAccountOfUser(WithID: id) { (success) in
             if success{
-                self.getProfileOfUser(WithID: id, completion: completion)
+                self.getProfileOfUser(WithID: id, completion: {
+                    (success) in
+                    completion(success)
+                    AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
+                })
             }
             else{
                 completion(false)
@@ -207,6 +211,12 @@ extension AppSingleton{
     
     func updatePassword(Current current:String, New new:String,completion:@escaping(_ success:Bool)->Void){
         
+        if current.compare(new) == .orderedSame{
+            NotificationBannerShortcuts.showWarningBanner(title: "Password Update", subtitle: "Your new password are equal to current one.")
+            completion(false)
+            return
+        }
+        
         if let id = user?._id, let jwt = UserAuth.getToken(){
             let endpoint = Users.Account.updatePassword(userID: id, current: current, newPassword: new, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: Any.self) { (response, urlResponse) in
@@ -223,11 +233,14 @@ extension AppSingleton{
         else{
             completion(false)
         }
+        
     }
     
     func updateName(name:String,completion:((_ success:Bool)->Void)?=nil){
         if name.isEmpty{
             NotificationBannerShortcuts.showErrBanner(title: "Update Name Failure", subtitle: "Your name can not be blank.")
+            completion?(false)
+            AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             return
         }
         
@@ -239,17 +252,47 @@ extension AppSingleton{
                     self.user?.account = account
                 }
                 completion?(true)
+                AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             }
             let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
                 completion?(false)
                 self.processOnFailure(apiError: response.data, reqError: reqError)
+                AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             }
             try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
         }
         else{
             completion?(false)
             NotificationBannerShortcuts.showErrBanner(title: "Update Name Failure", subtitle: "It was not possible to update your name.")
+            AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
+    }
+    
+    func updateProfilePicture(ImageURL urlString:String,completion:((Bool)->Void)?=nil){
+        
+        if let id = user?._id, let jwt = UserAuth.getToken(){
+            let endpoint = Users.Profile.updatePicture(userID: id, pictureUrl: urlString, jwt: jwt)
+            let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
+                UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
+                if let profile = response.data?.profile{
+                    self.user?.profile = profile
+                }
+                completion?(true)
+                AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
+            }
+            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                completion?(false)
+                AppSingleton.shared.processOnFailure(apiError: response.data, reqError: reqError)
+            }
+            
+            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+        }
+        else{
+            completion?(false)
+            NotificationBannerShortcuts.showErrBanner(title: "Update Picture Failure", subtitle: "It was not possible to update your picture.")
+            AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
+        }
+        
     }
     
     //MARK: Email Update
@@ -281,16 +324,19 @@ extension AppSingleton{
                     self.user?.account = account
                 }
                 completion?(true)
+                AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             }
             let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
                 completion?(false)
                 self.processOnFailure(apiError: response.data, reqError: reqError)
+                AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             }
             try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
         }
         else{
             completion?(false)
             NotificationBannerShortcuts.showErrBanner(title: "Update Email Failure", subtitle: "It was not possible to confirm your email update.")
+            AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
     }
     
@@ -324,16 +370,19 @@ extension AppSingleton{
                     self.user?.account = account
                 }
                 completion?(true)
+                AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             }
             let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
                 completion?(false)
                 self.processOnFailure(apiError: response.data, reqError: reqError)
+                AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             }
             try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
         }
         else{
             completion?(false)
             NotificationBannerShortcuts.showErrBanner(title: "Update Phone number Failure", subtitle: "It was not possible to confirm your phone number update.")
+            AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
     }
 

@@ -28,7 +28,7 @@ class SignUpPasswordSVC: SignUpStepVC, UITextFieldDelegate {
     
     @IBOutlet weak var passwordStrengthView: JLProgressView!
     
-    private var key:String = "password"
+    var key:String = "password"
     private var scoreForPassword:[String:Int] = [:]
     @IBInspectable var minCharacters:Int = 0
     

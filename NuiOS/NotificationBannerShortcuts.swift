@@ -11,9 +11,10 @@ import NotificationBannerSwift
 
 class NotificationBannerShortcuts{
     
-    private class func setUpBanner(title: String, subtitle: String?, style:BannerStyle,completion:@escaping(_ banner:NotificationBanner)->Void){
+    class func setUpBanner(title: String, subtitle: String?, style:BannerStyle,completion:@escaping(_ banner:NotificationBanner)->Void){
         DispatchQueue.main.async {
             let banner = NotificationBanner(title: title, subtitle: subtitle, style: style)
+            banner.layer.zPosition = 1000 //to make them visible over every window that appears.
             banner.subtitleLabel?.numberOfLines = 0
             banner.dismissDuration = 0.3
             completion(banner)
@@ -81,6 +82,21 @@ class NotificationBannerShortcuts{
 //MARK: - Requests
 
 extension NotificationBannerShortcuts{
+
+    class func showNoConnectionBanner(completion:@escaping(NotificationBanner)->Void){
+        setUpBanner(title: "No Connection", subtitle: nil, style: .none) { (banner) in
+            banner.backgroundColor = UIColor.black
+            banner.bannerHeight = 40
+            banner.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+            
+            banner.dismissOnSwipeUp = true
+            banner.dismissOnTap = true
+            banner.duration = 7
+            banner.show(bannerPosition:.bottom)
+            
+            completion(banner)
+        }
+    }
     
     class func showApiErrorBanner(ApiError error:ApiError){
         let localizedMessage = error.description

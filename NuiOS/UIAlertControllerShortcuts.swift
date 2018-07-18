@@ -18,5 +18,4 @@ class UIAlertControllerShorcuts{
         vc.present(alertC, animated: true, completion: nil)
     }
     
-    
 }
