@@ -18,4 +18,15 @@ class UIAlertControllerShorcuts{
         vc.present(alertC, animated: true, completion: nil)
     }
     
+    class func showYesNoAlert(OnVC vc:UIViewController,Title title:String?,Message mess:String?,YesTitle yes:String = "Yes".localized,NoTitle no:String = "No".localized,YesAction yesAction:((UIAlertAction)->Void)?=nil,NoAction noAction:((UIAlertAction)->Void)?=nil){
+        
+        let yesAction = UIAlertAction(title: yes, style: .default, handler: yesAction)
+        let noAction = UIAlertAction(title: no, style: .cancel, handler: noAction)
+        let alertC = UIAlertController(title: title, message: mess, preferredStyle: .alert)
+        alertC.addAction(yesAction)
+        alertC.addAction(noAction)
+        vc.present(alertC, animated: true, completion: nil)
+
+    }
+    
 }

@@ -27,7 +27,7 @@ class NewPasswordSVC: SignUpPasswordSVC {
         let newPass = self.answerTF.text ?? ""
         let currentPass = (delegate.answer(ForKey: "password") as? String) ?? ""
         
-        let alert = UIAlertController(title: "Updating", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Updating".localized, message: nil, preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
         
         self.loadingMode(Loading: true)
@@ -37,7 +37,7 @@ class NewPasswordSVC: SignUpPasswordSVC {
                 self.loadingMode(Loading: false)
                 alert.dismiss(animated: true, completion: {
                     if success{
-                        UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Update Password", Message: "Password updated with success.", OKAction: { (_) in
+                        UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Update Password".localized, Message: "Password updated with success.".localized, OKAction: { (_) in
                             self.view.endEditing(true)
                             self.dismiss(animated: true, completion: {
                                 SignUpStack.config.finishSignUp()

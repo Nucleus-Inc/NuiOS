@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  NuiOS
+
+  Created by Nucleus on 18/07/2018.
+  Copyright © 2018 Nucleus. All rights reserved.
+*/
+
+//MARK: - UIAlertControllerShortcuts and UIAlertController
+
+
+"Yes" = "Yes";
+"No" = "No";
+"Logout" = "Logout";
+"Do you want to continue ?" =  "Do you want to continue ?":
+"Updating" = "Updating";
+"Update Password" = "Update Password";
+"Password updated with success." = "Password updated with success.";
+"Confirming Update" = "Confirming Update";
+"Email update" = "Email update";
+"Phone number update" = "Phone number update";
+"Your email was updated with success." = "Your email was updated with success.";
+"Your phone number was updated with success." = "Your phone number was updated with success.";
+"Sending" = "Sending";
+"Recovery Code" = "Recovery Code";
+"The recovery code is not valid." = "The recovery code is not valid.";
+"Recovery Account" = "Recovery Account";
+
+//MARK: - App Texts
+"An email was sent to email address " = "An email was sent to email address ";
+

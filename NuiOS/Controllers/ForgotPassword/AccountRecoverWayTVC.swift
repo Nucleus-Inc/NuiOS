@@ -47,7 +47,6 @@ class AccountRecoverWayTVC: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 3
     }
-
     // MARK: - Navigation
 
 }

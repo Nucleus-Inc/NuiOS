@@ -1,6 +1,6 @@
 
-/* Class = "UILabel"; text = "Validation Code"; ObjectID = "03a-pH-Jqr"; */
-"03a-pH-Jqr.text" = "Código de Validação";
+/* Class = "UILabel"; text = "Activation Code"; ObjectID = "03a-pH-Jqr"; */
+"03a-pH-Jqr.text" = "Código de Ativação";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "58O-zc-XBE"; */
 "58O-zc-XBE.title" = " ";
@@ -15,25 +15,31 @@
 "9Vh-1k-2vZ.text" = "senha";
 
 /* Class = "UILabel"; text = "A SMS was sent to your phone number."; ObjectID = "9by-yW-BWH"; */
-"9by-yW-BWH.text" = "Um SMS com o código foi enviado para o número informado.";
+"9by-yW-BWH.text" = "Um SMS foi enviado para o seu número.";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "9cN-Fz-IFC"; */
 "9cN-Fz-IFC.normalTitle" = "Próximo";
 
 /* Class = "UILabel"; text = "Welcome to NuiOS SignUp tap  continue to start your signup."; ObjectID = "ADT-Aq-hY7"; */
-"ADT-Aq-hY7.text" = "Bem vindo ao NuiOS Cadastro clique continuar para começar.";
+"ADT-Aq-hY7.text" = "Bem vindo ao NuiOS Cadastro clique continuar para iniciar.";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "DYs-3Q-J9o"; */
 "DYs-3Q-J9o.normalTitle" = "Próximo";
 
 /* Class = "UILabel"; text = "example@mail.com"; ObjectID = "IoH-CJ-snV"; */
-"IoH-CJ-snV.text" = "exemplo@mail.com";
+"IoH-CJ-snV.text" = "exemplo@email.com";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "J9h-QE-5eo"; */
-"J9h-QE-5eo.text" = "Titulo";
+"J9h-QE-5eo.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "KLi-w5-cDs"; */
+"KLi-w5-cDs.normalTitle" = "Próximo";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "LzC-UH-74n"; */
-"LzC-UH-74n.normalTitle" = "Login";
+"LzC-UH-74n.normalTitle" = "Entrar";
+
+/* Class = "UILabel"; text = "Type the activation code"; ObjectID = "OMR-lF-TVz"; */
+"OMR-lF-TVz.text" = "Digite o código de ativação";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "Oyi-ZF-Vl7"; */
 "Oyi-ZF-Vl7.title" = " ";
@@ -41,20 +47,26 @@
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "Q46-Gl-c7Y"; */
 "Q46-Gl-c7Y.title" = " ";
 
-/* Class = "UILabel"; text = "It must contain at least 8 characters"; ObjectID = "Qz0-WV-lxZ"; */
-"Qz0-WV-lxZ.text" = "Deve conter no minimo 8 caracteres.";
+/* Class = "UILabel"; text = "Confirm your informations"; ObjectID = "QFv-ZF-d4W"; */
+"QFv-ZF-d4W.text" = "Confirme suas informações.";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "Sog-Vd-olv"; */
-"Sog-Vd-olv.text" = "Detalhes";
+"Sog-Vd-olv.text" = "Detail";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "UQw-BW-ifV"; */
 "UQw-BW-ifV.normalTitle" = "Próximo";
+
+/* Class = "UILabel"; text = "Now we need your email address"; ObjectID = "VJu-cm-9Ip"; */
+"VJu-cm-9Ip.text" = "Agora precisamos do seu email";
 
 /* Class = "UILabel"; text = "Tap Next to confirm."; ObjectID = "XMc-Ce-Gcj"; */
 "XMc-Ce-Gcj.text" = "Clique em Próximo para confirmar.";
 
 /* Class = "UILabel"; text = "You will use this email for login."; ObjectID = "Xzn-Qv-mHk"; */
-"Xzn-Qv-mHk.text" = "Esse email será usado no login.";
+"Xzn-Qv-mHk.text" = "You will use this email for login.";
+
+/* Class = "UILabel"; text = "Activation Code"; ObjectID = "YFN-MO-iKV"; */
+"YFN-MO-iKV.text" = "Código de Ativação";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "bZQ-cH-ib3"; */
 "bZQ-cH-ib3.title" = " ";
@@ -63,10 +75,13 @@
 "bua-Iu-oq0.title" = " ";
 
 /* Class = "UILabel"; text = "Congratulations you completed your sign up. Tap Login to start using the app."; ObjectID = "ctZ-Fp-KR4"; */
-"ctZ-Fp-KR4.text" = "Parabéns você completou o seu cadastro. Clique em Login para começar a usar o app.";
+"ctZ-Fp-KR4.text" = "Parabéns você completou seu cadastro. Clique em Entrar para começar a usar.";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "eE2-pT-1I2"; */
 "eE2-pT-1I2.normalTitle" = "Próximo";
+
+/* Class = "UIButton"; normalTitle = "I do not received the code"; ObjectID = "gbc-4O-5iV"; */
+"gbc-4O-5iV.normalTitle" = "Não recebi o código";
 
 /* Class = "UILabel"; text = "(Area Code)+Number"; ObjectID = "j1h-Tn-q7L"; */
 "j1h-Tn-q7L.text" = "(DDD)+Número";
@@ -74,11 +89,29 @@
 /* Class = "UILabel"; text = "This phone number will be used to validate your account."; ObjectID = "m3R-Yp-WA9"; */
 "m3R-Yp-WA9.text" = "Esse número será usado para validar sua conta.";
 
-/* Class = "UILabel"; text = "Conforme o seu RG"; ObjectID = "tvn-U0-bl8"; */
-"tvn-U0-bl8.text" = "Conforme o seu RG";
+/* Class = "UILabel"; text = "Your phone number please"; ObjectID = "mZ6-bc-uuJ"; */
+"mZ6-bc-uuJ.text" = "Número de telefone, por favor";
+
+/* Class = "UIButton"; normalTitle = "I do not received the code"; ObjectID = "njt-0f-Dw5"; */
+"njt-0f-Dw5.normalTitle" = "Não recebi o código";
+
+/* Class = "UILabel"; text = "Type the activation code"; ObjectID = "ril-3F-VVa"; */
+"ril-3F-VVa.text" = "Digite o código de ativação";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "tvn-U0-bl8"; */
+"tvn-U0-bl8.text" = "Nome";
+
+/* Class = "UILabel"; text = "Your password"; ObjectID = "u1O-3w-2l9"; */
+"u1O-3w-2l9.text" = "A sua senha";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "wZC-54-3gK"; */
 "wZC-54-3gK.normalTitle" = "Próximo";
+
+/* Class = "UILabel"; text = "What's your name?"; ObjectID = "wfm-Yq-1n1"; */
+"wfm-Yq-1n1.text" = "Qual o seu nome ?";
+
+/* Class = "UILabel"; text = "A SMS was sent to your phone number."; ObjectID = "wj1-o1-208"; */
+"wj1-o1-208.text" = "Um SMS foi enviado para o seu número.";
 
 /* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "zcv-Gc-rIO"; */
 "zcv-Gc-rIO.normalTitle" = "Continuar";

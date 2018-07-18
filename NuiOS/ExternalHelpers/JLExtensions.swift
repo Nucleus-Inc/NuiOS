@@ -416,6 +416,10 @@ public extension UIView{
 
 public extension String{
     
+    public var localized:String{
+        return NSLocalizedString(self, comment: "")
+    }
+    
     public func matchingStrings(regex: String,options:NSRegularExpression.Options) -> [[String]] {
        
         guard let regex = try? NSRegularExpression(pattern: regex, options: options) else { return [] }

@@ -162,17 +162,11 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
         }
     }
     func didTapLogOutCell(){
-        let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
+        
+        UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "Logout".localized, Message: "Do you want to continue ?".localized,YesAction:{(_) in
             self.logout()
-        }
-        
-        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        
-        let alertC = UIAlertController(title: "Logout", message: "Do you want to continue ?", preferredStyle: .alert)
-        alertC.addAction(yesAction)
-        alertC.addAction(noAction)
-        
-        self.present(alertC, animated: true, completion: nil)
+        })
+    
     }
     
 }

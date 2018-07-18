@@ -50,6 +50,7 @@
 		EEA6EEC220FF8E6E001530D5 /* ProfileTVC+UITableViewDataSource+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6EEC120FF8E6E001530D5 /* ProfileTVC+UITableViewDataSource+Delegate.swift */; };
 		EEA6EEC720FF968E001530D5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA6EEC520FF968D001530D5 /* Reachability.m */; };
 		EEA6EEC920FF973C001530D5 /* AppDelegate+Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6EEC820FF973C001530D5 /* AppDelegate+Reachability.swift */; };
+		EEA6EEE020FFD251001530D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEA6EEDE20FFD251001530D5 /* Localizable.strings */; };
 		EEBC6E2C20F6481F00CB5DC2 /* FinishSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC6E2B20F6481F00CB5DC2 /* FinishSignUpVC.swift */; };
 		EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC6E2D20F6486000CB5DC2 /* Login.storyboard */; };
 		EEBC6E3420F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC6E3220F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard */; };
@@ -93,8 +94,6 @@
 		EE3FDB7C20FE5BBB00CC166F /* NewEmailSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmailSVC.swift; sourceTree = "<group>"; };
 		EE3FDB8120FE7CBD00CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PhoneNumberUpdate.storyboard; sourceTree = "<group>"; };
 		EE3FDB8420FE7D0C00CC166F /* NewPhoneNumberSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhoneNumberSVC.swift; sourceTree = "<group>"; };
-		EE3FDB8920FE7F3300CC166F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/EmailUpdate.strings"; sourceTree = "<group>"; };
-		EE3FDB8D20FE800200CC166F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/PhoneNumberUpdate.strings"; sourceTree = "<group>"; };
 		EE4BC88520FCAFA60086B752 /* SignUpMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpMask.swift; sourceTree = "<group>"; };
 		EE4BC88720FCEA9A0086B752 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		EE720F5820F7771F00EBA122 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Login.strings"; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		EE9FC87020F91F400078624B /* AccountRecPhoneNumberSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecPhoneNumberSVC.swift; sourceTree = "<group>"; };
 		EE9FC87220F922AA0078624B /* AccountRecCodeSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecCodeSVC.swift; sourceTree = "<group>"; };
 		EE9FC87420F92C6A0078624B /* AccountRecPasswordSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRecPasswordSVC.swift; sourceTree = "<group>"; };
-		EE9FC87920F9400E0078624B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/AccountRecover.strings"; sourceTree = "<group>"; };
 		EE9FC87B20F941430078624B /* ProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
 		EE9FC87E20F943A80078624B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		EE9FC87F20F944560078624B /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
@@ -135,8 +133,13 @@
 		EEA6EEC520FF968D001530D5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		EEA6EEC620FF968E001530D5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		EEA6EEC820FF973C001530D5 /* AppDelegate+Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Reachability.swift"; sourceTree = "<group>"; };
-		EEA6EECD20FFA690001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/PasswordUpdate.strings"; sourceTree = "<group>"; };
-		EEA6EECE20FFA6E1001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/SignUp.strings"; sourceTree = "<group>"; };
+		EEA6EED020FFBC50001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/SignUp.strings"; sourceTree = "<group>"; };
+		EEA6EED220FFC280001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/AccountRecover.strings"; sourceTree = "<group>"; };
+		EEA6EED620FFC953001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/PhoneNumberUpdate.strings"; sourceTree = "<group>"; };
+		EEA6EED820FFCA17001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/EmailUpdate.strings"; sourceTree = "<group>"; };
+		EEA6EEDA20FFCBF6001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/PasswordUpdate.strings"; sourceTree = "<group>"; };
+		EEA6EEDF20FFD251001530D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EEA6EEE120FFD364001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		EEBC6E2B20F6481F00CB5DC2 /* FinishSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSignUpVC.swift; sourceTree = "<group>"; };
 		EEBC6E2E20F6486000CB5DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		EEBC6E3320F648D300CB5DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExtendedLaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -397,6 +400,7 @@
 		EEEB4CA620F52474005DF444 /* NuiOS */ = {
 			isa = PBXGroup;
 			children = (
+				EEA6EEDE20FFD251001530D5 /* Localizable.strings */,
 				EE720F5F20F79F3000EBA122 /* Info.plist */,
 				EE720F5920F78FA000EBA122 /* Singleton */,
 				EEEB4CA720F52474005DF444 /* Support Files */,
@@ -525,6 +529,7 @@
 				EE9FC86A20F9141A0078624B /* AccountRecover.storyboard in Resources */,
 				EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */,
 				EEA6EEBB20FF7272001530D5 /* PasswordUpdate.storyboard in Resources */,
+				EEA6EEE020FFD251001530D5 /* Localizable.strings in Resources */,
 				EE3FDB8220FE7CBE00CC166F /* PhoneNumberUpdate.storyboard in Resources */,
 				EEEB4CB120F52474005DF444 /* Main.storyboard in Resources */,
 				EED9D30F20F53C1200C5ACF7 /* Assets.xcassets in Resources */,
@@ -657,7 +662,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE3FDB6C20FE485700CC166F /* Base */,
-				EE3FDB8920FE7F3300CC166F /* pt-BR */,
+				EEA6EED820FFCA17001530D5 /* pt-BR */,
 			);
 			name = EmailUpdate.storyboard;
 			sourceTree = "<group>";
@@ -675,7 +680,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE3FDB8120FE7CBD00CC166F /* Base */,
-				EE3FDB8D20FE800200CC166F /* pt-BR */,
+				EEA6EED620FFC953001530D5 /* pt-BR */,
 			);
 			name = PhoneNumberUpdate.storyboard;
 			sourceTree = "<group>";
@@ -684,7 +689,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE81CB9E20F5369C00283C29 /* Base */,
-				EEA6EECE20FFA6E1001530D5 /* pt-BR */,
+				EEA6EED020FFBC50001530D5 /* pt-BR */,
 			);
 			name = SignUp.storyboard;
 			sourceTree = "<group>";
@@ -693,7 +698,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE9FC86920F9141A0078624B /* Base */,
-				EE9FC87920F9400E0078624B /* pt-BR */,
+				EEA6EED220FFC280001530D5 /* pt-BR */,
 			);
 			name = AccountRecover.storyboard;
 			sourceTree = "<group>";
@@ -702,9 +707,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				EEA6EEBA20FF7272001530D5 /* Base */,
-				EEA6EECD20FFA690001530D5 /* pt-BR */,
+				EEA6EEDA20FFCBF6001530D5 /* pt-BR */,
 			);
 			name = PasswordUpdate.storyboard;
+			sourceTree = "<group>";
+		};
+		EEA6EEDE20FFD251001530D5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEA6EEDF20FFD251001530D5 /* Base */,
+				EEA6EEE120FFD364001530D5 /* pt-BR */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		EEBC6E2D20F6486000CB5DC2 /* Login.storyboard */ = {

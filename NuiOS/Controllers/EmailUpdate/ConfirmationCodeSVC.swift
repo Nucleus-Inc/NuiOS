@@ -59,7 +59,7 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
             }
             else{
                 let email = (self.delegate.answers!["email"] as! String)
-                questionInfoLabel.text = "An email was sent to email address "+email+"."
+                questionInfoLabel.text = "An email was sent to email address ".localized+email+"."
             }
         }
     }
@@ -68,7 +68,7 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
     override func codeNotReceivedAction(_ sender: UIButton) {
         if let vm = viewModel{
             self.loadingMode(Loading: true)
-            let alertC = UIAlertController(title: "Sending", message: nil, preferredStyle: .alert)
+            let alertC = UIAlertController(title: "Sending".localized, message: nil, preferredStyle: .alert)
             self.present(alertC, animated: true, completion: nil)
             
             vm.requestCodeAgain { (success) in
@@ -83,7 +83,7 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
     
     override func didTapNextStepButton(button: UIButton) {
         if let vm = viewModel, let code = typedCode(){
-            let alert = UIAlertController(title: "Confirming Update", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Confirming Update".localized, message: nil, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
             
             self.loadingMode(Loading: true)
@@ -97,7 +97,7 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
                             let title = vm.codeTransport == .email ? "Email update" : "Phone number update"
                             let message = vm.codeTransport == .email ? "Your email was updated with success." : "Your phone number was updated with success."
                             
-                            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: title, Message: message,OKAction: {
+                            UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: title.localized, Message: message.localized,OKAction: {
                                 (_) in
                                 self.dismiss(animated: true, completion: {
                                     SignUpStack.config.finishSignUp()

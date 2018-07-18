@@ -1,60 +1,75 @@
 
 /* Class = "UILabel"; text = "Using SMS"; ObjectID = "2l5-bB-1IN"; */
-"2l5-bB-1IN.text" = "Using SMS";
+"2l5-bB-1IN.text" = "Usando SMS";
+
+/* Class = "UILabel"; text = "Type the recovery code"; ObjectID = "41e-G2-Opr"; */
+"41e-G2-Opr.text" = "Digite o código de recuperação";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "5AM-HW-Ts7"; */
-"5AM-HW-Ts7.normalTitle" = "Next";
+"5AM-HW-Ts7.normalTitle" = "Próximo";
+
+/* Class = "UILabel"; text = "Your phone number please"; ObjectID = "9Mu-Y9-92p"; */
+"9Mu-Y9-92p.text" = "O seu número, por favor.";
 
 /* Class = "UILabel"; text = "This phone number will be used to locate your account and send the recovery code"; ObjectID = "Cgk-YM-u6Z"; */
-"Cgk-YM-u6Z.text" = "This phone number will be used to locate your account and send the recovery code";
+"Cgk-YM-u6Z.text" = "Esse número será usado para localizar sua conta e enviar o código de recuperação.";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "DKS-Uk-BcE"; */
 "DKS-Uk-BcE.title" = " ";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Erq-SI-p9L"; */
-"Erq-SI-p9L.normalTitle" = "Next";
+"Erq-SI-p9L.normalTitle" = "Próximo";
 
 /* Class = "UILabel"; text = "A SMS was sent to your phone number."; ObjectID = "F4h-k5-Nwo"; */
-"F4h-k5-Nwo.text" = "A SMS was sent to your phone number.";
+"F4h-k5-Nwo.text" = "Um sms foi enviado para o seu número.";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "FCo-iE-UPo"; */
 "FCo-iE-UPo.title" = " ";
 
 /* Class = "UIButton"; normalTitle = "Update"; ObjectID = "HBK-dq-CRn"; */
-"HBK-dq-CRn.normalTitle" = "Update";
+"HBK-dq-CRn.normalTitle" = "Atualizar";
 
 /* Class = "UILabel"; text = "confirm password"; ObjectID = "Hbe-v7-TwA"; */
-"Hbe-v7-TwA.text" = "confirm password";
+"Hbe-v7-TwA.text" = "confirmar senha";
 
 /* Class = "UINavigationItem"; title = "Forgot Password"; ObjectID = "Igz-5T-eWH"; */
-"Igz-5T-eWH.title" = "Forgot Password";
+"Igz-5T-eWH.title" = "Esqueci a Senha";
+
+/* Class = "UIButton"; normalTitle = "I do not received the code"; ObjectID = "JbE-8K-xrD"; */
+"JbE-8K-xrD.normalTitle" = "Não recebi o código";
 
 /* Class = "UILabel"; text = "The code will be sent to your account phone number"; ObjectID = "LGe-RP-Wen"; */
-"LGe-RP-Wen.text" = "The code will be sent to your account phone number";
+"LGe-RP-Wen.text" = "O código será enviado para o número de telefone da sua conta.";
+
+/* Class = "UILabel"; text = "Choose a way to recover your account"; ObjectID = "V2G-bB-rPf"; */
+"V2G-bB-rPf.text" = "Escolha a forma de recuperar sua conta.";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "V4A-6w-Dhm"; */
 "V4A-6w-Dhm.title" = " ";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "VHz-cK-kRE"; */
-"VHz-cK-kRE.normalTitle" = "Next";
+"VHz-cK-kRE.normalTitle" = "Próximo";
 
 /* Class = "UILabel"; text = "The code will be sent to your account email"; ObjectID = "WVx-ai-4pU"; */
-"WVx-ai-4pU.text" = "The code will be sent to your account email";
+"WVx-ai-4pU.text" = "O código será enviado para o endereço de email da sua conta.";
 
-/* Class = "UILabel"; text = "It must contain at least 8 characters"; ObjectID = "XJK-xj-S7A"; */
-"XJK-xj-S7A.text" = "It must contain at least 8 characters";
+/* Class = "UILabel"; text = "Your new password must be diferent from your current one."; ObjectID = "XJK-xj-S7A"; */
+"XJK-xj-S7A.text" = "Sua nova senha deve ser diferente da atual.";
 
 /* Class = "UILabel"; text = "Using Email"; ObjectID = "aBx-Pm-AjG"; */
-"aBx-Pm-AjG.text" = "Using Email";
+"aBx-Pm-AjG.text" = "Usando Email";
 
 /* Class = "UILabel"; text = "example@mail.com"; ObjectID = "aSQ-aK-r6t"; */
-"aSQ-aK-r6t.text" = "example@mail.com";
+"aSQ-aK-r6t.text" = "exemplo@email.com";
+
+/* Class = "UILabel"; text = "Your email address"; ObjectID = "bRj-1N-hjZ"; */
+"bRj-1N-hjZ.text" = "O email da sua conta.";
 
 /* Class = "UILabel"; text = "Recovery Code"; ObjectID = "ekb-cz-H6z"; */
-"ekb-cz-H6z.text" = "Recovery Code";
+"ekb-cz-H6z.text" = "Código de Recuperação";
 
 /* Class = "UILabel"; text = "(Area Code)+Number"; ObjectID = "lCA-Kv-MZA"; */
-"lCA-Kv-MZA.text" = "(Area Code)+Number";
+"lCA-Kv-MZA.text" = "(DDD)+Número";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "q6B-8p-f8M"; */
 "q6B-8p-f8M.title" = " ";
@@ -62,8 +77,11 @@
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "tLz-nb-Qdd"; */
 "tLz-nb-Qdd.title" = " ";
 
+/* Class = "UILabel"; text = "Your new Password please"; ObjectID = "xhX-3F-pJF"; */
+"xhX-3F-pJF.text" = "A sua nova senha";
+
 /* Class = "UILabel"; text = "password"; ObjectID = "yEG-6p-M43"; */
-"yEG-6p-M43.text" = "password";
+"yEG-6p-M43.text" = "senha";
 
 /* Class = "UILabel"; text = "This email will be used to locate your account and send the recovery code."; ObjectID = "yWw-ij-fhc"; */
-"yWw-ij-fhc.text" = "This email will be used to locate your account and send the recovery code.";
+"yWw-ij-fhc.text" = "Esse email será usado para localizar sua conta e enviar o código de recuperação.";

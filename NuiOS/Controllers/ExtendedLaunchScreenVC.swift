@@ -42,7 +42,8 @@ class ExtendedLaunchScreenVC: UIViewController {
                         }
                         else{
                             //account activation process
-                            self.showAccountActivationVC()
+                            //self.showAccountActivationVC() it is causing some problems when tapping on cancel button
+                            self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
                         }
                     }
                 }

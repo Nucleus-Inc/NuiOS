@@ -36,18 +36,18 @@ class AccountRecPasswordSVC: SignUpPasswordSVC {
             if let answers = self.delegate.answers{
                 
                 guard  let code = answers["code"] as? String else{
-                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Recovery Code", Message: "The recovery code is not valid.")
+                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Recovery Code".localized, Message: "The recovery code is not valid.".localized)
                     return
                 }
                 
                 if let keyValue = answers[key] as? String{
-                    let alertC = UIAlertController(title: "Updating", message: nil, preferredStyle: .alert)
+                    let alertC = UIAlertController(title: "Updating".localized, message: nil, preferredStyle: .alert)
                     self.present(alertC, animated: true, completion: nil)
                     AppSingleton.shared.recoveryAccount(WithKey: keyValue, by: recByType, code: code, newPassword: password) { (success) in
                         DispatchQueue.main.async {
                             alertC.dismiss(animated: true, completion: {
                                 if success{
-                                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Recovery Account", Message: "Password updated with success.",OKAction:{(_) in
+                                    UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "Recovery Account".localized, Message: "Password updated with success.".localized,OKAction:{(_) in
                                         self.view.endEditing(true)
                                         self.navigationController?.dismiss(animated: true, completion: {
                                             SignUpStack.config.finishSignUp()
