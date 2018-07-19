@@ -119,7 +119,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     }
     
     private func showAnswerInfoErrMessage(){
-        self.answerInfoTF.text = "Invalid code"
+        self.answerInfoTF.text = "invalid_code".localized
         self.answerInfoTF.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     }
     
@@ -134,14 +134,16 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
         let alertC = UIAlertController(title: "account_activation".localized, message: "send_code_again".localized, preferredStyle: .actionSheet)
         
         if let unmaskedNumber = self.delegate.answers!["phoneNumber"] as? String{
-            let toNumber = UIAlertAction(title: "SMS - "+unmaskedNumber, style: .default) { (_) in
+            let toNumberStr = String(format: "sms-%@".localized, unmaskedNumber)
+            let toNumber = UIAlertAction(title: toNumberStr, style: .default) { (_) in
                 self.sendCodeAgain(By:.sms)
             }
             alertC.addAction(toNumber)
         }
         
         if let email = self.delegate.answers!["email"] as? String{
-            let toEmail = UIAlertAction(title: "Email - "+email, style: .default) { (_) in
+            let toEmailStr = String(format: "email-%@".localized, email)
+            let toEmail = UIAlertAction(title: toEmailStr, style: .default) { (_) in
                 self.sendCodeAgain(By:.email)
             }
             alertC.addAction(toEmail)
@@ -261,8 +263,8 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     //MARK: - UILabel methods
     
     internal func setUpQuestionInfoLabel(){
-        let number = (self.delegate.answers!["phoneNumber"] as! String)
-        questionInfoLabel.text = "A SMS was send to the number "+number+"."
+        let number = (self.delegate.answers!["phoneNumber"] as? String) ?? ""
+        questionInfoLabel.text = String(format: "sms_sent_to_%@".localized, number)
     }
 
     //MARK: - UITextField methods
@@ -339,6 +341,7 @@ class SignUpCodeDelegate:AppSignUpDelegate{
     }
     
     override func updateAppearanceOf(NextStepButton button: UIButton) {
-        button.setTitle(isServerSideValid ? "Next" : "Validate", for: .normal)
+        let title = (isServerSideValid ? "next" : "validate").localized
+        button.setTitle(title, for: .normal)
     }
 }

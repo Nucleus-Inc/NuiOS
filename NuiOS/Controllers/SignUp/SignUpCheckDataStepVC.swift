@@ -106,7 +106,7 @@ class SignUpCheckDataStepVC: SignUpStepVC,UITableViewDelegate,UITableViewDataSou
                             self.goToNextStep()
                         }
                         else{
-                            self.updateNextStepTitle("Try again")
+                            self.updateNextStepTitle("try_again".localized)
                         }
                     })
                 }

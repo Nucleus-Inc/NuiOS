@@ -81,19 +81,19 @@ class SignUpPasswordSVC: SignUpStepVC, UITextFieldDelegate {
         switch score {
         case 0:
             color = UIColor(red: 200/255, green: 38/255, blue: 71/255, alpha: 1)//.red
-            message = "Weak"
+            message = "weak".localized
         case 1:
             color = UIColor(red: 200/255, green: 38/255, blue: 71/255, alpha: 1)//.red
-            message = "Weak"
+            message = "weak".localized
         case 2:
             color = UIColor(red: 254/255, green: 193/255, blue: 6/255, alpha: 1)
-            message = "Regular"
+            message = "regular".localized
         case 3:
             color = UIColor(red: 254/255, green: 193/255, blue: 6/255, alpha: 1)
-            message = "Regular"
+            message = "regular".localized
         case 4:
             color = UIColor(red: 113/255, green: 186/255, blue: 81/255, alpha: 1)
-            message = "Strong"
+            message = "strong".localized
         default:
             color = UIColor(red: 113/255, green: 186/255, blue: 81/255, alpha: 1)
         }
@@ -103,7 +103,7 @@ class SignUpPasswordSVC: SignUpStepVC, UITextFieldDelegate {
         if password.count < self.minCharacters{
             value = 0
             color = UIColor(red: 200/255, green: 38/255, blue: 71/255, alpha: 1)//.red
-            message = "Too Weak"
+            message = "too_weak".localized
         }
         
         self.passwordStrengthView.updateToStep(value + 1, WithColor: color)
@@ -216,7 +216,7 @@ class SignUpPasswordSVC: SignUpStepVC, UITextFieldDelegate {
         }
         else{
             confirmInfoLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-            confirmInfoLabel.text = "The typed values are not the same."
+            confirmInfoLabel.text = "values_not_match".localized
         }
     }
     

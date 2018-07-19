@@ -40,15 +40,15 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
         switch row {
         case 0:
             let name = answers["name"] as? String
-            return ("Name",name)
+            return ("name".localized,name)
         case 1:
             let phoneNumber = answers["phoneNumber"] as! String
             let maskedNumber = PhoneNumber.BR.mask(number: phoneNumber)
-            return ("Phone number",maskedNumber)
+            return ("phoneNumber".localized,maskedNumber)
         case 2:
-            return ("E-mail",answers["email"] as? String)
+            return ("email".localized,answers["email"] as? String)
         case 3:
-            return ("Password",answers["password"] as? String)
+            return ("password".localized,answers["password"] as? String)
         default:
             return ("Extra",nil)
 
@@ -56,7 +56,7 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
     }
     
     public func titleForHeader(Answers answers: [String : Any], InSection section: Int) -> String? {
-        return "Account"
+        return "account".localized
     }
     
     public func didSelectAnswerAt(IndexPath indexPath: IndexPath, onVC vc: UIViewController, fromAnswers answers: [String : Any]) {

@@ -13,10 +13,10 @@ class AppSignUpDelegate:DefaultSUpSDelegate{
     
     override public func updateAppearanceOf(NextStepButton button: UIButton) {
         if reviewMode != .none{
-            button.setTitle("Confirm", for: .normal)
+            button.setTitle("confirm".localized, for: .normal)
         }
         else{
-            button.setTitle("Next", for: .normal)
+            button.setTitle("next".localized, for: .normal)
         }
     }
     

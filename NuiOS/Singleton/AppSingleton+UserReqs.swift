@@ -212,7 +212,7 @@ extension AppSingleton{
     func updatePassword(Current current:String, New new:String,completion:@escaping(_ success:Bool)->Void){
         
         if current.compare(new) == .orderedSame{
-            NotificationBannerShortcuts.showWarningBanner(title: "Password Update", subtitle: "Your new password are equal to current one.")
+            NotificationBannerShortcuts.showWarningBanner(title: "password_update".localized, subtitle: "new_password_equal_current".localized)
             completion(false)
             return
         }
@@ -238,7 +238,7 @@ extension AppSingleton{
     
     func updateName(name:String,completion:((_ success:Bool)->Void)?=nil){
         if name.isEmpty{
-            NotificationBannerShortcuts.showErrBanner(title: "Update Name Failure", subtitle: "Your name can not be blank.")
+            NotificationBannerShortcuts.showErrBanner(title: "name_update_failure".localized, subtitle: "name_can_not_blank".localized)
             completion?(false)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             return
@@ -263,7 +263,7 @@ extension AppSingleton{
         }
         else{
             completion?(false)
-            NotificationBannerShortcuts.showErrBanner(title: "Update Name Failure", subtitle: "It was not possible to update your name.")
+            NotificationBannerShortcuts.showErrBanner(title: "name_update_failure".localized, subtitle: "was_not_possible_update_name".localized)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
     }
@@ -289,7 +289,7 @@ extension AppSingleton{
         }
         else{
             completion?(false)
-            NotificationBannerShortcuts.showErrBanner(title: "Update Picture Failure", subtitle: "It was not possible to update your picture.")
+            NotificationBannerShortcuts.showErrBanner(title: "picture_update_failure".localized, subtitle: "was_not_possible_update_picture".localized)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
         
@@ -335,7 +335,7 @@ extension AppSingleton{
         }
         else{
             completion?(false)
-            NotificationBannerShortcuts.showErrBanner(title: "Update Email Failure", subtitle: "It was not possible to confirm your email update.")
+            NotificationBannerShortcuts.showErrBanner(title: "email_update_failure".localized, subtitle: "was_not_possible_update_email".localized)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
     }
@@ -381,7 +381,7 @@ extension AppSingleton{
         }
         else{
             completion?(false)
-            NotificationBannerShortcuts.showErrBanner(title: "Update Phone number Failure", subtitle: "It was not possible to confirm your phone number update.")
+            NotificationBannerShortcuts.showErrBanner(title: "phoneNumber_update_failure".localized, subtitle: "was_not_possible_update_phoneNumber".localized)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
     }

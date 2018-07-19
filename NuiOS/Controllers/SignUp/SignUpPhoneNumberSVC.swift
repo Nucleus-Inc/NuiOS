@@ -45,7 +45,7 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
     }
     
     private func showAnswerInfoErrMessage(){
-        self.answerInfoTF.text = "This phone number is in use."
+        self.answerInfoTF.text = "phoneNumber_in_use".localized
         self.answerInfoTF.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     }
     

@@ -60,7 +60,7 @@ class SignUpEmailSVC: SignUpNameSVC {
         lastInvalidEmails.contains(answerTF.text!) ? showAnswerInfoErrMessage() : showAnswerInfoDefaultMessage()
     }
     
-    private func showAnswerInfoErrMessage(_ message:String="This email is in use."){
+    private func showAnswerInfoErrMessage(_ message:String="email_in_use".localized){
         self.answerInfoTF.text = message//"Email em uso"
         self.answerInfoTF.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     }
@@ -98,7 +98,7 @@ class SignUpEmailSVC: SignUpNameSVC {
                         self.answerTF.becomeFirstResponder()
                         self.isServerSideValid = false
                         self.lastInvalidEmails.append(self.answerTF.text!)
-                        self.showAnswerInfoErrMessage("This email is in use")
+                        self.showAnswerInfoErrMessage()
                         
                         //UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This email is in use. Try another one.", OKAction: nil)
                     }

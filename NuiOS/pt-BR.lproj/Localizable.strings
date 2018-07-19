@@ -5,4 +5,87 @@
   Created by Nucleus on 18/07/2018.
   Copyright © 2018 Nucleus. All rights reserved.
 */
+
+//MARK: - UIAlertControllerShortcuts and UIAlertController
+
+"yes" = "Yes";
+"no" = "No";
+"logout" = "Logout";
+"want_to_continue?" =  "Do you want to continue ?";
+"updating" = "Updating";
+"password_update" = "Password Update"; // used on NotificationBannerShortcuts
+"password_update_success" = "Password updated with success.";
+"confirming_update" = "Confirming Update";
+"email_update" = "Email update";
+"phone_number_update" = "Phone number update";
+"email_update_success" = "Your email was updated with success.";
+"phoneNumber_update_success" = "Your phone number was updated with success.";
+"sending" = "Sending";
+"recovery_code" = "Recovery Code";
+"recovery_code_invalid" = "The recovery code is not valid.";
+"recovery_account" = "Recovery Account";
+"password_update_fail" = "It was not possible to update your password.";
+"password_and_confirmation_diferent" = "Password and Confirmation values are not the same.";
+"values_not_match" = "The typed values are not the same.";
+"account_activation" = "Account Activation";
+"account_activation_success" = "Your account was activated with success.";
+"choose_image" = "Choose Image";
+"camera" = "Camera";
+"gallery" = "Gallery";
+"cancel" = "Cancel";
+"cancel_signup" = "Cancel Sign up";
+"lose_signup_info_continue?" = "You will lose all added informations.\n\nDo you want to continue?";
+"send_code_again" = "Send code again";
+"validating" = "Validating";
+"typed_code_invalid" = "The typed code is invalid.";
+"ask_new_code" = "Ask for a new code.";
+
+//MARK: - NotificationBannerShortcuts
+"request_error" = "Request Error";
+"no_connection_title" = "No Connection";
+"invalid_credentials_login_title" = "Invalid Credentials";
+"invalid_login_mess" = "Invalid username or password";
+"phoneNumber_unavailable" = "Phone number unavailable";
+"phoneNumber_in_use_try_other" = "This phone number is in use. Try another one.";
+"email_unavailable" = "Email unavailable";
+"email_in_use_try_other" = "This email is in use. Try another one.";
+"sms_sent" = "SMS sent";
+"sms_activ_code_sent" = "A sms with the activation code was sent.";
+"email_sent" = "Email sent";
+"email_activ_code_sent" = "An email with the activation code was sent.";
+"sms_rec_code_sent" = "A sms with the recovery code was sent.";
+"email_rec_code_sent" = "An email with the recovery code was sent.";
+"new_password_equal_current" = "Your new password is equal to current one.";
+"name_update_failure" = "Name Update Failure";
+"name_can_not_blank" = "Your name can not be blank.";
+"was_not_possible_update_name" = "It was not possible to update your name.";
+"picture_update_failure" = "Picture Update Failure";
+"was_not_possible_update_picture" = "It was not possible to update your picture.";
+"email_update_failure" = "Email Update Failure";
+"was_not_possible_update_email" = "It was not possible to confirm your email update.";
+"phoneNumber_update_failure" = "Phone number Update Failure";
+"was_not_possible_update_phoneNumber" = "It was not possible to confirm your phone number update.";
+"picture_update" = "Picture Update";
+"err_using_selected_image" = "Some error happened when trying to use the selected image.";
+
+//MARK: - App Texts
 "email_sent_to_%@" = "An email was sent to email address %@.";
+"name" = "Name";
+"phoneNumber" = "Phone number";
+"email" = "Email";
+"password" = "Password";
+"account" = "Account";
+"try_again" = "Try again";
+"weak" = "Weak";
+"too_weak"="Too Weak";
+"regular" = "Regular";
+"strong" = "Strong";
+"phoneNumber_in_use" = "This phone number is in use.";
+"invalid_code" = "Invalid code";
+"sms-%@" = "SMS - %@";
+"email-%@" = "Email - %@";
+"sms_sent_to_%@" = "A sms was sent to phone number %@.";
+"next" = "Next";
+"validate" = "Validate";
+"email_in_use" = "This email is in use.";
+"confirm" = "Confirm";

@@ -37,7 +37,7 @@ class NewPasswordSVC: SignUpPasswordSVC {
                 self.loadingMode(Loading: false)
                 alert.dismiss(animated: true, completion: {
                     if success{
-                        UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "update_password".localized, Message: "password_update_success".localized, OKAction: { (_) in
+                        UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "password_update".localized, Message: "password_update_success".localized, OKAction: { (_) in
                             self.view.endEditing(true)
                             self.dismiss(animated: true, completion: {
                                 SignUpStack.config.finishSignUp()

@@ -115,7 +115,8 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
                 }
             }
             else{
-                NotificationBannerShortcuts.showWarningBanner(title: "Update Image Failure", subtitle: "It was not possible to update.")
+               
+                UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "picture_update".localized, Message: "err_using_selected_image".localized)
             }
         }
         

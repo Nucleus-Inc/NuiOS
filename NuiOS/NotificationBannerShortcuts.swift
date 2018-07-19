@@ -21,11 +21,11 @@ class NotificationBannerShortcuts{
         }
     }
     
-    class func showRequestErrorBanner(title:String="Request Error",subtitle:String?){
+    class func showRequestErrorBanner(title:String="request_error".localized,subtitle:String?){
         showWarningBanner(title: title, subtitle: subtitle)
     }
 
-    class func showRequestErrorBannerIfNeeded(title:String="Request Error",error:Error?){
+    class func showRequestErrorBannerIfNeeded(title:String="request_error".localized,error:Error?){
         guard let e = error else{
             return
         }
@@ -84,7 +84,7 @@ class NotificationBannerShortcuts{
 extension NotificationBannerShortcuts{
 
     class func showNoConnectionBanner(completion:@escaping(NotificationBanner)->Void){
-        setUpBanner(title: "No Connection", subtitle: nil, style: .none) { (banner) in
+        setUpBanner(title: "no_connection_title".localized, subtitle: nil, style: .none) { (banner) in
             banner.backgroundColor = UIColor.black
             banner.bannerHeight = 40
             banner.titleLabel?.font = UIFont.systemFont(ofSize: 16)
@@ -100,38 +100,38 @@ extension NotificationBannerShortcuts{
     
     class func showApiErrorBanner(ApiError error:ApiError){
         let localizedMessage = error.description
-        NotificationBannerShortcuts.showErrBanner(title: "Request Error", subtitle: localizedMessage)
+        NotificationBannerShortcuts.showErrBanner(title: "request_error".localized, subtitle: localizedMessage)
     }
 
     class func showLoginErrBanner(){
-        let localizedMessage = "Invalid username or password"
-        NotificationBannerShortcuts.showErrBanner(title: "Invalid Credentials", subtitle: localizedMessage)
+        let localizedMessage = "invalid_login_mess".localized
+        NotificationBannerShortcuts.showErrBanner(title: "invalid_credentials_login_title".localized, subtitle: localizedMessage)
     }
     
     class func showUnavailableBanner(For type:AppSingleton.KeyType){
         if type == .phoneNumber{
-            NotificationBannerShortcuts.showErrBanner(title: "Phone number unavailable", subtitle: "This phone number is in use. Try another one.")
+            NotificationBannerShortcuts.showErrBanner(title: "phoneNumber_unavailable".localized, subtitle: "phoneNumber_in_use_try_other".localized)
         }
         else{
-            NotificationBannerShortcuts.showErrBanner(title: "Email unavailable", subtitle: "This email is in use. Try another one.")
+            NotificationBannerShortcuts.showErrBanner(title: "email_unavailable".localized, subtitle: "email_in_use_try_other".localized)
         }
     }
     
     class func showReqActCodeSuccess(For type:CodeTransport){
         if type == .sms{
-            NotificationBannerShortcuts.showSuccessBanner(title: "SMS sent", subtitle: "A sms with the activation code was sent.")
+            NotificationBannerShortcuts.showSuccessBanner(title: "sms_sent".localized, subtitle: "sms_activ_code_sent".localized)
         }
         else{
-            NotificationBannerShortcuts.showSuccessBanner(title: "Email sent", subtitle: "An email with the activation code was sent.")
+            NotificationBannerShortcuts.showSuccessBanner(title: "email_sent".localized, subtitle: "email_activ_code_sent".localized)
         }
     }
 
     class func showRequestRecCodeSuccess(For type:CodeTransport){
         if type == .sms{
-            NotificationBannerShortcuts.showSuccessBanner(title: "SMS sent", subtitle: "A sms with the recovery code was sent.")
+            NotificationBannerShortcuts.showSuccessBanner(title: "sms_sent".localized, subtitle: "sms_rec_code_sent".localized)
         }
         else{
-            NotificationBannerShortcuts.showSuccessBanner(title: "Email sent", subtitle: "An email with the recovery code was sent.")
+            NotificationBannerShortcuts.showSuccessBanner(title: "email_sent".localized, subtitle: "email_rec_code_sent".localized)
         }
     }
 

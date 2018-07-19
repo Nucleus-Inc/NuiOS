@@ -60,7 +60,6 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
             else{
                 let email = (self.delegate.answers!["email"] as! String)
                 let text = String(format: "email_sent_to_%@".localized, email)
-                //questionInfoLabel.text = "An email was sent to email address ".localized+email+"."
                 questionInfoLabel.text = text
 
             }
