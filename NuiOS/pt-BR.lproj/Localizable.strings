@@ -6,6 +6,12 @@
   Copyright © 2018 Nucleus. All rights reserved.
 */
 
+//MARK: - TitledTextField
+
+"Username" = "Usuário";
+"Password" = "Senha";
+
+
 //MARK: - UIAlertControllerShortcuts and UIAlertController
 
 "yes" = "Yes";

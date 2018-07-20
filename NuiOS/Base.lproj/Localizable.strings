@@ -5,6 +5,10 @@
   Created by Nucleus on 18/07/2018.
   Copyright © 2018 Nucleus. All rights reserved.
 */
+//MARK: - TitledTextField
+
+"Username" = "Username";
+"Password" = "Password";
 
 //MARK: - UIAlertControllerShortcuts and UIAlertController
 

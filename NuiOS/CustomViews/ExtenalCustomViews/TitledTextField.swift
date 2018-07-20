@@ -178,10 +178,9 @@ public class TitledTextField: UITextField {
     private func addTitle(WithTitle title:String){
         titleLayer = CATextLayer()
         titleLayer.foregroundColor = normalTitleColor.cgColor
-        titleLayer.string = title
+        titleLayer.string = NSLocalizedString(title, comment: "")
         titleLayer.font = CTFontCreateWithName((font!.familyName as CFString?)!, self.font!.pointSize, nil)//titledTF.font?.familyName as? CFTypeRef
         titleLayer.fontSize = self.font!.pointSize
-        
         titleLayer.alignmentMode = self.textAlignment.correspontingCAAligment
         //titleLayer.contentsGravity = kCAGravityCenter
         titleLayer.frame = self.bounds
