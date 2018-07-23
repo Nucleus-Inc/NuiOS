@@ -19,7 +19,6 @@ class ImagePickerControllerManager: NSObject,UINavigationControllerDelegate,UIIm
             imagePickerVC.delegate = self
             imagePickerVC.sourceType = UIImagePickerControllerSourceType.photoLibrary
             imagePickerVC.allowsEditing = true
-            
             vc.present(imagePickerVC, animated: true, completion: nil)
             
             self.completion = completionHandler

@@ -21,10 +21,9 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     
     @IBOutlet var codeTFs: [UITextField]!
     
-    @IBOutlet weak var answerInfoTF: UILabel!
+    @IBOutlet weak var answerInfoTF: InfoLabel!
     
     private var defaultMessage:String?
-    private var defaultColor:UIColor?
     
     @IBInspectable var minCharacters:Int = 0
     
@@ -51,7 +50,6 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     override func viewDidLoad() {
         super.viewDidLoad()
         defaultMessage = answerInfoTF.text
-        defaultColor = answerInfoTF.textColor
         setUpTextField()
         setUpQuestionInfoLabel()
         self.didChangeStepAnswers()
@@ -120,12 +118,12 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     
     private func showAnswerInfoErrMessage(){
         self.answerInfoTF.text = "invalid_code".localized
-        self.answerInfoTF.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        self.answerInfoTF.style = .error
     }
     
     private func showAnswerInfoDefaultMessage(){
         self.answerInfoTF.text = defaultMessage
-        self.answerInfoTF.textColor = defaultColor
+        self.answerInfoTF.style = .normal
     }
 
     
@@ -264,7 +262,8 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     
     internal func setUpQuestionInfoLabel(){
         let number = (self.delegate.answers!["phoneNumber"] as? String) ?? ""
-        questionInfoLabel.text = String(format: "sms_sent_to_%@".localized, number)
+        let maskedNumber = PhoneNumber.BR.mask(number: number)
+        questionInfoLabel.text = String(format: "sms_sent_to_%@".localized, maskedNumber)
     }
 
     //MARK: - UITextField methods

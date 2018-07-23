@@ -77,6 +77,7 @@ class ConfirmationCodeSVC: SignUpCodeSVC {
                 alertC.dismiss(animated: true, completion: {
                     DispatchQueue.main.async {
                         self.loadingMode(Loading: false)
+                        self.codeTFs.first?.becomeFirstResponder()
                     }
                 })
             }

@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  NuiOS
+
+  Created by Nucleus on 23/07/2018.
+  Copyright © 2018 Nucleus. All rights reserved.
+*/
+
+"NSPhotoLibraryUsageDescription" = "Tornar possível você escolher sua imagem através da sua galeria de imagens.";
+"NSCameraUsageDescription" = "Tornar possível você tirar uma foto e escolher ela como sua imagem.";

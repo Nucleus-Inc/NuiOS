@@ -1,0 +1,19 @@
+/* 
+  APIErrorLocalizable.strings
+  NuiOS
+
+  Created by Nucleus on 23/07/2018.
+  Copyright © 2018 Nucleus. All rights reserved.
+*/
+"REQ-001" = "Invalid or missing fields";
+"REQ-002" = "Invalid request body";
+"REQ-003" = "Duplicated resource";
+
+"AUT-001" = "Invalid or missing credentials.";
+"AUT-002" = "You do not have permission to perfom this action.";
+"AUT-003" = "User new password must not be the current one.";
+"AUT-004" = "Invalid or expired confirmation code.";
+"AUT-005" = "This request could not be processed. The user account is not active.";
+"AUT-006" = "This request could not be processed. The user account is already active.";
+
+"SRV-001" = "An internal error occurred. This request has been logged.";

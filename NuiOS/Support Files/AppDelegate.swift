@@ -15,11 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var noConnectionBanner:NotificationBanner?
 
+    class func logout(){
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            AppSingleton.shared.logout()
+            appDelegate.window?.rootViewController = UIStoryboard(name: "Login", bundle: Bundle.main).instantiateInitialViewController()
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Api.setUpWith(Address: EnvVariables.serverAddress)
         AppSingleton.UserAuth.KEYCHAIN_SERVICE = EnvVariables.keychainServ
-        
         self.listenForInternetConnectionChanges()
         // Override point for customization after application launch.
         return true

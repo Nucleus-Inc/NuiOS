@@ -63,13 +63,14 @@ public enum PhoneNumber{
     case USA
     
     
-    public func mask(number:String)->String{
+    public func mask(number:String,hasCountryCode:Bool=true)->String{
         let pattern = self.maskingPattern
         let unmaskedNumber:String
         
         switch self {
         case .BR,.USA:
-            unmaskedNumber = String(number.suffix(unmask(number: number).count - countryCode.count))
+            let tempUnmasked = unmask(number: number)
+            unmaskedNumber = hasCountryCode ? String(tempUnmasked.suffix(tempUnmasked.count - countryCode.count)) :  tempUnmasked
         }
         return PhoneNumber.applyMask(regex: pattern.regex, format: pattern.format, onText: unmaskedNumber)
     }

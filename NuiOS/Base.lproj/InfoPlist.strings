@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  NuiOS
+
+  Created by Nucleus on 23/07/2018.
+  Copyright © 2018 Nucleus. All rights reserved.
+*/
+
+"NSPhotoLibraryUsageDescription" = "Make possible you choose your profile picture from photo library.";
+"NSCameraUsageDescription" = "Make possible you take a picture and choose it as your profile picture.";

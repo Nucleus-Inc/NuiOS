@@ -24,7 +24,9 @@ class YourPasswordSVC: SignUpNameSVC {
     
     @IBAction func closeBtnAction(_ sender: Any) {
         self.view.endEditing(true)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            SignUpStack.config.finishSignUp()
+        })
     }
     
     /*

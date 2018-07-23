@@ -156,16 +156,10 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
         }
     }
     
-    private func logout(){
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
-            AppSingleton.shared.logout()
-            appDelegate.window?.rootViewController = UIStoryboard(name: "Login", bundle: Bundle.main).instantiateInitialViewController()
-        }
-    }
     func didTapLogOutCell(){
         
         UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "logout".localized, Message: "want_to_continue?".localized,YesAction:{(_) in
-            self.logout()
+            AppDelegate.logout()
         })
     
     }

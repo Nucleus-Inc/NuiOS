@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE1824C721062629004DDC83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE1824C521062629004DDC83 /* InfoPlist.strings */; };
+		EE1824D121066042004DDC83 /* APIErrorLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE1824CF21066042004DDC83 /* APIErrorLocalizable.strings */; };
+		EE1824D42106697F004DDC83 /* AppSingleton+ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1824D32106697F004DDC83 /* AppSingleton+ApiErrors.swift */; };
 		EE3FDB6D20FE485700CC166F /* EmailUpdate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB6B20FE485700CC166F /* EmailUpdate.storyboard */; };
 		EE3FDB7020FE486100CC166F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB6E20FE486100CC166F /* Profile.storyboard */; };
 		EE3FDB7720FE4DCD00CC166F /* YourPasswordSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB7620FE4DCD00CC166F /* YourPasswordSVC.swift */; };
@@ -85,6 +88,11 @@
 		073FF8913C811AD802EE95E8 /* Pods-NuiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NuiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		96218C56F035F20BF747D012 /* Pods-NuiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NuiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS.release.xcconfig"; sourceTree = "<group>"; };
 		BC10D17AFD24A0CF8001C24F /* Pods_NuiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NuiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE1824C621062629004DDC83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE1824C921062696004DDC83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EE1824D021066042004DDC83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/APIErrorLocalizable.strings; sourceTree = "<group>"; };
+		EE1824D22106624D004DDC83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/APIErrorLocalizable.strings"; sourceTree = "<group>"; };
+		EE1824D32106697F004DDC83 /* AppSingleton+ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+ApiErrors.swift"; sourceTree = "<group>"; };
 		EE3FDB6C20FE485700CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EmailUpdate.storyboard; sourceTree = "<group>"; };
 		EE3FDB6F20FE486100CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		EE3FDB7420FE48E200CC166F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Profile.strings"; sourceTree = "<group>"; };
@@ -234,6 +242,7 @@
 			children = (
 				EE720F5A20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift */,
 				EE720F6120F7A11800EBA122 /* AppSingleton+UserReqs.swift */,
+				EE1824D32106697F004DDC83 /* AppSingleton+ApiErrors.swift */,
 			);
 			name = ApiRequests;
 			sourceTree = "<group>";
@@ -400,6 +409,8 @@
 		EEEB4CA620F52474005DF444 /* NuiOS */ = {
 			isa = PBXGroup;
 			children = (
+				EE1824CF21066042004DDC83 /* APIErrorLocalizable.strings */,
+				EE1824C521062629004DDC83 /* InfoPlist.strings */,
 				EEA6EEDE20FFD251001530D5 /* Localizable.strings */,
 				EE720F5F20F79F3000EBA122 /* Info.plist */,
 				EE720F5920F78FA000EBA122 /* Singleton */,
@@ -521,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE720F6020F79F3000EBA122 /* Info.plist in Resources */,
+				EE1824C721062629004DDC83 /* InfoPlist.strings in Resources */,
 				EE3FDB6D20FE485700CC166F /* EmailUpdate.storyboard in Resources */,
 				EE3FDB7020FE486100CC166F /* Profile.storyboard in Resources */,
 				EEBC6E3420F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard in Resources */,
@@ -529,6 +541,7 @@
 				EE9FC86A20F9141A0078624B /* AccountRecover.storyboard in Resources */,
 				EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */,
 				EEA6EEBB20FF7272001530D5 /* PasswordUpdate.storyboard in Resources */,
+				EE1824D121066042004DDC83 /* APIErrorLocalizable.strings in Resources */,
 				EEA6EEE020FFD251001530D5 /* Localizable.strings in Resources */,
 				EE3FDB8220FE7CBE00CC166F /* PhoneNumberUpdate.storyboard in Resources */,
 				EEEB4CB120F52474005DF444 /* Main.storyboard in Resources */,
@@ -615,6 +628,7 @@
 				EEEB4CAB20F52474005DF444 /* ViewController.swift in Sources */,
 				EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */,
 				EE84921D20F6306F009D750F /* NuSignUpCheckDataStepC.swift in Sources */,
+				EE1824D42106697F004DDC83 /* AppSingleton+ApiErrors.swift in Sources */,
 				EEA6EEC920FF973C001530D5 /* AppDelegate+Reachability.swift in Sources */,
 				EE9FC87C20F941430078624B /* ProfileTVC.swift in Sources */,
 				EE3FDB8520FE7D0C00CC166F /* NewPhoneNumberSVC.swift in Sources */,
@@ -658,6 +672,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		EE1824C521062629004DDC83 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE1824C621062629004DDC83 /* Base */,
+				EE1824C921062696004DDC83 /* pt-BR */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EE1824CF21066042004DDC83 /* APIErrorLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE1824D021066042004DDC83 /* Base */,
+				EE1824D22106624D004DDC83 /* pt-BR */,
+			);
+			name = APIErrorLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		EE3FDB6B20FE485700CC166F /* EmailUpdate.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

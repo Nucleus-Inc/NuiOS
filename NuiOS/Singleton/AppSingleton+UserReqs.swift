@@ -9,18 +9,7 @@
 import Foundation
 
 extension AppSingleton{
-    //MARK: - Login
-    private func processOnFailure(apiError:ApiError?,reqError:Error?){
-        guard let e = reqError else{
-            //check error on response.data
-            if let apiError = apiError{
-                NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
-            }
-            return
-        }
-        NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
-    }
-    
+    //MARK: - Login    
     func signinWith(Username username:String,Password pass:String,completion:@escaping(_ success:Bool)->Void){
         let endpoint = Users.signin(email: username, password: pass)
         let onSuccess = Response.OnSuccess(dataType: User.self, jsonType:Any.self) { (response, urlResponse) in
@@ -52,11 +41,7 @@ extension AppSingleton{
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
             completion(false)
-            guard let e = reqError else{
-                //check error on response.data
-                return
-            }
-            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+            self.processOnFailure(apiError: response.data, reqError: reqError)
         }
         
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
@@ -72,12 +57,7 @@ extension AppSingleton{
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
             completion?(false)
-            guard let e = reqError else{
-                //check error on response.data
-                print(response.json ?? "no api error")
-                return
-            }
-            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+            self.processOnFailure(apiError: response.data, reqError: reqError)
         }
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
     }
@@ -90,8 +70,16 @@ extension AppSingleton{
             completion(true,true)
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+            
+            if let error = response.data,
+                error.errorCode == ApiError.Code.AUT006{
+                print(error.description)
+                completion(true,true)
+                return
+            }
             completion(false,false)
             self.processOnFailure(apiError: response.data, reqError: reqError)
+            
         }
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
     }
@@ -161,16 +149,13 @@ extension AppSingleton{
             }
             let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
                 completion?(false)
-                guard let e = reqError else{
-                    return
-                }
+                guard let e = reqError else{return}
                 NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
             }
             try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
         }
         else{
             completion?(false)
-            
         }
     }
     
@@ -193,9 +178,7 @@ extension AppSingleton{
             }
             let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
                 completion?(false)
-                guard let e = reqError else{
-                    return
-                }
+                guard let e = reqError else{return}
                 NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
             }
             try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)

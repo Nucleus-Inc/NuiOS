@@ -45,4 +45,6 @@ extension AppSingleton{
         //clear all user specific locally saved data
     }
     
+    
+    
 }

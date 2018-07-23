@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NuSignUp
 
 class AccountRecoverWayTVC: UITableViewController {
 
@@ -34,7 +35,9 @@ class AccountRecoverWayTVC: UITableViewController {
     }
 
     @IBAction func closeBtnAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            SignUpStack.config.finishSignUp()
+        })
     }
     // MARK: - Table view data source
 

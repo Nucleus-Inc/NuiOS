@@ -13,7 +13,6 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
     var replacementRole:String? = PhoneNumber.BR.maskingPattern.format //"+1 ($1) $2-$3" //USA
 
     private var defaultMessage:String?
-    private var defaultColor:UIColor?
 
     private var isServerSideValid:Bool = false
     internal var sendingData:Bool = false
@@ -29,7 +28,6 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
         self.regex = "\\+(55)\\ \\([0-9]{2}\\)\\ [0-9]{5}\\-[0-9]{4}" // BR
         
         defaultMessage = answerInfoTF.text
-        defaultColor = answerInfoTF.textColor
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
@@ -46,12 +44,12 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
     
     private func showAnswerInfoErrMessage(){
         self.answerInfoTF.text = "phoneNumber_in_use".localized
-        self.answerInfoTF.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        self.answerInfoTF.style = .error
     }
     
     private func showAnswerInfoDefaultMessage(){
         self.answerInfoTF.text = defaultMessage
-        self.answerInfoTF.textColor = defaultColor
+        self.answerInfoTF.style = .normal
     }
     
     

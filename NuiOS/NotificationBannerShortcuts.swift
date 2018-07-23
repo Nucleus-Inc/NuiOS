@@ -99,7 +99,7 @@ extension NotificationBannerShortcuts{
     }
     
     class func showApiErrorBanner(ApiError error:ApiError){
-        let localizedMessage = error.description
+        let localizedMessage = error.localizedDescription
         NotificationBannerShortcuts.showErrBanner(title: "request_error".localized, subtitle: localizedMessage)
     }
 

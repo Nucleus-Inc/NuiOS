@@ -15,6 +15,9 @@ struct ApiError:Decodable{
     //var response: Response
     var errorCode:ResponseCode
     var description:String
+    var localizedDescription:String{
+        return NSLocalizedString(errorCode, tableName: "APIErrorLocalizable", bundle: .main, comment: "")
+    }
     
     struct Code{
         static let REQ001:ResponseCode = "REQ-001"

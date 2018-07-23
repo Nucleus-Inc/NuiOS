@@ -1,0 +1,19 @@
+/* 
+  APIErrorLocalizable.strings
+  NuiOS
+
+  Created by Nucleus on 23/07/2018.
+  Copyright © 2018 Nucleus. All rights reserved.
+*/
+"REQ-001" = "Alguns campos estão inválidos ou ausentes.";
+"REQ-002" = "Invalid request body.";
+"REQ-003" = "Informações duplicadas.";
+
+"AUT-001" = "Credenciais inválidas ou ausentes.";
+"AUT-002" = "Você não possui permissão para realizar essa ação.";
+"AUT-003" = "A sua nova senha não deve ser igual a atual.";
+"AUT-004" = "Código de confirmação inválido ou expirado.";
+"AUT-005" = "Você precisa ativar sua conta antes de realizar essa ação.";
+"AUT-006" = "Não foi possível ativar sua conta pois ela já está ativada.";
+
+"SRV-001" = "Ocorreu um erro inesperado. Por favor tente novamente.";

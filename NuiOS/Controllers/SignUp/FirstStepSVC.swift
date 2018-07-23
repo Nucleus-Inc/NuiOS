@@ -34,7 +34,9 @@ class FirstStepSVC: SignUpNameSVC {
         
         UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "cancel_signup".localized, Message: "lose_signup_info_continue?".localized, YesAction: { (_) in
             self.view.endEditing(true)
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: {
+                SignUpStack.config.finishSignUp()
+            })
         })
         
     }

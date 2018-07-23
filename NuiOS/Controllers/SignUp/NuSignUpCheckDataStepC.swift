@@ -17,10 +17,14 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
     
     public func didTapNextStep(_ answers:[String : Any], onVC vc: UIViewController, completion: @escaping (Bool,[String:Any]?) -> ()) {
         
-        AppSingleton.shared.signupUser(Params: answers) { (success) in
-            completion(success,[:])
+        if canEdit{
+            AppSingleton.shared.signupUser(Params: answers) { (success) in
+                completion(success,[:])
+            }
         }
-        //completion(true,[:])
+        else{
+            completion(true,[:])
+        }
         
     }
     

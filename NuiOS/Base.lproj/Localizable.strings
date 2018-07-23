@@ -43,6 +43,8 @@
 "validating" = "Validating";
 "typed_code_invalid" = "The typed code is invalid.";
 "ask_new_code" = "Ask for a new code.";
+"session_expired_title" = "Sessão Expirada";
+"your_session_expired" = "A sua sessão expirou. Faça login novamente.";
 
 //MARK: - NotificationBannerShortcuts
 "request_error" = "Request Error";
@@ -93,3 +95,4 @@
 "validate" = "Validate";
 "email_in_use" = "This email is in use.";
 "confirm" = "Confirm";
+
