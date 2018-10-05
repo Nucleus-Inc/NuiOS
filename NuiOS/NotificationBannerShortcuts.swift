@@ -107,6 +107,11 @@ extension NotificationBannerShortcuts{
         let localizedMessage = "invalid_login_mess".localized
         NotificationBannerShortcuts.showErrBanner(title: "invalid_credentials_login_title".localized, subtitle: localizedMessage)
     }
+
+    class func showSocialNetworkLoginErrBanner(){
+        let localizedMessage = "social_network_login_error_mess".localized
+        NotificationBannerShortcuts.showErrBanner(title: "social_network_login_error_title".localized, subtitle: localizedMessage)
+    }
     
     class func showUnavailableBanner(For type:AppSingleton.KeyType){
         if type == .phoneNumber{

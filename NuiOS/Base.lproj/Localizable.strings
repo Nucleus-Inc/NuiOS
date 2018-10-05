@@ -74,6 +74,9 @@
 "picture_update" = "Picture Update";
 "err_using_selected_image" = "Some error happened when trying to use the selected image.";
 
+"social_network_login_error_title" = "Sign in fail";
+"social_network_login_error_mess" = "Could not complete sign in.";
+
 //MARK: - App Texts
 "email_sent_to_%@" = "An email was sent to email address %@.";
 "name" = "Name";

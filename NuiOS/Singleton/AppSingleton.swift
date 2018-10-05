@@ -42,6 +42,6 @@ struct AppNotifications{
      Executed always when there is some kind of update on user informations that need to update view.
      */
     static let userInfoUpdate = Notification.Name(rawValue: "userInfoUpdate")
-    
-    
+    static let signedInByGoogle = Notification.Name(rawValue: "signedInByGoogle")
+
 }

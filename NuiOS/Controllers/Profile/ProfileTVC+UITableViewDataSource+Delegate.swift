@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 extension ProfileTVC{
     // MARK: - Table view data source
@@ -18,7 +19,7 @@ extension ProfileTVC{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return section == 0 ? 5 : 1
+        return section == 0 ? 5 : 2
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -35,6 +36,29 @@ extension ProfileTVC{
         if section == 1{
             if row == 0{
                 didTapLogOutCell()
+            }
+            else if row == 1{
+                
+                if let user = GIDSignIn.sharedInstance().currentUser, let token = user.authentication.idToken{
+                    let serverCode = user.serverAuthCode ?? ""
+                    let info = "-> idToken: "+token+"\n\n -> serverAuthCode: "+serverCode
+                    
+                    let activityVC = UIActivityViewController(activityItems: [info], applicationActivities: [])
+                    
+                    activityVC.excludedActivityTypes = [UIActivityType.assignToContact,
+                                                        UIActivityType.postToFlickr,
+                                                        UIActivityType.copyToPasteboard,
+                                                        UIActivityType.postToTencentWeibo,
+                                                        UIActivityType.postToTwitter,
+                                                        UIActivityType.postToFacebook,
+                                                        UIActivityType.addToReadingList,
+                                                        UIActivityType.saveToCameraRoll]
+                    
+                    
+                    self.present(activityVC, animated: true, completion: nil)
+                    
+                }
+                
             }
         }
     }

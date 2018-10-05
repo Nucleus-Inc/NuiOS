@@ -74,6 +74,9 @@
 "picture_update" = "Atualizar Imagem";
 "err_using_selected_image" = "Não foi possível utilizar a imagem selecionada. Tente novamente.";
 
+"social_network_login_error_title" = "Falha no Login";
+"social_network_login_error_mess" = "Não foi possível completar o login.";
+
 //MARK: - App Texts
 "email_sent_to_%@" = "Um email foi enviado para o endereço de email %@.";
 "name" = "Nome";

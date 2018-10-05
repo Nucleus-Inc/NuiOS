@@ -30,6 +30,27 @@ extension AppSingleton{
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
     }
     
+    func googleSignIn(idToken:String,completion:@escaping(_ success:Bool)->Void){
+        let endpoint = Users.googleSignin(idToken: idToken)
+        let onSuccess = Response.OnSuccess(dataType: User.self, jsonType:Any.self) { (response, urlResponse) in
+            UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
+            self.user = response.data
+            completion(true)
+        }
+        
+        let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+            completion(false)
+            guard let e = reqError else{
+                //see response.data
+                NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
+                return
+            }
+            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+        }
+        
+        try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+    }
+    
     //MARK: - SignUp
     func signupUser(Params params:[String:Any],completion:@escaping(_ success:Bool)->Void){
         let endpoint = Users.Account.Local.signup(params: params)

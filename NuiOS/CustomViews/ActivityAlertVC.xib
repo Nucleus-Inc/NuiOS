@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIAlertController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="TsL-3d-TMY">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anG-kj-hnL" customClass="NuView" customModule="NuiOS" customModuleProvider="target">
+                    <rect key="frame" x="145.5" y="302" width="83" height="83"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pyD-fc-7Ha">
+                            <rect key="frame" x="15" y="15" width="53" height="53"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cem-NF-8A5">
+                                    <rect key="frame" x="0.0" y="0.0" width="53" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="jfa-sj-Brr"/>
+                                    </constraints>
+                                    <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </activityIndicatorView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIX-0q-zAd">
+                                    <rect key="frame" x="0.0" y="40" width="53" height="13"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="13" id="ZYc-5g-gLW"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="pyD-fc-7Ha" secondAttribute="bottom" constant="15" id="80d-Lb-Iz4"/>
+                        <constraint firstItem="pyD-fc-7Ha" firstAttribute="leading" secondItem="anG-kj-hnL" secondAttribute="leading" constant="15" id="N57-hf-U2B"/>
+                        <constraint firstAttribute="width" secondItem="anG-kj-hnL" secondAttribute="height" id="VDj-ky-J3j"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="e6O-bf-oBy"/>
+                        <constraint firstItem="pyD-fc-7Ha" firstAttribute="top" secondItem="anG-kj-hnL" secondAttribute="top" constant="15" id="iBU-Vg-kM4"/>
+                        <constraint firstAttribute="trailing" secondItem="pyD-fc-7Ha" secondAttribute="trailing" constant="15" id="vlr-0X-nLh"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666669999997" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="anG-kj-hnL" firstAttribute="centerY" secondItem="5py-yq-cAW" secondAttribute="centerY" id="65n-wm-NRo"/>
+                <constraint firstItem="anG-kj-hnL" firstAttribute="centerX" secondItem="5py-yq-cAW" secondAttribute="centerX" id="bfM-gB-y7E"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="5py-yq-cAW"/>
+            <point key="canvasLocation" x="68" y="112"/>
+        </view>
+    </objects>
+</document>

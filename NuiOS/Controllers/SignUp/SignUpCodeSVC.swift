@@ -15,6 +15,7 @@ enum CodeTransport:String{
 }
 
 class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateListener*/ {
+    
     @IBOutlet weak var sendAgainButton: UIButton!
 
     @IBOutlet weak var questionInfoLabel: UILabel!
@@ -129,9 +130,10 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     
     @IBAction func codeNotReceivedAction(_ sender: UIButton) {
         self.view.endEditing(true)
+        
         let alertC = UIAlertController(title: "account_activation".localized, message: "send_code_again".localized, preferredStyle: .actionSheet)
         
-        if let unmaskedNumber = self.delegate.answers!["phoneNumber"] as? String{
+        if let unmaskedNumber = self.delegate.answers!["phoneNumber"] as? String, !unmaskedNumber.isEmpty{
             let toNumberStr = String(format: "sms-%@".localized, unmaskedNumber)
             let toNumber = UIAlertAction(title: toNumberStr, style: .default) { (_) in
                 self.sendCodeAgain(By:.sms)
@@ -139,7 +141,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
             alertC.addAction(toNumber)
         }
         
-        if let email = self.delegate.answers!["email"] as? String{
+        if let email = self.delegate.answers!["email"] as? String, !email.isEmpty{
             let toEmailStr = String(format: "email-%@".localized, email)
             let toEmail = UIAlertAction(title: toEmailStr, style: .default) { (_) in
                 self.sendCodeAgain(By:.email)
@@ -261,9 +263,16 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     //MARK: - UILabel methods
     
     internal func setUpQuestionInfoLabel(){
-        let number = (self.delegate.answers!["phoneNumber"] as? String) ?? ""
-        let maskedNumber = PhoneNumber.BR.mask(number: number)
-        questionInfoLabel.text = String(format: "sms_sent_to_%@".localized, maskedNumber)
+        if let number = self.delegate.answers!["phoneNumber"] as? String, !number.isEmpty{
+            let maskedNumber = PhoneNumber.BR.mask(number: number)
+            questionInfoLabel.text = String(format: "sms_sent_to_%@".localized, maskedNumber)
+        }
+        else if let email = self.delegate.answers!["email"] as? String, !email.isEmpty{
+            questionInfoLabel.text = String(format: "email_sent_to_%@".localized, email)
+        }
+        else{
+            questionInfoLabel.text = ""
+        }
     }
 
     //MARK: - UITextField methods

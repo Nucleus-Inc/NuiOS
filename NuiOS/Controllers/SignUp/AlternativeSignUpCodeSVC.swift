@@ -9,10 +9,15 @@
 import UIKit
 
 class AlternativeSignUpCodeSVC: SignUpCodeSVC {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendCodeAgain(By: .sms)
+        if let unmaskedNumber = self.delegate.answers!["phoneNumber"] as? String, !unmaskedNumber.isEmpty{
+            sendCodeAgain(By: .sms)
+        }
+        else if let email = self.delegate.answers!["email"] as? String, !email.isEmpty{
+            sendCodeAgain(By: .email)
+        }
+
         // Do any additional setup after loading the view.
     }
 
@@ -34,5 +39,7 @@ class AlternativeSignUpCodeSVC: SignUpCodeSVC {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }

@@ -70,7 +70,12 @@ public enum PhoneNumber{
         switch self {
         case .BR,.USA:
             let tempUnmasked = unmask(number: number)
-            unmaskedNumber = hasCountryCode ? String(tempUnmasked.suffix(tempUnmasked.count - countryCode.count)) :  tempUnmasked
+            if tempUnmasked.count > countryCode.count{
+                unmaskedNumber = hasCountryCode ? String(tempUnmasked.suffix(tempUnmasked.count - countryCode.count)) :  tempUnmasked
+            }
+            else{
+                return ""
+            }
         }
         return PhoneNumber.applyMask(regex: pattern.regex, format: pattern.format, onText: unmaskedNumber)
     }

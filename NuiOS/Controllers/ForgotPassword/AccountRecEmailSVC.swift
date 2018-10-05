@@ -47,7 +47,7 @@ class AccountRecEmailSVC: SignUpEmailSVC {
         if let id = segue.identifier{
             if id == "nextStep"{
                 let vc = segue.destination as? AccountRecCodeSVC
-                vc?.recByType = .email
+                vc?.byType = .email
             }
         }
     }

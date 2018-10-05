@@ -56,6 +56,11 @@
 		EEA6EEC720FF968E001530D5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA6EEC520FF968D001530D5 /* Reachability.m */; };
 		EEA6EEC920FF973C001530D5 /* AppDelegate+Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6EEC820FF973C001530D5 /* AppDelegate+Reachability.swift */; };
 		EEA6EEE020FFD251001530D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEA6EEDE20FFD251001530D5 /* Localizable.strings */; };
+		EEABAE362167A53D00282717 /* AppDelegate+GoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEABAE352167A53D00282717 /* AppDelegate+GoogleSignIn.swift */; };
+		EEABAE3A2167A77400282717 /* ActivityIndicatorAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEABAE392167A77400282717 /* ActivityIndicatorAlertVC.xib */; };
+		EEABAE3C2167A81F00282717 /* NuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEABAE3B2167A81F00282717 /* NuView.swift */; };
+		EEABAE3E2167A8B500282717 /* ActivityIndicatorAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEABAE3D2167A8B500282717 /* ActivityIndicatorAlertVC.swift */; };
+		EEABAE402167B6E500282717 /* ActivityAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEABAE3F2167B6E500282717 /* ActivityAlertVC.xib */; };
 		EEBC6E2C20F6481F00CB5DC2 /* FinishSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC6E2B20F6481F00CB5DC2 /* FinishSignUpVC.swift */; };
 		EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC6E2D20F6486000CB5DC2 /* Login.storyboard */; };
 		EEBC6E3420F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC6E3220F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard */; };
@@ -150,6 +155,11 @@
 		EEA6EED820FFCA17001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/EmailUpdate.strings"; sourceTree = "<group>"; };
 		EEA6EEDA20FFCBF6001530D5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/PasswordUpdate.strings"; sourceTree = "<group>"; };
 		EEA6EEDF20FFD251001530D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EEABAE352167A53D00282717 /* AppDelegate+GoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+GoogleSignIn.swift"; sourceTree = "<group>"; };
+		EEABAE392167A77400282717 /* ActivityIndicatorAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityIndicatorAlertVC.xib; sourceTree = "<group>"; };
+		EEABAE3B2167A81F00282717 /* NuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuView.swift; sourceTree = "<group>"; };
+		EEABAE3D2167A8B500282717 /* ActivityIndicatorAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorAlertVC.swift; sourceTree = "<group>"; };
+		EEABAE3F2167B6E500282717 /* ActivityAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityAlertVC.xib; sourceTree = "<group>"; };
 		EEBC6E2B20F6481F00CB5DC2 /* FinishSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSignUpVC.swift; sourceTree = "<group>"; };
 		EEBC6E2E20F6486000CB5DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		EEBC6E3320F648D300CB5DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExtendedLaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -384,6 +394,10 @@
 				EEBC6E3F20F65B7D00CB5DC2 /* ExtenalCustomViews */,
 				EED9D32020F549AE00C5ACF7 /* NuButton.swift */,
 				EED9D32820F5534500C5ACF7 /* NuNavigationBar.swift */,
+				EEABAE3B2167A81F00282717 /* NuView.swift */,
+				EEABAE392167A77400282717 /* ActivityIndicatorAlertVC.xib */,
+				EEABAE3D2167A8B500282717 /* ActivityIndicatorAlertVC.swift */,
+				EEABAE3F2167B6E500282717 /* ActivityAlertVC.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -430,6 +444,7 @@
 			children = (
 				EEA6EEC820FF973C001530D5 /* AppDelegate+Reachability.swift */,
 				EED9D30E20F53C1200C5ACF7 /* AppDelegate.swift */,
+				EEABAE352167A53D00282717 /* AppDelegate+GoogleSignIn.swift */,
 				EED9D30B20F53C1200C5ACF7 /* Assets.xcassets */,
 				EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */,
 			);
@@ -481,6 +496,7 @@
 				EEEB4CA120F52474005DF444 /* Frameworks */,
 				EEEB4CA220F52474005DF444 /* Resources */,
 				E04D654A933136D234A550A3 /* [CP] Embed Pods Frameworks */,
+				0C1801B9EF1626EBA81BFE42 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -537,6 +553,7 @@
 				EE3FDB7020FE486100CC166F /* Profile.storyboard in Resources */,
 				EEBC6E3420F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard in Resources */,
 				EEEB4CB620F52476005DF444 /* LaunchScreen.storyboard in Resources */,
+				EEABAE402167B6E500282717 /* ActivityAlertVC.xib in Resources */,
 				EE81CB9F20F5369C00283C29 /* SignUp.storyboard in Resources */,
 				EE9FC86A20F9141A0078624B /* AccountRecover.storyboard in Resources */,
 				EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */,
@@ -546,12 +563,31 @@
 				EE3FDB8220FE7CBE00CC166F /* PhoneNumberUpdate.storyboard in Resources */,
 				EEEB4CB120F52474005DF444 /* Main.storyboard in Resources */,
 				EED9D30F20F53C1200C5ACF7 /* Assets.xcassets in Resources */,
+				EEABAE3A2167A77400282717 /* ActivityIndicatorAlertVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0C1801B9EF1626EBA81BFE42 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C6010CFA56FC42512098EBCA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -577,6 +613,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
@@ -587,6 +626,9 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
@@ -611,6 +653,7 @@
 				EED9D2F120F5385300C5ACF7 /* Verifications.swift in Sources */,
 				EE9FC86020F8F9F40078624B /* AppSingleton+HelperMethods.swift in Sources */,
 				EEA6EEC020FF7BCB001530D5 /* ImagePickerControllerManager.swift in Sources */,
+				EEABAE3E2167A8B500282717 /* ActivityIndicatorAlertVC.swift in Sources */,
 				EEBC6E2C20F6481F00CB5DC2 /* FinishSignUpVC.swift in Sources */,
 				EE9FC86F20F91C110078624B /* AccountRecEmailSVC.swift in Sources */,
 				EE84921B20F6306F009D750F /* SignUpCheckDataStepVC.swift in Sources */,
@@ -626,8 +669,10 @@
 				EE3FDB7D20FE5BBB00CC166F /* NewEmailSVC.swift in Sources */,
 				EEEB4CAB20F52474005DF444 /* ViewController.swift in Sources */,
 				EED9D30120F53BB800C5ACF7 /* RequestManager.swift in Sources */,
+				EEABAE3C2167A81F00282717 /* NuView.swift in Sources */,
 				EE84921D20F6306F009D750F /* NuSignUpCheckDataStepC.swift in Sources */,
 				EE1824D42106697F004DDC83 /* AppSingleton+ApiErrors.swift in Sources */,
+				EEABAE362167A53D00282717 /* AppDelegate+GoogleSignIn.swift in Sources */,
 				EEA6EEC920FF973C001530D5 /* AppDelegate+Reachability.swift in Sources */,
 				EE9FC87C20F941430078624B /* ProfileTVC.swift in Sources */,
 				EE3FDB8520FE7D0C00CC166F /* NewPhoneNumberSVC.swift in Sources */,

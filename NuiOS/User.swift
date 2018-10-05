@@ -39,6 +39,13 @@ class UserAccountLocal:AccountLocal,Codable{
     var displayName:String?
     var phoneNumber:String?
     var isActive:Bool = false
+    
+    init(email:String?,displayName:String?,phoneNumber:String?,photo:String?){
+        self.email = email
+        self.displayName = displayName
+        self.phoneNumber = phoneNumber
+        self.photo = photo
+    }
 }
 
 class UserAccSocialMedia:AccountSocialMedia,Codable{

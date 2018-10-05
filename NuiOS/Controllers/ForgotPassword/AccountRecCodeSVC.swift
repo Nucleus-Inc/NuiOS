@@ -9,9 +9,8 @@
 import UIKit
 
 class AccountRecCodeSVC: SignUpCodeSVC {
-    
-    var recByType:CodeTransport = .sms
-    
+    var byType:CodeTransport = .sms
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         codeDelegate = AccountRecCodeDelegate()
@@ -49,10 +48,10 @@ class AccountRecCodeSVC: SignUpCodeSVC {
     
     override func codeNotReceivedAction(_ sender: UIButton) {
         self.loadingMode(Loading: true)
-        let key:String = recByType == .email ? self.delegate.answers!["email"] as! String : self.delegate.answers!["phoneNumber"] as! String
+        let key:String = byType == .email ? self.delegate.answers!["email"] as! String : self.delegate.answers!["phoneNumber"] as! String
         let alertC = UIAlertController(title: "sending", message: nil, preferredStyle: .alert)
         self.present(alertC, animated: true, completion: nil)
-        AppSingleton.shared.requestRecoveryCodeFor(Key: key, By: recByType) { (success) in
+        AppSingleton.shared.requestRecoveryCodeFor(Key: key, By: byType) { (success) in
             alertC.dismiss(animated: true, completion: {
                 DispatchQueue.main.async {
                     self.loadingMode(Loading: false)
@@ -69,12 +68,12 @@ class AccountRecCodeSVC: SignUpCodeSVC {
     }
     
     override func setUpQuestionInfoLabel() {
-        if recByType == .sms{
+        if byType == .sms{
             super.setUpQuestionInfoLabel()
         }
         else{
             let email = (self.delegate.answers!["email"] as! String)
-            questionInfoLabel.text = "An email was sent to email address "+email+"."
+            questionInfoLabel.text = String(format: "email_sent_to_%@".localized, email)
         }
     }
     
@@ -93,7 +92,7 @@ class AccountRecCodeSVC: SignUpCodeSVC {
         if let id = segue.identifier{
             if id == "nextStep"{
                 let vc = segue.destination as? AccountRecPasswordSVC
-                vc?.recByType = recByType
+                vc?.recByType = byType
             }
         }
     }

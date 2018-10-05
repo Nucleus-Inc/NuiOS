@@ -13,13 +13,17 @@ enum Users:Endpoint{
 
     case getAll
     case signin(email:String,password:String)
-    
+    case googleSignin(idToken:String)
+
     func endpointInfo() throws -> EndpointInfo {
 
         switch self {
         case .signin(let email,let password):
             let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/local/jwt/signin")
             return try EndpointInfo(url: url, method: .post,params:["email":email,"password":password])
+        case .googleSignin(let idToken):
+            let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/google/signin")
+            return try EndpointInfo(url: url, method: .post,params:["id_token":idToken])
         case .getAll:
             let url = Api.Config.buildUrl(Endpoint: Users.title)
             return try EndpointInfo(url: url, method: .get)

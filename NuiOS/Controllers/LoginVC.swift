@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 protocol LoginVCViewModel{
     func performLogin(Username user:String,Password password:String,completion:@escaping(_ success:Bool)->Void)
@@ -17,7 +18,8 @@ private struct LoginVCSeguesIDs{
     static let accountActivation = "accountActivation"
 }
 
-class LoginVC: UIViewController,UITextFieldDelegate {
+class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate {
+    var myListeners: [NSObjectProtocol] = []
     @IBOutlet weak var usernameTF: LinedTTextField!
     @IBOutlet weak var passwordTF: LinedTTextField!
     
@@ -42,8 +44,11 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         viewModel = AppLoginVM()
         super.viewDidLoad()
+        setUpListeners()
         defaultDist = dist.constant
         self.hideKeyboardWhenTappedAround()
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -62,7 +67,9 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
+    deinit {
+        rmListeners()
+    }
     
     // MARK: - Navigation
 
@@ -96,6 +103,21 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         }
     }
     
+    //MARK: - Listeners
+    
+    func setUpListeners() {
+        addListener(ForName: AppNotifications.signedInByGoogle) { (weakSelf, notif) in
+            weakSelf.hideSocialNetworkLoginAlert()
+            if let success = notif.userInfo?["success"] as? Bool{
+                if success{
+                    //activate account not working so perform login imediatelly
+                    self.performSegue(withIdentifier: LoginVCSeguesIDs.login, sender: nil)
+                    //self.performLoginSegue()
+                }
+            }
+        }
+    }
+    
     //MARK: - Methods
     func performLogin(){
         self.view.endEditing(true)
@@ -117,33 +139,32 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         }
     }
     
-    private func activeNormalAppearance(animated:Bool){
-        if animated{
-            UIView.animate(withDuration: 0.5, delay: 0.3, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                self.logoImageView.alpha = 1
-            }) { (finished) in
-            }
-        }
-        else{
-            self.logoImageView.alpha = 1
-        }
+    //MARK: - ActivityIndicatorAlertVC methods
+    
+    func showSocialNetworkLoginAlert(){
+        let alert = ActivityIndicatorAlertVC()
+        self.present(alert, animated: true, completion: nil)
     }
     
-    private func activeUseEmailApperance(animated:Bool,duration:TimeInterval){
-        if animated{
-            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                self.logoImageView.alpha = 0
-            }) { (finished) in
-            }
-        }
-        else{
-            self.logoImageView.alpha = 0
+    func hideSocialNetworkLoginAlert(){
+        
+        if let alert = self.presentedViewController as? ActivityIndicatorAlertVC{
+            alert.dismiss(animated: true, completion: nil)
         }
     }
     
     //MARK: - IBActions
     @IBAction func loginBtnAction(_ sender: Any) {
         performLogin()
+    }
+    
+    @IBAction func googleLoginBtnAction(_ sender: Any) {
+        showSocialNetworkLoginAlert()
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    @IBAction func facebookLoginBtnAction(_ sender: Any) {
+    
     }
     
     //MARK: - UITextField methods
@@ -171,6 +192,30 @@ class LoginVC: UIViewController,UITextFieldDelegate {
 //MARK: - Keyboard listen
 
 extension LoginVC{
+    private func activeNormalAppearance(animated:Bool){
+        if animated{
+            UIView.animate(withDuration: 0.5, delay: 0.3, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                self.logoImageView.alpha = 1
+            }) { (finished) in
+            }
+        }
+        else{
+            self.logoImageView.alpha = 1
+        }
+    }
+    
+    private func activeUseEmailApperance(animated:Bool,duration:TimeInterval){
+        if animated{
+            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                self.logoImageView.alpha = 0
+            }) { (finished) in
+            }
+        }
+        else{
+            self.logoImageView.alpha = 0
+        }
+    }
+    
     override func keyboardWillAppear(keyboardInfo: [String : Any]) {
         super.keyboardWillAppear(keyboardInfo: keyboardInfo)
         

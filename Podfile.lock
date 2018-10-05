@@ -1,4 +1,24 @@
 PODS:
+  - GoogleSignIn (4.2.0):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.4)":
+    - GoogleToolboxForMac/DebugUtils (= 2.1.4)
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
+  - GTMOAuth2 (1.1.6):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.2.0):
+    - GTMSessionFetcher/Full (= 1.2.0)
+  - GTMSessionFetcher/Core (1.2.0)
+  - GTMSessionFetcher/Full (1.2.0):
+    - GTMSessionFetcher/Core (= 1.2.0)
   - JWTDecode (2.1.1)
   - MarqueeLabel/Swift (3.1.6)
   - NotificationBannerSwift (1.6.3):
@@ -12,6 +32,7 @@ PODS:
   - UICKeyChainStore (2.1.1)
 
 DEPENDENCIES:
+  - GoogleSignIn
   - JWTDecode (~> 2.1.1)
   - NotificationBannerSwift (~> 1.6)
   - NuSignUp (from `https://github.com/Nucleus-Inc/NuSignUp.git`)
@@ -20,6 +41,10 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - GoogleSignIn
+    - GoogleToolboxForMac
+    - GTMOAuth2
+    - GTMSessionFetcher
     - JWTDecode
     - MarqueeLabel
     - NotificationBannerSwift
@@ -37,6 +62,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/Nucleus-Inc/NuSignUp.git
 
 SPEC CHECKSUMS:
+  GoogleSignIn: 591e46382014e591269f862ba6e7bc0fbd793532
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
+  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
   MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
   NotificationBannerSwift: b231e4c3244848ef300e1c53ce027b9756b9b06f
@@ -45,6 +74,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
 
-PODFILE CHECKSUM: f5ab8961d46adc1b326d04f13116a2b5939183b7
+PODFILE CHECKSUM: d3b740628cc2204a1fbe57227380f21c26063d3d
 
 COCOAPODS: 1.5.0

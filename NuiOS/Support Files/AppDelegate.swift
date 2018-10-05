@@ -8,6 +8,8 @@
 
 import UIKit
 import NotificationBannerSwift
+import GoogleSignIn
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,8 +29,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppSingleton.UserAuth.KEYCHAIN_SERVICE = EnvVariables.keychainServ
         self.listenForInternetConnectionChanges()
         // Override point for customization after application launch.
+        
+        //GOOGLE SIGN IN
+        setUpGoogleSignIn()
+        
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let googleHandle =  GIDSignIn.sharedInstance().handle(url as URL?,
+                                                 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        return googleHandle
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -54,4 +70,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
