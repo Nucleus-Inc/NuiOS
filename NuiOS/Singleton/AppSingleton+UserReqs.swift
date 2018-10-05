@@ -32,7 +32,7 @@ extension AppSingleton{
     
     //MARK: - SignUp
     func signupUser(Params params:[String:Any],completion:@escaping(_ success:Bool)->Void){
-        let endpoint = Users.Account.signup(params: params)
+        let endpoint = Users.Account.Local.signup(params: params)
         let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
             UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
             print(urlResponse?.allHeaderFields ?? "")
@@ -48,8 +48,8 @@ extension AppSingleton{
     }
     
     func reqActivationCode(ForUserID id:String,By by:CodeTransport,completion:((_ success:Bool)->Void)?=nil){
-        let transport:Users.Account.Transport = by == .email ? .email : .sms
-        let endpoint = Users.Account.requestActivationCode(userID: id, by: transport)
+        let transport:Users.Account.Local.Transport = by == .email ? .email : .sms
+        let endpoint = Users.Account.Local.requestActivationCode(userID: id, by: transport)
         let onSuccess = Response.OnSuccess(dataType: Data.self, jsonType: Any.self) { (response, urlResponse) in
             print(urlResponse?.allHeaderFields ?? "no header fields")
             completion?(true)
@@ -63,7 +63,8 @@ extension AppSingleton{
     }
     
     func activateAccount(OfUserID id:String,WithCode code:String,completion:@escaping(_ success:Bool,_ validCode:Bool)->Void){
-        let endpoint = Users.Account.activateAccount(userID: id, code: code)
+        let jwt = UserAuth.getToken() ?? ""
+        let endpoint = Users.Account.Local.activateAccount(userID: id, code: code,jwt: jwt)
         let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
             UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
             self.user = response.data
@@ -84,11 +85,11 @@ extension AppSingleton{
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
     }
     
-    //MARK: - Account Recovery
+    //MARK: - Account.Local Recovery
     
     func requestRecoveryCodeFor(Key key:String,By by:CodeTransport,completion:@escaping(_ success:Bool)->Void){
-        let transport:Users.Account.Transport = by == .email ? .email : .sms
-        let endpoint = Users.Account.requestRecoveryCode(key: key, by: transport)
+        let transport:Users.Account.Local.Transport = by == .email ? .email : .sms
+        let endpoint = Users.Account.Local.requestRecoveryCode(key: key, by: transport)
         let onSuccess = Response.OnSuccess(dataType: Data.self, jsonType: Any.self) { (response, urlResponse) in
             print(urlResponse?.allHeaderFields ?? "no header fields")
             completion(true)
@@ -102,8 +103,8 @@ extension AppSingleton{
     }
     
     func recoveryAccount(WithKey key:String,by:CodeTransport,code:String,newPassword:String,completion:@escaping(_ success:Bool)->Void){
-        let transport:Users.Account.Transport = by == .email ? .email : .sms
-        let endpoint = Users.Account.recoveryAccount(key: key, by: transport, code: code, newPassword: newPassword)
+        let transport:Users.Account.Local.Transport = by == .email ? .email : .sms
+        let endpoint = Users.Account.Local.recoveryAccount(key: key, by: transport, code: code, newPassword: newPassword)
         let onSuccess = Response.OnSuccess(dataType: Data.self, jsonType: Any.self) { (response, urlResponse) in
             completion(true)
         }
@@ -114,16 +115,13 @@ extension AppSingleton{
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
     }
     
-    //MARK: - Account and Profile
+    //MARK: - Account.Local
     
     func getInfoDataOf(UserWithID id:String,completion:@escaping(_ success:Bool)->Void){
         getAccountOfUser(WithID: id) { (success) in
             if success{
-                self.getProfileOfUser(WithID: id, completion: {
-                    (success) in
-                    completion(success)
-                    AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
-                })
+                completion(success)
+                AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             }
             else{
                 completion(false)
@@ -159,38 +157,7 @@ extension AppSingleton{
         }
     }
     
-    
-    
-    private func getProfileOfUser(WithID id:String,completion:((_ success:Bool)->Void)?=nil){
-        if UserAuth.isUserLogged(),
-            let _ = UserAuth.getToken(){
-            
-            let endpoint = Users.Profile.getProfile(userID: id)
-            let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: Any.self) { (response, urlResponse) in
-                UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
-                guard let _ = self.user else{
-                    self.user = response.data
-                    completion?(true)
-                    return
-                }
-                self.user?.profile = response.data?.profile
-                completion?(true)
-            }
-            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
-                completion?(false)
-                guard let e = reqError else{return}
-                NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
-            }
-            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
-        }
-        else{
-            completion?(false)
-            
-        }
-    }
-    
-    
-    //MARK: - Account and Profile Changes
+    //MARK: - Account.Local Changes
     
     func updatePassword(Current current:String, New new:String,completion:@escaping(_ success:Bool)->Void){
         
@@ -201,7 +168,7 @@ extension AppSingleton{
         }
         
         if let id = user?._id, let jwt = UserAuth.getToken(){
-            let endpoint = Users.Account.updatePassword(userID: id, current: current, newPassword: new, jwt: jwt)
+            let endpoint = Users.Account.Local.updatePassword(userID: id, current: current, newPassword: new, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: Any.self) { (response, urlResponse) in
                 UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
                 completion(true)
@@ -228,7 +195,7 @@ extension AppSingleton{
         }
         
         if let id = user?._id, let jwt = UserAuth.getToken(){
-            let endpoint = Users.Account.updateName(userID: id, name: name, jwt: jwt)
+            let endpoint = Users.Account.Local.updateName(userID: id, name: name, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
                 UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
                 if let account = response.data?.account{
@@ -251,14 +218,14 @@ extension AppSingleton{
         }
     }
     
-    func updateProfilePicture(ImageURL urlString:String,completion:((Bool)->Void)?=nil){
+    func updatePicture(ImageURL urlString:String,completion:((Bool)->Void)?=nil){
         
         if let id = user?._id, let jwt = UserAuth.getToken(){
-            let endpoint = Users.Profile.updatePicture(userID: id, pictureUrl: urlString, jwt: jwt)
+            let endpoint = Users.Account.Local.updatePicture(userID: id, pictureUrl: urlString, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
                 UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
-                if let profile = response.data?.profile{
-                    self.user?.profile = profile
+                if let account = response.data?.account{
+                    self.user?.account = account
                 }
                 completion?(true)
                 AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
@@ -282,7 +249,7 @@ extension AppSingleton{
     
     func requestEmailUpdate(NewEmail email:String,completion:((_ success:Bool)->Void)?=nil){
         if let id = user?._id, let jwt = UserAuth.getToken(){
-            let endpoint = Users.Account.requestEmailUpdate(userID: id, email: email, jwt: jwt)
+            let endpoint = Users.Account.Local.requestEmailUpdate(userID: id, email: email, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: Data.self, jsonType: Any.self) { (response, urlResponse) in
                 print(urlResponse?.allHeaderFields ?? "no header fields")
                 completion?(true)
@@ -300,7 +267,7 @@ extension AppSingleton{
     
     func confirmEmailUpdate(Token token:String,completion:((_ success:Bool)->Void)?=nil){
         if let id = user?._id, let jwt = UserAuth.getToken(){
-            let endpoint = Users.Account.confirmEmailUpdate(userID: id, token: token, jwt: jwt)
+            let endpoint = Users.Account.Local.confirmEmailUpdate(userID: id, token: token, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
                 UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
                 if let account = response.data?.account{
@@ -328,7 +295,7 @@ extension AppSingleton{
     
     func requestNumberUpdate(NewPhoneNumber number:String,completion:((_ success:Bool)->Void)?=nil){
         if let id = user?._id, let jwt = UserAuth.getToken(){
-            let endpoint = Users.Account.requestPhoneUpdate(userID: id, phoneNumber: number, jwt: jwt)
+            let endpoint = Users.Account.Local.requestPhoneUpdate(userID: id, phoneNumber: number, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: Data.self, jsonType: Any.self) { (response, urlResponse) in
                 print(urlResponse?.allHeaderFields ?? "no header fields")
                 completion?(true)
@@ -346,7 +313,7 @@ extension AppSingleton{
     
     func confirmNumberUpdate(Token token:String,completion:((_ success:Bool)->Void)?=nil){
         if let id = user?._id, let jwt = UserAuth.getToken(){
-            let endpoint = Users.Account.confirmPhoneUpdate(userID: id, token: token, jwt: jwt)
+            let endpoint = Users.Account.Local.confirmPhoneUpdate(userID: id, token: token, jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
                 UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
                 if let account = response.data?.account{

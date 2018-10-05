@@ -37,7 +37,7 @@ class ExtendedLaunchScreenVC: UIViewController {
             DispatchQueue.main.async {
                 if success{
                     if let user = AppSingleton.shared.user, let account = user.account{
-                        if account.isActive{
+                        if account.local.isActive{
                             self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.loginSilently, sender: nil)
                         }
                         else{

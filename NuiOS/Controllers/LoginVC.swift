@@ -79,7 +79,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     }
     
     func showAccountActivationVC(){
-        if let user = AppSingleton.shared.user, let json = user.account?.toJSON(){
+        if let user = AppSingleton.shared.user, let json = user.account?.local.toJSON(){
             self.performSegue(withIdentifier: LoginVCSeguesIDs.accountActivation, sender: json)
         }
     }
@@ -87,7 +87,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     
     func performLoginSegue(){
         if let user = AppSingleton.shared.user, let account = user.account{
-            if account.isActive{
+            if account.local.isActive{
                 self.performSegue(withIdentifier: LoginVCSeguesIDs.login, sender: nil)
             }
             else{

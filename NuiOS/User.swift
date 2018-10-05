@@ -11,29 +11,39 @@ import Foundation
 
 class User:GenericUser,Codable{
     typealias AccountType = UserAccount
-    typealias ProfileType = UserProfile
     
     var _id:String?
     var account: UserAccount?
-    var profile: UserProfile?
     
-    init(account:UserAccount?,profile:UserProfile?){
+    init(account:UserAccount?){
         self.account = account
-        self.profile = profile
     }
 }
 
-class UserProfile:Profile,Codable{
-    var pictureUrl: String?
+class UserAccount:Account,Codable{
+    typealias AccountLocalType = UserAccountLocal
+    var local: UserAccountLocal
+    var google: UserAccSocialMedia?
+    var facebook: UserAccSocialMedia?
+    
+    init(local:UserAccountLocal,google:UserAccSocialMedia?=nil,facebook:UserAccSocialMedia?=nil){
+        self.local = local
+        self.google = google
+        self.facebook = facebook
+    }
 }
 
-class UserAccount:Account,Codable{
-    var email: String?
-    
-    var name: String?
-    
-    var phoneNumber: String?
-    
-    var isActive: Bool = false
+class UserAccountLocal:AccountLocal,Codable{
+    var email:String?
+    var photo:String?
+    var displayName:String?
+    var phoneNumber:String?
+    var isActive:Bool = false
+}
 
+class UserAccSocialMedia:AccountSocialMedia,Codable{
+    var id: String?
+    var email:String?
+    var photo:String?
+    var displayName:String?
 }

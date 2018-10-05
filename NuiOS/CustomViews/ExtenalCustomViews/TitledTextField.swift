@@ -65,7 +65,7 @@ public class TitledTextField: UITextField {
         }
         set(value){
             super.font = value
-            titleLayer.font = CTFontCreateWithName((font!.familyName as CFString?)!, self.font!.pointSize, nil)
+            titleLayer.font = value//CTFontCreateWithName((font!.familyName as CFString?)!, self.font!.pointSize, nil)//titledTF.font?.familyName as? CFTypeRef
             titleLayer.fontSize = self.font!.pointSize
         }
     }
@@ -179,11 +179,11 @@ public class TitledTextField: UITextField {
         titleLayer = CATextLayer()
         titleLayer.foregroundColor = normalTitleColor.cgColor
         titleLayer.string = NSLocalizedString(title, comment: "")
-        titleLayer.font = CTFontCreateWithName((font!.familyName as CFString?)!, self.font!.pointSize, nil)//titledTF.font?.familyName as? CFTypeRef
+        titleLayer.font = font//CTFontCreateWithName((font!.familyName as CFString?)!, self.font!.pointSize, nil)//titledTF.font?.familyName as? CFTypeRef
         titleLayer.fontSize = self.font!.pointSize
         titleLayer.alignmentMode = self.textAlignment.correspontingCAAligment
         //titleLayer.contentsGravity = kCAGravityCenter
-        titleLayer.frame = self.bounds
+        titleLayer.frame = titleLayerFrameFor(Rect: super.placeholderRect(forBounds: self.bounds))//self.bounds
         
         titleLayer.isWrapped = true
         titleLayer.contentsScale = UIScreen.main.scale

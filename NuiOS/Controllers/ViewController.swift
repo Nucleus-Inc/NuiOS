@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeLabel.text = welcomeLabel.text!+" "+(AppSingleton.shared.user?.account?.name ?? "")
+        welcomeLabel.text = welcomeLabel.text!+" "+(AppSingleton.shared.user?.account?.local.displayName ?? "")
         // Do any additional setup after loading the view, typically from a nib.
     }
 

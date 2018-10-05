@@ -43,7 +43,7 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
         
         switch row {
         case 0:
-            let name = answers["name"] as? String
+            let name = answers["displayName"] as? String
             return ("name".localized,name)
         case 1:
             let phoneNumber = answers["phoneNumber"] as! String

@@ -10,19 +10,25 @@ import Foundation
 
 public protocol GenericUser{
     associatedtype AccountType:Account
-    associatedtype ProfileType:Profile
-    
     var account:AccountType?{get set}
-    var profile:ProfileType?{get set}
 }
 
 public protocol Account{
+    associatedtype AccountLocalType:AccountLocal
+    var local:AccountLocalType{get set}
+}
+
+public protocol AccountLocal{
     var email:String?{get set}
-    var name:String?{get set}
+    var photo:String?{get set}
+    var displayName:String?{get set}
     var phoneNumber:String?{get set}
     var isActive:Bool{get set}
 }
 
-public protocol Profile{
-    var pictureUrl:String?{get set}
+public protocol AccountSocialMedia{
+    var id:String?{get set}
+    var photo:String?{get set}
+    var email:String?{get set}
+    var displayName:String?{get set}
 }

@@ -10,6 +10,8 @@
 		EE1824C721062629004DDC83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE1824C521062629004DDC83 /* InfoPlist.strings */; };
 		EE1824D121066042004DDC83 /* APIErrorLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE1824CF21066042004DDC83 /* APIErrorLocalizable.strings */; };
 		EE1824D42106697F004DDC83 /* AppSingleton+ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1824D32106697F004DDC83 /* AppSingleton+ApiErrors.swift */; };
+		EE37EA6B2146D956004F78B0 /* LinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37EA692146D956004F78B0 /* LinedTextField.swift */; };
+		EE37EA6C2146D956004F78B0 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37EA6A2146D956004F78B0 /* TitledTextField.swift */; };
 		EE3FDB6D20FE485700CC166F /* EmailUpdate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB6B20FE485700CC166F /* EmailUpdate.storyboard */; };
 		EE3FDB7020FE486100CC166F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB6E20FE486100CC166F /* Profile.storyboard */; };
 		EE3FDB7720FE4DCD00CC166F /* YourPasswordSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB7620FE4DCD00CC166F /* YourPasswordSVC.swift */; };
@@ -58,8 +60,6 @@
 		EEBC6E2F20F6486000CB5DC2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC6E2D20F6486000CB5DC2 /* Login.storyboard */; };
 		EEBC6E3420F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC6E3220F648D300CB5DC2 /* ExtendedLaunchScreen.storyboard */; };
 		EEBC6E3A20F64D1A00CB5DC2 /* ExtendedLaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC6E3920F64D1A00CB5DC2 /* ExtendedLaunchScreenVC.swift */; };
-		EEBC6E4220F65BA100CB5DC2 /* LinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC6E4020F65BA100CB5DC2 /* LinedTextField.swift */; };
-		EEBC6E4320F65BA100CB5DC2 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC6E4120F65BA100CB5DC2 /* TitledTextField.swift */; };
 		EEBC6E4520F66AD400CB5DC2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC6E4420F66AD400CB5DC2 /* LoginVC.swift */; };
 		EEBC6E4720F66BAA00CB5DC2 /* JLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC6E4620F66BAA00CB5DC2 /* JLExtensions.swift */; };
 		EED9D2EC20F5383A00C5ACF7 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED9D2EA20F5383A00C5ACF7 /* Api.swift */; };
@@ -93,6 +93,8 @@
 		EE1824D021066042004DDC83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/APIErrorLocalizable.strings; sourceTree = "<group>"; };
 		EE1824D22106624D004DDC83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/APIErrorLocalizable.strings"; sourceTree = "<group>"; };
 		EE1824D32106697F004DDC83 /* AppSingleton+ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+ApiErrors.swift"; sourceTree = "<group>"; };
+		EE37EA692146D956004F78B0 /* LinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinedTextField.swift; sourceTree = "<group>"; };
+		EE37EA6A2146D956004F78B0 /* TitledTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
 		EE3FDB6C20FE485700CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EmailUpdate.storyboard; sourceTree = "<group>"; };
 		EE3FDB6F20FE486100CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		EE3FDB7420FE48E200CC166F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Profile.strings"; sourceTree = "<group>"; };
@@ -152,8 +154,6 @@
 		EEBC6E2E20F6486000CB5DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		EEBC6E3320F648D300CB5DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExtendedLaunchScreen.storyboard; sourceTree = "<group>"; };
 		EEBC6E3920F64D1A00CB5DC2 /* ExtendedLaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedLaunchScreenVC.swift; sourceTree = "<group>"; };
-		EEBC6E4020F65BA100CB5DC2 /* LinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinedTextField.swift; sourceTree = "<group>"; };
-		EEBC6E4120F65BA100CB5DC2 /* TitledTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
 		EEBC6E4420F66AD400CB5DC2 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		EEBC6E4620F66BAA00CB5DC2 /* JLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLExtensions.swift; sourceTree = "<group>"; };
 		EED9D2EA20F5383A00C5ACF7 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Api/Api.swift; sourceTree = "<group>"; };
@@ -289,8 +289,8 @@
 		EEBC6E3F20F65B7D00CB5DC2 /* ExtenalCustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				EEBC6E4020F65BA100CB5DC2 /* LinedTextField.swift */,
-				EEBC6E4120F65BA100CB5DC2 /* TitledTextField.swift */,
+				EE37EA692146D956004F78B0 /* LinedTextField.swift */,
+				EE37EA6A2146D956004F78B0 /* TitledTextField.swift */,
 			);
 			path = ExtenalCustomViews;
 			sourceTree = "<group>";
@@ -614,7 +614,6 @@
 				EEBC6E2C20F6481F00CB5DC2 /* FinishSignUpVC.swift in Sources */,
 				EE9FC86F20F91C110078624B /* AccountRecEmailSVC.swift in Sources */,
 				EE84921B20F6306F009D750F /* SignUpCheckDataStepVC.swift in Sources */,
-				EEBC6E4220F65BA100CB5DC2 /* LinedTextField.swift in Sources */,
 				EE3FDB7720FE4DCD00CC166F /* YourPasswordSVC.swift in Sources */,
 				EE84921C20F6306F009D750F /* SignUpPhoneNumberSVC.swift in Sources */,
 				EEA6EEC720FF968E001530D5 /* Reachability.m in Sources */,
@@ -640,6 +639,7 @@
 				EED9D2F520F5386300C5ACF7 /* GenericUser.swift in Sources */,
 				EE84922220F63094009D750F /* FirstStepSVC.swift in Sources */,
 				EE9FC85E20F8EDE20078624B /* AppSingleton+Auth.swift in Sources */,
+				EE37EA6B2146D956004F78B0 /* LinedTextField.swift in Sources */,
 				EE720F5B20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift in Sources */,
 				EE4BC88620FCAFA60086B752 /* SignUpMask.swift in Sources */,
 				EE9FC86D20F91B1B0078624B /* AccountRecoverWayTVC.swift in Sources */,
@@ -657,13 +657,13 @@
 				EE84922920F63645009D750F /* AppSignUpDelegate.swift in Sources */,
 				EE84921A20F6306F009D750F /* SignUpPasswordSVC.swift in Sources */,
 				EE84922320F63094009D750F /* SignUpEmailSVC.swift in Sources */,
-				EEBC6E4320F65BA100CB5DC2 /* TitledTextField.swift in Sources */,
 				EE9FC85A20F8CC470078624B /* NotificationBannerShortcuts.swift in Sources */,
 				EE3FDB7B20FE550300CC166F /* ConfirmCodeVM.swift in Sources */,
 				EED9D31120F53C1200C5ACF7 /* EnvVariables.swift in Sources */,
 				EE9FC87320F922AA0078624B /* AccountRecCodeSVC.swift in Sources */,
 				EE9FC88020F944560078624B /* Listener.swift in Sources */,
 				EE84922120F63094009D750F /* SignUpCodeSVC.swift in Sources */,
+				EE37EA6C2146D956004F78B0 /* TitledTextField.swift in Sources */,
 				EE4BC88820FCEA9A0086B752 /* ProfileVM.swift in Sources */,
 				EE9FC87120F91F400078624B /* AccountRecPhoneNumberSVC.swift in Sources */,
 			);

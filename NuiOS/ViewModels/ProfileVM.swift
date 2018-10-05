@@ -27,12 +27,12 @@ class ProfileVM:ProfileVCViewModel{
     }
     
     func reloadValues() {
-        self.email = user?.account?.email
-        if let unmaskedPhone = user?.account?.phoneNumber{
+        self.email = user?.account?.local.email
+        if let unmaskedPhone = user?.account?.local.phoneNumber{
             self.phoneNumber = PhoneNumber.BR.mask(number: unmaskedPhone)
         }
-        self.name = user?.account?.name
-        self.pictureUrl = user?.profile?.pictureUrl
+        self.name = user?.account?.local.displayName
+        self.pictureUrl = user?.account?.local.photo
     }
     
     func updateName(newName: String, completion: ((Bool) -> Void)?) {
@@ -44,6 +44,6 @@ class ProfileVM:ProfileVCViewModel{
     func updateProfilePicture(_ image: UIImage, completion: ((Bool) -> Void)?) {
         self.profilePicture = image
         let urlString = "https://unsplash.it/200/200/?random"
-        AppSingleton.shared.updateProfilePicture(ImageURL: urlString, completion: completion)
+        AppSingleton.shared.updatePicture(ImageURL: urlString, completion: completion)
     }
 }
