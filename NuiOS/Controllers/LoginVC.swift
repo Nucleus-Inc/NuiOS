@@ -111,8 +111,8 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
             if let success = notif.userInfo?["success"] as? Bool{
                 if success{
                     //activate account not working so perform login imediatelly
-                    self.performSegue(withIdentifier: LoginVCSeguesIDs.login, sender: nil)
-                    //self.performLoginSegue()
+                    //self.performSegue(withIdentifier: LoginVCSeguesIDs.login, sender: nil)
+                    self.performLoginSegue()
                 }
             }
         }
@@ -155,16 +155,18 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
     
     //MARK: - IBActions
     @IBAction func loginBtnAction(_ sender: Any) {
+        AppSingleton.shared.logout()
         performLogin()
     }
     
     @IBAction func googleLoginBtnAction(_ sender: Any) {
+        AppSingleton.shared.logout()
         showSocialNetworkLoginAlert()
         GIDSignIn.sharedInstance().signIn()
     }
     
     @IBAction func facebookLoginBtnAction(_ sender: Any) {
-    
+        AppSingleton.shared.logout()
     }
     
     //MARK: - UITextField methods

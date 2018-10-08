@@ -144,9 +144,9 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
     //MARK: - Methods
     
     func loadUserData(){
-        nameTF.text = viewModel?.name
-        emailLabel.text = viewModel?.email
-        phoneNumberLabel.text = viewModel?.phoneNumber
+        nameTF.text = viewModel?.name ?? nameTF.text
+        emailLabel.text = viewModel?.email ?? emailLabel.text
+        phoneNumberLabel.text = viewModel?.phoneNumber ?? phoneNumberLabel.text
         
         if let image = viewModel?.profilePicture{
             setImageWith(Image: image)
