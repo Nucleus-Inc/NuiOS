@@ -11,7 +11,7 @@ import UIKit
 class AccountRecCodeSVC: SignUpCodeSVC {
     var byType:CodeTransport = .sms
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    /*override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         codeDelegate = AccountRecCodeDelegate()
         codeDelegate.answers = delegate.answers
@@ -23,7 +23,7 @@ class AccountRecCodeSVC: SignUpCodeSVC {
         codeDelegate = AccountRecCodeDelegate()
         codeDelegate.answers = delegate.answers
         delegate = codeDelegate
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,12 @@ class AccountRecCodeSVC: SignUpCodeSVC {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func setUpDelegate() {
+        codeDelegate = AccountRecCodeDelegate()
+        codeDelegate.answers = delegate.answers
+        self.delegate = codeDelegate
     }
     
     override func loadingMode(Loading loading: Bool) {
@@ -49,7 +55,7 @@ class AccountRecCodeSVC: SignUpCodeSVC {
     override func codeNotReceivedAction(_ sender: UIButton) {
         self.loadingMode(Loading: true)
         let key:String = byType == .email ? self.delegate.answers!["email"] as! String : self.delegate.answers!["phoneNumber"] as! String
-        let alertC = UIAlertController(title: "sending", message: nil, preferredStyle: .alert)
+        let alertC = UIAlertController(title: "sending".localized, message: nil, preferredStyle: .alert)
         self.present(alertC, animated: true, completion: nil)
         AppSingleton.shared.requestRecoveryCodeFor(Key: key, By: byType) { (success) in
             alertC.dismiss(animated: true, completion: {
@@ -92,6 +98,7 @@ class AccountRecCodeSVC: SignUpCodeSVC {
         if let id = segue.identifier{
             if id == "nextStep"{
                 let vc = segue.destination as? AccountRecPasswordSVC
+                vc?.delegate.answers = self.delegate.answers
                 vc?.recByType = byType
             }
         }
@@ -106,7 +113,7 @@ class AccountRecCodeDelegate:SignUpCodeDelegate{
     }
     
     override func updateAppearanceOf(NextStepButton button: UIButton) {
-        button.setTitle("Next", for: .normal)
+        button.setTitle("next".localized, for: .normal)
     }
 }
 

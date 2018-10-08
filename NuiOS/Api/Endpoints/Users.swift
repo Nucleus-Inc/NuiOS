@@ -14,6 +14,8 @@ enum Users:Endpoint{
     case getAll
     case signin(email:String,password:String)
     case googleSignin(idToken:String)
+    case googleConnect(idToken:String,jwt:String)
+    case googleDisconnect(jwt:String)
 
     func endpointInfo() throws -> EndpointInfo {
 
@@ -23,7 +25,18 @@ enum Users:Endpoint{
             return try EndpointInfo(url: url, method: .post,params:["email":email,"password":password])
         case .googleSignin(let idToken):
             let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/google/signin")
-            return try EndpointInfo(url: url, method: .post,params:["id_token":idToken])
+            var info = try EndpointInfo(url: url, method: .post,params:["id_token":idToken])
+            return info
+        case .googleConnect(let idToken, let jwt):
+            let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/google/signin/connect")
+            var headers:[String:String]? = ["Authorization":"JWT "+jwt]
+            return try EndpointInfo(url: url, method: .post,params:["id_token":idToken],headers:headers)
+        
+        case .googleDisconnect(let jwt):
+            let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/google/signin/disconnect")
+            var headers:[String:String]?
+            headers = ["Authorization":"JWT "+jwt]
+            return try EndpointInfo(url: url, method: .post,headers:headers)
         case .getAll:
             let url = Api.Config.buildUrl(Endpoint: Users.title)
             return try EndpointInfo(url: url, method: .get)
@@ -37,16 +50,14 @@ enum Users:Endpoint{
             return "account"
         }
         
-        case getAccount(userID:String,jwt:String?)
+        case getAccount(userID:String,jwt:String)
 
         func endpointInfo() throws -> EndpointInfo {
             switch self {
             case .getAccount(let userID,let jwt):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+userID+"/"+Account.title)
-                var headers = [String:String]()
-                if let jwt = jwt{
-                    headers = ["Authorization":"JWT "+jwt]
-                }
+                var headers:[String:String]?
+                headers = ["Authorization":"JWT "+jwt]
                 return try EndpointInfo(url: url, method: .get,headers: headers)
             }
         }
@@ -75,18 +86,18 @@ extension Users.Account{
         case signup(params:[String:Any])
         //case signupWith(data:T)
         case requestActivationCode(userID:String,by:Transport)
-        case activateAccount(userID:String,code:String,jwt:String?)
+        case activateAccount(userID:String,code:String,jwt:String)
         
-        case updatePassword(userID:String,current:String,newPassword:String,jwt:String?)
-        case updateName(userID:String,name:String,jwt:String?)
+        case updatePassword(userID:String,current:String,newPassword:String,jwt:String)
+        case updateName(userID:String,name:String,jwt:String)
         
-        case requestPhoneUpdate(userID:String,phoneNumber:String,jwt:String?)
-        case confirmPhoneUpdate(userID:String,token:String,jwt:String?)
+        case requestPhoneUpdate(userID:String,phoneNumber:String,jwt:String)
+        case confirmPhoneUpdate(userID:String,token:String,jwt:String)
         
-        case requestEmailUpdate(userID:String,email:String,jwt:String?)
-        case confirmEmailUpdate(userID:String,token:String,jwt:String?)
+        case requestEmailUpdate(userID:String,email:String,jwt:String)
+        case confirmEmailUpdate(userID:String,token:String,jwt:String)
         
-        case updatePicture(userID:String,pictureUrl:String,jwt:String?)
+        case updatePicture(userID:String,pictureUrl:String,jwt:String)
         
         case requestRecoveryCode(key:String,by:Transport)
         case recoveryAccount(key:String,by:Transport,code:String,newPassword:String)
@@ -96,58 +107,44 @@ extension Users.Account{
                 
             case .updatePassword(let userID,let currentPassword,let newPassword,let jwt):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+userID+"/"+Local.title+"/password")
-                var headers = [String:String]()
-                if let jwt = jwt{
-                    headers = ["Authorization":"JWT "+jwt]
-                }
+                var headers:[String:String]?
+                headers = ["Authorization":"JWT "+jwt]
                 return try EndpointInfo(url: url, method: .put, params: ["currentPassword":currentPassword,"newPassword":newPassword], headers: headers)
                 
             case .updateName(let userID,let name,let jwt):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+userID+"/"+Local.title+"/displayName")
-                var headers = [String:String]()
-                if let jwt = jwt{
-                    headers = ["Authorization":"JWT "+jwt]
-                }
+                var headers:[String:String]?
+                headers = ["Authorization":"JWT "+jwt]
                 return try EndpointInfo(url: url, method: .put, params: ["displayName":name], headers: headers)
                 
             case .confirmPhoneUpdate(let userID,let token,let jwt):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+userID+"/"+Local.title+"/phone-number")
-                var headers = [String:String]()
-                if let jwt = jwt{
-                    headers = ["Authorization":"JWT "+jwt]
-                }
+                var headers:[String:String]?
+                headers = ["Authorization":"JWT "+jwt]
                 return try EndpointInfo(url: url, method: .put, params: ["token":token], headers: headers)
                 
             case .requestPhoneUpdate(let userID,let phoneNumber,let jwt):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+userID+"/"+Local.title+"/phone-number")
-                var headers = [String:String]()
-                if let jwt = jwt{
-                    headers = ["Authorization":"JWT "+jwt]
-                }
+                var headers:[String:String]?
+                headers = ["Authorization":"JWT "+jwt]
                 return try EndpointInfo(url: url, method: .patch, params: ["phoneNumber":phoneNumber], headers: headers)
                 
             case .confirmEmailUpdate(let userID,let token,let jwt):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+userID+"/"+Local.title+"/email")
-                var headers = [String:String]()
-                if let jwt = jwt{
-                    headers = ["Authorization":"JWT "+jwt]
-                }
+                var headers:[String:String]?
+                headers = ["Authorization":"JWT "+jwt]
                 return try EndpointInfo(url: url, method: .put, params: ["token":token], headers: headers)
                 
             case .requestEmailUpdate(let userID,let email,let jwt):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+userID+"/"+Local.title+"/email")
-                var headers = [String:String]()
-                if let jwt = jwt{
-                    headers = ["Authorization":"JWT "+jwt]
-                }
+                var headers:[String:String]?
+                headers = ["Authorization":"JWT "+jwt]
                 return try EndpointInfo(url: url, method: .patch, params: ["email":email], headers: headers)
                 
             case .updatePicture(let userID,let pictureUrl,let jwt):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+userID+"/"+Local.title+"/photo")
-                var headers = [String:String]()
-                if let jwt = jwt{
-                    headers = ["Authorization":"JWT "+jwt]
-                }
+                var headers:[String:String]?
+                headers = ["Authorization":"JWT "+jwt]
                 return try EndpointInfo(url: url, method: .put,params:["photo":pictureUrl],headers: headers)
                 
             case .requestRecoveryCode(let key, let using):
@@ -164,10 +161,8 @@ extension Users.Account{
                 
             case .activateAccount(let userID,let code,let jwt):
                 let url = Api.Config.buildUrl(Endpoint: Users.title+"/"+userID+"/"+Local.title+"/activation")
-                var headers = [String:String]()
-                if let jwt = jwt{
-                    headers = ["Authorization":"JWT "+jwt]
-                }
+                var headers:[String:String]?
+                headers = ["Authorization":"JWT "+jwt]
                 return try EndpointInfo(url: url, method: .put,params:["token":code],headers:headers)
                 
             case .signup(let params):

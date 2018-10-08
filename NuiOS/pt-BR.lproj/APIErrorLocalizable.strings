@@ -15,5 +15,7 @@
 "AUT-004" = "Código de confirmação inválido ou expirado.";
 "AUT-005" = "Você precisa ativar sua conta antes de realizar essa ação.";
 "AUT-006" = "Não foi possível ativar sua conta pois ela já está ativada.";
+"AUT-007" = "Essa conta já está conectada com outra.";
+
 
 "SRV-001" = "Ocorreu um erro inesperado. Por favor tente novamente.";

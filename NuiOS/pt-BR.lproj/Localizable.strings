@@ -45,6 +45,11 @@
 "validating" = "Validando";
 "typed_code_invalid" = "O código informado é inválido.";
 "ask_new_code" = "Peça um novo código.";
+"session_expired_title" = "Sessão Expirada";
+"your_session_expired" = "A sua sessão expirou. Faça login novamente.";
+
+"google_disconnect_title" = "Disconectar conta";
+"google_disconnect_mess" = "Se disconectar, você não poderá entrar usando o Google.\n\nDeseja continar ?";
 
 //MARK: - NotificationBannerShortcuts
 "request_error" = "Erro na requisição";

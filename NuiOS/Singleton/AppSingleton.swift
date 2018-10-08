@@ -43,5 +43,5 @@ struct AppNotifications{
      */
     static let userInfoUpdate = Notification.Name(rawValue: "userInfoUpdate")
     static let signedInByGoogle = Notification.Name(rawValue: "signedInByGoogle")
-
+    static let connectedWithGoogle = Notification.Name(rawValue: "connectedWithGoogle")
 }

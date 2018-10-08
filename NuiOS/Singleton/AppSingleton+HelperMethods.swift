@@ -17,7 +17,11 @@ extension AppSingleton{
     func loginSilently(completion:@escaping(Bool)->Void){
         var performCallback:Bool = true
         if let id = UserAuth.getUserID(){ //some user logged
-            if UserAuth.isUserLocalLogged() || GIDSignIn.sharedInstance().hasAuthInKeychain(){
+            if GIDSignIn.sharedInstance().hasAuthInKeychain(){
+                GIDSignIn.sharedInstance().signInSilently()
+                return
+            }
+            else if UserAuth.isUserLocalLogged() {
                 /*
                  if there is locally saved user {
                  load locally data
@@ -37,7 +41,6 @@ extension AppSingleton{
                 return
             }
         }
-
         logout()
         completion(false)
     }

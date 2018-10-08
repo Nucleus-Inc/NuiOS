@@ -14,7 +14,7 @@ extension ProfileTVC{
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,18 +22,12 @@ extension ProfileTVC{
         return section == 0 ? 5 : 2
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0{
-            return 0.01
-        }
-        return super.tableView(tableView, heightForHeaderInSection: section)
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let section = indexPath.section
         let row = indexPath.row
-        if section == 1{
+        
+        if section == 2{
             if row == 0{
                 didTapLogOutCell()
             }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 import SDWebImage
 
 struct ProfileTVCCellsIDs{
@@ -30,7 +31,23 @@ protocol ProfileVCViewModel{
     func updateProfilePicture(_ image:UIImage, completion:((Bool)->Void)?)
 }
 
-class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
+extension ProfileVCViewModel{
+    var connectedWithGoogle:Bool{
+        guard let _ = user?.account?.google?.id else{
+            return false
+        }
+        return true
+    }
+    
+    var connectedWithFacebook:Bool{
+        guard let _ = user?.account?.facebook?.id else{
+            return false
+        }
+        return true
+    }
+}
+
+class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate {
     var myListeners: [NSObjectProtocol] = []
     
     @IBOutlet weak var addImageLabel: UILabel!
@@ -39,11 +56,17 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     
+    @IBOutlet weak var googleSwitch: UISwitch!
+    @IBOutlet weak var faceSwitch: UISwitch!
+    
+    
     var viewModel:ProfileVCViewModel?
     var imagePickerManager:ImagePickerControllerManager = ImagePickerControllerManager()
     
     override func viewDidLoad() {
+        GIDSignIn.sharedInstance().uiDelegate = self
         imagePickerManager.imagePickerVC.allowsEditing = true
+        
         super.viewDidLoad()
         viewModel = ProfileVM()
         setUpListeners()
@@ -61,12 +84,36 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
         rmListeners()
     }
     
+    //MARK: - ActivityIndicatorAlertVC methods
+    
+    func showSocialNetworkAlert(completion:(()->Void)?){
+        let alert = ActivityIndicatorAlertVC()
+        self.present(alert, animated: true, completion:completion)
+    }
+    
+    func hideSocialNetworkAlert(){
+        
+        if let alert = self.presentedViewController as? ActivityIndicatorAlertVC{
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     //MARK: - Listener methods
     
     func setUpListeners() {
         addListener(ForName: AppNotifications.userInfoUpdate) { (weakSelf, notif) in
             weakSelf.viewModel?.reloadValues()
             weakSelf.loadUserData()
+        }
+        
+        addListener(ForName: AppNotifications.connectedWithGoogle) { (weakSelf, notif) in
+            weakSelf.hideSocialNetworkAlert()
+            weakSelf.loadUserData()
+            if let success = notif.userInfo?["success"] as? Bool{
+                if !success{
+                    GIDSignIn.sharedInstance().signOut()
+                }
+            }
         }
     }
 
@@ -77,6 +124,30 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
         viewModel?.updateName(newName: newName, completion: nil)
         textField.resignFirstResponder()
         return true
+    }
+    
+    //MARK: - UISwicth methods
+    
+    @IBAction func socialnetworksSwitchDidChange(_ sender: UISwitch) {
+        if sender.isEqual(googleSwitch){
+            if sender.isOn{
+                self.showSocialNetworkAlert {
+                    GIDSignIn.sharedInstance().signIn()
+                }
+            }
+            else{
+                //disconnect from google
+                disconnectFromGoogle()
+            }
+        }
+        else{
+            if sender.isOn{
+                
+            }
+            else{
+                
+            }
+        }
     }
     
     //MARK: - ImageView methods
@@ -154,6 +225,9 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
         else if let url = viewModel?.pictureUrl{
             setImageWith(URL: url)
         }
+        
+        faceSwitch.isOn = viewModel?.connectedWithFacebook ?? false
+        googleSwitch.isOn = viewModel?.connectedWithGoogle ?? false
     }
     
     func didTapLogOutCell(){
@@ -162,6 +236,26 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener {
             AppDelegate.logout()
         })
     
+    }
+    
+    func disconnectFromGoogle(){
+        func disconnect(){
+            AppSingleton.shared.googleDiscconect { (success) in
+                DispatchQueue.main.async {
+                    if success{
+                        GIDSignIn.sharedInstance().signOut()
+                        self.loadUserData()
+                    }
+                }
+            }
+        }
+        
+        UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "google_disconnect_title".localized, Message: "google_disconnect_mess".localized,YesAction:{
+            (_) in
+            
+            disconnect()
+            
+        })
     }
     
 }

@@ -14,11 +14,13 @@ private struct ExtendedLaunchScreenVCSeguesIDs{
     static let accountActivation = "accountActivation"
 }
 
-class ExtendedLaunchScreenVC: UIViewController {
+class ExtendedLaunchScreenVC: UIViewController, Listener{
 
+    var myListeners: [NSObjectProtocol] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpListeners()
         // Do any additional setup after loading the view.
     }
     
@@ -34,26 +36,43 @@ class ExtendedLaunchScreenVC: UIViewController {
     
     private func checkforLoggedUser(){
         AppSingleton.shared.loginSilently { (success) in
-            DispatchQueue.main.async {
-                if success{
-                    if let user = AppSingleton.shared.user, let account = user.account{
-                        if account.local.isActive{
-                            self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.loginSilently, sender: nil)
-                        }
-                        else{
-                            //account activation process
-                            //self.showAccountActivationVC() it is causing some problems when tapping on cancel button
-                            self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
-                        }
+            self.continueWith(Success: success)
+        }
+    }
+    
+    private func continueWith(Success success:Bool){
+        DispatchQueue.main.async {
+            if success{
+                if let user = AppSingleton.shared.user, let account = user.account{
+                    if account.local.isActive{
+                        self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.loginSilently, sender: nil)
+                    }
+                    else{
+                        //account activation process
+                        //self.showAccountActivationVC() it is causing some problems when tapping on cancel button
+                        self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
                     }
                 }
-                else{
-                    self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
-                }
+            }
+            else{
+                self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
+            }
+            self.rmListeners()
+        }
+    }
+    
+    //MARK: - Listeners
+    
+    func setUpListeners() {
+        addListener(ForName: AppNotifications.signedInByGoogle) { (weakSelf, notif) in
+            if let success = notif.userInfo?["success"] as? Bool{
+                self.continueWith(Success: success)
+            }
+            else{
+                self.continueWith(Success: false)
             }
         }
     }
-
     
     // MARK: - Navigation
 

@@ -197,8 +197,9 @@ public class RequestManager{
         }
         
     }
-
+    
 }
+
 
 fileprivate extension Dictionary{
     func arrayOfKeys()-> [Key]{

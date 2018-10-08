@@ -35,22 +35,44 @@ extension AppDelegate:GIDSignInDelegate{
             print("\(error.localizedDescription)")
         } else {
             // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only!
+            /*let userId = user.userID                  // For client-side use only!
             let idToken = user.authentication.idToken // Safe to send to the server
             let fullName = user.profile.name
             let givenName = user.profile.givenName
             let familyName = user.profile.familyName
-            let email = user.profile.email
+            let email = user.profile.email*/
             // ...
-            //user.serverAuthCode
             /*
             AppSingleton.shared.user = User(account: UserAccount(local: UserAccountLocal(email: email, displayName: fullName, phoneNumber: nil, photo: nil)))
             AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":true])
              */
-            if let token = idToken{
-                AppSingleton.shared.googleSignIn(idToken: token) { (success) in
-                    AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":success])
+            
+            if let token = user.authentication.idToken{
+                
+                guard let _ = AppSingleton.shared.user else{
+                    if let id = AppSingleton.UserAuth.getUserID(){// some user logged, but not loaded
+                        //sign in silently
+                        AppSingleton.shared.getInfoDataOf(UserWithID: id) { (success) in
+                            if !success{
+                                AppSingleton.shared.logout()
+                            }
+                            AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":success])
+                        }
+                    }
+                    else{//no user logged
+                        //sign in normal
+                        AppSingleton.shared.googleSignIn(idToken: token) { (success) in
+                            AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":success])
+                        }
+                    }
+                    return
                 }
+                
+                //connect endpoint
+                AppSingleton.shared.googleConnect(idToken: token) { (success) in
+                    AppSingleton.notifyUpdate(On: AppNotifications.connectedWithGoogle, Object: nil, UserInfo: ["success":success])
+                }
+                
             }
             else{
                 AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":false])

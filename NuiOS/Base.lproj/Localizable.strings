@@ -43,8 +43,12 @@
 "validating" = "Validating";
 "typed_code_invalid" = "The typed code is invalid.";
 "ask_new_code" = "Ask for a new code.";
-"session_expired_title" = "Sessão Expirada";
-"your_session_expired" = "A sua sessão expirou. Faça login novamente.";
+"session_expired_title" = "Expired Session";
+"your_session_expired" = "Your session expired. Sign in again.";
+
+"google_disconnect_title" = "Disconnect Account";
+"google_disconnect_mess" = "If you disconnect you will not be able to sign in by Google.\n\nDo you want to continue ?";
+
 
 //MARK: - NotificationBannerShortcuts
 "request_error" = "Request Error";

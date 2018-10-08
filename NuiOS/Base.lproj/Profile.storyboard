@@ -14,15 +14,15 @@
         <scene sceneID="qqo-yp-yWQ">
             <objects>
                 <tableViewController id="npr-BO-WaH" customClass="ProfileTVC" customModule="NuiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qMw-gp-b7d">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="qMw-gp-b7d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="Y88-5o-Diy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="200" id="X9L-vP-Sah">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="35" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X9L-vP-Sah" id="LAU-bT-9Uj">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
@@ -59,7 +59,7 @@
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="nameCell" id="3qX-kb-tBM">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="235" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3qX-kb-tBM" id="OIf-CW-Ge5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -84,7 +84,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="emailCell" textLabel="BGv-V6-Q8E" style="IBUITableViewCellStyleDefault" id="gkd-bC-d2Q">
-                                        <rect key="frame" x="0.0" y="270" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="305" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gkd-bC-d2Q" id="51j-eN-IOZ">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="69.5"/>
@@ -104,7 +104,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="phoneNumberCell" textLabel="9Qn-4h-R7o" style="IBUITableViewCellStyleDefault" id="hCL-yn-sfI">
-                                        <rect key="frame" x="0.0" y="340" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="375" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hCL-yn-sfI" id="jAU-QS-OcZ">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="69.5"/>
@@ -124,7 +124,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="passwordCell" textLabel="1IU-u9-V0Z" style="IBUITableViewCellStyleDefault" id="CJl-CG-lqX">
-                                        <rect key="frame" x="0.0" y="410" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="445" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CJl-CG-lqX" id="2zz-Ii-bFy">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="69.5"/>
@@ -146,10 +146,73 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Redes Sociais" id="eW0-wL-63u">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="googleCell" id="FoG-aB-lFa">
+                                        <rect key="frame" x="0.0" y="571" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FoG-aB-lFa" id="uwG-G4-ovy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2z5-K0-dvd">
+                                                    <rect key="frame" x="16" y="11" width="55" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYD-8Z-w1L">
+                                                    <rect key="frame" x="310" y="19" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="socialnetworksSwitchDidChange:" destination="npr-BO-WaH" eventType="valueChanged" id="Aqi-H0-mIa"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZYD-8Z-w1L" secondAttribute="trailing" id="HBc-1N-M7B"/>
+                                                <constraint firstItem="ZYD-8Z-w1L" firstAttribute="centerY" secondItem="2z5-K0-dvd" secondAttribute="centerY" id="Md3-zI-YXD"/>
+                                                <constraint firstItem="ZYD-8Z-w1L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2z5-K0-dvd" secondAttribute="trailing" constant="10" id="Ocr-tP-DMO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2z5-K0-dvd" secondAttribute="bottom" id="PsX-cF-saU"/>
+                                                <constraint firstItem="2z5-K0-dvd" firstAttribute="top" secondItem="uwG-G4-ovy" secondAttribute="topMargin" id="YoW-iP-Bny"/>
+                                                <constraint firstItem="2z5-K0-dvd" firstAttribute="leading" secondItem="uwG-G4-ovy" secondAttribute="leadingMargin" id="hAw-8h-yqh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="googleCell" id="sud-1q-jbc">
+                                        <rect key="frame" x="0.0" y="641" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sud-1q-jbc" id="L7A-X3-lDE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5p-1c-Gep">
+                                                    <rect key="frame" x="16" y="11" width="74.5" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OwE-p8-4qm">
+                                                    <rect key="frame" x="310" y="19" width="51" height="31"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OwE-p8-4qm" firstAttribute="centerY" secondItem="W5p-1c-Gep" secondAttribute="centerY" id="717-UC-HPZ"/>
+                                                <constraint firstItem="OwE-p8-4qm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W5p-1c-Gep" secondAttribute="trailing" constant="10" id="Hcd-pt-x9v"/>
+                                                <constraint firstItem="W5p-1c-Gep" firstAttribute="top" secondItem="L7A-X3-lDE" secondAttribute="topMargin" id="aSP-d8-4xb"/>
+                                                <constraint firstItem="W5p-1c-Gep" firstAttribute="leading" secondItem="L7A-X3-lDE" secondAttribute="leadingMargin" id="ajV-ZP-FuQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="W5p-1c-Gep" secondAttribute="bottom" id="iUA-uR-JX2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="OwE-p8-4qm" secondAttribute="trailing" id="oWx-fP-ORK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection id="Qek-l0-QQj">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logoutCell" textLabel="xjl-Zo-kpx" style="IBUITableViewCellStyleDefault" id="BcG-an-RVS">
-                                        <rect key="frame" x="0.0" y="480" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="747" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BcG-an-RVS" id="ggn-Wc-bK5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -167,7 +230,7 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="debugCell" textLabel="eBM-f0-lXO" style="IBUITableViewCellStyleDefault" id="4EM-Cc-Vec">
-                                        <rect key="frame" x="0.0" y="550" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="817" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4EM-Cc-Vec" id="Ksa-t7-R7h">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -195,6 +258,8 @@
                     <connections>
                         <outlet property="addImageLabel" destination="6dv-jz-kRX" id="gqU-jA-oX3"/>
                         <outlet property="emailLabel" destination="BGv-V6-Q8E" id="Csr-H1-tk8"/>
+                        <outlet property="faceSwitch" destination="OwE-p8-4qm" id="4wE-tp-3Fq"/>
+                        <outlet property="googleSwitch" destination="ZYD-8Z-w1L" id="NHi-g1-GoD"/>
                         <outlet property="nameTF" destination="x4N-Tq-XwM" id="wKL-BK-EIp"/>
                         <outlet property="phoneNumberLabel" destination="9Qn-4h-R7o" id="NxV-d2-bwA"/>
                         <outlet property="userImageView" destination="Uxc-WQ-JQN" id="B1R-fN-FRm"/>

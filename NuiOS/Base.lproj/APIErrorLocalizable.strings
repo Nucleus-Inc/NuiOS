@@ -15,5 +15,7 @@
 "AUT-004" = "Invalid or expired confirmation code.";
 "AUT-005" = "This request could not be processed. The user account is not active.";
 "AUT-006" = "This request could not be processed. The user account is already active.";
+"AUT-007" = "This account is already connected with another one.";
+
 
 "SRV-001" = "An internal error occurred. This request has been logged.";

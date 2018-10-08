@@ -141,9 +141,9 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
     
     //MARK: - ActivityIndicatorAlertVC methods
     
-    func showSocialNetworkLoginAlert(){
+    func showSocialNetworkLoginAlert(completion:(()->Void)?){
         let alert = ActivityIndicatorAlertVC()
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: completion)
     }
     
     func hideSocialNetworkLoginAlert(){
@@ -155,14 +155,13 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
     
     //MARK: - IBActions
     @IBAction func loginBtnAction(_ sender: Any) {
-        AppSingleton.shared.logout()
         performLogin()
     }
     
     @IBAction func googleLoginBtnAction(_ sender: Any) {
-        AppSingleton.shared.logout()
-        showSocialNetworkLoginAlert()
-        GIDSignIn.sharedInstance().signIn()
+        showSocialNetworkLoginAlert {
+            GIDSignIn.sharedInstance().signIn()
+        }
     }
     
     @IBAction func facebookLoginBtnAction(_ sender: Any) {

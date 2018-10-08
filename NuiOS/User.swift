@@ -25,7 +25,7 @@ class UserAccount:Account,Codable{
     var local: UserAccountLocal
     var google: UserAccSocialMedia?
     var facebook: UserAccSocialMedia?
-    
+        
     init(local:UserAccountLocal,google:UserAccSocialMedia?=nil,facebook:UserAccSocialMedia?=nil){
         self.local = local
         self.google = google
