@@ -10,12 +10,12 @@ import Foundation
 import UICKeyChainStore
 import JWTDecode
 
-
 extension AppSingleton{
+    
     struct UserAuth{
-         static var KEYCHAIN_SERVICE:String = ""
+        static var KEYCHAIN_SERVICE:String = ""
         
-         static var GROUP:String?
+        static var GROUP:String?
         
         private static var keychain:UICKeyChainStore{
             guard let group = GROUP else {
@@ -37,27 +37,33 @@ extension AppSingleton{
             }
         }
         
-        static  func saveUserToken(token:String){
+        static func saveUserToken(token:String){
             keychain["user_token"] = token
             //keychain["expiration_date"] = expirationDate.stringFromDate(WithFormat: "dd-MM-yyyy HH:mm:ss")//"dd/MM/yyyy-hh:mm:ss"
         }
         
+        static func saveUserID(id:String){
+            keychain["user_id"] = id
+        }
         
         static  func saveRefreshToken(token:String){
             keychain["refresh_token"] = token
         }
         
         
-        
         static  func getToken()->String?{
             return keychain["user_token"]
+        }
+        
+        static  func getUserID()->String?{
+            return keychain["user_id"]
         }
         
         static  func getRefreshToken()->String?{
             return keychain["refresh_token"]
         }
         
-        static  func getBodyOfToken(_ token:String)->[String:Any]?{
+        static private func getBodyOfToken(_ token:String)->[String:Any]?{
             
             do{
                 let jwt = try decode(jwt:token)
@@ -89,10 +95,7 @@ extension AppSingleton{
             return false
         }
         
-        /**
-         Do not call this method directly call instead isThereSomeUserLogged of UpmeSingleton
-         */
-        static  func isUserLogged()->Bool{
+        static  func isUserLocalLogged()->Bool{
             /*
              let keychain = UICKeyChainStore(service: "com.eti.nucleus.UpmeCustomer.user-token")
              if let dateString = keychain["expiration_date"]{

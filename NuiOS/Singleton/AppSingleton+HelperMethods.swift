@@ -11,32 +11,34 @@ import Foundation
 extension AppSingleton{
     
     /**
-     This method checks if there is some JWT saved, if yes tries to get
+     This method checks if there is some logged user and tries to get his informations
      */
     func loginSilently(completion:@escaping(Bool)->Void){
         var performCallback:Bool = true
-        if UserAuth.isUserLogged(), let jwt = UserAuth.getToken(), let body = UserAuth.getBodyOfToken(jwt), let id = body["_id"] as? String{
-            /*
-             if there is locally saved user {
-                load locally data
-             
-                if user.isActive{
-                    performCallback = false
-                    completion(true)
+        if let id = UserAuth.getUserID(){ //some user logged
+            if UserAuth.isUserLocalLogged(){
+                /*
+                 if there is locally saved user {
+                 load locally data
+                 
+                 if user.isActive{
+                 performCallback = false
+                 completion(true)
+                 }
+                 }
+                 */
+                //update locally data with remotelly data
+                AppSingleton.shared.getInfoDataOf(UserWithID: id) { (success) in
+                    if performCallback{
+                        completion(success)
+                    }
                 }
-             }
-             */
-            
-            //update locally data with remotelly data
-            AppSingleton.shared.getInfoDataOf(UserWithID: id) { (success) in
-                if performCallback{
-                    completion(success)
-                }
+                return
             }
         }
-        else{
-            completion(false)
-        }
+        
+        logout()
+        completion(false)
     }
     
     func logout(){
