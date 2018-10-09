@@ -59,18 +59,18 @@ public enum SignUpMask{
 
 
 public enum PhoneNumber{
-    case BR
-    case USA
+    case BR //85 9 8513 7758
+    case USA //1-888-452-1505
     
     
-    public func mask(number:String)->String{
+    public func mask(number:String,hasCountryCode:Bool=true)->String{
         let pattern = self.maskingPattern
         let unmaskedNumber:String
         
         switch self {
         case .BR,.USA:
             let tempUnmasked = unmask(number: number)
-            if tempUnmasked.count > countryCode.count{
+            if tempUnmasked.count == size{
                 unmaskedNumber = removeCountryCode(number: tempUnmasked)
             }
             else{
@@ -88,6 +88,17 @@ public enum PhoneNumber{
             return "1"
         }
     }
+    /**
+     Country Code + DDD + number
+     */
+    public var size:Int{
+        switch self {
+        case .BR:
+            return 13
+        case .USA:
+            return 11
+        }
+    }
     
     public var maskingPattern:(regex:String,format:String){
         switch self {
@@ -97,7 +108,7 @@ public enum PhoneNumber{
             return ("([0-9]{3})([0-9]{3})([0-9]{4})","+1 ($1) $2-$3")
         }
     }
-
+    
     public func unmask(number:String)->String{
         return number.replacingOccurrences(of: "\\D", with: "", options: .regularExpression, range: nil)
     }
@@ -109,5 +120,5 @@ public enum PhoneNumber{
     static private func applyMask(regex:String,format:String, onText text:String)->String{
         return text.replacingOccurrences(of: regex, with: format, options: [.regularExpression,.anchored], range: nil)
     }
-
+    
 }
