@@ -13,9 +13,14 @@ enum Users:Endpoint{
 
     case getAll
     case signin(email:String,password:String)
+    
     case googleSignin(idToken:String)
     case googleConnect(idToken:String,jwt:String)
     case googleDisconnect(jwt:String)
+
+    case facebookSignin(idToken:String)
+    case facebookConnect(idToken:String,jwt:String)
+    case facebookDisconnect(jwt:String)
 
     func endpointInfo() throws -> EndpointInfo {
 
@@ -25,18 +30,32 @@ enum Users:Endpoint{
             return try EndpointInfo(url: url, method: .post,params:["email":email,"password":password])
         case .googleSignin(let idToken):
             let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/google/signin")
-            var info = try EndpointInfo(url: url, method: .post,params:["id_token":idToken])
-            return info
+            return try EndpointInfo(url: url, method: .post,params:["id_token":idToken])
         case .googleConnect(let idToken, let jwt):
             let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/google/signin/connect")
-            var headers:[String:String]? = ["Authorization":"JWT "+jwt]
+            let headers:[String:String]? = ["Authorization":"JWT "+jwt]
             return try EndpointInfo(url: url, method: .post,params:["id_token":idToken],headers:headers)
-        
         case .googleDisconnect(let jwt):
             let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/google/signin/disconnect")
             var headers:[String:String]?
             headers = ["Authorization":"JWT "+jwt]
             return try EndpointInfo(url: url, method: .post,headers:headers)
+            
+        case .facebookSignin(let idToken):
+        let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/facebook/token")
+        return try EndpointInfo(url: url, method: .post,params:["access_token":idToken])
+        
+        case .facebookConnect(let idToken, let jwt):
+            let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/facebook/token/connect")
+            let headers:[String:String]? = ["Authorization":"JWT "+jwt]
+            return try EndpointInfo(url: url, method: .post,params:["access_token":idToken],headers:headers)
+        case .facebookDisconnect(let jwt):
+            let url = Api.Config.buildUrl(Endpoint: Users.title+"/auth/facebook/token/disconnect")
+            var headers:[String:String]?
+            headers = ["Authorization":"JWT "+jwt]
+            return try EndpointInfo(url: url, method: .post,headers:headers)
+
+            
         case .getAll:
             let url = Api.Config.buildUrl(Endpoint: Users.title)
             return try EndpointInfo(url: url, method: .get)

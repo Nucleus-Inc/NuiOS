@@ -12,6 +12,7 @@
 		EE1824D42106697F004DDC83 /* AppSingleton+ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1824D32106697F004DDC83 /* AppSingleton+ApiErrors.swift */; };
 		EE37EA6B2146D956004F78B0 /* LinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37EA692146D956004F78B0 /* LinedTextField.swift */; };
 		EE37EA6C2146D956004F78B0 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37EA6A2146D956004F78B0 /* TitledTextField.swift */; };
+		EE38B87E216D33CC00A5CE42 /* AppDelegate+FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE38B87D216D33CC00A5CE42 /* AppDelegate+FacebookLogin.swift */; };
 		EE3FDB6D20FE485700CC166F /* EmailUpdate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB6B20FE485700CC166F /* EmailUpdate.storyboard */; };
 		EE3FDB7020FE486100CC166F /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB6E20FE486100CC166F /* Profile.storyboard */; };
 		EE3FDB7720FE4DCD00CC166F /* YourPasswordSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB7620FE4DCD00CC166F /* YourPasswordSVC.swift */; };
@@ -100,6 +101,7 @@
 		EE1824D32106697F004DDC83 /* AppSingleton+ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+ApiErrors.swift"; sourceTree = "<group>"; };
 		EE37EA692146D956004F78B0 /* LinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinedTextField.swift; sourceTree = "<group>"; };
 		EE37EA6A2146D956004F78B0 /* TitledTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
+		EE38B87D216D33CC00A5CE42 /* AppDelegate+FacebookLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+FacebookLogin.swift"; sourceTree = "<group>"; };
 		EE3FDB6C20FE485700CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EmailUpdate.storyboard; sourceTree = "<group>"; };
 		EE3FDB6F20FE486100CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		EE3FDB7420FE48E200CC166F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Profile.strings"; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				EEABAE352167A53D00282717 /* AppDelegate+GoogleSignIn.swift */,
 				EED9D30B20F53C1200C5ACF7 /* Assets.xcassets */,
 				EED9D30D20F53C1200C5ACF7 /* EnvVariables.swift */,
+				EE38B87D216D33CC00A5CE42 /* AppDelegate+FacebookLogin.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -613,6 +616,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NuiOS/Pods-NuiOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -626,6 +632,9 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -682,6 +691,7 @@
 				EED9D2EC20F5383A00C5ACF7 /* Api.swift in Sources */,
 				EED9D2F720F5389100C5ACF7 /* AppSingleton.swift in Sources */,
 				EED9D2F520F5386300C5ACF7 /* GenericUser.swift in Sources */,
+				EE38B87E216D33CC00A5CE42 /* AppDelegate+FacebookLogin.swift in Sources */,
 				EE84922220F63094009D750F /* FirstStepSVC.swift in Sources */,
 				EE9FC85E20F8EDE20078624B /* AppSingleton+Auth.swift in Sources */,
 				EE37EA6B2146D956004F78B0 /* LinedTextField.swift in Sources */,

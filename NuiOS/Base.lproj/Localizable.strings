@@ -46,8 +46,10 @@
 "session_expired_title" = "Expired Session";
 "your_session_expired" = "Your session expired. Sign in again.";
 
-"google_disconnect_title" = "Disconnect Account";
+"disconnect_title" = "Disconnect Account";
 "google_disconnect_mess" = "If you disconnect you will not be able to sign in by Google.\n\nDo you want to continue ?";
+
+"facebook_disconnect_mess" = "If you disconnect you will not be able to sign in by Facebook.\n\nDo you want to continue ?";
 
 
 //MARK: - NotificationBannerShortcuts

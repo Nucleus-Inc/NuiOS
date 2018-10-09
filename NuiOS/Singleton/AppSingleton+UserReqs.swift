@@ -33,6 +33,8 @@ extension AppSingleton{
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
     }
     
+    //MARK: Google
+    
     func googleSignIn(idToken:String,completion:@escaping(_ success:Bool)->Void){
         let endpoint = Users.googleSignin(idToken: idToken)
         let onSuccess = Response.OnSuccess(dataType: User.self, jsonType:Any.self) { (response, urlResponse) in
@@ -92,9 +94,95 @@ extension AppSingleton{
         }
     }
     
-    func googleDiscconect(completion:@escaping(_ success:Bool)->Void){
+    func googleDisconnect(completion:@escaping(_ success:Bool)->Void){
         if let jwt = UserAuth.getToken(){
             let endpoint = Users.googleDisconnect(jwt: jwt)
+            let onSuccess = Response.OnSuccess(dataType: User.self, jsonType:Any.self) { (response, urlResponse) in
+                UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
+                self.user = response.data
+                if let id = self.user?._id{
+                    UserAuth.saveUserID(id: id)
+                }
+                completion(true)
+            }
+            
+            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                completion(false)
+                self.processOnFailure(apiError: response.data, reqError: reqError)
+            }
+            
+            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+        }
+        else{
+            completion(false)
+        }
+    }
+    
+    //MARK: Facebook
+
+    func facebookSignIn(idToken:String,completion:@escaping(_ success:Bool)->Void){
+        let endpoint = Users.facebookSignin(idToken: idToken)
+        let onSuccess = Response.OnSuccess(dataType: User.self, jsonType:Any.self) { (response, urlResponse) in
+            UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
+            self.user = response.data
+            if let id = self.user?._id{
+                UserAuth.saveUserID(id: id)
+            }
+            completion(true)
+        }
+        
+        let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+            completion(false)
+            guard let e = reqError else{
+                //see response.data
+                if let apiError = response.data{
+                    if apiError.errorCode == ApiError.Code.AUT007{
+                        NotificationBannerShortcuts.showErrBanner(title: "Email em uso", subtitle: "Faça login manualmente para conectar com o Facebook.")
+                    }
+                    else{
+                        NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
+                    }
+                }
+                else{
+                    NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
+                }
+                return
+            }
+            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+        }
+        
+        try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+    }
+    
+    
+    func facebookConnect(idToken:String,completion:@escaping(_ success:Bool)->Void){
+        if let jwt = UserAuth.getToken(){
+            let endpoint = Users.facebookConnect(idToken: idToken, jwt: jwt)
+            let onSuccess = Response.OnSuccess(dataType: User.self, jsonType:Any.self) { (response, urlResponse) in
+                UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
+                self.user = response.data
+                if let id = self.user?._id{
+                    UserAuth.saveUserID(id: id)
+                }
+                completion(true)
+            }
+            
+            let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
+                completion(false)
+                self.processOnFailure(apiError: response.data, reqError: reqError)
+            }
+            
+            try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
+        }
+        else{
+            completion(false)
+            NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
+        }
+    }
+    
+    func facebookDisconnect(completion:@escaping(_ success:Bool)->Void){
+        if let jwt = UserAuth.getToken(){
+            let endpoint = Users.facebookDisconnect(jwt: jwt)
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType:Any.self) { (response, urlResponse) in
                 UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
                 self.user = response.data

@@ -29,23 +29,24 @@ extension AppDelegate:GIDSignInDelegate{
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":false])
             //NotificationBannerShortcuts.showRequestErrorBanner(subtitle: error.localizedDescription)
             NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
             print("\(error.localizedDescription)")
+            
+            guard let _ = AppSingleton.shared.user else{
+                if let id = AppSingleton.UserAuth.getUserID(){// some user logged, but not loaded
+                    AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":false])
+                }
+                else{//no user logged
+                    //sign in normal
+                    AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":false])
+                }
+                return
+            }
+            //connect endpoint
+            AppSingleton.notifyUpdate(On: AppNotifications.connectedWithGoogle, Object: nil, UserInfo: ["success":false])
+
         } else {
-            // Perform any operations on signed in user here.
-            /*let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email*/
-            // ...
-            /*
-            AppSingleton.shared.user = User(account: UserAccount(local: UserAccountLocal(email: email, displayName: fullName, phoneNumber: nil, photo: nil)))
-            AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":true])
-             */
             
             if let token = user.authentication.idToken{
                 
@@ -78,6 +79,14 @@ extension AppDelegate:GIDSignInDelegate{
                 AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":false])
             }
  
+            
+            // Perform any operations on signed in user here.
+            /*let userId = user.userID                  // For client-side use only!
+             let idToken = user.authentication.idToken // Safe to send to the server
+             let fullName = user.profile.name
+             let givenName = user.profile.givenName
+             let familyName = user.profile.familyName
+             let email = user.profile.email*/
         }
     }
     

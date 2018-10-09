@@ -9,6 +9,7 @@
 import UIKit
 import GoogleSignIn
 import SDWebImage
+import FBSDKLoginKit
 
 struct ProfileTVCCellsIDs{
     static let imageCell = "imageCell"
@@ -91,10 +92,10 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         self.present(alert, animated: true, completion:completion)
     }
     
-    func hideSocialNetworkAlert(){
+    func hideSocialNetworkAlert(completion:(()->Void)?=nil){
         
         if let alert = self.presentedViewController as? ActivityIndicatorAlertVC{
-            alert.dismiss(animated: true, completion: nil)
+            alert.dismiss(animated: true, completion: completion)
         }
     }
     
@@ -142,10 +143,12 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         }
         else{
             if sender.isOn{
-                
+                self.showSocialNetworkAlert {
+                    self.connectWithFacebook()
+                }
             }
             else{
-                
+                disconnectFromFacebook()
             }
         }
     }
@@ -240,7 +243,7 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
     
     func disconnectFromGoogle(){
         func disconnect(){
-            AppSingleton.shared.googleDiscconect { (success) in
+            AppSingleton.shared.googleDisconnect { (success) in
                 DispatchQueue.main.async {
                     if success{
                         GIDSignIn.sharedInstance().signOut()
@@ -250,12 +253,51 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
             }
         }
         
-        UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "google_disconnect_title".localized, Message: "google_disconnect_mess".localized,YesAction:{
+        UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "disconnect_title".localized, Message: "google_disconnect_mess".localized,YesAction:{
             (_) in
             
             disconnect()
             
         })
+    }
+    
+    func disconnectFromFacebook(){
+        func disconnect(){
+            AppSingleton.shared.facebookDisconnect { (success) in
+                DispatchQueue.main.async {
+                    if success{
+                        FBSDKLoginManager().logOut()
+                    }
+                    self.loadUserData()
+                }
+            }
+        }
+        
+        UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "disconnect_title".localized, Message: "facebook_disconnect_mess".localized,YesAction:{
+            (_) in
+            disconnect()
+        })
+    }
+    
+    func connectWithFacebook(){
+        func completion(success:Bool){
+            DispatchQueue.main.async {
+                self.hideSocialNetworkAlert{
+                    self.loadUserData()
+                }
+            }
+        }
+        
+        AppDelegate.Facebook.login(OnVC: self) { (success) in
+            if let token = FBSDKAccessToken.current(), let tokenString = token.tokenString{
+                AppSingleton.shared.facebookConnect(idToken: tokenString, completion: { (success) in
+                    completion(success: success)
+                })
+            }
+            else{
+                completion(success: false)
+            }
+        }
     }
     
 }

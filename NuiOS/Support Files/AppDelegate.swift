@@ -9,7 +9,7 @@
 import UIKit
 import NotificationBannerSwift
 import GoogleSignIn
-
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.listenForInternetConnectionChanges()
         // Override point for customization after application launch.
         
+        //FACEBOOK SIGN IN
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        AppDelegate.Facebook.setUp()
         //GOOGLE SIGN IN
         setUpGoogleSignIn()
         
@@ -42,7 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                  sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                  annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
-        return googleHandle
+        let facebookHandler = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        
+        return googleHandle || facebookHandler
     }
 
 

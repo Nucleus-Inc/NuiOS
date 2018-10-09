@@ -15,5 +15,6 @@ target 'NuiOS' do
 
 # Social networks
   pod 'GoogleSignIn'
+  pod 'FBSDKLoginKit'
 
 end

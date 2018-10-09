@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import FBSDKLoginKit
 
 protocol LoginVCViewModel{
     func performLogin(Username user:String,Password password:String,completion:@escaping(_ success:Bool)->Void)
@@ -108,19 +109,20 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
     
     func setUpListeners() {
         addListener(ForName: AppNotifications.signedInByGoogle) { (weakSelf, notif) in
-            weakSelf.hideSocialNetworkLoginAlert()
-            if let success = notif.userInfo?["success"] as? Bool{
-                if success{
-                    //activate account not working so perform login imediatelly
-                    //self.performSegue(withIdentifier: LoginVCSeguesIDs.login, sender: nil)
-                    self.performLoginSegue()
+            weakSelf.hideSocialNetworkLoginAlert{
+                if let success = notif.userInfo?["success"] as? Bool{
+                    if success{
+                        //activate account not working so perform login imediatelly
+                        //self.performSegue(withIdentifier: LoginVCSeguesIDs.login, sender: nil)
+                        self.performLoginSegue()
+                    }
                 }
             }
         }
     }
     
     //MARK: - Methods
-    func performLogin(){
+    func performLocalLogin(){
         self.view.endEditing(true)
         if let username = usernameTF.text, let password = passwordTF.text,
             !username.isEmpty, !password.isEmpty{
@@ -140,6 +142,33 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
         }
     }
     
+    func performFacebookLogin(){
+        func completion(success:Bool){
+            DispatchQueue.main.async {
+                self.hideSocialNetworkLoginAlert{
+                    if success{
+                        self.performLoginSegue()
+                    }
+                    else{
+                        FBSDKLoginManager().logOut()
+                    }
+                }
+            }
+        }
+        
+        AppDelegate.Facebook.login(OnVC: self) { (success) in
+            if success, let token = FBSDKAccessToken.current(), let tokenString = token.tokenString{
+                AppSingleton.shared.facebookSignIn(idToken: tokenString, completion: { (success) in
+                    completion(success: success)
+                })
+            }
+            else{
+                completion(success: false)
+            }
+        }
+        
+    }
+    
     //MARK: - ActivityIndicatorAlertVC methods
     
     func showSocialNetworkLoginAlert(completion:(()->Void)?){
@@ -147,17 +176,17 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
         self.present(alert, animated: true, completion: completion)
     }
     
-    func hideSocialNetworkLoginAlert(){
+    func hideSocialNetworkLoginAlert(completion:(()->Void)?=nil){
         
         if let alert = self.presentedViewController as? ActivityIndicatorAlertVC{
-            alert.dismiss(animated: true, completion: nil)
+            alert.dismiss(animated: true, completion: completion)
         }
     }
     
     //MARK: - IBActions
     @IBAction func loginBtnAction(_ sender: Any) {
         AppSingleton.shared.logout()
-        performLogin()
+        performLocalLogin()
     }
     
     @IBAction func googleLoginBtnAction(_ sender: Any) {
@@ -169,7 +198,9 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
     
     @IBAction func facebookLoginBtnAction(_ sender: Any) {
         AppSingleton.shared.logout()
-        AppSingleton.shared.logout()
+        showSocialNetworkLoginAlert{
+            self.performFacebookLogin()
+        }
     }
     
     //MARK: - UITextField methods
@@ -185,7 +216,7 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == passwordTF.tag {
-            performLogin()
+            performLocalLogin()
         }
         else{
             passwordTF.becomeFirstResponder()
