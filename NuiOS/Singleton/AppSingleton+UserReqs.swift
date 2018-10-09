@@ -48,7 +48,17 @@ extension AppSingleton{
             completion(false)
             guard let e = reqError else{
                 //see response.data
-                NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
+                if let apiError = response.data{
+                    if apiError.errorCode == ApiError.Code.AUT007{
+                        NotificationBannerShortcuts.showErrBanner(title: "Email em uso", subtitle: "Faça login manualmente para conectar com o Google.")
+                    }
+                    else{
+                        NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
+                    }
+                }
+                else{
+                    NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
+                }
                 return
             }
             NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)

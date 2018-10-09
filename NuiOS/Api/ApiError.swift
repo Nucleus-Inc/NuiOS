@@ -31,7 +31,7 @@ struct ApiError:Decodable{
         static let AUT005:ResponseCode = "AUT-005"
         static let AUT006:ResponseCode = "AUT-006"
         static let AUT007:ResponseCode = "AUT-007"
-        
+
         static let SRV001:ResponseCode = "SRV-001"
     }
 

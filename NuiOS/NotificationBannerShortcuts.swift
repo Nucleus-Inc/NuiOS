@@ -43,6 +43,9 @@ class NotificationBannerShortcuts{
 
     class func showErrBanner(title:String,subtitle:String?){
         setUpBanner(title: title, subtitle: subtitle, style: .danger) { (banner) in
+            //banner.subtitleLabel?.labelize = true
+            //banner.subtitleLabel?.numberOfLines = 0
+            //banner.layoutIfNeeded()
             banner.onSwipeUp = {
                 banner.dismiss()
             }

@@ -49,6 +49,7 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
         self.hideKeyboardWhenTappedAround()
         
         GIDSignIn.sharedInstance().uiDelegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -155,16 +156,19 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
     
     //MARK: - IBActions
     @IBAction func loginBtnAction(_ sender: Any) {
+        AppSingleton.shared.logout()
         performLogin()
     }
     
     @IBAction func googleLoginBtnAction(_ sender: Any) {
+        AppSingleton.shared.logout()
         showSocialNetworkLoginAlert {
             GIDSignIn.sharedInstance().signIn()
         }
     }
     
     @IBAction func facebookLoginBtnAction(_ sender: Any) {
+        AppSingleton.shared.logout()
         AppSingleton.shared.logout()
     }
     

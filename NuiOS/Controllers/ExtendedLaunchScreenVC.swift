@@ -50,11 +50,13 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
                     else{
                         //account activation process
                         //self.showAccountActivationVC() it is causing some problems when tapping on cancel button
+                        AppSingleton.shared.logout()
                         self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
                     }
                 }
             }
             else{
+                AppSingleton.shared.logout()
                 self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
             }
             self.rmListeners()

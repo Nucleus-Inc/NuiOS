@@ -1137,7 +1137,6 @@
         <image name="see-password-selected" width="34" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KC0-wi-rVj"/>
         <segue reference="2gB-HV-K4w"/>
         <segue reference="jtW-Fw-leu"/>
         <segue reference="dgJ-WZ-WuP"/>

@@ -63,7 +63,7 @@
 "XMc-Ce-Gcj.text" = "Clique em Próximo para confirmar.";
 
 /* Class = "UILabel"; text = "You will use this email for login."; ObjectID = "Xzn-Qv-mHk"; */
-"Xzn-Qv-mHk.text" = "You will use this email for login.";
+"Xzn-Qv-mHk.text" = "Você usará esse email no login.";
 
 /* Class = "UILabel"; text = "Activation Code"; ObjectID = "YFN-MO-iKV"; */
 "YFN-MO-iKV.text" = "Código de Ativação";
