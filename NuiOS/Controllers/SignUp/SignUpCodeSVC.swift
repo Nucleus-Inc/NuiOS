@@ -28,6 +28,8 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     
     @IBInspectable var minCharacters:Int = 0
     
+    var defaultTransport:CodeTransport = .email
+    
     //private var maskDelegate:MaskedTextFieldDelegate?
     var lastInvalidCodes:[String] = []
 
@@ -263,15 +265,17 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     //MARK: - UILabel methods
     
     internal func setUpQuestionInfoLabel(){
-        if let number = self.delegate.answers!["phoneNumber"] as? String, !number.isEmpty{
-            let maskedNumber = PhoneNumber.BR.mask(number: number)
-            questionInfoLabel.text = String(format: "sms_sent_to_%@".localized, maskedNumber)
-        }
-        else if let email = self.delegate.answers!["email"] as? String, !email.isEmpty{
-            questionInfoLabel.text = String(format: "email_sent_to_%@".localized, email)
+        questionInfoLabel.text = ""
+        if defaultTransport == .email{
+            if let email = self.delegate.answers!["email"] as? String, !email.isEmpty{
+                questionInfoLabel.text = String(format: "email_sent_to_%@".localized, email)
+            }
         }
         else{
-            questionInfoLabel.text = ""
+            if let number = self.delegate.answers!["phoneNumber"] as? String, !number.isEmpty{
+                let maskedNumber = PhoneNumber.BR.mask(number: number)
+                questionInfoLabel.text = String(format: "sms_sent_to_%@".localized, maskedNumber)
+            }
         }
     }
 

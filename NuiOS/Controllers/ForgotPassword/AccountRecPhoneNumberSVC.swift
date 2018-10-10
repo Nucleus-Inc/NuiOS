@@ -26,7 +26,7 @@ class AccountRecPhoneNumberSVC: SignUpPhoneNumberSVC {
         if let id = segue.identifier{
             if id == "nextStep"{
                 let vc = segue.destination as? AccountRecCodeSVC
-                vc?.byType = .sms
+                vc?.defaultTransport = .sms
             }
         }
     }

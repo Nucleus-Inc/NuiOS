@@ -9,8 +9,6 @@
 import UIKit
 
 class AccountRecCodeSVC: SignUpCodeSVC {
-    var byType:CodeTransport = .sms
-
     /*override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         codeDelegate = AccountRecCodeDelegate()
@@ -54,10 +52,10 @@ class AccountRecCodeSVC: SignUpCodeSVC {
     
     override func codeNotReceivedAction(_ sender: UIButton) {
         self.loadingMode(Loading: true)
-        let key:String = byType == .email ? self.delegate.answers!["email"] as! String : self.delegate.answers!["phoneNumber"] as! String
+        let key:String = defaultTransport == .email ? self.delegate.answers!["email"] as! String : self.delegate.answers!["phoneNumber"] as! String
         let alertC = UIAlertController(title: "sending".localized, message: nil, preferredStyle: .alert)
         self.present(alertC, animated: true, completion: nil)
-        AppSingleton.shared.requestRecoveryCodeFor(Key: key, By: byType) { (success) in
+        AppSingleton.shared.requestRecoveryCodeFor(Key: key, By: defaultTransport) { (success) in
             alertC.dismiss(animated: true, completion: {
                 DispatchQueue.main.async {
                     self.loadingMode(Loading: false)
@@ -72,17 +70,7 @@ class AccountRecCodeSVC: SignUpCodeSVC {
         }
         return false
     }
-    
-    override func setUpQuestionInfoLabel() {
-        if byType == .sms{
-            super.setUpQuestionInfoLabel()
-        }
-        else{
-            let email = (self.delegate.answers!["email"] as! String)
-            questionInfoLabel.text = String(format: "email_sent_to_%@".localized, email)
-        }
-    }
-    
+        
     override func didTapNextStepButton(button: UIButton) {
         if validateCodeLocally(),let typedCode = self.typedCode(){
             self.delegate.addStepAnswer(answer: typedCode, forKey: "code")
@@ -99,7 +87,7 @@ class AccountRecCodeSVC: SignUpCodeSVC {
             if id == "nextStep"{
                 let vc = segue.destination as? AccountRecPasswordSVC
                 vc?.delegate.answers = self.delegate.answers
-                vc?.recByType = byType
+                vc?.recByType = defaultTransport
             }
         }
     }

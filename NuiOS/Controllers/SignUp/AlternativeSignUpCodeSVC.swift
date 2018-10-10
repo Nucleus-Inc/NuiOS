@@ -11,13 +11,7 @@ import UIKit
 class AlternativeSignUpCodeSVC: SignUpCodeSVC {
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let unmaskedNumber = self.delegate.answers!["phoneNumber"] as? String, !unmaskedNumber.isEmpty{
-            sendCodeAgain(By: .sms)
-        }
-        else if let email = self.delegate.answers!["email"] as? String, !email.isEmpty{
-            sendCodeAgain(By: .email)
-        }
-
+        sendCodeAgain(By: defaultTransport)
         // Do any additional setup after loading the view.
     }
 

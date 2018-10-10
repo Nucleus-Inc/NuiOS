@@ -29,7 +29,7 @@ extension AppSingleton{
          */
         
         //update locally data with remotelly data
-        if let id = UserAuth.getUserID(){ //some user logged
+        if let id = UserAuth.getUserID(), UserAuth.isUserLogged(){ //some user logged
             if GIDSignIn.sharedInstance().hasAuthInKeychain(){//logged with google
                 GIDSignIn.sharedInstance().signInSilently()
                 return
@@ -42,7 +42,7 @@ extension AppSingleton{
                 }
                 return
             }
-            else if UserAuth.isUserLocalLogged() {
+            else{
                 AppSingleton.shared.getInfoDataOf(UserWithID: id) { (success) in
                     if performCallback{
                         completion(success)

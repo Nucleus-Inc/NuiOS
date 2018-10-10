@@ -95,7 +95,7 @@ extension AppSingleton{
             return false
         }
         
-        static  func isUserLocalLogged()->Bool{
+        static  func isUserLogged()->Bool{
             /*
              let keychain = UICKeyChainStore(service: "com.eti.nucleus.UpmeCustomer.user-token")
              if let dateString = keychain["expiration_date"]{
