@@ -21,6 +21,7 @@
 		EE3FDB7D20FE5BBB00CC166F /* NewEmailSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB7C20FE5BBB00CC166F /* NewEmailSVC.swift */; };
 		EE3FDB8220FE7CBE00CC166F /* PhoneNumberUpdate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3FDB8020FE7CBD00CC166F /* PhoneNumberUpdate.storyboard */; };
 		EE3FDB8520FE7D0C00CC166F /* NewPhoneNumberSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3FDB8420FE7D0C00CC166F /* NewPhoneNumberSVC.swift */; };
+		EE4380F4216E42A900C99AA5 /* NuCircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4380F3216E42A800C99AA5 /* NuCircularImageView.swift */; };
 		EE4BC88620FCAFA60086B752 /* SignUpMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BC88520FCAFA60086B752 /* SignUpMask.swift */; };
 		EE4BC88820FCEA9A0086B752 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BC88720FCEA9A0086B752 /* ProfileVM.swift */; };
 		EE720F5B20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE720F5A20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift */; };
@@ -111,6 +112,7 @@
 		EE3FDB7C20FE5BBB00CC166F /* NewEmailSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmailSVC.swift; sourceTree = "<group>"; };
 		EE3FDB8120FE7CBD00CC166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PhoneNumberUpdate.storyboard; sourceTree = "<group>"; };
 		EE3FDB8420FE7D0C00CC166F /* NewPhoneNumberSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhoneNumberSVC.swift; sourceTree = "<group>"; };
+		EE4380F3216E42A800C99AA5 /* NuCircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuCircularImageView.swift; sourceTree = "<group>"; };
 		EE4BC88520FCAFA60086B752 /* SignUpMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpMask.swift; sourceTree = "<group>"; };
 		EE4BC88720FCEA9A0086B752 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		EE720F5820F7771F00EBA122 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Login.strings"; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			children = (
 				EEA6EEC320FF9681001530D5 /* Reachability */,
 				EEA6EEBF20FF7BCB001530D5 /* ImagePickerControllerManager.swift */,
+				EE4380F3216E42A800C99AA5 /* NuCircularImageView.swift */,
 				EE4BC88520FCAFA60086B752 /* SignUpMask.swift */,
 				EE9FC87F20F944560078624B /* Listener.swift */,
 				EEBC6E4620F66BAA00CB5DC2 /* JLExtensions.swift */,
@@ -700,6 +703,7 @@
 				EE9FC86D20F91B1B0078624B /* AccountRecoverWayTVC.swift in Sources */,
 				EED9D32920F5534500C5ACF7 /* NuNavigationBar.swift in Sources */,
 				EEBC6E4720F66BAA00CB5DC2 /* JLExtensions.swift in Sources */,
+				EE4380F4216E42A900C99AA5 /* NuCircularImageView.swift in Sources */,
 				EED9D2ED20F5383A00C5ACF7 /* ApiError.swift in Sources */,
 				EED9D31220F53C1200C5ACF7 /* AppDelegate.swift in Sources */,
 				EED9D31920F543CA00C5ACF7 /* User.swift in Sources */,

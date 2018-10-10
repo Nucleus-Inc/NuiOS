@@ -51,7 +51,7 @@ extension ProfileVCViewModel{
 class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate {
     var myListeners: [NSObjectProtocol] = []
     
-    @IBOutlet weak var addImageLabel: UILabel!
+    @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailLabel: UILabel!
@@ -70,10 +70,9 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         
         super.viewDidLoad()
         viewModel = ProfileVM()
+        setUpAddImageButton()
         setUpListeners()
-        setUpImageView()
         loadUserData()
-        self.tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -153,31 +152,21 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         }
     }
     
-    //MARK: - ImageView methods
+    //MARK: - ChooseImageButton methods
     
-    func setImageWith(URL url:String){
-        self.addImageLabel.isHidden = true
-        self.userImageView.sd_addActivityIndicator()
-        self.userImageView.sd_showActivityIndicatorView()
-        self.userImageView.sd_setImage(with: URL(string: url))
-    }
-
-    func setImageWith(Image image:UIImage){
-        self.addImageLabel.isHidden = true
-        userImageView.image = image
+    func setUpAddImageButton(){
+        guard let _ = viewModel?.pictureUrl else{
+            addImgButton(Show: true)
+            return
+        }
+        addImgButton(Show: false)
     }
     
-    func setUpImageView(){
-        userImageView.layer.borderColor = userImageView.tintColor.cgColor
-        userImageView.layer.borderWidth = 1
-        
-        let tapGes = UITapGestureRecognizer(target: self, action: #selector(ProfileTVC.addImageAction(sender:)))
-        userImageView.addGestureRecognizer(tapGes)
+    func addImgButton(Show show:Bool){
+        self.addImageButton.isSelected = !show
     }
     
-    @objc
-    func addImageAction(sender:UITapGestureRecognizer){
-        
+    @IBAction func adImageBtnAction(_ sender: UIButton) {
         func completion(file:Any?){
             if let picture = file as? UIImage, let vm = viewModel{
                 vm.updateProfilePicture(picture) { (success) in
@@ -189,7 +178,7 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
                 }
             }
             else{
-               
+                
                 UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: "picture_update".localized, Message: "err_using_selected_image".localized)
             }
         }
@@ -208,11 +197,26 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         alertC.addAction(cancelAction)
         
         if let popoverController = alertC.popoverPresentationController {// IPAD
-            popoverController.sourceView = sender.view ?? self.userImageView
-            popoverController.sourceRect = sender.view?.bounds ?? self.userImageView.bounds
+            popoverController.sourceView = self.userImageView
+            popoverController.sourceRect = self.userImageView.bounds
         }
         
         self.present(alertC, animated: true, completion: nil)
+    }
+    
+    
+    //MARK: - ImageView methods
+    
+    func setImageWith(URL url:String){
+        addImgButton(Show: false)
+        self.userImageView.sd_addActivityIndicator()
+        self.userImageView.sd_showActivityIndicatorView()
+        self.userImageView.sd_setImage(with: URL(string: url))
+    }
+
+    func setImageWith(Image image:UIImage){
+        addImgButton(Show: false)
+        userImageView.image = image
     }
     
     //MARK: - Methods

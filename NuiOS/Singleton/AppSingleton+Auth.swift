@@ -31,12 +31,24 @@ extension AppSingleton{
         }
         
         static func extractAndSaveUserToken(FromRequestHeaders headers:[AnyHashable:Any]?){
-            let key = "JWT"
-            if let jwt = headers?[key] as? String{
-                saveUserToken(token: jwt)
+            //To avoid problems, because sometimes this key will uppercase or not.
+            let key = "Jwt"
+            func useDefaultKey(){
+                if let jwt = headers?[key] as? String{
+                    saveUserToken(token: jwt)
+                }
             }
+            
+            if let keys = headers?.keysArray() as? [String],
+                let value = keys.first(where: {$0.caseInsensitiveCompare(key) == .orderedSame}){
+                if let jwt = headers?[value] as? String{
+                    saveUserToken(token: jwt)
+                    return
+                }
+            }
+            
+            useDefaultKey()
         }
-        
         static func saveUserToken(token:String){
             keychain["user_token"] = token
             //keychain["expiration_date"] = expirationDate.stringFromDate(WithFormat: "dd-MM-yyyy HH:mm:ss")//"dd/MM/yyyy-hh:mm:ss"

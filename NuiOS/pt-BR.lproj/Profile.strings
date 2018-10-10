@@ -5,6 +5,9 @@
 /* Class = "UILabel"; text = "Add image"; ObjectID = "6dv-jz-kRX"; */
 "6dv-jz-kRX.text" = "Add imagem";
 
+/* Class = "UIButton"; normalTitle = "Choose\n Image"; ObjectID = "5mh-9E-qXh"; */
+"5mh-9E-qXh.normalTitle" = "Escolher\n Imagem";
+
 /* Class = "UILabel"; text = "Phone number"; ObjectID = "9Qn-4h-R7o"; */
 "9Qn-4h-R7o.text" = "Telefone";
 

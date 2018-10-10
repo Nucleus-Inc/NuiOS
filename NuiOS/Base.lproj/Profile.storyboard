@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +29,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uxc-WQ-JQN">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uxc-WQ-JQN" customClass="NuCircularImageView" customModule="NuiOS" customModuleProvider="target">
                                                     <rect key="frame" x="127" y="40" width="120" height="120"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="LwN-53-bMy"/>
@@ -38,22 +39,38 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
                                                             <integer key="value" value="60"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dv-jz-kRX">
-                                                    <rect key="frame" x="150" y="91" width="75" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="5mh-9E-qXh">
+                                                    <rect key="frame" x="147" y="60" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="5mh-9E-qXh" secondAttribute="height" id="NNC-L0-UBh"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <string key="title">Choose
+ Image</string>
+                                                        <color key="titleColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                    </state>
+                                                    <state key="selected">
+                                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="adImageBtnAction:" destination="npr-BO-WaH" eventType="touchUpInside" id="hoV-9d-lSn"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6dv-jz-kRX" firstAttribute="centerX" secondItem="Uxc-WQ-JQN" secondAttribute="centerX" id="7lM-pz-Xxw"/>
                                                 <constraint firstItem="Uxc-WQ-JQN" firstAttribute="centerY" secondItem="LAU-bT-9Uj" secondAttribute="centerY" id="Iwe-R7-H3s"/>
                                                 <constraint firstItem="Uxc-WQ-JQN" firstAttribute="centerX" secondItem="LAU-bT-9Uj" secondAttribute="centerX" id="T7G-w2-tjg"/>
-                                                <constraint firstItem="6dv-jz-kRX" firstAttribute="centerY" secondItem="Uxc-WQ-JQN" secondAttribute="centerY" id="YaW-JC-CdO"/>
-                                                <constraint firstItem="6dv-jz-kRX" firstAttribute="width" relation="lessThanOrEqual" secondItem="Uxc-WQ-JQN" secondAttribute="width" constant="-20" id="aDt-qe-ZMb"/>
-                                                <constraint firstItem="6dv-jz-kRX" firstAttribute="height" relation="lessThanOrEqual" secondItem="Uxc-WQ-JQN" secondAttribute="height" constant="-20" id="vkg-jS-c1Y"/>
+                                                <constraint firstItem="5mh-9E-qXh" firstAttribute="width" secondItem="Uxc-WQ-JQN" secondAttribute="width" constant="-40" id="XOx-Xw-hNf"/>
+                                                <constraint firstItem="5mh-9E-qXh" firstAttribute="centerX" secondItem="Uxc-WQ-JQN" secondAttribute="centerX" id="rFE-W5-lhB"/>
+                                                <constraint firstItem="5mh-9E-qXh" firstAttribute="centerY" secondItem="Uxc-WQ-JQN" secondAttribute="centerY" id="xAM-eb-4Ht"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -193,7 +210,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OwE-p8-4qm">
-                                                    <rect key="frame" x="310" y="19" width="51" height="31"/>
+                                                    <rect key="frame" x="310" y="19.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="socialnetworksSwitchDidChange:" destination="npr-BO-WaH" eventType="valueChanged" id="xJa-ce-whT"/>
                                                     </connections>
@@ -259,7 +276,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="addImageLabel" destination="6dv-jz-kRX" id="gqU-jA-oX3"/>
+                        <outlet property="addImageButton" destination="5mh-9E-qXh" id="fmf-2F-QJq"/>
                         <outlet property="emailLabel" destination="BGv-V6-Q8E" id="Csr-H1-tk8"/>
                         <outlet property="faceSwitch" destination="OwE-p8-4qm" id="4wE-tp-3Fq"/>
                         <outlet property="googleSwitch" destination="ZYD-8Z-w1L" id="NHi-g1-GoD"/>
