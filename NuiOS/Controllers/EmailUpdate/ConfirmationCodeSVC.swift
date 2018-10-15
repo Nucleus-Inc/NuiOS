@@ -20,7 +20,11 @@ protocol ConfirmCodeViewModel{
 
 class ConfirmationCodeSVC: SignUpCodeSVC {
 
-    var viewModel:ConfirmCodeViewModel?
+    var viewModel:ConfirmCodeViewModel?{
+        didSet{
+            defaultTransport = viewModel?.codeTransport ?? .email
+        }
+    }
     
     override func setUpDelegate() {
         codeDelegate = ConfirmationCodeDelegate()

@@ -63,18 +63,21 @@ public enum PhoneNumber{
     case USA //1-888-452-1505
     
     
-    public func mask(number:String,hasCountryCode:Bool=true)->String{
+    public func mask(number:String)->String{
         let pattern = self.maskingPattern
         let unmaskedNumber:String
         
         switch self {
         case .BR,.USA:
-            let tempUnmasked = unmask(number: number)
+            let tempUnmasked = unmask(number: number,keepCountryCode: false)
             if tempUnmasked.count == size{
                 unmaskedNumber = removeCountryCode(number: tempUnmasked)
             }
-            else{
+            else if tempUnmasked.count == size - countryCode.count{
                 unmaskedNumber = tempUnmasked
+            }
+            else{
+                return number
             }
         }
         return PhoneNumber.applyMask(regex: pattern.regex, format: pattern.format, onText: unmaskedNumber)
@@ -109,8 +112,17 @@ public enum PhoneNumber{
         }
     }
     
-    public func unmask(number:String)->String{
-        return number.replacingOccurrences(of: "\\D", with: "", options: .regularExpression, range: nil)
+    private func removeMaskedCountryCode(number:String)->String{
+        return number.replacingOccurrences(of: "+\(countryCode)", with: "", options: .literal, range: nil)
+    }
+    
+    public func unmask(number:String,keepCountryCode:Bool=true)->String{
+        if keepCountryCode{
+            return number.replacingOccurrences(of: "\\D", with: "", options: .regularExpression, range: nil)
+        }
+        else{
+            return number.replacingOccurrences(of: "+\(countryCode)", with: "", options: .literal, range: nil).replacingOccurrences(of: "\\D", with: "", options: .regularExpression, range: nil)
+        }
     }
     
     private func removeCountryCode(number:String)->String{
@@ -122,3 +134,4 @@ public enum PhoneNumber{
     }
     
 }
+

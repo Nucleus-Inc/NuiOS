@@ -11,6 +11,7 @@ import UIKit
 private struct ExtendedLaunchScreenVCSeguesIDs{
     static let loginSilently = "loginSilently"
     static let login = "login"
+    static let intro = "intro"
     static let accountActivation = "accountActivation"
 }
 
@@ -26,7 +27,13 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        checkforLoggedUser()
+        if AppSingleton.shared.showIntro(){
+            self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.intro, sender: nil)
+            AppSingleton.shared.setShowIntro(false)
+        }
+        else{
+            checkforLoggedUser()
+        }
     }
 
     override func didReceiveMemoryWarning() {

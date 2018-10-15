@@ -35,6 +35,18 @@ class AppSingleton{
             NotificationCenter.default.post(name: notifName, object: object, userInfo: userInfo)
         }
     }
+    
+    func showIntro()->Bool{
+        if let firstTime = UserDefaults.standard.value(forKey: "firstTime") as? Bool{
+            return firstTime
+        }
+        return true
+    }
+    
+    func setShowIntro(_ value:Bool){
+        UserDefaults.standard.setValue(value, forKey: "firstTime")
+    }
+
 }
 
 struct AppNotifications{
