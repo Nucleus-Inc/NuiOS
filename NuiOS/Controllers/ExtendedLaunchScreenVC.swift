@@ -42,7 +42,13 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
     }
     
     private func checkforLoggedUser(){
-        AppSingleton.shared.loginSilently { (success) in
+        AppSingleton.shared.loginSilently { (success,loggedBy) in
+            if let by = loggedBy{
+                guard by != .google else{
+                    //if by google wait for loginSilently
+                    return
+                }
+            }
             self.continueWith(Success: success)
         }
     }

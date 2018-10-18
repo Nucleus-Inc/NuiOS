@@ -10,20 +10,26 @@ import Foundation
 import GoogleSignIn
 import FBSDKLoginKit
 
+enum LoggedBy{
+    case google
+    case facebook
+    case local
+}
+
 extension AppSingleton{
     
     /**
      This method checks if there is some logged user and tries to get his informations
      */
-    func loginSilently(completion:@escaping(Bool)->Void){
-        var performCallback:Bool = true
+    func loginSilently(completion:@escaping(Bool,LoggedBy?)->Void){
+        var waitForLoadProfile:Bool = true
+        var loggedBy:LoggedBy?
         /*
          if there is locally saved user {
          load locally data
          
          if user.isActive{
-         performCallback = false
-         completion(true)
+         waitForLoadProfile = false
          }
          }
          */
@@ -31,28 +37,34 @@ extension AppSingleton{
         //update locally data with remotelly data
         if let id = UserAuth.getUserID(), UserAuth.isUserLogged(){ //some user logged
             if GIDSignIn.sharedInstance().hasAuthInKeychain(){//logged with google
+                loggedBy = .google
                 GIDSignIn.sharedInstance().signInSilently()
-                return
-            }
-            else if let token = FBSDKAccessToken.current(), !token.isExpired{//logged with facebook
-                AppSingleton.shared.getInfoDataOf(UserWithID: id) { (success) in
-                    if performCallback{
-                        completion(success)
-                    }
-                }
+                completion(true,.google)
                 return
             }
             else{
+                if let token = FBSDKAccessToken.current(), !token.isExpired{//logged with facebook
+                    loggedBy = .facebook
+                }
+                else{
+                    loggedBy = .local
+                }
+                
                 AppSingleton.shared.getInfoDataOf(UserWithID: id) { (success) in
-                    if performCallback{
-                        completion(success)
+                    if waitForLoadProfile{
+                        completion(success,loggedBy)
                     }
+                }
+                
+                if !waitForLoadProfile{
+                    completion(true,loggedBy)
                 }
                 return
             }
         }
+        
         logout()
-        completion(false)
+        completion(false,loggedBy)
     }
     
     /**
