@@ -8,29 +8,53 @@
 
 import UIKit
 
+@IBDesignable
 class NuButton: UIButton {
     
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBInspectable
+    var cornerRadius:CGFloat = 5{
+        didSet{
+            self.layer.cornerRadius = cornerRadius
+        }
     }
-    */
     
     @IBInspectable
-    var cornerRadius:CGFloat{
-        get{
-            return self.layer.cornerRadius
-        }
-        set(value){
-            self.layer.cornerRadius = value
+    var borderColor:UIColor = UIColor.clear{
+        didSet{
+            self.layer.borderColor = borderColor.cgColor
         }
     }
+    
+    @IBInspectable
+    var borderWidth:CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = borderWidth
+        }
+    }
+    
+    
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        setUp()
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cornerRadius = 5
+        setUp()
     }
-
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setUp()
+    }
+    
+    private func setUp(){
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderWidth
+    }
+    
 }

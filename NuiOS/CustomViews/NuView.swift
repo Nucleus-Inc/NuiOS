@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 class NuView: UIView {
-
+    
     @IBInspectable
     var shadowOpacity:Float = 0.2
     @IBInspectable

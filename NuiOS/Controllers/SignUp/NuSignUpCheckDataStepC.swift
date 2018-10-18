@@ -19,10 +19,12 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
         
         if canEdit{
             AppSingleton.shared.signupUser(Params: answers) { (success) in
+                self.canEdit = !success
                 completion(success,[:])
             }
         }
         else{
+            canEdit = false
             completion(true,[:])
         }
         

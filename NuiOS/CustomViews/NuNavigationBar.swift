@@ -9,27 +9,37 @@
 import UIKit
 
 class NuNavigationBar: UINavigationBar {
-
+    
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
+    
+    
     
     @IBInspectable
     private var invisible:Bool = false{
         didSet{
             if invisible{
+                showShadow = false
                 self.isTranslucent = true
                 self.backgroundColor = UIColor.clear
-                self.shadowImage = UIImage()
-                self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
                 self.layoutIfNeeded()
             }
         }
     }
-
+    
+    @IBInspectable
+    private var showShadow:Bool = true{
+        didSet{
+            self.shadowImage = !showShadow ? UIImage() : nil
+            self.setBackgroundImage(!showShadow ? UIImage() : nil, for: UIBarMetrics.default)
+        }
+    }
+    
     
 }
+

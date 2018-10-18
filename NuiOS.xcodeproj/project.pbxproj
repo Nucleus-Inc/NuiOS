@@ -363,11 +363,9 @@
 			children = (
 				EEA6EEC320FF9681001530D5 /* Reachability */,
 				EEA6EEBF20FF7BCB001530D5 /* ImagePickerControllerManager.swift */,
-				EE4380F3216E42A800C99AA5 /* NuCircularImageView.swift */,
 				EE4BC88520FCAFA60086B752 /* SignUpMask.swift */,
 				EE9FC87F20F944560078624B /* Listener.swift */,
 				EEBC6E4620F66BAA00CB5DC2 /* JLExtensions.swift */,
-				EE84922A20F636A5009D750F /* JLProgressView.swift */,
 				EED9D2FF20F53BB700C5ACF7 /* RequestManager.swift */,
 				EED9D30020F53BB800C5ACF7 /* RequestManager+Alamofire.swift */,
 			);
@@ -399,6 +397,8 @@
 				EEBC6E3F20F65B7D00CB5DC2 /* ExtenalCustomViews */,
 				EED9D32020F549AE00C5ACF7 /* NuButton.swift */,
 				EED9D32820F5534500C5ACF7 /* NuNavigationBar.swift */,
+				EE4380F3216E42A800C99AA5 /* NuCircularImageView.swift */,
+				EE84922A20F636A5009D750F /* JLProgressView.swift */,
 				EEABAE3B2167A81F00282717 /* NuView.swift */,
 				EEABAE392167A77400282717 /* ActivityIndicatorAlertVC.xib */,
 				EEABAE3D2167A8B500282717 /* ActivityIndicatorAlertVC.swift */,
@@ -975,10 +975,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P538QSTTR;
 				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eti.nucleus.NuiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NuiOS/ExternalHelpers/Reachability/NuiOS-Bridging-Header.h";
@@ -997,10 +994,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P538QSTTR;
 				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eti.nucleus.NuiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NuiOS/ExternalHelpers/Reachability/NuiOS-Bridging-Header.h";
