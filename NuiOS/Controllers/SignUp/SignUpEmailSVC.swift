@@ -55,7 +55,7 @@ class SignUpEmailSVC: SignUpNameSVC {
     }
     
     private func updateAnswerInfoMessage(){
-        lastInvalidEmails.contains(answerTF.text!) ? showAnswerInfoErrMessage() : showAnswerInfoDefaultMessage()
+        lastInvalidEmails.contains(stepAnswer!) ? showAnswerInfoErrMessage() : showAnswerInfoDefaultMessage()
     }
     
     private func showAnswerInfoErrMessage(_ message:String="email_in_use".localized){
@@ -70,7 +70,7 @@ class SignUpEmailSVC: SignUpNameSVC {
     
     
     private func addStepAnswer(){
-        let email = answerTF.text?.replacingOccurrences(of: " ", with: "") ?? ""
+        let email = stepAnswer?.replacingOccurrences(of: " ", with: "") ?? ""
         delegate.addStepAnswer(answer: email, forKey: key)
     }
     
@@ -78,7 +78,8 @@ class SignUpEmailSVC: SignUpNameSVC {
         
         self.loadingMode(Loading: true)
         showValidationActivity()
-        AppSingleton.shared.checkAvailabilityOf(Key: answerTF.text ?? "", KeyType: .email) { (success, isAvailable) in
+        let email = stepAnswer?.replacingOccurrences(of: " ", with: "") ?? ""
+        AppSingleton.shared.checkAvailabilityOf(Key: email, KeyType: .email) { (success, isAvailable) in
             DispatchQueue.main.async {
                 self.hideValidationActivity()
                 self.loadingMode(Loading: false)
@@ -95,7 +96,7 @@ class SignUpEmailSVC: SignUpNameSVC {
                     else{
                         self.answerTF.becomeFirstResponder()
                         self.isServerSideValid = false
-                        self.lastInvalidEmails.append(self.answerTF.text!)
+                        self.lastInvalidEmails.append(self.stepAnswer!)
                         self.showAnswerInfoErrMessage()
                         
                         //UIAlertControllerShorcuts.showOKAlert(OnVC: self, Title: nil, Message: "This email is in use. Try another one.", OKAction: nil)
@@ -121,7 +122,7 @@ class SignUpEmailSVC: SignUpNameSVC {
     */
     override func didTapNextStepButton(button: UIButton) {
         if !isServerSideValid {
-            if let answer = answerTF.text, !lastInvalidEmails.contains(answer){
+            if let answer = stepAnswer, !lastInvalidEmails.contains(answer){
                 //testa
                 validateEmailOnServer()
             }

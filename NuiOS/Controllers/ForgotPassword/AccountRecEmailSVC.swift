@@ -22,7 +22,7 @@ class AccountRecEmailSVC: SignUpEmailSVC {
     }
     
     override func didTapNextStepButton(button: UIButton) {
-        if let email = self.stepAnswer{
+        if let email = stepAnswer?.replacingOccurrences(of: " ", with: ""){
             loadingMode(Loading: true)
             self.answerTF.resignFirstResponder()
             showValidationActivity()
