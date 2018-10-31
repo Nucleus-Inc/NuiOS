@@ -211,6 +211,9 @@ extension AppSingleton{
             UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
             print(urlResponse?.allHeaderFields ?? "")
             self.user = response.data
+            if let id = self.user?._id{
+                UserAuth.saveUserID(id: id)
+            }
             completion(true)
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
@@ -242,6 +245,9 @@ extension AppSingleton{
             let onSuccess = Response.OnSuccess(dataType: User.self, jsonType: [String:Any].self) { (response, urlResponse) in
                 UserAuth.extractAndSaveUserToken(FromRequestHeaders: urlResponse?.allHeaderFields)
                 self.user = response.data
+                if let id = self.user?._id{
+                    UserAuth.saveUserID(id: id)
+                }
                 completion(true,true)
             }
             let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
