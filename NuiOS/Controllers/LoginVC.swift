@@ -230,7 +230,7 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
 extension LoginVC{
     private func activeNormalAppearance(animated:Bool){
         if animated{
-            UIView.animate(withDuration: 0.5, delay: 0.3, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.3, options: UIView.AnimationOptions.curveEaseInOut, animations: {
                 self.logoImageView.alpha = 1
             }) { (finished) in
             }
@@ -242,7 +242,7 @@ extension LoginVC{
     
     private func activeUseEmailApperance(animated:Bool,duration:TimeInterval){
         if animated{
-            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
                 self.logoImageView.alpha = 0
             }) { (finished) in
             }
@@ -255,8 +255,8 @@ extension LoginVC{
     override func keyboardWillAppear(keyboardInfo: [String : Any]) {
         super.keyboardWillAppear(keyboardInfo: keyboardInfo)
         
-        let keyBoardFrame = keyboardInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect
-        let animationDuration = keyboardInfo[UIKeyboardAnimationDurationUserInfoKey]
+        let keyBoardFrame = keyboardInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+        let animationDuration = keyboardInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
         
         
         activeUseEmailApperance(animated: true,duration: animationDuration as! TimeInterval)
@@ -276,7 +276,7 @@ extension LoginVC{
     
     override func keyboardWillDisappear(keyboardInfo: [String : Any]) {
         super.keyboardWillDisappear(keyboardInfo: keyboardInfo)
-        let animationDuration = keyboardInfo[UIKeyboardAnimationDurationUserInfoKey]
+        let animationDuration = keyboardInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
         
         self.activeNormalAppearance(animated: true)
         self.dist.constant = defaultDist

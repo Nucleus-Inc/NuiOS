@@ -123,17 +123,17 @@ extension UITableView{
         /*let height = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: self.view.frame.width/4)
          self.view.addConstraint(height)*/
         
-        let distToTop = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.tableHeaderView!, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
+        let distToTop = NSLayoutConstraint(item: view, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.tableHeaderView!, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0)
         self.tableHeaderView!.addConstraint(distToTop)
         
-        let distToBottom = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self.tableHeaderView!, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant:0)
+        let distToBottom = NSLayoutConstraint(item: view, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.tableHeaderView!, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant:0)
         self.tableHeaderView!.addConstraint(distToBottom)
         
         
-        let leading = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: self.tableHeaderView!, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+        let leading = NSLayoutConstraint(item: view, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.tableHeaderView!, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1, constant: 0)
         self.tableHeaderView!.addConstraint(leading)
         
-        let trailing = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: self.tableHeaderView!, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant:0)
+        let trailing = NSLayoutConstraint(item: view, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.tableHeaderView!, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 1, constant:0)
         self.tableHeaderView!.addConstraint(trailing)
     }
 }
@@ -151,7 +151,7 @@ extension UIViewController {
 }
 
 public extension UIButton{
-    public func showActivityIndicator(style:UIActivityIndicatorViewStyle){
+    public func showActivityIndicator(style:UIActivityIndicatorView.Style){
         let activity:UIActivityIndicatorView
         let views = self.subviews.filter { (view) -> Bool in
             return view.tag == 100
@@ -166,7 +166,7 @@ public extension UIButton{
             self.addSubview(activity)
         }
         
-        activity.activityIndicatorViewStyle = style
+        activity.style = style
         activity.hidesWhenStopped = true
         activity.tag = 100
         
@@ -232,19 +232,19 @@ extension NSObject{
     }
     
     fileprivate func addWillShowKeyboardObserver(){
-        NotificationCenter.default.addObserver(self, selector: #selector(NSObject.showkeyBoardTarget(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(NSObject.showkeyBoardTarget(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     fileprivate func removeWillShowKeyboardObserver(){
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     fileprivate func addWillHideKeyboardObserver(){
-        NotificationCenter.default.addObserver(self, selector: #selector(NSObject.hideKeyBoardTarget(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(NSObject.hideKeyBoardTarget(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     fileprivate func removeWillHideKeyboardObserver(){
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc final private func showkeyBoardTarget(_ notification:Notification){
@@ -679,7 +679,7 @@ public extension NSAttributedString{
             let range = nString.range(of: emphasy.text)
             for key in emphasy.attr.keysArray(){
                 if let value = emphasy.attr[key]{
-                    attributedString.addAttribute(NSAttributedStringKey(rawValue: key), value: value, range: range)
+                    attributedString.addAttribute(NSAttributedString.Key(rawValue: key), value: value, range: range)
                 }
             }
         }

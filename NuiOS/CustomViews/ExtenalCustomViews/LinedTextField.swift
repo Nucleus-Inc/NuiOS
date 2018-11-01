@@ -51,7 +51,7 @@ class LinedTTextField: TitledTextField {
         baseline.path = linePath.cgPath
         baseline.strokeColor = isEditing ? editingTitleColor.cgColor  : normalTitleColor.cgColor
         baseline.lineWidth = isEditing ? 2 : 1
-        baseline.lineJoin = kCALineJoinRound
+        baseline.lineJoin = CAShapeLayerLineJoin.round
         self.layer.addSublayer(baseline)
     }
     

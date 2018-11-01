@@ -17,17 +17,17 @@ public protocol SignUpCheckDataStepC{
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
     
-    func didTapNextStep(_ answers:[String:Any],onVC vc:UIViewController,completion:@escaping(_ success:Bool,_ responseDict:[String:Any]?)->())
+    func didTapNextStep(_ delegate:SignUpStepDelegate,onVC vc:UIViewController,completion:@escaping(_ success:Bool,_ responseDict:[String:Any]?)->())
     
-    func numberOfSections(Answers answers:[String:Any])->Int
+    func numberOfSections(Delegate delegate:SignUpStepDelegate)->Int
     
-    func numberOfRows(Answers answers:[String:Any],Section section:Int)->Int
+    func numberOfRows(Delegate delegate:SignUpStepDelegate,Section section:Int)->Int
     
-    func dataFor(Answers answers:[String:Any],AtIndexPath indexPath:IndexPath)->(key:String,value:String?)
+    func dataFor(Delegate delegate:SignUpStepDelegate,AtIndexPath indexPath:IndexPath)->(key:String,value:String?)
     
-    func titleForHeader(Answers answers:[String:Any], InSection section:Int)->String?
+    func titleForHeader(Delegate delegate:SignUpStepDelegate, InSection section:Int)->String?
     
-    func didSelectAnswerAt(IndexPath indexPath:IndexPath,onVC vc:UIViewController,fromAnswers answers:[String:Any])
+    func didSelectAnswerAt(IndexPath indexPath:IndexPath,onVC vc:UIViewController,Delegate delegate:SignUpStepDelegate)
     
 }
 
@@ -97,7 +97,7 @@ class SignUpCheckDataStepVC: SignUpStepVC,UITableViewDelegate,UITableViewDataSou
             self.present(alert, animated: true, completion: nil)
             //ActivityIndicatorHelper.showLoadingActivity(AtView: self.view, withDetailText: "Enviando", animated: true)
             
-            controller.didTapNextStep(delegate.answers!, onVC: self) { (success, responseDict) in
+            controller.didTapNextStep(delegate, onVC: self) { (success, responseDict) in
                 DispatchQueue.main.async {
                     //ActivityIndicatorHelper.hideActivity(AtView: self.view, animated: true)
                     alert.dismiss(animated: true, completion: {
@@ -125,15 +125,15 @@ class SignUpCheckDataStepVC: SignUpStepVC,UITableViewDelegate,UITableViewDataSou
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return controller.numberOfSections(Answers: delegate.answers!)
+        return controller.numberOfSections(Delegate: delegate)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller.numberOfRows(Answers: delegate.answers!, Section: section)
+        return controller.numberOfRows(Delegate: delegate, Section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tuple = controller.dataFor(Answers: delegate.answers!, AtIndexPath: indexPath)
+        let tuple = controller.dataFor(Delegate: delegate, AtIndexPath: indexPath)
         
         let cell = self.answersTableView.dequeueReusableCell(withIdentifier: "answerCell")!
 
@@ -150,7 +150,7 @@ class SignUpCheckDataStepVC: SignUpStepVC,UITableViewDelegate,UITableViewDataSou
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return controller.titleForHeader(Answers: delegate.answers!, InSection: section)
+        return controller.titleForHeader(Delegate: delegate, InSection: section)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -164,7 +164,7 @@ class SignUpCheckDataStepVC: SignUpStepVC,UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if controller.canEdit{
-            controller.didSelectAnswerAt(IndexPath: indexPath, onVC: self, fromAnswers: delegate.answers!)
+            controller.didSelectAnswerAt(IndexPath: indexPath, onVC: self, Delegate: delegate)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

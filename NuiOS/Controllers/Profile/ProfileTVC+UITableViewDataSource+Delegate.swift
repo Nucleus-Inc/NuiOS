@@ -39,14 +39,14 @@ extension ProfileTVC{
                     
                     let activityVC = UIActivityViewController(activityItems: [info], applicationActivities: [])
                     
-                    activityVC.excludedActivityTypes = [UIActivityType.assignToContact,
-                                                        UIActivityType.postToFlickr,
-                                                        UIActivityType.copyToPasteboard,
-                                                        UIActivityType.postToTencentWeibo,
-                                                        UIActivityType.postToTwitter,
-                                                        UIActivityType.postToFacebook,
-                                                        UIActivityType.addToReadingList,
-                                                        UIActivityType.saveToCameraRoll]
+                    activityVC.excludedActivityTypes = [UIActivity.ActivityType.assignToContact,
+                                                        UIActivity.ActivityType.postToFlickr,
+                                                        UIActivity.ActivityType.copyToPasteboard,
+                                                        UIActivity.ActivityType.postToTencentWeibo,
+                                                        UIActivity.ActivityType.postToTwitter,
+                                                        UIActivity.ActivityType.postToFacebook,
+                                                        UIActivity.ActivityType.addToReadingList,
+                                                        UIActivity.ActivityType.saveToCameraRoll]
                     
                     
                     self.present(activityVC, animated: true, completion: nil)

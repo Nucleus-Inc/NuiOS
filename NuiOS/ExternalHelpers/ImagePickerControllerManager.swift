@@ -15,9 +15,9 @@ class ImagePickerControllerManager: NSObject,UINavigationControllerDelegate,UIIm
     fileprivate var completion:((_ file:Any?)->())!
     
     func openPhotoLibraryOnViewController(vc:UIViewController,completionHandler:@escaping (_ file:Any?)->()){
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
             imagePickerVC.delegate = self
-            imagePickerVC.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            imagePickerVC.sourceType = UIImagePickerController.SourceType.photoLibrary
             imagePickerVC.allowsEditing = true
             vc.present(imagePickerVC, animated: true, completion: nil)
             
@@ -26,9 +26,9 @@ class ImagePickerControllerManager: NSObject,UINavigationControllerDelegate,UIIm
     }
     
     func openCameraOnViewController(vc:UIViewController,completionHandler:@escaping (_ file:Any?)->()){
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
             imagePickerVC.delegate = self
-            imagePickerVC.sourceType = UIImagePickerControllerSourceType.camera
+            imagePickerVC.sourceType = UIImagePickerController.SourceType.camera
             imagePickerVC.cameraCaptureMode = .photo
             imagePickerVC.allowsEditing = true
             
@@ -47,14 +47,27 @@ class ImagePickerControllerManager: NSObject,UINavigationControllerDelegate,UIIm
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         //print(info)
-        if let editedFile = info[UIImagePickerControllerEditedImage]{
+        if let editedFile = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)]{
             self.completion(editedFile)
         }
-        else if let originalFile = info[UIImagePickerControllerOriginalImage]{
+        else if let originalFile = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)]{
             self.completion(originalFile)
         }
         picker.dismiss(animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

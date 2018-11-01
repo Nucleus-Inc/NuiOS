@@ -15,10 +15,9 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
         
     }
     
-    public func didTapNextStep(_ answers:[String : Any], onVC vc: UIViewController, completion: @escaping (Bool,[String:Any]?) -> ()) {
-        
+    public func didTapNextStep(_ delegate: SignUpStepDelegate, onVC vc: UIViewController, completion: @escaping (Bool, [String : Any]?) -> ()) {
         if canEdit{
-            AppSingleton.shared.signupUser(Params: answers) { (success) in
+            AppSingleton.shared.signupUser(Params: delegate.answers ?? [:]) { (success) in
                 self.canEdit = !success
                 completion(success,[:])
             }
@@ -27,46 +26,42 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
             canEdit = false
             completion(true,[:])
         }
-        
     }
     
-    
-    public func numberOfSections(Answers answers: [String : Any]) -> Int {
+    public func numberOfSections(Delegate delegate: SignUpStepDelegate) -> Int {
         return 1
     }
-    
-    public func numberOfRows(Answers answers: [String : Any], Section section: Int) -> Int {
-        return answers.keysArray().count
+
+    public func numberOfRows(Delegate delegate: SignUpStepDelegate, Section section: Int) -> Int {
+        return delegate.answers?.keysArray().count ?? 0
     }
-    
-    public func dataFor(Answers answers: [String : Any], AtIndexPath indexPath: IndexPath) -> (key: String, value: String?) {
+    public func dataFor(Delegate delegate: SignUpStepDelegate, AtIndexPath indexPath: IndexPath) -> (key: String, value: String?) {
         //let section = indexPath.section
         let row = indexPath.row
         
         switch row {
         case 0:
-            let name = answers["displayName"] as? String
+            let name = delegate.answer(ForKey: "displayName") as? String
             return ("name".localized,name)
         case 1:
-            let phoneNumber = answers["phoneNumber"] as! String
+            let phoneNumber = delegate.answer(ForKey: "phoneNumber") as! String
             let maskedNumber = PhoneNumber.BR.mask(number: phoneNumber)
             return ("phoneNumber".localized,maskedNumber)
         case 2:
-            return ("email".localized,answers["email"] as? String)
+            return ("email".localized,delegate.answer(ForKey: "email") as? String)
         case 3:
-            return ("password".localized,answers["password"] as? String)
+            return ("password".localized,delegate.answer(ForKey: "password") as? String)
         default:
             return ("Extra",nil)
-
+            
         }
     }
-    
-    public func titleForHeader(Answers answers: [String : Any], InSection section: Int) -> String? {
+    public func titleForHeader(Delegate delegate: SignUpStepDelegate, InSection section: Int) -> String? {
         return "account".localized
     }
     
-    public func didSelectAnswerAt(IndexPath indexPath: IndexPath, onVC vc: UIViewController, fromAnswers answers: [String : Any]) {
-        
+    public func didSelectAnswerAt(IndexPath indexPath: IndexPath, onVC vc: UIViewController, Delegate delegate: SignUpStepDelegate) {
+        let answers = delegate.answers ?? [:]
         switch indexPath.row {
         case 0:
             vc.performSegue(withIdentifier: "reviewName", sender: answers)
@@ -80,4 +75,5 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
             break
         }
     }
+
 }

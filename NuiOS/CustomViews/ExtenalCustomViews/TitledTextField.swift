@@ -14,15 +14,15 @@ public extension NSTextAlignment{
     var correspontingCAAligment:String{
         switch self {
         case .center:
-            return kCAAlignmentCenter
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.center)
         case .right:
-            return kCAAlignmentRight
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.right)
         case .left:
-            return kCAAlignmentLeft
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.left)
         case .justified:
-            return kCAAlignmentJustified
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.justified)
         default:
-            return kCAAlignmentNatural
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.natural)
         }
     }
     
@@ -103,7 +103,7 @@ public class TitledTextField: UITextField {
     
     //private var layersRect:CGRect = CGRect.zero
     private let animationDuration:Double = 0.3
-    private let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+    private let timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
     var titleLayer:CATextLayer = CATextLayer()
     private var titleIsActive:Bool = false
     
@@ -181,7 +181,7 @@ public class TitledTextField: UITextField {
         titleLayer.string = NSLocalizedString(title, comment: "")
         titleLayer.font = font//CTFontCreateWithName((font!.familyName as CFString?)!, self.font!.pointSize, nil)//titledTF.font?.familyName as? CFTypeRef
         titleLayer.fontSize = self.font!.pointSize
-        titleLayer.alignmentMode = self.textAlignment.correspontingCAAligment
+        titleLayer.alignmentMode = convertToCATextLayerAlignmentMode(self.textAlignment.correspontingCAAligment)
         //titleLayer.contentsGravity = kCAGravityCenter
         titleLayer.frame = titleLayerFrameFor(Rect: super.placeholderRect(forBounds: self.bounds))//self.bounds
         
@@ -509,13 +509,13 @@ public class TitledTextField: UITextField {
     //MARK: - Listeners
     
     private func startListening(){
-        NotificationCenter.default.addObserver(self, selector: #selector(TitledTextField.didBegingEditing(sender:)), name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: self)
-        NotificationCenter.default.addObserver(self, selector: #selector(TitledTextField.didEndEditing(sender:)), name: NSNotification.Name.UITextFieldTextDidEndEditing, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(TitledTextField.didBegingEditing(sender:)), name: UITextField.textDidBeginEditingNotification, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(TitledTextField.didEndEditing(sender:)), name: UITextField.textDidEndEditingNotification, object: self)
     }
     
     private func stopListening(){
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: self)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UITextFieldTextDidEndEditing, object: self)
+        NotificationCenter.default.removeObserver(self, name: UITextField.textDidBeginEditingNotification, object: self)
+        NotificationCenter.default.removeObserver(self, name: UITextField.textDidEndEditingNotification, object: self)
     }
     
     @objc
@@ -530,3 +530,13 @@ public class TitledTextField: UITextField {
     
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCATextLayerAlignmentMode(_ input: CATextLayerAlignmentMode) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCATextLayerAlignmentMode(_ input: String) -> CATextLayerAlignmentMode {
+	return CATextLayerAlignmentMode(rawValue: input)
+}

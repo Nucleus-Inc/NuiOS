@@ -25,7 +25,6 @@
 		EE4BC88620FCAFA60086B752 /* SignUpMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BC88520FCAFA60086B752 /* SignUpMask.swift */; };
 		EE4BC88820FCEA9A0086B752 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BC88720FCEA9A0086B752 /* ProfileVM.swift */; };
 		EE720F5B20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE720F5A20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift */; };
-		EE720F6020F79F3000EBA122 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE720F5F20F79F3000EBA122 /* Info.plist */; };
 		EE720F6220F7A11800EBA122 /* AppSingleton+UserReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE720F6120F7A11800EBA122 /* AppSingleton+UserReqs.swift */; };
 		EE81CB9F20F5369C00283C29 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE81CB9D20F5369C00283C29 /* SignUp.storyboard */; };
 		EE84921A20F6306F009D750F /* SignUpPasswordSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84921620F6306F009D750F /* SignUpPasswordSVC.swift */; };
@@ -520,12 +519,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Nucleus;
 				TargetAttributes = {
 					EEEB4CA320F52474005DF444 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -553,7 +552,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE720F6020F79F3000EBA122 /* Info.plist in Resources */,
 				EE1824C721062629004DDC83 /* InfoPlist.strings in Resources */,
 				EE3FDB6D20FE485700CC166F /* EmailUpdate.storyboard in Resources */,
 				EE3FDB7020FE486100CC166F /* Profile.storyboard in Resources */,
@@ -975,12 +973,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P538QSTTR;
 				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eti.nucleus.NuiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NuiOS/ExternalHelpers/Reachability/NuiOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -994,11 +995,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P538QSTTR;
 				INFOPLIST_FILE = "$(SRCROOT)/NuiOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eti.nucleus.NuiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NuiOS/ExternalHelpers/Reachability/NuiOS-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
