@@ -16,8 +16,9 @@ private struct ExtendedLaunchScreenVCSeguesIDs{
 }
 
 class ExtendedLaunchScreenVC: UIViewController, Listener{
-
     var myListeners: [NSObjectProtocol] = []
+    private var needCheck:Bool = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +29,16 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if AppSingleton.shared.showIntro(){
-            self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.intro, sender: nil)
+            //self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.intro, sender: nil)
+            showLogin()
             AppSingleton.shared.setShowIntro(false)
         }
-        else{
+        else if needCheck{
             checkforLoggedUser()
         }
+        needCheck = false
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,30 +52,25 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
                     return
                 }
             }
-            self.continueWith(Success: success)
+            self.continueWith(Success: success,by: loggedBy ?? .local)
         }
     }
     
-    private func continueWith(Success success:Bool){
+    private func continueWith(Success success:Bool,by:LoggedBy){
         DispatchQueue.main.async {
-            if success{
-                if let user = AppSingleton.shared.user, let account = user.account{
-                    if account.local.isActive{
-                        self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.loginSilently, sender: nil)
-                    }
-                    else{
-                        //account activation process
-                        //self.showAccountActivationVC() it is causing some problems when tapping on cancel button
-                        AppSingleton.shared.logout()
-                        self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
-                    }
-                }
+            self.rmListeners()
+            guard success, let user = AppSingleton.shared.user, let account = user.account else{
+                self.showLogin()
+                return
+            }
+            
+            if account.local.isActive || by != .local{
+                self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.loginSilently, sender: nil)
             }
             else{
-                AppSingleton.shared.logout()
-                self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
+                //account activation process
+                self.showAccountActivationVC()
             }
-            self.rmListeners()
         }
     }
     
@@ -81,16 +79,16 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
     func setUpListeners() {
         addListener(ForName: AppNotifications.signedInByGoogle) { (weakSelf, notif) in
             if let success = notif.userInfo?["success"] as? Bool{
-                self.continueWith(Success: success)
+                self.continueWith(Success: success,by: .google)
             }
             else{
-                self.continueWith(Success: false)
+                self.continueWith(Success: false,by: .google)
             }
         }
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -99,16 +97,28 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
             if id == ExtendedLaunchScreenVCSeguesIDs.accountActivation{
                 let vc = (segue.destination as? SignUpNavController)?.viewControllers.first as? AlternativeSignUpCodeSVC
                 vc?.delegate.answers = sender as? [String:Any]
+                vc?.cancelAction = {
+                    stepVC,_ in
+                    stepVC.dismiss(animated: true, completion: {
+                        self.showLogin()
+                    })
+                }
             }
         }
     }
     
     func showAccountActivationVC(){
-        if let user = AppSingleton.shared.user, let json = user.account?.toJSON(){
+        if let user = AppSingleton.shared.user, let json = user.account?.local.toJSON(){
+            needCheck = false
             self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.accountActivation, sender: json)
         }
         else{
-            self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
+            showLogin()
         }
+    }
+    
+    func showLogin(){
+        AppSingleton.shared.logout()
+        self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
     }
 }

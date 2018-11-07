@@ -94,9 +94,9 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
     }
 
     
-    func performLoginSegue(){
-        if let user = AppSingleton.shared.user, let account = user.account{
-            if account.local.isActive{
+    func performLoginSegue(loggedBy:LoggedBy){
+        if let user = AppSingleton.shared.user, let account = user.account?.local{
+            if account.isActive || loggedBy != .local{
                 self.performSegue(withIdentifier: LoginVCSeguesIDs.login, sender: nil)
             }
             else{
@@ -104,7 +104,7 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
             }
         }
     }
-    
+
     //MARK: - Listeners
     
     func setUpListeners() {
@@ -114,7 +114,7 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
                     if success{
                         //activate account not working so perform login imediatelly
                         //self.performSegue(withIdentifier: LoginVCSeguesIDs.login, sender: nil)
-                        self.performLoginSegue()
+                        self.performLoginSegue(loggedBy: .google)
                     }
                 }
             }
@@ -131,7 +131,7 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
                 DispatchQueue.main.async {
                     self.loginButton.hideActivityIndicator()
                     if success{
-                        self.performLoginSegue()
+                        self.performLoginSegue(loggedBy: .local)
                     }
                 }
             })
@@ -147,7 +147,7 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
             DispatchQueue.main.async {
                 self.hideSocialNetworkLoginAlert{
                     if success{
-                        self.performLoginSegue()
+                        self.performLoginSegue(loggedBy: .facebook)
                     }
                     else{
                         FBSDKLoginManager().logOut()

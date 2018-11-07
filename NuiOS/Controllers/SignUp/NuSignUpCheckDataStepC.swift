@@ -45,7 +45,7 @@ public class NuSignUpCheckDataStepC:SignUpCheckDataStepC{
             return ("name".localized,name)
         case 1:
             let phoneNumber = delegate.answer(ForKey: "phoneNumber") as! String
-            let maskedNumber = PhoneNumber.BR.mask(number: phoneNumber)
+            let maskedNumber = PhoneNumber.BR.mask(text: phoneNumber)
             return ("phoneNumber".localized,maskedNumber)
         case 2:
             return ("email".localized,delegate.answer(ForKey: "email") as? String)

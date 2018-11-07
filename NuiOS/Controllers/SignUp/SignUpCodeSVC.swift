@@ -273,7 +273,7 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
         }
         else{
             if let number = self.delegate.answers!["phoneNumber"] as? String, !number.isEmpty{
-                let maskedNumber = PhoneNumber.BR.mask(number: number)
+                let maskedNumber = PhoneNumber.BR.mask(text: number)
                 questionInfoLabel.text = String(format: "sms_sent_to_%@".localized, maskedNumber)
             }
         }

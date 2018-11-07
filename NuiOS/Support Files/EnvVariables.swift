@@ -6,7 +6,7 @@ struct EnvVariables{
     
     #if DEBUG
     //Your variables on DEBUG mode
-    static let serverAddress = "http://192.168.0.8:5000"
+    static let serverAddress = "http://192.168.0.9:5000"
     #else
     //Your variables on RELEASE mode
     static let serverAddress = "http://production.com"

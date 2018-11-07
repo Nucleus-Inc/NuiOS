@@ -9,9 +9,6 @@ import UIKit
 import NuSignUp
 
 class SignUpPhoneNumberSVC: SignUpNameSVC {
-    var maskRegex:String? = PhoneNumber.BR.maskingPattern.regex //"([0-9]{3})([0-9]{3})([0-9]{4})" // USA
-    var replacementRole:String? = PhoneNumber.BR.maskingPattern.format //"+1 ($1) $2-$3" //USA
-
     private var defaultMessage:String?
 
     private var isServerSideValid:Bool = false
@@ -54,11 +51,8 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
     
     
     override func didChangeText(_ sender: Any) {
-        if let maskRegex = maskRegex, let replacement = replacementRole{
-            let text = answerTF.text ?? ""
-            let newText = text.replacingOccurrences(of: maskRegex, with: replacement, options: [.regularExpression,.anchored], range: nil)
-            self.answerTF.text = newText
-        }
+        let text = answerTF.text ?? ""
+        self.answerTF.text = PhoneNumber.BR.mask(text: text)
         super.didChangeText(sender)
     }
     
