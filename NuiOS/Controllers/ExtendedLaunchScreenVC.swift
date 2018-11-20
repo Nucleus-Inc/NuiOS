@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NuSignUp
 
 private struct ExtendedLaunchScreenVCSeguesIDs{
     static let loginSilently = "loginSilently"
@@ -99,6 +100,8 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
                 vc?.delegate.answers = sender as? [String:Any]
                 vc?.cancelAction = {
                     stepVC,_ in
+                    SignUpStack.config.finishSignUp()
+                    AppSingleton.shared.logout()
                     stepVC.dismiss(animated: true, completion: {
                         self.showLogin()
                     })

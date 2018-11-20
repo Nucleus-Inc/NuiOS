@@ -16,7 +16,6 @@ class SignUpNavController: UINavigationController,SignUpStackC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpNavigationAppearance()
         addProgressView()
         // Do any additional setup after loading the view.
     }
@@ -37,27 +36,14 @@ class SignUpNavController: UINavigationController,SignUpStackC {
         // Pass the selected object to the new view controller.
     }
     */
-
-    
-    private func setUpNavigationAppearance(){
-        /*self.navigationBar.barTintColor = UIColor.white
-        self.navigationBar.isTranslucent = true
-        self.navigationBar.backgroundColor = UIColor.clear//insivible
-        self.navigationBar.shadowImage = UIImage()
-        self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        */
-        let subViews = navigationBar.subviews.filter({ (view) -> Bool in
-            return view.tag == 100
-        })
-    }
     
     private func addProgressView(){
         let subViews = navigationBar.subviews.filter({ (view) -> Bool in
             return view.tag == 100
         })
         
-        if subViews.count == 1{
-            progressView = subViews[0] as! UIProgressView
+        if subViews.count == 1, let subview = subViews[0] as? UIProgressView{
+            progressView = subview
         }
         else{
             progressView = UIProgressView()

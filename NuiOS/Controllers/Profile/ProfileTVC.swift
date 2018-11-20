@@ -102,13 +102,12 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
     
     func setUpListeners() {
         addListener(ForName: AppNotifications.userInfoUpdate) { (weakSelf, notif) in
-            weakSelf.viewModel?.reloadValues()
-            weakSelf.loadUserData()
+            weakSelf.reloadUserData()
         }
         
         addListener(ForName: AppNotifications.connectedWithGoogle) { (weakSelf, notif) in
             weakSelf.hideSocialNetworkAlert()
-            weakSelf.loadUserData()
+            weakSelf.reloadUserData()
             if let success = notif.userInfo?["success"] as? Bool{
                 if !success{
                     GIDSignIn.sharedInstance().signOut()
@@ -237,6 +236,11 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         googleSwitch.isOn = viewModel?.connectedWithGoogle ?? false
     }
     
+    func reloadUserData(){
+        viewModel?.reloadValues()
+        self.loadUserData()
+    }
+    
     func didTapLogOutCell(){
         
         UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "logout".localized, Message: "want_to_continue?".localized,YesAction:{(_) in
@@ -251,7 +255,7 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
                 DispatchQueue.main.async {
                     if success{
                         GIDSignIn.sharedInstance().signOut()
-                        self.loadUserData()
+                        self.reloadUserData()
                     }
                 }
             }
@@ -272,7 +276,7 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
                     if success{
                         FBSDKLoginManager().logOut()
                     }
-                    self.loadUserData()
+                    self.reloadUserData()
                 }
             }
         }
@@ -287,7 +291,7 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         func completion(success:Bool){
             DispatchQueue.main.async {
                 self.hideSocialNetworkAlert{
-                    self.loadUserData()
+                    self.reloadUserData()
                 }
             }
         }

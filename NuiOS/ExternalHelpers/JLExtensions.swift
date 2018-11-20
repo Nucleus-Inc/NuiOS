@@ -420,17 +420,16 @@ public extension String{
 }
 
 public extension UILabel{
-    public func textWithMoneyMaskForCurrentLocale(Value value:Double!){
+    public func textWithMoneyMaskForCurrentLocale(Value value:Double){
         textWithMoneyMaskForLocale(Locale.current,value: value)
     }
 
-    public func textWithMoneyMaskForLocale(_ locale:Locale,value:Double!){
+    public func textWithMoneyMaskForLocale(_ locale:Locale,value:Double){
         let currencyFormatter = NumberFormatter()
         let number = NSNumber(floatLiteral: value)
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = NumberFormatter.Style.currency
         currencyFormatter.locale = locale
-        
         self.text = currencyFormatter.string(from: number) ?? "\(value)"
     }
     
@@ -462,11 +461,11 @@ public extension UITextField{
     
     
     
-    public func textWithMoneyMaskForCurrentLocale(Value value:Double!){
+    public func textWithMoneyMaskForCurrentLocale(Value value:Double){
         textWithMoneyMaskForLocale(Locale.current,value: value)
     }
     
-    public func textWithMoneyMaskForLocale(_ locale:Locale,value:Double!){
+    public func textWithMoneyMaskForLocale(_ locale:Locale,value:Double){
         let currencyFormatter = NumberFormatter()
         let number = NSNumber(floatLiteral: value)
         currencyFormatter.usesGroupingSeparator = true
@@ -719,7 +718,7 @@ public func / (left: CGSize, right: CGFloat) -> CGSize {
 public extension Double {
     /// Arredonda um Double conforme quantidade de casas decimais
     
-    public func toString(maxFractionDigits:Int)->String{
+    public func toString(maxFractionDigits:Int=0)->String{
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = maxFractionDigits
         let formatacao = formatter.string(from: NSNumber(floatLiteral: self))!

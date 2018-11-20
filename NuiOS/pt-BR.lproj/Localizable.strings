@@ -53,6 +53,9 @@
 "google_disconnect_mess" = "Se disconectar, você não poderá entrar usando o Google.\n\nDeseja continar ?";
 "facebook_disconnect_mess" = "Se desconectar, você não poderá entrar usando o Facebook.\n\nDeseja continar ?";
 
+"signup" = "Cadastro";
+"interrupt_account_activation?" = "Deseja interromper a ativação da sua conta? Clicando em Sim, será necessário fazer login para dar continuidade.";
+
 //MARK: - NotificationBannerShortcuts
 "request_error" = "Erro na requisição";
 "no_connection_title" = "Sem Conexão";

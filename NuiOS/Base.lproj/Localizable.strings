@@ -51,6 +51,9 @@
 
 "facebook_disconnect_mess" = "If you disconnect you will not be able to sign in by Facebook.\n\nDo you want to continue ?";
 
+"signup" = "Sign up";
+"interrupt_account_activation?" = "Do you want to interrupt your account activation? Tapping Yes, you will need to sign in again to continue.";
+
 
 //MARK: - NotificationBannerShortcuts
 "request_error" = "Request Error";

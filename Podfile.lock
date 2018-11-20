@@ -5,11 +5,11 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - FBSDKCoreKit (4.36.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.36.0):
+  - FBSDKCoreKit (4.38.1):
+    - Bolts (~> 1.9)
+  - FBSDKLoginKit (4.38.1):
     - FBSDKCoreKit
-  - GoogleSignIn (4.2.0):
+  - GoogleSignIn (4.3.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
     - GTMOAuth2 (~> 1.0)
@@ -24,28 +24,28 @@ PODS:
   - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
   - GTMOAuth2 (1.1.6):
     - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.2.0):
-    - GTMSessionFetcher/Full (= 1.2.0)
-  - GTMSessionFetcher/Core (1.2.0)
-  - GTMSessionFetcher/Full (1.2.0):
-    - GTMSessionFetcher/Core (= 1.2.0)
+  - GTMSessionFetcher (1.2.1):
+    - GTMSessionFetcher/Full (= 1.2.1)
+  - GTMSessionFetcher/Core (1.2.1)
+  - GTMSessionFetcher/Full (1.2.1):
+    - GTMSessionFetcher/Core (= 1.2.1)
   - JWTDecode (2.1.1)
-  - MarqueeLabel/Swift (3.1.6)
-  - NotificationBannerSwift (1.6.3):
-    - MarqueeLabel/Swift
-    - SnapKit (~> 4.0)
-  - NuSignUp (1.0.0)
+  - MarqueeLabel/Swift (3.2.0)
+  - NotificationBannerSwift (1.8.0):
+    - MarqueeLabel/Swift (~> 3.2.0)
+    - SnapKit (~> 4.0.1)
+  - NuSignUp (1.0.3)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
-  - SnapKit (4.0.0)
-  - UICKeyChainStore (2.1.1)
+  - SnapKit (4.0.1)
+  - UICKeyChainStore (2.1.2)
 
 DEPENDENCIES:
   - FBSDKLoginKit
   - GoogleSignIn
   - JWTDecode (~> 2.1.1)
-  - NotificationBannerSwift (~> 1.6)
+  - NotificationBannerSwift (~> 1.8.0)
   - NuSignUp (from `https://github.com/Nucleus-Inc/NuSignUp.git`)
   - SDWebImage (~> 4.0.0)
   - UICKeyChainStore (~> 2.1.1)
@@ -72,25 +72,25 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   NuSignUp:
-    :commit: 94ad953f354601f0a5187dd35c62d9dec253f947
+    :commit: f6412b04b91b9f3a2b174201e88b1dfd0d424607
     :git: https://github.com/Nucleus-Inc/NuSignUp.git
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  FBSDKCoreKit: 3b8e6570eedb443f9fc4af196a7bf39f18e3a3d8
-  FBSDKLoginKit: 8bccb6064708ab2f4251a7fc4e3b6d8d00ad91ba
-  GoogleSignIn: 591e46382014e591269f862ba6e7bc0fbd793532
+  FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
+  FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
+  GoogleSignIn: 11183592dc63e105475c7305a325045ff95e02b7
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
-  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
-  MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
-  NotificationBannerSwift: b231e4c3244848ef300e1c53ce027b9756b9b06f
-  NuSignUp: 35b3c900dca9a6089147a458e4a9ccf9a2e59db0
+  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
+  NotificationBannerSwift: 49fc4be7fabada55b189b50e72184c92edd5f7f7
+  NuSignUp: d7eb7d624e7c1610200b1ad87d3b64de21b18af0
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
-PODFILE CHECKSUM: f65cf47faa24b1cdbbb7d433b2cb444f0fa9c255
+PODFILE CHECKSUM: 8d878437be62efa423f3414d968bbcf905f4c6e4
 
 COCOAPODS: 1.5.0

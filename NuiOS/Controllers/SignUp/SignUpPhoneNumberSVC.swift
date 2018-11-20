@@ -22,7 +22,7 @@ class SignUpPhoneNumberSVC: SignUpNameSVC {
 
     
     override func viewDidLoad() {
-        self.regex = "\\+(55)\\ \\([0-9]{2}\\)\\ [0-9]{5}\\-[0-9]{4}" // BR
+        self.regex = PhoneNumber.BR.regex
         
         defaultMessage = answerInfoTF.text
         super.viewDidLoad()

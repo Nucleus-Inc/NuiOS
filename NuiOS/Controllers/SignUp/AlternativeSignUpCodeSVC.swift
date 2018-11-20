@@ -9,11 +9,6 @@
 import UIKit
 
 class AlternativeSignUpCodeSVC: SignUpCodeSVC {
-
-    var cancelAction:(_ vc:UIViewController, _ sender:Any)->Void = {
-        vc,_ in
-        vc.dismiss(animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +19,6 @@ class AlternativeSignUpCodeSVC: SignUpCodeSVC {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func cancelBtnAction(_ sender: Any) {
-        self.view.endEditing(true)
-        cancelAction(self,sender)
     }
     
     /*

@@ -12,6 +12,7 @@ import Foundation
 
 protocol Mask{
     var maskingPattern:(regex:String,format:String){get}
+    var regex:String{get}
     func mask(text:String)->String
     func unmask(_ text:String)->String
 }
@@ -35,6 +36,17 @@ public enum SignUpMask:Mask{
             return ("(\\d{5})(\\d{3})","$1-$2")
         default:
             return ("","$0")
+        }
+    }
+    
+    public var regex: String{
+        switch self {
+        case .cpf://438.576.748-30
+            return "\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}"
+        case .cep://60765-065
+            return "\\d{5}\\-\\d{3}"
+        default:
+            return ""
         }
     }
     
@@ -107,6 +119,15 @@ public enum PhoneNumber:Mask{
             return ("([0-9]{2})([0-9]{5})([0-9]{4})","+55 ($1) $2-$3")
         case .USA:
             return ("([0-9]{3})([0-9]{3})([0-9]{4})","+1 ($1) $2-$3")
+        }
+    }
+    
+    public var regex: String{
+        switch self {
+        case .BR:
+            return "\\+(55)\\ \\([0-9]{2}\\)\\ [0-9]{5}\\-[0-9]{4}"
+        case .USA:
+            return "\\+(1)\\ \\([0-9]{3}\\)\\ [0-9]{3}\\-[0-9]{4}"
         }
     }
     

@@ -34,7 +34,15 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
     var lastInvalidCodes:[String] = []
 
     var codeDelegate:SignUpCodeDelegate = SignUpCodeDelegate()
-        
+    
+    //This is only used if instead of a back button there is another navigation item to indicate cancel
+    var cancelAction:(_ vc:UIViewController, _ sender:Any)->Void = {
+        vc,_ in
+        SignUpStack.config.finishSignUp()
+        AppSingleton.shared.logout()
+        vc.dismiss(animated: true, completion: nil)
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setUpDelegate()
@@ -161,6 +169,20 @@ class SignUpCodeSVC: SignUpStepVC,UITextFieldDelegate/*MaskedTextFieldDelegateLi
         
         self.present(alertC, animated: true, completion: nil)
         
+    }
+    
+    @IBAction func cancelButtonAction(_ sender: Any) {
+        self.view.endEditing(true)
+        UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "signup".localized, Message: "interrupt_account_activation?".localized,YesAction:{ [weak self] action in
+            
+            guard let weakSelf = self else{
+                return
+            }
+            weakSelf.cancelAction(weakSelf,action)
+            
+            }, NoAction:{ _ in
+                self.codeTFs.first?.becomeFirstResponder()
+        })
     }
     
     //MARK: - Server methods
