@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import NotificationBannerSwift
 import GoogleSignIn
 import FBSDKCoreKit
 
@@ -23,7 +22,6 @@ class BecomeRootSegue:UIStoryboardSegue{
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var noConnectionBanner:NotificationBanner?
 
     class func logout(){
         if let appDelegate = AppDelegate.shared{

@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import NotificationBannerSwift
+import SwiftMessages
+
 
 extension AppDelegate{
+    private static let noConnectionMessages = SwiftMessages()
+
     //MARK: - Connection Listener
     static let reach = Reachability.forInternetConnection()
 
@@ -25,18 +28,13 @@ extension AppDelegate{
         NotificationCenter.default.addObserver(forName: Notification.Name.reachabilityChanged, object: nil, queue: OperationQueue.main) { (notification) in
             if AppDelegate.reach?.currentReachabilityStatus() == NotReachable{
                 if UIApplication.shared.applicationState == .active || UIApplication.shared.applicationState == .inactive{
-                    NotificationBannerShortcuts.showNoConnectionBanner(completion: { (banner) in
-                        queue.sync {
-                            self.noConnectionBanner = banner
-                        }
-                    })
+                    SwiftMessagesShortcuts.showNoConnectionBanner(Messages: AppDelegate.noConnectionMessages)
                 }
                 
             }
             else{
                 queue.sync {
-                    self.noConnectionBanner?.dismiss()
-                    self.noConnectionBanner = nil
+                    AppDelegate.noConnectionMessages.hideAll()
                 }
             }
         }

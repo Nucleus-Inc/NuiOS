@@ -23,24 +23,22 @@ PODS:
   - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
   - GTMSessionFetcher/Core (1.2.1)
   - JWTDecode (2.1.1)
-  - MarqueeLabel/Swift (3.2.0)
-  - NotificationBannerSwift (1.8.0):
-    - MarqueeLabel/Swift (~> 3.2.0)
-    - SnapKit (~> 4.0.1)
   - NuSignUp (1.0.3)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
-  - SnapKit (4.0.1)
+  - SwiftMessages (6.0.2):
+    - SwiftMessages/App (= 6.0.2)
+  - SwiftMessages/App (6.0.2)
   - UICKeyChainStore (2.1.2)
 
 DEPENDENCIES:
   - FBSDKLoginKit
   - GoogleSignIn
   - JWTDecode (~> 2.1.1)
-  - NotificationBannerSwift (~> 1.8.0)
   - NuSignUp (from `https://github.com/Nucleus-Inc/NuSignUp.git`)
   - SDWebImage (~> 4.0.0)
+  - SwiftMessages (~> 6.0.2)
   - UICKeyChainStore (~> 2.1.1)
 
 SPEC REPOS:
@@ -52,10 +50,8 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GTMSessionFetcher
     - JWTDecode
-    - MarqueeLabel
-    - NotificationBannerSwift
     - SDWebImage
-    - SnapKit
+    - SwiftMessages
     - UICKeyChainStore
 
 EXTERNAL SOURCES:
@@ -75,13 +71,11 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
-  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
-  NotificationBannerSwift: 49fc4be7fabada55b189b50e72184c92edd5f7f7
   NuSignUp: d7eb7d624e7c1610200b1ad87d3b64de21b18af0
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
-PODFILE CHECKSUM: 8d878437be62efa423f3414d968bbcf905f4c6e4
+PODFILE CHECKSUM: 4acfcdb3f136ad034e1f56da1a935370312e7a57
 
 COCOAPODS: 1.5.3

@@ -24,6 +24,7 @@
 		EE4380F4216E42A900C99AA5 /* NuCircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4380F3216E42A800C99AA5 /* NuCircularImageView.swift */; };
 		EE4BC88620FCAFA60086B752 /* SignUpMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BC88520FCAFA60086B752 /* SignUpMask.swift */; };
 		EE4BC88820FCEA9A0086B752 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BC88720FCEA9A0086B752 /* ProfileVM.swift */; };
+		EE5094582237E754001FE4D2 /* SwiftMessagesShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5094572237E754001FE4D2 /* SwiftMessagesShortcuts.swift */; };
 		EE720F5B20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE720F5A20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift */; };
 		EE720F6220F7A11800EBA122 /* AppSingleton+UserReqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE720F6120F7A11800EBA122 /* AppSingleton+UserReqs.swift */; };
 		EE81CB9F20F5369C00283C29 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE81CB9D20F5369C00283C29 /* SignUp.storyboard */; };
@@ -37,7 +38,6 @@
 		EE84922720F6349B009D750F /* UIAlertControllerShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84922620F6349A009D750F /* UIAlertControllerShortcuts.swift */; };
 		EE84922920F63645009D750F /* AppSignUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84922820F63645009D750F /* AppSignUpDelegate.swift */; };
 		EE84922B20F636A5009D750F /* JLProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84922A20F636A5009D750F /* JLProgressView.swift */; };
-		EE9FC85A20F8CC470078624B /* NotificationBannerShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC85920F8CC470078624B /* NotificationBannerShortcuts.swift */; };
 		EE9FC85C20F8E6A60078624B /* AppLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC85B20F8E6A60078624B /* AppLoginVM.swift */; };
 		EE9FC85E20F8EDE20078624B /* AppSingleton+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC85D20F8EDE20078624B /* AppSingleton+Auth.swift */; };
 		EE9FC86020F8F9F40078624B /* AppSingleton+HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FC85F20F8F9F40078624B /* AppSingleton+HelperMethods.swift */; };
@@ -114,6 +114,7 @@
 		EE4380F3216E42A800C99AA5 /* NuCircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuCircularImageView.swift; sourceTree = "<group>"; };
 		EE4BC88520FCAFA60086B752 /* SignUpMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpMask.swift; sourceTree = "<group>"; };
 		EE4BC88720FCEA9A0086B752 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		EE5094572237E754001FE4D2 /* SwiftMessagesShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesShortcuts.swift; sourceTree = "<group>"; };
 		EE720F5820F7771F00EBA122 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Login.strings"; sourceTree = "<group>"; };
 		EE720F5A20F78FBD00EBA122 /* AppSingleton+VerificationsReqs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+VerificationsReqs.swift"; sourceTree = "<group>"; };
 		EE720F5F20F79F3000EBA122 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NuiOS/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -130,7 +131,6 @@
 		EE84922820F63645009D750F /* AppSignUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignUpDelegate.swift; sourceTree = "<group>"; };
 		EE84922A20F636A5009D750F /* JLProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLProgressView.swift; sourceTree = "<group>"; };
 		EE9C34A32100B614001D6DE6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		EE9FC85920F8CC470078624B /* NotificationBannerShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBannerShortcuts.swift; sourceTree = "<group>"; };
 		EE9FC85B20F8E6A60078624B /* AppLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoginVM.swift; sourceTree = "<group>"; };
 		EE9FC85D20F8EDE20078624B /* AppSingleton+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+Auth.swift"; sourceTree = "<group>"; };
 		EE9FC85F20F8F9F40078624B /* AppSingleton+HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSingleton+HelperMethods.swift"; sourceTree = "<group>"; };
@@ -350,9 +350,9 @@
 		EED9D2F820F538F400C5ACF7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				EE9FC85920F8CC470078624B /* NotificationBannerShortcuts.swift */,
 				EE84922620F6349A009D750F /* UIAlertControllerShortcuts.swift */,
 				EED9D2FE20F53B8900C5ACF7 /* ExternalHelpers */,
+				EE5094572237E754001FE4D2 /* SwiftMessagesShortcuts.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -623,11 +623,9 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NuSignUp/NuSignUp.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -638,11 +636,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NuSignUp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,7 +708,6 @@
 				EE84922920F63645009D750F /* AppSignUpDelegate.swift in Sources */,
 				EE84921A20F6306F009D750F /* SignUpPasswordSVC.swift in Sources */,
 				EE84922320F63094009D750F /* SignUpEmailSVC.swift in Sources */,
-				EE9FC85A20F8CC470078624B /* NotificationBannerShortcuts.swift in Sources */,
 				EE3FDB7B20FE550300CC166F /* ConfirmCodeVM.swift in Sources */,
 				EED9D31120F53C1200C5ACF7 /* EnvVariables.swift in Sources */,
 				EE9FC87320F922AA0078624B /* AccountRecCodeSVC.swift in Sources */,
@@ -721,6 +716,7 @@
 				EE37EA6C2146D956004F78B0 /* TitledTextField.swift in Sources */,
 				EE4BC88820FCEA9A0086B752 /* ProfileVM.swift in Sources */,
 				EE9FC87120F91F400078624B /* AccountRecPhoneNumberSVC.swift in Sources */,
+				EE5094582237E754001FE4D2 /* SwiftMessagesShortcuts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

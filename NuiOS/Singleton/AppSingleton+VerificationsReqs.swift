@@ -26,7 +26,7 @@ extension AppSingleton{
                     completion(true,true)
                 case 422://its not available
                     completion(true,false)
-                    NotificationBannerShortcuts.showUnavailableBanner(For: type)
+                    SwiftMessagesShortcuts.showUnavailableBanner(For: type)
                 default:
                     completion(success,false)
                 }
@@ -45,7 +45,7 @@ extension AppSingleton{
                 return
             }
             handler(success: false, statusCode: nil)
-            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+            SwiftMessagesShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
             //error on request
         }
 
@@ -63,7 +63,7 @@ extension AppSingleton{
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: [String:Any].self) { (response, urlResponse, error) in
             completion(false,0)
-            NotificationBannerShortcuts.showRequestErrorBannerIfNeeded(error: error)
+            SwiftMessagesShortcuts.showRequestErrorBannerIfNeeded(error: error)
         }
         
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)

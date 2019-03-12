@@ -29,11 +29,11 @@ extension AppSingleton{
                     }
                     return
                 }
-                NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
+                SwiftMessagesShortcuts.showApiErrorBanner(ApiError: apiError)
             }
             return
         }
-        NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+        SwiftMessagesShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
     }
     
 }

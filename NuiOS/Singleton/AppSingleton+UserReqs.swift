@@ -24,10 +24,10 @@ extension AppSingleton{
             completion(false)
             guard let e = reqError else{
                 //see response.data
-                NotificationBannerShortcuts.showLoginErrBanner()
+                SwiftMessagesShortcuts.showLoginErrBanner()
                 return
             }
-            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+            SwiftMessagesShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
         }
         
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
@@ -52,18 +52,18 @@ extension AppSingleton{
                 //see response.data
                 if let apiError = response.data{
                     if apiError.errorCode == ApiError.Code.AUT007{
-                        NotificationBannerShortcuts.showErrBanner(title: "Email em uso", subtitle: "Faça login manualmente para conectar com o Google.")
+                        SwiftMessagesShortcuts.showErrBanner(title: "Email em uso", subtitle: "Faça login manualmente para conectar com o Google.")
                     }
                     else{
-                        NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
+                        SwiftMessagesShortcuts.showApiErrorBanner(ApiError: apiError)
                     }
                 }
                 else{
-                    NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
+                    SwiftMessagesShortcuts.showSocialNetworkLoginErrBanner()
                 }
                 return
             }
-            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+            SwiftMessagesShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
         }
         
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
@@ -90,7 +90,7 @@ extension AppSingleton{
         }
         else{
             completion(false)
-            NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
+            SwiftMessagesShortcuts.showSocialNetworkLoginErrBanner()
         }
     }
     
@@ -137,18 +137,18 @@ extension AppSingleton{
                 //see response.data
                 if let apiError = response.data{
                     if apiError.errorCode == ApiError.Code.AUT007{
-                        NotificationBannerShortcuts.showErrBanner(title: "Email em uso", subtitle: "Faça login manualmente para conectar com o Facebook.")
+                        SwiftMessagesShortcuts.showErrBanner(title: "Email em uso", subtitle: "Faça login manualmente para conectar com o Facebook.")
                     }
                     else{
-                        NotificationBannerShortcuts.showApiErrorBanner(ApiError: apiError)
+                        SwiftMessagesShortcuts.showApiErrorBanner(ApiError: apiError)
                     }
                 }
                 else{
-                    NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
+                    SwiftMessagesShortcuts.showSocialNetworkLoginErrBanner()
                 }
                 return
             }
-            NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+            SwiftMessagesShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
         }
         
         try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
@@ -176,7 +176,7 @@ extension AppSingleton{
         }
         else{
             completion(false)
-            NotificationBannerShortcuts.showSocialNetworkLoginErrBanner()
+            SwiftMessagesShortcuts.showSocialNetworkLoginErrBanner()
         }
     }
     
@@ -230,7 +230,7 @@ extension AppSingleton{
         let onSuccess = Response.OnSuccess(dataType: Data.self, jsonType: Any.self) { (response, urlResponse) in
             print(urlResponse?.allHeaderFields ?? "no header fields")
             completion?(true)
-            NotificationBannerShortcuts.showReqActCodeSuccess(For: by)
+            SwiftMessagesShortcuts.showReqActCodeSuccess(For: by)
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
             completion?(false)
@@ -277,7 +277,7 @@ extension AppSingleton{
         let onSuccess = Response.OnSuccess(dataType: Data.self, jsonType: Any.self) { (response, urlResponse) in
             print(urlResponse?.allHeaderFields ?? "no header fields")
             completion(true)
-            NotificationBannerShortcuts.showRequestRecCodeSuccess(For: by)
+            SwiftMessagesShortcuts.showRequestRecCodeSuccess(For: by)
         }
         let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
             completion(false)
@@ -330,7 +330,7 @@ extension AppSingleton{
             let onFailure = Response.OnFailure(dataType: ApiError.self, jsonType: Any.self) { (response, urlResponse, reqError) in
                 completion?(false)
                 guard let e = reqError else{return}
-                NotificationBannerShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
+                SwiftMessagesShortcuts.showRequestErrorBanner(subtitle: e.localizedDescription)
             }
             try! RequestManager.send(To: endpoint, onSuccess: onSuccess, onFailure: onFailure)
         }
@@ -344,7 +344,7 @@ extension AppSingleton{
     func updatePassword(Current current:String, New new:String,completion:@escaping(_ success:Bool)->Void){
         
         if current.compare(new) == .orderedSame{
-            NotificationBannerShortcuts.showWarningBanner(title: "password_update".localized, subtitle: "new_password_equal_current".localized)
+            SwiftMessagesShortcuts.showWarningBanner(title: "password_update".localized, subtitle: "new_password_equal_current".localized)
             completion(false)
             return
         }
@@ -371,7 +371,7 @@ extension AppSingleton{
     
     func updateName(name:String,completion:((_ success:Bool)->Void)?=nil){
         if name.isEmpty{
-            NotificationBannerShortcuts.showErrBanner(title: "name_update_failure".localized, subtitle: "name_can_not_blank".localized)
+            SwiftMessagesShortcuts.showErrBanner(title: "name_update_failure".localized, subtitle: "name_can_not_blank".localized)
             completion?(false)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
             return
@@ -397,7 +397,7 @@ extension AppSingleton{
         }
         else{
             completion?(false)
-            NotificationBannerShortcuts.showErrBanner(title: "name_update_failure".localized, subtitle: "was_not_possible_update_name".localized)
+            SwiftMessagesShortcuts.showErrBanner(title: "name_update_failure".localized, subtitle: "was_not_possible_update_name".localized)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
     }
@@ -424,7 +424,7 @@ extension AppSingleton{
         }
         else{
             completion?(false)
-            NotificationBannerShortcuts.showErrBanner(title: "picture_update_failure".localized, subtitle: "was_not_possible_update_picture".localized)
+            SwiftMessagesShortcuts.showErrBanner(title: "picture_update_failure".localized, subtitle: "was_not_possible_update_picture".localized)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
         
@@ -472,7 +472,7 @@ extension AppSingleton{
         }
         else{
             completion?(false)
-            NotificationBannerShortcuts.showErrBanner(title: "email_update_failure".localized, subtitle: "was_not_possible_update_email".localized)
+            SwiftMessagesShortcuts.showErrBanner(title: "email_update_failure".localized, subtitle: "was_not_possible_update_email".localized)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
     }
@@ -520,7 +520,7 @@ extension AppSingleton{
         }
         else{
             completion?(false)
-            NotificationBannerShortcuts.showErrBanner(title: "phoneNumber_update_failure".localized, subtitle: "was_not_possible_update_phoneNumber".localized)
+            SwiftMessagesShortcuts.showErrBanner(title: "phoneNumber_update_failure".localized, subtitle: "was_not_possible_update_phoneNumber".localized)
             AppSingleton.notifyUpdate(On: AppNotifications.userInfoUpdate)
         }
     }

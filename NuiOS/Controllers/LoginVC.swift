@@ -136,7 +136,7 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
         }
         else{
             print("show some error banner")
-            NotificationBannerShortcuts.showLoginErrBanner()
+            SwiftMessagesShortcuts.showLoginErrBanner()
         }
     }
     
