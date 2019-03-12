@@ -894,7 +894,7 @@
                                         <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
-                                            <segue destination="tsz-iK-MJs" kind="presentation" id="eEW-U4-xD5"/>
+                                            <segue destination="tsz-iK-MJs" kind="presentation" customClass="BecomeRootSegue" customModule="NuiOS" customModuleProvider="target" id="eEW-U4-xD5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1115,7 +1115,7 @@
         <image name="see-password-selected" width="34" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="khB-Ub-Pyc"/>
+        <segue reference="2gB-HV-K4w"/>
         <segue reference="P8a-1w-pmy"/>
         <segue reference="IqO-WF-psN"/>
         <segue reference="euz-ds-Ly5"/>

@@ -30,7 +30,6 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if AppSingleton.shared.showIntro(){
-            //self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.intro, sender: nil)
             showLogin()
             AppSingleton.shared.setShowIntro(false)
         }
@@ -108,6 +107,9 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
                 }
             }
         }
+        else{
+            
+        }
     }
     
     func showAccountActivationVC(){
@@ -124,4 +126,6 @@ class ExtendedLaunchScreenVC: UIViewController, Listener{
         AppSingleton.shared.logout()
         self.performSegue(withIdentifier: ExtendedLaunchScreenVCSeguesIDs.login, sender: nil)
     }
+
+    
 }

@@ -263,9 +263,10 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         
         UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "disconnect_title".localized, Message: "google_disconnect_mess".localized,YesAction:{
             (_) in
-            
             disconnect()
-            
+        }, NoAction:{
+            (_) in
+            self.reloadUserData()
         })
     }
     
@@ -284,6 +285,9 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         UIAlertControllerShorcuts.showYesNoAlert(OnVC: self, Title: "disconnect_title".localized, Message: "facebook_disconnect_mess".localized,YesAction:{
             (_) in
             disconnect()
+        }, NoAction:{
+            (_) in
+            self.reloadUserData()
         })
     }
     

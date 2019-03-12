@@ -48,9 +48,7 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
         setUpListeners()
         defaultDist = dist.constant
         self.hideKeyboardWhenTappedAround()
-        
         GIDSignIn.sharedInstance().uiDelegate = self
-        
         // Do any additional setup after loading the view.
     }
     

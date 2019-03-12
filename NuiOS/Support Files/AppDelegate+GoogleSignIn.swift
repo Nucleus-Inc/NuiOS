@@ -52,8 +52,8 @@ extension AppDelegate:GIDSignInDelegate{
         switch signInMode(){
         case .connect:
             if success{
-                AppSingleton.shared.googleConnect(idToken: user.authentication.idToken!) { (success) in
-                    AppSingleton.notifyUpdate(On: AppNotifications.connectedWithGoogle, Object: nil, UserInfo: ["success":success])
+                AppSingleton.shared.googleConnect(idToken: user.authentication.idToken!) { (suc) in
+                    AppSingleton.notifyUpdate(On: AppNotifications.connectedWithGoogle, Object: nil, UserInfo: ["success":suc])
                 }
             }
             else{
@@ -61,8 +61,11 @@ extension AppDelegate:GIDSignInDelegate{
             }
         case .signIn:
             if success{
-                AppSingleton.shared.googleSignIn(idToken: user.authentication.idToken!) { (success) in
-                    AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":success])
+                AppSingleton.shared.googleSignIn(idToken: user.authentication.idToken!) { (suc) in
+                    if !suc{
+                        AppSingleton.shared.logout()
+                    }
+                    AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":suc])
                 }
             }
             else{
@@ -70,20 +73,20 @@ extension AppDelegate:GIDSignInDelegate{
             }
         case .signInSilently(let userId, let locallyUser):
             if success{
-                AppSingleton.shared.getInfoDataOf(UserWithID: userId) { (success) in
-                    if !success{
+                AppSingleton.shared.getInfoDataOf(UserWithID: userId) { (suc) in
+                    if !suc{
                         if !locallyUser{
                             AppDelegate.logout()
                         }
                     }
-                    AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":success])
+                    AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":suc])
                 }
             }
             else{
                 AppSingleton.notifyUpdate(On: AppNotifications.signedInByGoogle, Object: nil, UserInfo: ["success":false])
             }
         }
-
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,

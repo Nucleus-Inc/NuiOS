@@ -11,6 +11,14 @@ import NotificationBannerSwift
 import GoogleSignIn
 import FBSDKCoreKit
 
+class BecomeRootSegue:UIStoryboardSegue{
+    override func perform() {
+        self.source.present(destination, animated: true) {
+            AppDelegate.shared?.window?.rootViewController = self.destination
+        }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,10 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var noConnectionBanner:NotificationBanner?
 
     class func logout(){
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+        if let appDelegate = AppDelegate.shared{
             AppSingleton.shared.logout()
-            appDelegate.window?.rootViewController = UIStoryboard(name: "Login", bundle: Bundle.main).instantiateInitialViewController()
+            
+            if let visibleVC = AppDelegate.visibleViewController(),
+                let loginVC = UIStoryboard(name: "Login", bundle: Bundle.main).instantiateInitialViewController(){
+                visibleVC.present(loginVC, animated: true, completion: {
+                    appDelegate.window?.rootViewController = loginVC
+                })
+            }
         }
+    }
+    
+    static var shared:AppDelegate?{
+        return UIApplication.shared.delegate as? AppDelegate
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
