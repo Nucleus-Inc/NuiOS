@@ -208,8 +208,8 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
     
     func setImageWith(URL url:String){
         addImgButton(Show: false)
-        self.userImageView.sd_addActivityIndicator()
-        self.userImageView.sd_showActivityIndicatorView()
+        /*self.userImageView.sd_addActivityIndicator()
+        self.userImageView.sd_showActivityIndicatorView()*/
         self.userImageView.sd_setImage(with: URL(string: url))
     }
 
