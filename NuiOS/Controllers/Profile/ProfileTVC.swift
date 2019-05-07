@@ -275,7 +275,7 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
             AppSingleton.shared.facebookDisconnect { (success) in
                 DispatchQueue.main.async {
                     if success{
-                        FBSDKLoginManager().logOut()
+                        LoginManager().logOut()
                     }
                     self.reloadUserData()
                 }
@@ -301,8 +301,8 @@ class ProfileTVC: UITableViewController,UITextFieldDelegate,Listener,GIDSignInUI
         }
         
         AppDelegate.Facebook.login(OnVC: self) { (success) in
-            if let token = FBSDKAccessToken.current(), let tokenString = token.tokenString{
-                AppSingleton.shared.facebookConnect(idToken: tokenString, completion: { (success) in
+            if let token = AccessToken.current {
+                AppSingleton.shared.facebookConnect(idToken: token.tokenString, completion: { (success) in
                     completion(success: success)
                 })
             }

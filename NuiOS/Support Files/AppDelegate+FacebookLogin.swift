@@ -18,9 +18,8 @@ extension AppDelegate{
         
         class func login(OnVC vc:UIViewController,completion:((_ success:Bool)->Void)?=nil){
             
-            let login = FBSDKLoginManager()
-            
-            login.logIn(withReadPermissions: ["public_profile","email"], from: vc) { (result, error) in
+            let login = LoginManager()
+            login.logIn(permissions: ["public_profile","email"], from: vc) { (result, error) in
                 guard let _ = error else{
                     guard let result = result else{
                         completion?(false)
@@ -36,6 +35,7 @@ extension AppDelegate{
                 }
                 completion?(false)
             }
+            
         }
         
     }

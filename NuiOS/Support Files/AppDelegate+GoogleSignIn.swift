@@ -34,12 +34,13 @@ extension AppDelegate:GIDSignInDelegate{
             print("\(error.localizedDescription)")
             success = false
         } else {
-            if let token = user.authentication.idToken{
+            /*if let token = user.authentication.idToken{
                 success = true
             }
             else{
                 success = false
-            }
+            }*/
+            success = user.authentication.idToken != nil
             // Perform any operations on signed in user here.
             /*let userId = user.userID                  // For client-side use only!
              let idToken = user.authentication.idToken // Safe to send to the server

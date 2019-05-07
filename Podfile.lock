@@ -1,14 +1,12 @@
 PODS:
-  - Bolts (1.9.0):
-    - Bolts/AppLinks (= 1.9.0)
-    - Bolts/Tasks (= 1.9.0)
-  - Bolts/AppLinks (1.9.0):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.9.0)
-  - FBSDKCoreKit (4.44.0):
-    - Bolts (~> 1.9)
-  - FBSDKLoginKit (4.44.0):
-    - FBSDKCoreKit
+  - FBSDKCoreKit (5.0.0):
+    - FBSDKCoreKit/Basics (= 5.0.0)
+    - FBSDKCoreKit/Core (= 5.0.0)
+  - FBSDKCoreKit/Basics (5.0.0)
+  - FBSDKCoreKit/Core (5.0.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.0.0):
+    - FBSDKCoreKit (= 5.0.0)
   - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -22,11 +20,11 @@ PODS:
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
   - GTMSessionFetcher/Core (1.2.1)
-  - JWTDecode (2.1.1)
-  - NuSignUp (1.0.3)
-  - SDWebImage (5.0.0):
-    - SDWebImage/Core (= 5.0.0)
-  - SDWebImage/Core (5.0.0)
+  - JWTDecode (2.2.0)
+  - NuSignUp (1.0.4)
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
   - SwiftMessages (6.0.2):
     - SwiftMessages/App (= 6.0.2)
   - SwiftMessages/App (6.0.2)
@@ -35,15 +33,14 @@ PODS:
 DEPENDENCIES:
   - FBSDKLoginKit
   - GoogleSignIn
-  - JWTDecode (~> 2.1.1)
+  - JWTDecode (~> 2.2.0)
   - NuSignUp (from `https://github.com/Nucleus-Inc/NuSignUp.git`)
   - SDWebImage (~> 5.0.0)
   - SwiftMessages (~> 6.0.2)
-  - UICKeyChainStore (~> 2.1.1)
+  - UICKeyChainStore (~> 2.1.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Bolts
     - FBSDKCoreKit
     - FBSDKLoginKit
     - GoogleSignIn
@@ -60,22 +57,21 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   NuSignUp:
-    :commit: f6412b04b91b9f3a2b174201e88b1dfd0d424607
+    :commit: 4b9e17989f4ce31c71b58ac549f796a698640100
     :git: https://github.com/Nucleus-Inc/NuSignUp.git
 
 SPEC CHECKSUMS:
-  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  FBSDKCoreKit: 8bcd4503afe43f28823c2175a6142a7f50f1bf28
-  FBSDKLoginKit: 93c5a407ab1a6a17b1b38cff57e89991f714d878
+  FBSDKCoreKit: ba361d4a9d4dc29ff218822b849b22d4f869c7bb
+  FBSDKLoginKit: c6d0dc187bd076e370dffa10f7fc8a3562a6892c
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
-  JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
-  NuSignUp: d7eb7d624e7c1610200b1ad87d3b64de21b18af0
-  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
+  JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
+  NuSignUp: 8f855d40a12febc95fce6abb6be718ce80e1d0d9
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
-PODFILE CHECKSUM: 83027a400044240d724e501237a8bd0839b57724
+PODFILE CHECKSUM: 2eae264f7bd7a8e521519101e36f657092e4a24a
 
 COCOAPODS: 1.6.1

@@ -148,15 +148,15 @@ class LoginVC: UIViewController,UITextFieldDelegate,Listener,GIDSignInUIDelegate
                         self.performLoginSegue(loggedBy: .facebook)
                     }
                     else{
-                        FBSDKLoginManager().logOut()
+                        LoginManager().logOut()
                     }
                 }
             }
         }
         
         AppDelegate.Facebook.login(OnVC: self) { (success) in
-            if success, let token = FBSDKAccessToken.current(), let tokenString = token.tokenString{
-                AppSingleton.shared.facebookSignIn(idToken: tokenString, completion: { (success) in
+            if success, let token = AccessToken.current {
+                AppSingleton.shared.facebookSignIn(idToken: token.tokenString, completion: { (success) in
                     completion(success: success)
                 })
             }

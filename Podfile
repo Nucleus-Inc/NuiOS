@@ -11,8 +11,8 @@ target 'NuiOS' do
   pod 'SwiftMessages', '~> 6.0.2'
   
   pod 'SDWebImage', '~> 5.0.0'# download and cache of images
-  pod 'JWTDecode', '~> 2.1.1' #decode jwt without secret key
-  pod 'UICKeyChainStore', '~> 2.1.1' #helper for working with keychain to safetly save important things, like my jwt
+  pod 'JWTDecode', '~> 2.2.0' #decode jwt without secret key
+  pod 'UICKeyChainStore', '~> 2.1.2' #helper for working with keychain to safetly save important things, like my jwt
 
 # Social networks
   pod 'GoogleSignIn'

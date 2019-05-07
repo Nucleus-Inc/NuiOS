@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //FACEBOOK SIGN IN
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         AppDelegate.Facebook.setUp()
         //GOOGLE SIGN IN
         setUpGoogleSignIn()
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                  sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                                                  annotation: options[UIApplication.OpenURLOptionsKey.annotation])
         
-        let facebookHandler = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        let facebookHandler = ApplicationDelegate.shared.application(app, open: url, options: options)
         
         return googleHandle || facebookHandler
     }

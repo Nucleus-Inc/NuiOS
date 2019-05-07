@@ -43,7 +43,7 @@ extension AppSingleton{
                 return
             }
             else{
-                if let token = FBSDKAccessToken.current(), !token.isExpired{//logged with facebook
+                if let token = AccessToken.current, !token.isExpired{//logged with facebook
                     loggedBy = .facebook
                 }
                 else{
@@ -78,8 +78,8 @@ extension AppSingleton{
             GIDSignIn.sharedInstance().signOut()
         }
         
-        if let token = FBSDKAccessToken.current(), !token.isExpired{
-            let login = FBSDKLoginManager()
+        if let token = AccessToken.current, !token.isExpired{
+            let login = LoginManager()
             login.logOut()
         }
         //clear all user specific locally saved data

@@ -51,19 +51,11 @@ class SignUpNavController: UINavigationController,SignUpStackC {
             progressView.trackTintColor = UIColor.lightGray.withAlphaComponent(0.3)
             progressView.translatesAutoresizingMaskIntoConstraints = false
             
-            let heightC = NSLayoutConstraint(item: progressView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 2)
-            progressView.addConstraint(heightC)
-            
+            progressView.heightAnchor.constraint(equalToConstant: 2).isActive = true
             self.navigationBar.addSubview(progressView)
-            
-            let topDistC = NSLayoutConstraint(item: progressView, attribute: .top, relatedBy: .equal, toItem: self.navigationBar, attribute: .top, multiplier: 1, constant: 2)
-            self.navigationBar.addConstraint(topDistC)
-            
-            let leadingDistC = NSLayoutConstraint(item: progressView, attribute: .leading, relatedBy: .equal, toItem: self.navigationBar, attribute: .leading, multiplier: 1, constant: 5)
-            self.navigationBar.addConstraint(leadingDistC)
-            
-            let trailingDistC = NSLayoutConstraint(item: progressView, attribute: .trailing, relatedBy: .equal, toItem: self.navigationBar, attribute: .trailing, multiplier: 1, constant: -5)
-            self.navigationBar.addConstraint(trailingDistC)
+            progressView.topAnchor.constraint(equalTo: navigationBar.topAnchor, constant: 2).isActive = true
+            progressView.leadingAnchor.constraint(equalTo: navigationBar.leadingAnchor, constant: 5).isActive = true
+            progressView.trailingAnchor.constraint(equalTo: navigationBar.trailingAnchor, constant: -5).isActive = true
         }
     }
     

@@ -151,7 +151,7 @@ extension UIViewController {
 }
 
 public extension UIButton{
-    public func showActivityIndicator(style:UIActivityIndicatorView.Style){
+    func showActivityIndicator(style:UIActivityIndicatorView.Style){
         let activity:UIActivityIndicatorView
         let views = self.subviews.filter { (view) -> Bool in
             return view.tag == 100
@@ -182,7 +182,7 @@ public extension UIButton{
         self.isEnabled = false
     }
     
-    public func hideActivityIndicator(){
+    func hideActivityIndicator(){
         let views = self.subviews.filter { (view) -> Bool in
             return view.tag == 100
         }
@@ -199,7 +199,7 @@ public extension UIButton{
 
 public extension CLLocation{
     
-    class public func withParams(params:[String:Any])->CLLocation{
+    class func withParams(params:[String:Any])->CLLocation{
         let latitude = params["latitude"] as! CLLocationDegrees
         let longitude = params["longitude"] as! CLLocationDegrees
         
@@ -261,17 +261,17 @@ extension NSObject{
 }
 
 public extension UIScrollView{
-    public var currentXPage:Int{
+    var currentXPage:Int{
         return Int((self.contentOffset.x)/self.frame.width)
     }
     
-    public var currentYPage:Int{
+    var currentYPage:Int{
         return Int((self.contentOffset.y)/self.frame.height)
     }
 }
 
 public extension UINavigationBar{
-    public func setBackgroundInvisible(){
+    func setBackgroundInvisible(){
         self.barTintColor = UIColor.clear
         self.isTranslucent = true
         self.shadowImage = UIImage()
@@ -291,11 +291,11 @@ public extension UINavigationBar{
         return nil
     }
     
-    public func showShadowLine(){
+    func showShadowLine(){
         findShadowImage(under: self)?.isHidden = false
     }
 
-    public func hideShadowLine(){
+    func hideShadowLine(){
         findShadowImage(under: self)?.isHidden = true
     }
     
@@ -306,7 +306,7 @@ public extension UINavigationBar{
 
 public extension UIImage {
     
-    public func withEdgeInsets(_ insets:UIEdgeInsets)->UIImage?{
+    func withEdgeInsets(_ insets:UIEdgeInsets)->UIImage?{
         UIGraphicsBeginImageContextWithOptions(CGSize(width: self.size.width, height: self.size.height), false, self.scale)
         let newImageRect = CGRect(x: insets.left, y: insets.top, width: self.size.width - (insets.right+insets.left), height: self.size.height - (insets.bottom+insets.top))
         self.draw(in: newImageRect)
@@ -316,7 +316,7 @@ public extension UIImage {
         return borderedImage
     }
     
-    public func withBorder(borderWidth width: CGFloat, borderColor color: UIColor = UIColor.clear) -> UIImage? {
+    func withBorder(borderWidth width: CGFloat, borderColor color: UIColor = UIColor.clear) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: self.size.width, height: self.size.height), false, self.scale)
         let imageRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
         let newImageRect = imageRect.insetBy(dx: width, dy: width)
@@ -336,11 +336,11 @@ public extension UIImage {
 
 public extension UIView{
     
-    public func rotateByAngle(angle:CGFloat){
+    func rotateByAngle(angle:CGFloat){
         self.transform = CGAffineTransform(rotationAngle: angle)
     }
     
-    public func drawBorderWith(Color color:UIColor,AndWidth width:CGFloat){
+    func drawBorderWith(Color color:UIColor,AndWidth width:CGFloat){
         self.layer.masksToBounds = true
         self.layer.borderWidth = width
         self.layer.borderColor = color.cgColor
@@ -349,11 +349,11 @@ public extension UIView{
 
 public extension String{
     
-    public var localized:String{
+    var localized:String{
         return NSLocalizedString(self, comment: "")
     }
     
-    public func matchingStrings(regex: String,options:NSRegularExpression.Options) -> [[String]] {
+    func matchingStrings(regex: String,options:NSRegularExpression.Options) -> [[String]] {
        
         guard let regex = try? NSRegularExpression(pattern: regex, options: options) else { return [] }
         let nsString = self as NSString
@@ -367,7 +367,7 @@ public extension String{
     }
 
     
-    public func applyMoneyMaskForLocale(_ locale:Locale,CurrentDecimalSeparator separator:String)->String{
+    func applyMoneyMaskForLocale(_ locale:Locale,CurrentDecimalSeparator separator:String)->String{
         let currencyFormatter = NumberFormatter()
         currencyFormatter.decimalSeparator = separator
         if let number = currencyFormatter.number(from: self){
@@ -381,11 +381,11 @@ public extension String{
         return self
     }
 
-    public func applyMoneyMaskForCurrentLocale(CurrentDecimalSeparator separator:String = ".")->String{
+    func applyMoneyMaskForCurrentLocale(CurrentDecimalSeparator separator:String = ".")->String{
         return self.applyMoneyMaskForLocale(Locale.current,CurrentDecimalSeparator: separator)
     }
     
-    public func rmMoneyMaskForLocale(_ locale:Locale)->String{
+    func rmMoneyMaskForLocale(_ locale:Locale)->String{
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = NumberFormatter.Style.currency
@@ -397,11 +397,11 @@ public extension String{
         return self
     }
 
-    public func rmMoneyMaskForCurrentLocale()->String{
+    func rmMoneyMaskForCurrentLocale()->String{
         return rmMoneyMaskForLocale(Locale.current)
     }
     
-    public func applyMoneyMaskWith(moneySymbol:String,separator:String)->String{
+    func applyMoneyMaskWith(moneySymbol:String,separator:String)->String{
         let value = NSString(string: self).doubleValue
         let intPart = Int(value/1)
         let floatPart = Int(value.truncatingRemainder(dividingBy: 1)*100)
@@ -410,7 +410,7 @@ public extension String{
         return moneyString
     }
     
-    public func removeMoneyMaskWith(moneySymbol:String,separator:String)->String{
+    func removeMoneyMaskWith(moneySymbol:String,separator:String)->String{
         var value = self
         value = value.replacingOccurrences(of: moneySymbol, with: "")
         value = value.replacingOccurrences(of: " ", with: "")
@@ -420,11 +420,11 @@ public extension String{
 }
 
 public extension UILabel{
-    public func textWithMoneyMaskForCurrentLocale(Value value:Double){
+    func textWithMoneyMaskForCurrentLocale(Value value:Double){
         textWithMoneyMaskForLocale(Locale.current,value: value)
     }
 
-    public func textWithMoneyMaskForLocale(_ locale:Locale,value:Double){
+    func textWithMoneyMaskForLocale(_ locale:Locale,value:Double){
         let currencyFormatter = NumberFormatter()
         let number = NSNumber(floatLiteral: value)
         currencyFormatter.usesGroupingSeparator = true
@@ -433,7 +433,7 @@ public extension UILabel{
         self.text = currencyFormatter.string(from: number) ?? "\(value)"
     }
     
-    public func textWithMoneyMaskUsing(moneySymbol:String,separator:String,value:Double!){
+    func textWithMoneyMaskUsing(moneySymbol:String,separator:String,value:Double!){
         let intPart = Int(value/1)
         let floatPart = Int(value.truncatingRemainder(dividingBy: 1)*100)
         self.text = moneySymbol+"\(intPart)"+separator+(floatPart < 10 ? "0":"")+"\(floatPart)"
@@ -441,7 +441,7 @@ public extension UILabel{
 }
 
 public extension UITextField{
-    public func inputViewAsPickerView(WithDelegate delegate:UIPickerViewDelegate, AndDataSource dataSource:UIPickerViewDataSource){
+    func inputViewAsPickerView(WithDelegate delegate:UIPickerViewDelegate, AndDataSource dataSource:UIPickerViewDataSource){
         let picker = UIPickerView()
         picker.delegate = delegate
         picker.dataSource = dataSource
@@ -451,7 +451,7 @@ public extension UITextField{
         //pickerView.dataSource = dataSource
     }
     
-    public func inputAccViewAsToolBar(WithItems items:[UIBarButtonItem]){
+    func inputAccViewAsToolBar(WithItems items:[UIBarButtonItem]){
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: 44))
         toolBar.setItems(items, animated: false)
         self.inputAccessoryView = toolBar
@@ -461,11 +461,11 @@ public extension UITextField{
     
     
     
-    public func textWithMoneyMaskForCurrentLocale(Value value:Double){
+    func textWithMoneyMaskForCurrentLocale(Value value:Double){
         textWithMoneyMaskForLocale(Locale.current,value: value)
     }
     
-    public func textWithMoneyMaskForLocale(_ locale:Locale,value:Double){
+    func textWithMoneyMaskForLocale(_ locale:Locale,value:Double){
         let currencyFormatter = NumberFormatter()
         let number = NSNumber(floatLiteral: value)
         currencyFormatter.usesGroupingSeparator = true
@@ -476,7 +476,7 @@ public extension UITextField{
         self.text = currencyFormatter.string(from: number) ?? "\(value)"
     }
     
-    public func moneyMaskedTextToValueForLocale(_ locale:Locale)->Double{
+    func moneyMaskedTextToValueForLocale(_ locale:Locale)->Double{
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = NumberFormatter.Style.currency
@@ -488,19 +488,19 @@ public extension UITextField{
         return 0
     }
     
-    public func moneyMaskedTextToValueForCurrentLocale()->Double{
+    func moneyMaskedTextToValueForCurrentLocale()->Double{
         return moneyMaskedTextToValueForLocale(Locale.current)
     }
 
 
     
-    public func textWithMoneyMaskUsing(moneySymbol:String,separator:String,value:Double!){
+    func textWithMoneyMaskUsing(moneySymbol:String,separator:String,value:Double!){
         let intPart = Int(value/1)
         let floatPart = Int(value.truncatingRemainder(dividingBy: 1)*100)
         self.text = moneySymbol+"\(intPart)"+separator+(floatPart < 10 ? "0":"")+"\(floatPart)"
     }
     
-    public func addToMoneyMaskedText(String string:String){
+    func addToMoneyMaskedText(String string:String){
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = NumberFormatter.Style.currency
@@ -570,7 +570,7 @@ public extension UITextField{
         */
     }
     
-    public func moneyMaskedTextToValueUsing(moneyMaskStrings:[String])->Double{
+    func moneyMaskedTextToValueUsing(moneyMaskStrings:[String])->Double{
         if let text = self.text{
             var value = text
             for string in moneyMaskStrings{
@@ -583,7 +583,7 @@ public extension UITextField{
 }
 
 public extension UIResponder{
-    class public func visibleViewController()->UIViewController?{
+    class func visibleViewController()->UIViewController?{
         let rootVC = UIApplication.shared.keyWindow?.rootViewController
         
         if let rootVC = rootVC{
@@ -609,15 +609,15 @@ public extension UIResponder{
 }
 
 public extension Dictionary{
-    public func orderedArrayOfKeys(sortBy:(_ one:Key,_ two:Key)->Bool)-> [Key]{
+    func orderedArrayOfKeys(sortBy:(_ one:Key,_ two:Key)->Bool)-> [Key]{
         return [Key](self.keys).sorted(by: sortBy)
     }
     
-    public func keysArray()-> [Key]{
+    func keysArray()-> [Key]{
         return [Key](self.keys)
     }
     
-    public mutating func insertDict(dict:Dictionary){
+    mutating func insertDict(dict:Dictionary){
         for key in dict.keysArray(){
             if var val = self[key] as? Dictionary{
                 if let newValue = dict[key] as? Dictionary{
@@ -669,7 +669,7 @@ public extension UITabBarController{
 
 
 public extension NSAttributedString{
-    class public func makeWith(string:String,emphasis:[(text:String,attr:[String:Any])])->NSAttributedString {
+    class func makeWith(string:String,emphasis:[(text:String,attr:[String:Any])])->NSAttributedString {
         
         let nString = NSString(string: string)
         let attributedString = NSMutableAttributedString(string: string, attributes: nil)
@@ -718,7 +718,7 @@ public func / (left: CGSize, right: CGFloat) -> CGSize {
 public extension Double {
     /// Arredonda um Double conforme quantidade de casas decimais
     
-    public func toString(maxFractionDigits:Int=0)->String{
+    func toString(maxFractionDigits:Int=0)->String{
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = maxFractionDigits
         let formatacao = formatter.string(from: NSNumber(floatLiteral: self))!
@@ -730,7 +730,7 @@ public extension Double {
 
 public extension Date{
     
-    public static let ToServerFormatter:DateFormatter = {
+    static let ToServerFormatter:DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         formatter.timeZone = TimeZone(secondsFromGMT: 0) //TimeZone(identifier: "GMT")
@@ -738,14 +738,14 @@ public extension Date{
     }()
 
     
-    public static let FromServerFormatter:DateFormatter = {
+    static let FromServerFormatter:DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSz"
         return formatter
     }()
 
     
-    public func stringFromDate(WithFormat formatString:String)->String{
+    func stringFromDate(WithFormat formatString:String)->String{
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = formatString
         //dateFormat.timeZone = TimeZone.current
@@ -756,13 +756,13 @@ public extension Date{
      It is for current Locale
      parameter template: default ddMMMMyyyyHHmm
      */
-    public func stringFromDate(WithTemplate template:String="ddMMMMyyyyHHmm")->String{
+    func stringFromDate(WithTemplate template:String="ddMMMMyyyyHHmm")->String{
         let dateFormat = DateFormatter()
         dateFormat.setLocalizedDateFormatFromTemplate(template)
         return dateFormat.string(from: self)
     }
     
-    static public func dateFrom(dateString:String,AndFormatting dateFormatString:String)->Date?{
+    static func dateFrom(dateString:String,AndFormatting dateFormatString:String)->Date?{
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = dateFormatString
         if let date = dateFormat.date(from: dateString){
@@ -774,7 +774,7 @@ public extension Date{
 
 public extension TimeInterval{
     
-    public func formattedTime()->(hour:Int,min:Int,sec:Int,msec:Int){
+    func formattedTime()->(hour:Int,min:Int,sec:Int,msec:Int){
         let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
         
         let seconds = Int(self.truncatingRemainder(dividingBy: 60))
